@@ -18,7 +18,7 @@
   </metadata>
   <files>
     <file src="readme.txt" target="" />
-    <file src="bin\release\net461\lagovista.iot.web.common.deviceadmin.xml" target="content\xmldocs" />    
+    <file src="bin\release\net461\lagovista.iot.web.deviceadmin.xml" target="content\xmldocs" />    
     <file src="bin\release\net461\*.dll" target="lib\net461" />
   </files>
 </package>
