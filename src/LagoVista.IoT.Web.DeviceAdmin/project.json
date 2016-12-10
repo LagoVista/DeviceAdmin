@@ -2,19 +2,18 @@
   "version": "1.0.0-*",
 
   "dependencies": {
-    "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.AspNetCore.Routing": "1.1.0",
     "Microsoft.AspNetCore.Identity": "1.1.0",
     "NETStandard.Library": "1.6.1",
-    "LagoVista.IoT.Web.Common": "0.8.4-alpha00725",
-    "LagoVista.UserManagement": "0.8.3-alpha01376",
-    "LagoVista.IoT.DeviceAdmin": "0.8",
+    "LagoVista.UserManagement": "0.8.9-alpha00736",
+    "LagoVista.IoT.Web.Common": "0.8.8-alpha00711",
     "LagoVista.IoT.DeviceAdmin.CloudRepos": "0.8"
   },
 
   "frameworks": {
-    "net461": { "imports": "dnxcore50" } /*,
-    "netcoreapp1.0": { "imports": "dnxcore50" } */
+     "net461": { "imports": "dnxcore50" }/* ,
+    "netcoreapp1.0": { "imports": "dnxcore50" 
+  } */
   },
   "buildOptions": {
     "xmlDoc": true,

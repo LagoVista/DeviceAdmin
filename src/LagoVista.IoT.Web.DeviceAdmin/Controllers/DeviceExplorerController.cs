@@ -1,6 +1,6 @@
 ﻿using LagoVista.Core.PlatformSupport;
+using LagoVista.IoT.Web.Common.Controllers;
 using LagoVista.UserManagement.Models.Account;
-using LagoVista.IoI.Web.Common.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
