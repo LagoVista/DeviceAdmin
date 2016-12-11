@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>LagoVista.IoT.Web.DeviceAdmin</id>
-    <version>0.8.8-alpha00722</version>
+    <version>0.8.10-alpha01323</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -20,5 +20,6 @@
     <file src="readme.txt" target="" />
     <file src="bin\release\net461\lagovista.iot.web.deviceadmin.xml" target="content\xmldocs" />
     <file src="bin\release\net461\*.dll" target="lib\net461" />
+    <file src="bin\release\netcoreapp1.0\*.dll" target="lib\netcoreapp1.0" />
   </files>
 </package>

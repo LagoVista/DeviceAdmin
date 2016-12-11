@@ -3,12 +3,12 @@
 
   "dependencies": {
     "Microsoft.Extensions.DependencyInjection": "1.1.0",
-    "LagoVista.IoT.DeviceAdmin": "0.8",
     "NETStandard.Library": "1.6.1",
     "Newtonsoft.Json": "9.0.1",
     "WindowsAzure.Storage": "7.2.1",
     "LagoVista.Core": "0.8.9-alpha00674",
     "LagoVista.CloudStorage": "0.8.9-alpha00695",
+    "LagoVista.IoT.DeviceAdmin": "0.8",
   },
 
   "frameworks": {
