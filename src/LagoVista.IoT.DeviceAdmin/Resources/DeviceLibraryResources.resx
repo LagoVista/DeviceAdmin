@@ -117,36 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DeviceCapability_Account" xml:space="preserve">
-    <value>Acount</value>
-  </data>
-  <data name="DeviceCapability_Category" xml:space="preserve">
-    <value>Category</value>
-  </data>
-  <data name="DeviceCapability_Direction" xml:space="preserve">
-    <value>Direction</value>
-  </data>
-  <data name="DeviceCapability_Direction_Both" xml:space="preserve">
-    <value>Both</value>
-  </data>
-  <data name="DeviceCapability_Direction_Input" xml:space="preserve">
-    <value>Input</value>
-  </data>
-  <data name="DeviceCapability_Direction_Output" xml:space="preserve">
-    <value>Output</value>
-  </data>
-  <data name="DeviceCapability_Group" xml:space="preserve">
-    <value>Group</value>
-  </data>
-  <data name="DeviceCapability_IsPublic" xml:space="preserve">
-    <value>IsPublic</value>
-  </data>
-  <data name="DeviceCapability_Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="DeviceCapability_Units" xml:space="preserve">
-    <value>Units</value>
-  </data>
   <data name="Device_BatteryLevel" xml:space="preserve">
     <value>Battery Level</value>
   </data>
@@ -270,29 +240,17 @@
   <data name="Gateway_CustomFields" xml:space="preserve">
     <value>Custom Fields</value>
   </data>
-  <data name="DeviceType_Capabilities" xml:space="preserve">
-    <value>Capabilities</value>
-  </data>
-  <data name="DeviceType_CustomFields" xml:space="preserve">
+  <data name="DeviceConfig_CustomFields" xml:space="preserve">
     <value>Custom Fields</value>
   </data>
-  <data name="DeviceType_DocLink" xml:space="preserve">
-    <value>Documentation URL</value>
-  </data>
-  <data name="DeviceType_IsPublic" xml:space="preserve">
-    <value>Is Public</value>
-  </data>
-  <data name="DeviceType_Manufacture" xml:space="preserve">
+  <data name="DeviceConfig_Manufacture" xml:space="preserve">
     <value>Manufacture</value>
   </data>
-  <data name="DeviceType_Model" xml:space="preserve">
+  <data name="DeviceConfig_Model" xml:space="preserve">
     <value>Model</value>
   </data>
-  <data name="DeviceType_Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="DeviceType_States" xml:space="preserve">
-    <value>Device States</value>
+  <data name="DeviceConfig_ConfigVersion" xml:space="preserve">
+    <value>Configuration Version</value>
   </data>
   <data name="Common_Name" xml:space="preserve">
     <value>Name</value>
@@ -307,7 +265,7 @@
     <value>The key is used to identify this item in scripts and must be unique with respect to it's parent. One a key has been assigned, it can not be changed.</value>
   </data>
   <data name="Common_Key_Validation" xml:space="preserve">
-    <value>The key must use only letters and numbers, and must be lowercase.</value>
+    <value>The key must use only letters and numbers, and must be lowercase and must be between 3 and 20 characters.</value>
   </data>
   <data name="AttributeUnitDefinitions" xml:space="preserve">
     <value>Unit Definitions</value>
@@ -332,5 +290,275 @@
   </data>
   <data name="Common_IsPublic" xml:space="preserve">
     <value>Is Public</value>
+  </data>
+  <data name="CustomField_FieldType" xml:space="preserve">
+    <value>Field Type</value>
+  </data>
+  <data name="CustomField_FieldType_Bool" xml:space="preserve">
+    <value>True/False</value>
+  </data>
+  <data name="CustomField_FieldType_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="CustomField_FIeldType_DateTime" xml:space="preserve">
+    <value>Date Time</value>
+  </data>
+  <data name="CustomField_FieldType_Decimal" xml:space="preserve">
+    <value>Decimal</value>
+  </data>
+  <data name="CustomField_FieldType_Integer" xml:space="preserve">
+    <value>Integer</value>
+  </data>
+  <data name="CustomField_FieldType_IPAddress" xml:space="preserve">
+    <value>IP Address</value>
+  </data>
+  <data name="CustomField_FieldType_String" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="CustomField_FieldType_Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="CustomField_FieldType_WebSite" xml:space="preserve">
+    <value>Web Site</value>
+  </data>
+  <data name="CustomField_IsRequired" xml:space="preserve">
+    <value>Is Required</value>
+  </data>
+  <data name="CustomField_Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="CustomField_RegEx" xml:space="preserve">
+    <value>Validation RegEx</value>
+  </data>
+  <data name="CustomField_RegEx_Help" xml:space="preserve">
+    <value>If your field type is a string, you can add a custom validation regular expression to ensure the data that is captured is in the correct format.</value>
+  </data>
+  <data name="StateMachine" xml:space="preserve">
+    <value>State Machine</value>
+  </data>
+  <data name="Action_AssociatedAttribute" xml:space="preserve">
+    <value>Associated Attribute</value>
+  </data>
+  <data name="Action_AssociatedAttribute_Help" xml:space="preserve">
+    <value>The associated attribute will be the default attribute for this action.</value>
+  </data>
+  <data name="Action_ExecuteFromGet" xml:space="preserve">
+    <value>Execute this Script from REST Get</value>
+  </data>
+  <data name="Action_ExecuteFromGet_Help" xml:space="preserve">
+    <value>This action will be executed from a REST Get service call with the attribute in the query string for the device id or device group.</value>
+  </data>
+  <data name="Action_ExecuteFromPost" xml:space="preserve">
+    <value>Execute this Script from REST Post</value>
+  </data>
+  <data name="Action_ExecuteFromPost_Help" xml:space="preserve">
+    <value>This action will be executed from a web service call for the device or device group in the form of a REST Post with fom post values as described in the actions attributes</value>
+  </data>
+  <data name="Action_ExecuteFromScript" xml:space="preserve">
+    <value>Execute from Script</value>
+  </data>
+  <data name="Action_ExecuteFromScript_Help" xml:space="preserve">
+    <value>This action can be executed by another action or a script associated with the device configuration</value>
+  </data>
+  <data name="Action_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="Action_Parameter_Tyeps_TrueFalse" xml:space="preserve">
+    <value>True/False</value>
+  </data>
+  <data name="Action_Parameter_Types" xml:space="preserve">
+    <value>Parameter Types</value>
+  </data>
+  <data name="Action_Parameter_Types_Decimal" xml:space="preserve">
+    <value>Decimal</value>
+  </data>
+  <data name="Action_Parameter_Types_Integer" xml:space="preserve">
+    <value>Integer</value>
+  </data>
+  <data name="Action_Parameter_Types_String" xml:space="preserve">
+    <value>String</value>
+  </data>
+  <data name="Action_Script" xml:space="preserve">
+    <value>Script</value>
+  </data>
+  <data name="Action_NodeRedFlows" xml:space="preserve">
+    <value>Node Red Flows</value>
+  </data>
+  <data name="Action_RemoteUri" xml:space="preserve">
+    <value>Remote URI</value>
+  </data>
+  <data name="Common_IsRequired" xml:space="preserve">
+    <value>Is Required</value>
+  </data>
+  <data name="Action_Parameter_Type" xml:space="preserve">
+    <value>Parameter Type</value>
+  </data>
+  <data name="Actoin_Parameter_Key_Help" xml:space="preserve">
+    <value>This key will be used as the parameter name for the form post or query string attribute.  The key must be lower case and contain only letters and numbers, it should also start with a letter, not a number.</value>
+  </data>
+  <data name="Action_ExecuteFromStateMachine" xml:space="preserve">
+    <value>Execute From State Machine</value>
+  </data>
+  <data name="Action_ExecuteFromstateMachine_Help" xml:space="preserve">
+    <value>You can use this action to be executed when your state machine transitions between states.</value>
+  </data>
+  <data name="Attribute_StandardAttribute_Help" xml:space="preserve">
+    <value>You can configure your attribute to be a standard attribute.  Some attributes such as temperature, speed, battery level, direction may be common accross your devices.  A standard attribute is easy to add and promotes re-use across devices.</value>
+  </data>
+  <data name="Attribute_StateMachine_Help" xml:space="preserve">
+    <value>You can configure your attribute to be a state machine.  If you do so you can describe the different states that your device can be in and perform an action when the device transitions between states.  Your device configuration can have many state machines that can communicate with each other.</value>
+  </data>
+  <data name="Attribute_UnitSet_Help" xml:space="preserve">
+    <value>You can configure your attribute to be a simple value that is specific for this device configuration.  If you do so you have the option to provide a set of units such as MPH, KPH for speed, F/C for temperature.</value>
+  </data>
+  <data name="Common_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Common_Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Attribute_Simple" xml:space="preserve">
+    <value>Simple</value>
+  </data>
+  <data name="Attribute_Standard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="Attribute_StateMachine" xml:space="preserve">
+    <value>State Machine</value>
+  </data>
+  <data name="CustomField_FieldType_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="CustomField_FieldType_Key" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="CustomField_FieldType_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Attribute_Direction" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="Attribute_Direction_Input" xml:space="preserve">
+    <value>Input</value>
+  </data>
+  <data name="Attribute_Direction_InputAndOutput" xml:space="preserve">
+    <value>Input and Output</value>
+  </data>
+  <data name="Attribute_Direction_Output" xml:space="preserve">
+    <value>Output</value>
+  </data>
+  <data name="DeviceConfig_Environment_Development" xml:space="preserve">
+    <value>Development</value>
+  </data>
+  <data name="DeviceConfig_Environment" xml:space="preserve">
+    <value>Environments are used to maintain different device configurations that can be updated and tested without impacting production.  Also once an environment is migrated into Production it can be rolled back to Staging if issues are found.</value>
+  </data>
+  <data name="DeviceConfig_Environment_Development_Help" xml:space="preserve">
+    <value>The Development Environment should be used to make changes to a device configuration where it won't impact any devices that are used in a production capacity.  Once development or updates have been completed in this environment, those changes are published to the Staging environment so they can be tested.</value>
+  </data>
+  <data name="DeviceConfig_Environment_Production" xml:space="preserve">
+    <value>Production</value>
+  </data>
+  <data name="DeviceConfig_Environment_Production_Help" xml:space="preserve">
+    <value>The Production Environment is the default environment for a device to be in.  Once it has been developed and tested, the device configuration will be moved in to production.</value>
+  </data>
+  <data name="DeviceConfig_Environment_Staging" xml:space="preserve">
+    <value>Staging</value>
+  </data>
+  <data name="DeviceConfig_Environment_Staging_Help" xml:space="preserve">
+    <value>Once a new device configuration has been created or updated in the Development Environment and Tested in the Testing Environemnt, it will be moved to the Staging Environment where it be then be swapped into the Production Environment.  If issues are found once the new device configuration goes live the previous production configuration can be restored.</value>
+  </data>
+  <data name="Attribute_Direction_Help" xml:space="preserve">
+    <value>An attribute can be an Input which can only be set, it can be an Output which is Read Only or it can be and Input and an Output which can both be read and updated.</value>
+  </data>
+  <data name="DeviceConfig_Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="DeviceConfig_Actions_Help" xml:space="preserve">
+    <value>Actions can perform functionality on a Device to manipulate it's real world or attribute states.</value>
+  </data>
+  <data name="DeviceConfig_Attributes" xml:space="preserve">
+    <value>Attributes</value>
+  </data>
+  <data name="DeviceConfig_Attributes_Help" xml:space="preserve">
+    <value>Attributes are meta-data that are attached to a device configuration that are used to maintain the state of the device.  Attributes can be one of the following, a simple value with a unit, a standard attribute that is common across many device configurations or a state machine.</value>
+  </data>
+  <data name="Action_Standard" xml:space="preserve">
+    <value>Standard Action</value>
+  </data>
+  <data name="Action_Standard_Help" xml:space="preserve">
+    <value>A Standard Action is one that is predefined and can be attached to a device configuration.  A standard Action can be used so that implements a specific Standard Action can participate in a Device Group.</value>
+  </data>
+  <data name="StateMachine_InitialState" xml:space="preserve">
+    <value>Initial State</value>
+  </data>
+  <data name="StateMachine_InitialState_Help" xml:space="preserve">
+    <value>The Initial State will be the State that the State Machine will be in when the State Machine is first created. </value>
+  </data>
+  <data name="StateMachine_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="StateMachine_State_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="StateMachine_Transitions" xml:space="preserve">
+    <value>Transitions</value>
+  </data>
+  <data name="StateMachine_Transition_Action" xml:space="preserve">
+    <value>Transition Actions</value>
+  </data>
+  <data name="StateMachine_Transition_State" xml:space="preserve">
+    <value>New State</value>
+  </data>
+  <data name="StateMachine_Event" xml:space="preserve">
+    <value>Event</value>
+  </data>
+  <data name="StateMachine_State_TransitionInAction" xml:space="preserve">
+    <value>Transition In Action</value>
+  </data>
+  <data name="StateMachine_State_TransitionInAction_Help" xml:space="preserve">
+    <value>This is an action that should take place when an event occurs that will transition the state machine into this state</value>
+  </data>
+  <data name="StateMachine_States" xml:space="preserve">
+    <value>States</value>
+  </data>
+  <data name="StateMachines" xml:space="preserve">
+    <value>State Machines</value>
+  </data>
+  <data name="CustomFields_DefaultValue" xml:space="preserve">
+    <value>Default Value</value>
+  </data>
+  <data name="CustomFields_DefaultValue_Help" xml:space="preserve">
+    <value>When an object is created that uses this default value it can optionally be inintialized with this default value.</value>
+  </data>
+  <data name="StateMachine_Exception_OnInvalidEvent" xml:space="preserve">
+    <value>Exception on Missing Event</value>
+  </data>
+  <data name="StateMachine_Exception_OnInvalidEvent_Help" xml:space="preserve">
+    <value>Your State Machine can be configured so that if an event arrives and the current state does not have a hanlder for that event, it will send an exception message.</value>
+  </data>
+  <data name="StateMachine_Initialization_Actions" xml:space="preserve">
+    <value>Initialization Actions</value>
+  </data>
+  <data name="StateMachine_Initialization_Actions_Help" xml:space="preserve">
+    <value>As set of actions and be defined when the state machine is created to perform any actions or initialize any variables.  The actions are guarenteed to be execute in the order they are listed and each action will finish executing prior to the next action being started.</value>
+  </data>
+  <data name="StateMachine_NewState" xml:space="preserve">
+    <value>New State</value>
+  </data>
+  <data name="StateMachine_NewState_Help" xml:space="preserve">
+    <value>When this transition occurs, the New State will be the state that the State Machine will currently be in.  It is possible that the the transition may leave the State Machine in the current state, if that's the case, the Transition is used to simply exectue an action.</value>
+  </data>
+  <data name="StateMachine_Transition_Action_Help" xml:space="preserve">
+    <value>As the event triggers a transition between different states a set of actions can be execute.  The actions are guarenteed to be execute in the order they are listed and each action will finish executing prior to the next action being started.</value>
+  </data>
+  <data name="StateMachine_Transition_EventHelp" xml:space="preserve">
+    <value>This is the event that can be handled by the current state in which this transition is defined.  Each current state must have unique events defined that can be handled and it is not required for all states to handle all events.  The state machine can be configured to send an error message if an event comes in while the state machine can not handle the event.</value>
+  </data>
+  <data name="StateMachine_Variables" xml:space="preserve">
+    <value>Variables</value>
+  </data>
+  <data name="StateMachine_Variables_Help" xml:space="preserve">
+    <value>A set of simple variables can be defined that will be availble through out the life time of your state machine.  These variables will be available to custom scripts or a REST Get action.   These variables should be considered Public Read and and Private Write.  That is to say that they can only be modified via actions triggered within the state machine or state machine initialization.</value>
   </data>
 </root>

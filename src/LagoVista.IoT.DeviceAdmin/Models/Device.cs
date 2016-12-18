@@ -10,14 +10,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     public class Device : DeviceModelBase
     {
-        private String _description;
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_Description, FieldType: FieldTypes.MultiLineText,  ResourceType: typeof(DeviceLibraryResources))]
-        public String Description
-        {
-            get { return _description; }
-            set { Set(ref _description, value); }
-        }
-
         private String _notes;
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_DeviceNotes, FieldType:FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Notes
@@ -67,30 +59,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         {
             get { return _batteryLevel; }
             set { Set(ref _batteryLevel, value); }
-        }
-
-        private bool _isBatteryPower;
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_IsBatteryPowered, ResourceType: typeof(DeviceLibraryResources))]
-        public bool IsBatteryPower
-        {
-            get { return _isBatteryPower; }
-            set { Set(ref _isBatteryPower, value);}
-        }
-
-        private String _manufacturer;
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_Manufacturer, ResourceType: typeof(DeviceLibraryResources))]
-        public String Manufacturer
-        {
-            get { return _manufacturer; }
-            set { Set(ref _manufacturer, value); }
-        }
-
-        private String _modelNumber;
-        [FormField(LabelResource:Resources.DeviceLibraryResources.Names.Device_ModelNumber, ResourceType: typeof(DeviceLibraryResources))]
-        public String ModelNumber
-        {
-            get { return _modelNumber; }
-            set { Set(ref _modelNumber, value);}
         }
 
         private String _serialNumber;

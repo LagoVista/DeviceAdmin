@@ -32,13 +32,13 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 
         public async Task<bool> QueryKeyInUseAsync(string key, string orgId)
         {
-            var items = await base.QueryAsync(attr => (attr.Organization.Id == orgId || attr.IsPublic == true) && attr.Key == key);
+            var items = await base.QueryAsync(attr => (attr.OwnerOrganization.Id == orgId || attr.IsPublic == true) && attr.Key == key);
             return items.Any();
         }
 
         public async Task<IEnumerable<AttributeUnitSetSummary>> GetUnitSetsForOrg(string orgId)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.Organization.Id == orgId);
+            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId);
 
             return from item in items
                    select item.CreateUnitSetSummary();

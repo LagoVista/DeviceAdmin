@@ -63,7 +63,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         public Task AddUnitSetAsync(AttributeUnitSet unitSet, EntityHeader org, EntityHeader user)
         {
             unitSet.Id = Guid.NewGuid().ToId();
-            unitSet.Organization = org;
+            unitSet.OwnerOrganization = org;
             unitSet.LastUpdatedBy = user;
             unitSet.CreatedBy = user;
             unitSet.CreationDate = DateTime.Now.ToJSONString();
