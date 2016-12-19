@@ -402,8 +402,8 @@
   <data name="Action_ExecuteFromstateMachine_Help" xml:space="preserve">
     <value>You can use this action to be executed when your state machine transitions between states.</value>
   </data>
-  <data name="Attribute_StandardAttribute_Help" xml:space="preserve">
-    <value>You can configure your attribute to be a standard attribute.  Some attributes such as temperature, speed, battery level, direction may be common accross your devices.  A standard attribute is easy to add and promotes re-use across devices.</value>
+  <data name="Attribute_SharedAttribute_Help" xml:space="preserve">
+    <value>You can configure your attribute to be a Shared Attribute.  Some attributes such as temperature, speed, battery level, direction may be common accross your devices.  A Shared Attribute is easy to add and promotes re-use across devices.</value>
   </data>
   <data name="Attribute_StateMachine_Help" xml:space="preserve">
     <value>You can configure your attribute to be a state machine.  If you do so you can describe the different states that your device can be in and perform an action when the device transitions between states.  Your device configuration can have many state machines that can communicate with each other.</value>
@@ -420,8 +420,8 @@
   <data name="Attribute_Simple" xml:space="preserve">
     <value>Simple</value>
   </data>
-  <data name="Attribute_Standard" xml:space="preserve">
-    <value>Standard</value>
+  <data name="Attribute_Shared" xml:space="preserve">
+    <value>Shared</value>
   </data>
   <data name="Attribute_StateMachine" xml:space="preserve">
     <value>State Machine</value>
@@ -483,11 +483,11 @@
   <data name="DeviceConfig_Attributes_Help" xml:space="preserve">
     <value>Attributes are meta-data that are attached to a device configuration that are used to maintain the state of the device.  Attributes can be one of the following, a simple value with a unit, a standard attribute that is common across many device configurations or a state machine.</value>
   </data>
-  <data name="Action_Standard" xml:space="preserve">
-    <value>Standard Action</value>
+  <data name="Action_Shared" xml:space="preserve">
+    <value>Shared Action</value>
   </data>
   <data name="Action_Standard_Help" xml:space="preserve">
-    <value>A Standard Action is one that is predefined and can be attached to a device configuration.  A standard Action can be used so that implements a specific Standard Action can participate in a Device Group.</value>
+    <value>A Shared Action is one that is predefined and can be attached to a device configuration.  A Shared Action can be used so that implements a specific Shared Action can participate in a Device Group.</value>
   </data>
   <data name="StateMachine_InitialState" xml:space="preserve">
     <value>Initial State</value>
@@ -560,5 +560,149 @@
   </data>
   <data name="StateMachine_Variables_Help" xml:space="preserve">
     <value>A set of simple variables can be defined that will be availble through out the life time of your state machine.  These variables will be available to custom scripts or a REST Get action.   These variables should be considered Public Read and and Private Write.  That is to say that they can only be modified via actions triggered within the state machine or state machine initialization.</value>
+  </data>
+  <data name="SharedAttribute_Title" xml:space="preserve">
+    <value>Shared Attribute</value>
+  </data>
+  <data name="StateMachine_Title" xml:space="preserve">
+    <value>State Machine</value>
+  </data>
+  <data name="StateTransition_Description" xml:space="preserve">
+    <value>A State Transition can be added to a State.  A Transition is a Definition of an Event that can be handled, an Action to be Executed and a New State that the State Machine will be in after the event is handled.  Note that it is possible that the state may remain the same and the event will be used to only execute an action.</value>
+  </data>
+  <data name="StateTransition_UserHelp" xml:space="preserve">
+    <value>A State Transition can be added to a State.  A Transition is a Definition of an Event that can be handled, an Action to be Executed and a New State that the State Machine will be in after the event is handled.  Note that it is possible that the state may remain the same and the event will be used to only execute an action.</value>
+  </data>
+  <data name="ActionParameter_Description" xml:space="preserve">
+    <value>An Action Parameter are parameter that can be passed to an action.  They can be passed in as a arguement to a script, as a KVP form value in a rest form POST, or in the query string of a rest GET method.</value>
+  </data>
+  <data name="ActionParameter_Help" xml:space="preserve">
+    <value>An Action Parameter are parameter that can be passed to an action.  They can be passed in as a arguement to a script, as a KVP form value in a rest form POST, or in the query string of a rest GET method.</value>
+  </data>
+  <data name="ActionParameter_Title" xml:space="preserve">
+    <value>Action Parameter</value>
+  </data>
+  <data name="Action_Description" xml:space="preserve">
+    <value>Actions can perform functionality on a Device to manipulate it's real world or attribute states</value>
+  </data>
+  <data name="Action_Help" xml:space="preserve">
+    <value>Actions can perform functionality on a Device to manipulate it's real world or attribute states</value>
+  </data>
+  <data name="Action_Title" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="AdminNote_Description" xml:space="preserve">
+    <value>Notes are free form text that can be attached to many different types of entities.</value>
+  </data>
+  <data name="AdminNote_Help" xml:space="preserve">
+    <value>Notes are free form text that can be attached to many different types of entities.</value>
+  </data>
+  <data name="AdminNote_Title" xml:space="preserve">
+    <value>Admin Note</value>
+  </data>
+  <data name="AttributeUnitSetObj_Help" xml:space="preserve">
+    <value>An attribute can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
+  </data>
+  <data name="AttributeUnitSet_Description" xml:space="preserve">
+    <value>An attribute can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
+  </data>
+  <data name="AttributeUnitSet_Title" xml:space="preserve">
+    <value>Attribute Unit Set</value>
+  </data>
+  <data name="Attribute_Description" xml:space="preserve">
+    <value>Attributes are meta-data that are attached to a device configuration that are used to maintain the state of the device.  Attributes can be one of the following, a simple value with a unit, a standard attribute that is common across many device configurations or a state machine.</value>
+  </data>
+  <data name="Attribute_Help" xml:space="preserve">
+    <value>Attributes are meta-data that are attached to a device configuration that are used to maintain the state of the device.  Attributes can be one of the following, a simple value with a unit, a standard attribute that is common across many device configurations or a state machine.</value>
+  </data>
+  <data name="Attribute_Title" xml:space="preserve">
+    <value>Attribute</value>
+  </data>
+  <data name="CustomFieldCollection_Description" xml:space="preserve">
+    <value>The Custom Field Collection is a collection of custom fields that can be used across different device configurations to promote reuse</value>
+  </data>
+  <data name="CustomFieldCollection_Help" xml:space="preserve">
+    <value>The Custom Field Collection is a collection of custom fields that can be used across different device configurations to promote reuse</value>
+  </data>
+  <data name="CustomFieldCollection_Title" xml:space="preserve">
+    <value>Custom Field Collection</value>
+  </data>
+  <data name="CustomField_Description" xml:space="preserve">
+    <value>Custom Fields can be used to extend Device Configuration.  It's not possible to know in advance what paramters each installation will require so these custom parameters can be defined when creating the device configration.  Then when a device is provisioned with the device configuration, those custom values can be populated.  Once they are added, they are first-class-citizens to be used in reports and scripts.</value>
+  </data>
+  <data name="CustomFIeld_Help" xml:space="preserve">
+    <value>Custom Fields can be used to extend Device Configuration.  It's not possible to know in advance what paramters each installation will require so these custom parameters can be defined when creating the device configration.  Then when a device is provisioned with the device configuration, those custom values can be populated.  Once they are added, they are first-class-citizens to be used in reports and scripts.</value>
+  </data>
+  <data name="CustomField_Title" xml:space="preserve">
+    <value>Custom Field</value>
+  </data>
+  <data name="DeviceConfiguration_Description" xml:space="preserve">
+    <value>A Device Configuration can be thought of as a template for provisioning devices.  It defines the Meta-Data, Actions and Attributes that need to be effectively managed when provisioning thousand or even millions of devices</value>
+  </data>
+  <data name="DeviceConfiguration_Help" xml:space="preserve">
+    <value>A Device Configuration can be thought of as a template for provisioning devices.  It defines the Meta-Data, Actions and Attributes that need to be effectively managed when provisioning thousand or even millions of devices</value>
+  </data>
+  <data name="DeviceConfiguration_Title" xml:space="preserve">
+    <value>Device Configuration</value>
+  </data>
+  <data name="NodeRedFlow_Description" xml:space="preserve">
+    <value>A Node Red Flow can be configured as part of an action to perform more complicated work flows and steps.</value>
+  </data>
+  <data name="NodeRedFlow_Help" xml:space="preserve">
+    <value>A Node Red Flow can be configured as part of an action to perform more complicated work flows and steps.</value>
+  </data>
+  <data name="NodeRedFlow_Title" xml:space="preserve">
+    <value>Node Red Flow</value>
+  </data>
+  <data name="SharedAction_Description" xml:space="preserve">
+    <value>A stanard action is template or an action that can be added to many device configurations.  What makes this powerful is that the devices can be queried for any devices that implement the action and can be used in common scripts.  From a programming standpoint a Standard Action is analogous to a method description on an interface.</value>
+  </data>
+  <data name="SharedAction_Help" xml:space="preserve">
+    <value>A stanard action is template or an action that can be added to many device configurations.  What makes this powerful is that the devices can be queried for any devices that implement the action and can be used in common scripts.  From a programming standpoint a Standard Action is analogous to a method description on an interface.</value>
+  </data>
+  <data name="SharedAction_Title" xml:space="preserve">
+    <value>Shared Action</value>
+  </data>
+  <data name="SharedAttribute_Description" xml:space="preserve">
+    <value>A Standard Attribute is an Attribute that is common to many Device Configurations and can be used to include devices that implement a set of Standard Attributes into a device group.</value>
+  </data>
+  <data name="SharedAttribute_Help" xml:space="preserve">
+    <value>A Standard Attribute is an Attribute that is common to many Device Configurations and can be used to include devices that implement a set of Standard Attributes into a device group.</value>
+  </data>
+  <data name="StateMachineEvent_Description" xml:space="preserve">
+    <value>An Event is something that can be applied to a StateMachine as the event is applied it will determine the current state and then optionally perform an action and transition to a new state if the current state is configured to handle this event.</value>
+  </data>
+  <data name="StateMachineEvent_Title" xml:space="preserve">
+    <value>State Machine Event</value>
+  </data>
+  <data name="StateMachineEvent_UserHelp" xml:space="preserve">
+    <value>An Event is something that can be applied to a StateMachine as the event is applied it will determine the current state and then optionally perform an action and transition to a new state if the current state is configured to handle this event.</value>
+  </data>
+  <data name="StateMachine_Description" xml:space="preserve">
+    <value>A State Machine is a mechanism that allows for complex work flows to be created base on know the current state, an event that is applied, the new state when the event is applied as well as any actions that should take place on that transitions.</value>
+  </data>
+  <data name="StateMachine_UserHelp" xml:space="preserve">
+    <value>A State Machine is a mechanism that allows for complex work flows to be created base on know the current state, an event that is applied, the new state when the event is applied as well as any actions that should take place on that transitions.</value>
+  </data>
+  <data name="StateTransition_Title" xml:space="preserve">
+    <value>State Transition</value>
+  </data>
+  <data name="State_Description" xml:space="preserve">
+    <value>A State is a conceptual entity that a Device Configuration, Attribute or other mechanism can be in.  The state machine can only be in exactly one state at a given time, an action is used to transition the state into another state and optionally perform an action at that time.</value>
+  </data>
+  <data name="State_Title" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="State_UserHelp" xml:space="preserve">
+    <value>A State is a conceptual entity that a Device Configuration, Attribute or other mechanism can be in.  The state machine can only be in exactly one state at a given time, an action is used to transition the state into another state and optionally perform an action at that time.</value>
+  </data>
+  <data name="AttributeUnit_Description" xml:space="preserve">
+    <value>An attribute can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
+  </data>
+  <data name="AttributeUnit_Help" xml:space="preserve">
+    <value>An attribute can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
+  </data>
+  <data name="AttributeUnit_Title" xml:space="preserve">
+    <value>Attribute Unit</value>
   </data>
 </root>

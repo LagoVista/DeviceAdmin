@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Name:"State Transition", Domain:DeviceAdminDomain.StateMachines, Description:"A State Transition can be added to a State.  A Transition is a Definition of an Event that can be handled, an Action to be Executed and a New State that the State Machine will be in after the event is handled.  Note that it is possible that the state may remain the same and the event will be used to only execute an action.")]
-    public class StateTransitions
+    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.StateTransition_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.StateTransition_UserHelp, Description: Resources.DeviceLibraryResources.Names.StateTransition_Description, ResourceType: typeof(DeviceLibraryResources))]
+    public class StateTransition
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Event, HelpResource: DeviceLibraryResources.Names.StateMachine_Transition_EventHelp, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
         public IEntityHeader Event { get; set; }
@@ -20,3 +20,4 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public string Description { get; set; }
     }
 }
+                                                                                                                                      

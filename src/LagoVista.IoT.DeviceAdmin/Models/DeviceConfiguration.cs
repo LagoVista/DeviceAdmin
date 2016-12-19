@@ -11,7 +11,7 @@ using LagoVista.Core.Interfaces;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Name:"Device Configuration", Domain:DeviceAdminDomain.DeviceAdmin, Description:"A Device Configuration can be thought of as a template for provisioning devices.  It defines the Meta-Data, Actions and Attributes that need to be effectively managed when provisioning thousand or even millions of devices" )]
+    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.DeviceConfiguration_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.DeviceConfiguration_Help, Description: Resources.DeviceLibraryResources.Names.DeviceConfiguration_Description, ResourceType: typeof(DeviceLibraryResources))]
     public class DeviceConfiguration : DeviceModelBase, IOwnedEntity, IValidateable
     {
         public enum Environments

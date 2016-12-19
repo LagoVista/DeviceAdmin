@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Name:"Attribute", Domain:DeviceAdminDomain.DeviceAdmin, Description:"Attributes are meta-data that are attached to a device configuration that are used to maintain the state of the device.  Attributes can be one of the following, a simple value with a unit, a standard attribute that is common across many device configurations or a state machine.")]
+    [EntityDescription(Title: DeviceLibraryResources.Names.Attribute_Title, Domain: DeviceAdminDomain.DeviceAdmin, Description: DeviceLibraryResources.Names.Attribute_Description, UserHelp: DeviceLibraryResources.Names.Attribute_Help, ResourceType: typeof(DeviceLibraryResources))]
     public class Attribute : DeviceModelBase, IKeyedEntity, INamedEntity, IIDEntity, IAuditableEntity, IValidateable, IOwnedEntity
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]
@@ -24,7 +24,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         {
             [EnumLabel(LabelResource:DeviceLibraryResources.Names.Attribute_StateMachine, ResourceType: typeof(DeviceLibraryResources))]
             StateMachine,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Attribute_Standard, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Attribute_Shared, ResourceType: typeof(DeviceLibraryResources))]
             StandardAttribute,
             [EnumLabel(LabelResource: DeviceLibraryResources.Names.Attribute_Simple, ResourceType: typeof(DeviceLibraryResources))]
             Simple
@@ -45,8 +45,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Standard, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_StandardAttribute_Help,  ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader StandardAttribute { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Shared, HelpResource: Resources.DeviceLibraryResources.Names.Action_Standard_Help,  ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader SharedAttribute { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Simple, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
         public IEnumerable<AttributeUnitSet> Units { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_StateMachine, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_StateMachine_Help, ResourceType: typeof(DeviceLibraryResources))]
@@ -63,7 +63,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Name = Name,
                 Key = Key,
                 IsPublic = IsPublic,
-
             };
         }
     }

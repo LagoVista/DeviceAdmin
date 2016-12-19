@@ -16,8 +16,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     /// The Attribute itself can have up to one attribute category
     /// attached to it.
     /// </summary>
-    [EntityDescription(Name:"Standard Attribute", Domain:DeviceAdminDomain.DeviceAdmin, Description:"A Standard Attribute is an Attribute that is common to many Device Configurations and can be used to include devices that implement a set of Standard Attributes into a device group.")]
-    public class StandardAttribute : DeviceModelBase, IOwnedEntity, IKeyedEntity
+    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.SharedAttribute_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.SharedAttribute_Help, Description: Resources.DeviceLibraryResources.Names.SharedAttribute_Description, ResourceType: typeof(DeviceLibraryResources))]
+    public class SharedAttribute : DeviceModelBase, IOwnedEntity, IKeyedEntity
     {
         public bool IsPublic { get; set; }
         public EntityHeader OwnerOrganization { get; set; }

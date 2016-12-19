@@ -5,7 +5,7 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Name:"Action Parameter", Description:"An Action Parameter are parameter that can be passed to an action.  They can be passed in as a arguement to a script, as a KVP form value in a rest form POST, or in the query string of a rest GET method.", Domain:DeviceAdminDomain.DeviceAdmin)]
+    [EntityDescription(Title: DeviceLibraryResources.Names.ActionParameter_Title, Domain: DeviceAdminDomain.DeviceAdmin, Description: DeviceLibraryResources.Names.ActionParameter_Description, UserHelp: DeviceLibraryResources.Names.ActionParameter_Help, ResourceType: typeof(DeviceLibraryResources))]
     public class ActionParameter : INamedEntity, IKeyedEntity
     {
         public enum ParameterTypes

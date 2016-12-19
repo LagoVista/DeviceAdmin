@@ -5,7 +5,7 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Name:"Custom Field", Domain:DeviceAdminDomain.DeviceAdmin, Description:"Custom Fields can be used to extend Device Configuration.  It's not possible to know in advance what paramters each installation will require so these custom parameters can be defined when creating the device configration.  Then when a device is provisioned with the device configuration, those custom values can be populated.  Once they are added, they are first-class-citizens to be used in reports and scripts.")]
+    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.CustomField_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.CustomFIeld_Help, Description: Resources.DeviceLibraryResources.Names.CustomField_Description, ResourceType: typeof(DeviceLibraryResources))]
     public class CustomField : IKeyedEntity
     {
         public enum CustomFieldTypes

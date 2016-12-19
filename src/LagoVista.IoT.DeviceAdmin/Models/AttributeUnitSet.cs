@@ -13,7 +13,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     /// 
     /// 
     /// </summary>
-    [EntityDescription(Name:"Attribute Unit Set", Domain:DeviceAdminDomain.DeviceAdmin, Description: "An attribute unit set is a collection of units that can be attached to an attribute.  An example of these would be Speed, and have a value of MPH, KPH.  Each unit set has exactly one default unit.  The default unit will be how the value is stored and is used as a reference for all other units that are part of this unit set when they are converted.")]
+    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.AttributeUnitSet_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.AttributeUnitSet_Help, Description: Resources.DeviceLibraryResources.Names.AttributeUnitSet_Description, ResourceType: typeof(DeviceLibraryResources))]
     public class AttributeUnitSet : DeviceModelBase, IKeyedEntity, IOwnedEntity
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]

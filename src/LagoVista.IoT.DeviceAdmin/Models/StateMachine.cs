@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Name: "State Machine", Domain: DeviceAdminDomain.StateMachines, Description: "A State Machine is a mechanism that allows for complex work flows to be created base on know the current state, an event that is applied, the new state when the event is applied as well as any actions that should take place on that transitions.")]
+    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.StateMachine_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.StateMachine_UserHelp, Description: Resources.DeviceLibraryResources.Names.StateMachine_Description, ResourceType: typeof(DeviceLibraryResources))]
     public class StateMachine : DeviceModelBase, IOwnedEntity, IKeyedEntity
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]

@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Name:"Standard Action", Domain:"Device Admin", Description:"A stanard action is template or an action that can be added to many device configurations.  What makes this powerful is that the devices can be queried for any devices that implement the action and can be used in common scripts.  From a programming standpoint a Standard Action is analogous to a method description on an interface.")]
-    public class StandardAction : DeviceModelBase
+    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.SharedAction_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.SharedAction_Help, Description: Resources.DeviceLibraryResources.Names.SharedAction_Description, ResourceType: typeof(DeviceLibraryResources))]
+    public class SharedAction : DeviceModelBase
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsPublic { get; set; }

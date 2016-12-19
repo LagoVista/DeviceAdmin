@@ -5,7 +5,7 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Name:"Attribute Unit", Domain:DeviceAdminDomain.DeviceAdmin, Description:"An attribute can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.")]
+    [EntityDescription(Title:Resources.DeviceLibraryResources.Names.AttributeUnit_Title, Domain:DeviceAdminDomain.DeviceAdmin, UserHelp:Resources.DeviceLibraryResources.Names.AttributeUnit_Help, Description:Resources.DeviceLibraryResources.Names.AttributeUnit_Description, ResourceType: typeof(DeviceLibraryResources))]
     public class AttributeUnit : IKeyedEntity, INamedEntity
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]

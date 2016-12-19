@@ -5,7 +5,7 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Name:"Note", Domain:DeviceAdminDomain.DeviceAdmin, Description:"Notes are free form text that can be attached to many different types of entities.")]
+    [EntityDescription(Title: DeviceLibraryResources.Names.AdminNote_Title, Domain: DeviceAdminDomain.DeviceAdmin, Description: DeviceLibraryResources.Names.AdminNote_Description, UserHelp: DeviceLibraryResources.Names.AdminNote_Help, ResourceType: typeof(DeviceLibraryResources))]
     public class AdminNote
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_CreationDate, FieldType: FieldTypes.JsonDateTime, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
