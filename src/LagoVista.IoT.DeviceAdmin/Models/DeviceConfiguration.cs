@@ -11,7 +11,7 @@ using LagoVista.Core.Interfaces;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.DeviceConfiguration_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.DeviceConfiguration_Help, Description: Resources.DeviceLibraryResources.Names.DeviceConfiguration_Description, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Title, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Help,  Resources.DeviceLibraryResources.Names.DeviceConfiguration_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class DeviceConfiguration : DeviceModelBase, IOwnedEntity, IValidateable
     {
         public enum Environments

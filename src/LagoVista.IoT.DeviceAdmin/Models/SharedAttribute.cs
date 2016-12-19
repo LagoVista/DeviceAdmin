@@ -16,7 +16,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     /// The Attribute itself can have up to one attribute category
     /// attached to it.
     /// </summary>
-    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.SharedAttribute_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.SharedAttribute_Help, Description: Resources.DeviceLibraryResources.Names.SharedAttribute_Description, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.SharedAttribute_Title,  Resources.DeviceLibraryResources.Names.SharedAttribute_Help, DeviceLibraryResources.Names.SharedAttribute_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class SharedAttribute : DeviceModelBase, IOwnedEntity, IKeyedEntity
     {
         public bool IsPublic { get; set; }

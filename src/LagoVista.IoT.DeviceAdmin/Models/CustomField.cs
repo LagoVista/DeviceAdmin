@@ -5,32 +5,32 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.CustomField_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.CustomFIeld_Help, Description: Resources.DeviceLibraryResources.Names.CustomField_Description, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.CustomField_Title, Resources.DeviceLibraryResources.Names.CustomFIeld_Help, Resources.DeviceLibraryResources.Names.CustomField_Description,  EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
     public class CustomField : IKeyedEntity
     {
         public enum CustomFieldTypes
         {
-            [EnumLabel(LabelResource:DeviceLibraryResources.Names.CustomField_FieldType_String, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("string",DeviceLibraryResources.Names.CustomField_FieldType_String,  typeof(DeviceLibraryResources))]
             String,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.CustomField_FieldType_Integer, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("integer", DeviceLibraryResources.Names.CustomField_FieldType_Integer,  typeof(DeviceLibraryResources))]
             Integer,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.CustomField_FieldType_Decimal, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("decimal", DeviceLibraryResources.Names.CustomField_FieldType_Decimal,  typeof(DeviceLibraryResources))]
             Decimal,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.CustomField_FieldType_IPAddress, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("email", DeviceLibraryResources.Names.CustomField_FieldType_IPAddress,  typeof(DeviceLibraryResources))]
             Email,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.CustomField_FieldType_Key, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("key", DeviceLibraryResources.Names.CustomField_FieldType_Key,  typeof(DeviceLibraryResources))]
             Key,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.CustomField_FieldType_Password, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("password", DeviceLibraryResources.Names.CustomField_FieldType_Password,  typeof(DeviceLibraryResources))]
             Password,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.CustomField_FieldType_IPAddress, ResourceType: typeof(DeviceLibraryResources))]
-            IPAddress,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.CustomField_FieldType_WebSite, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("ipaddress", DeviceLibraryResources.Names.CustomField_FieldType_IPAddress,  typeof(DeviceLibraryResources))]
+            PAddress,
+            [EnumLabel("website", DeviceLibraryResources.Names.CustomField_FieldType_WebSite,  typeof(DeviceLibraryResources))]
             WebSite,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.CustomField_FieldType_Date, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("date", DeviceLibraryResources.Names.CustomField_FieldType_Date,  typeof(DeviceLibraryResources))]
             Date,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.CustomField_FIeldType_DateTime, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("datetime", DeviceLibraryResources.Names.CustomField_FIeldType_DateTime, typeof(DeviceLibraryResources))]
             DateTime,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.CustomField_FieldType_Time, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("time", DeviceLibraryResources.Names.CustomField_FieldType_Time,  typeof(DeviceLibraryResources))]
             Time
         }
 

@@ -5,7 +5,7 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Title:Resources.DeviceLibraryResources.Names.AttributeUnit_Title, Domain:DeviceAdminDomain.DeviceAdmin, UserHelp:Resources.DeviceLibraryResources.Names.AttributeUnit_Help, Description:Resources.DeviceLibraryResources.Names.AttributeUnit_Description, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.AttributeUnit_Title, Resources.DeviceLibraryResources.Names.AttributeUnit_Help, DeviceLibraryResources.Names.AttributeUnit_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel,typeof(DeviceLibraryResources))]
     public class AttributeUnit : IKeyedEntity, INamedEntity
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]

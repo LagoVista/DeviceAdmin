@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.NodeRedFlow_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.NodeRedFlow_Help, Description: Resources.DeviceLibraryResources.Names.NodeRedFlow_Description, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.NodeRedFlow_Title, Resources.DeviceLibraryResources.Names.NodeRedFlow_Help, Resources.DeviceLibraryResources.Names.NodeRedFlow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
     public class NodeRedFlow
     {
         public String NodeRedFlowId { get; set; }

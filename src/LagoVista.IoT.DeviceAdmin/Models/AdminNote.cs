@@ -5,7 +5,7 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Title: DeviceLibraryResources.Names.AdminNote_Title, Domain: DeviceAdminDomain.DeviceAdmin, Description: DeviceLibraryResources.Names.AdminNote_Description, UserHelp: DeviceLibraryResources.Names.AdminNote_Help, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.AdminNote_Title,DeviceLibraryResources.Names.AdminNote_Description, DeviceLibraryResources.Names.AdminNote_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class AdminNote
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_CreationDate, FieldType: FieldTypes.JsonDateTime, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]

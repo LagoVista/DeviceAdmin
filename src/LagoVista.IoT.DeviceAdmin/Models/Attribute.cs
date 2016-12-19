@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Title: DeviceLibraryResources.Names.Attribute_Title, Domain: DeviceAdminDomain.DeviceAdmin, Description: DeviceLibraryResources.Names.Attribute_Description, UserHelp: DeviceLibraryResources.Names.Attribute_Help, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Attribute_Title, DeviceLibraryResources.Names.Attribute_Description, DeviceLibraryResources.Names.Attribute_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class Attribute : DeviceModelBase, IKeyedEntity, INamedEntity, IIDEntity, IAuditableEntity, IValidateable, IOwnedEntity
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]
@@ -22,21 +22,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public enum AttributeTypes
         {
-            [EnumLabel(LabelResource:DeviceLibraryResources.Names.Attribute_StateMachine, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("statemachine", DeviceLibraryResources.Names.Attribute_StateMachine, typeof(DeviceLibraryResources))]
             StateMachine,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Attribute_Shared, ResourceType: typeof(DeviceLibraryResources))]
-            StandardAttribute,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Attribute_Simple, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("sharedattribute", DeviceLibraryResources.Names.Attribute_Shared, typeof(DeviceLibraryResources))]
+            SharedAttribute,
+            [EnumLabel("simple", DeviceLibraryResources.Names.Attribute_Simple, typeof(DeviceLibraryResources))]
             Simple
         }
 
         public enum AttributeDirections
         {
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Attribute_Direction_Input, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("input", DeviceLibraryResources.Names.Attribute_Direction_Input, typeof(DeviceLibraryResources))]
             Input,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Attribute_Direction_Output, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("output", DeviceLibraryResources.Names.Attribute_Direction_Output, typeof(DeviceLibraryResources))]
             Output,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Attribute_Direction_InputAndOutput, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("inputandoutput", DeviceLibraryResources.Names.Attribute_Direction_InputAndOutput, typeof(DeviceLibraryResources))]
             InputAndOutput
         }
 
@@ -45,14 +45,14 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Shared, HelpResource: Resources.DeviceLibraryResources.Names.Action_Standard_Help,  ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Shared, HelpResource: Resources.DeviceLibraryResources.Names.Action_Standard_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader SharedAttribute { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Simple, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
         public IEnumerable<AttributeUnitSet> Units { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_StateMachine, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_StateMachine_Help, ResourceType: typeof(DeviceLibraryResources))]
         public StateMachine StateMachine { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Notes, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help,  ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Notes, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, ResourceType: typeof(DeviceLibraryResources))]
         public IEnumerable<AdminNote> Notes { get; set; }
 
         public AttributeSummary CreateSummary()

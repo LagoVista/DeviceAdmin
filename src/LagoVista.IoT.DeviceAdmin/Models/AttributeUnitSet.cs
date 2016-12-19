@@ -4,16 +4,10 @@ using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    /// <summary>
-    /// 
-    /// 
-    /// </summary>
-    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.AttributeUnitSet_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.AttributeUnitSet_Help, Description: Resources.DeviceLibraryResources.Names.AttributeUnitSet_Description, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.AttributeUnitSet_Title,  Resources.DeviceLibraryResources.Names.AttributeUnitSet_Help, Resources.DeviceLibraryResources.Names.AttributeUnitSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
     public class AttributeUnitSet : DeviceModelBase, IKeyedEntity, IOwnedEntity
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Title: Resources.DeviceLibraryResources.Names.SharedAction_Title, Domain: DeviceAdminDomain.DeviceAdmin, UserHelp: Resources.DeviceLibraryResources.Names.SharedAction_Help, Description: Resources.DeviceLibraryResources.Names.SharedAction_Description, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.SharedAction_Title,Resources.DeviceLibraryResources.Names.SharedAction_Help,Resources.DeviceLibraryResources.Names.SharedAction_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class SharedAction : DeviceModelBase
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]

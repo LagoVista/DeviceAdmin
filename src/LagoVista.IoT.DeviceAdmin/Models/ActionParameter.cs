@@ -5,18 +5,18 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Title: DeviceLibraryResources.Names.ActionParameter_Title, Domain: DeviceAdminDomain.DeviceAdmin, Description: DeviceLibraryResources.Names.ActionParameter_Description, UserHelp: DeviceLibraryResources.Names.ActionParameter_Help, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.ActionParameter_Title, DeviceLibraryResources.Names.ActionParameter_Description, DeviceLibraryResources.Names.ActionParameter_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class ActionParameter : INamedEntity, IKeyedEntity
     {
         public enum ParameterTypes
         {
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Action_Parameter_Types_String, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("String", DeviceLibraryResources.Names.Action_Parameter_Types_String, typeof(DeviceLibraryResources))]
             String,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Action_Parameter_Types_Integer, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("Integer", DeviceLibraryResources.Names.Action_Parameter_Types_Integer, typeof(DeviceLibraryResources))]
             Integer,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Action_Parameter_Types_Decimal, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("Decimal", DeviceLibraryResources.Names.Action_Parameter_Types_Decimal,  typeof(DeviceLibraryResources))]
             Decimal,
-            [EnumLabel(LabelResource: DeviceLibraryResources.Names.Action_Parameter_Tyeps_TrueFalse, ResourceType: typeof(DeviceLibraryResources))]
+            [EnumLabel("TrueFalse", DeviceLibraryResources.Names.Action_Parameter_Tyeps_TrueFalse, typeof(DeviceLibraryResources))]
             TrueFalse
         }
 

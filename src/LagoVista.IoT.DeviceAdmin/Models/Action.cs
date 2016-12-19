@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(Title:DeviceLibraryResources.Names.Action_Title, Domain:DeviceAdminDomain.DeviceAdmin, Description: DeviceLibraryResources.Names.Action_Description, UserHelp:DeviceLibraryResources.Names.Action_Help, ResourceType: typeof(DeviceLibraryResources) )]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Action_Title, DeviceLibraryResources.Names.Action_Help,  DeviceLibraryResources.Names.Action_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources) )]
     public class Action : DeviceModelBase, IKeyedEntity
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Action_Shared, HelpResource: Resources.DeviceLibraryResources.Names.Action_Standard_Help, FieldType: FieldTypes.ChildItem, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
