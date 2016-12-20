@@ -17,7 +17,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public const string StateMachines = "StateMachine";
 
         [DomainDescription(StateMachines)]
-        public DomainDescription StateMachineDomainDescription
+        public static DomainDescription StateMachineDomainDescription
         {
             get
             {
@@ -40,7 +40,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
 
         [DomainDescription(DeviceAdmin)]
-        public DomainDescription DeviceAdminDomainDescription
+        public static DomainDescription DeviceAdminDomainDescription
         {
             get
             {
