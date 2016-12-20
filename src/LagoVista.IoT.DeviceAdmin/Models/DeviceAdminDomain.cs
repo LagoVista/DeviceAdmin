@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [DomainDescriptor]
-    public class DeviceAdminDomainMetaData
+    public class DeviceAdminDomain
     {
         //[DomainDescription(Name: "Device Admin", Description: "Models for working with and creating device configurations.  This includes things such as actions, attributes and state machines.")]
         public const string DeviceAdmin = "DeviceAdmin";
@@ -17,7 +17,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public const string StateMachines = "StateMachine";
 
         [DomainDescription(StateMachines)]
-        public DomainDescription StateMachineDomain
+        public DomainDescription StateMachineDomainDescription
         {
             get
             {
@@ -40,7 +40,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
 
         [DomainDescription(DeviceAdmin)]
-        public DomainDescription DeviceAdminDomain
+        public DomainDescription DeviceAdminDomainDescription
         {
             get
             {
