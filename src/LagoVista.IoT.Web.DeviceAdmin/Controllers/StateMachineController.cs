@@ -26,17 +26,17 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         }
 
         /// <summary>
-        /// Unit Set - Get View Model
+        /// State Machine - Create New
         /// </summary>
-        /// <returns>Instance of Unit Set that can be populated.</returns>
-        [HttpGet("new")]
+        /// <returns></returns>
+        [HttpGet("factory")]
         public DetailResponse<StateMachine> NewStateMachine()
         {
             return DetailResponse<StateMachine>.Create();
         }
 
         /// <summary>
-        /// Unit Set - Get View Model
+        /// State Machien - Key in use
         /// </summary>
         /// <returns>Instance of Unit Set that can be populated.</returns>
         [HttpGet("keyinuse/{key}")]
@@ -46,7 +46,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         }
 
         /// <summary>
-        /// Unit Set - Create New
+        /// State Machine - Add New
         /// </summary>
         /// <param name="stateMachine"></param>
         /// <returns></returns>
@@ -57,7 +57,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         }
 
         /// <summary>
-        /// Unit Set - Apply Update
+        /// State Machine - Update
         /// </summary>
         /// <param name="stateMachine"></param>
         /// <returns></returns>
@@ -68,7 +68,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         }
 
         /// <summary>
-        /// Unit Set - Get for Organization
+        /// State Machines - Get for org
         /// </summary>
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
@@ -82,17 +82,50 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         }
 
         /// <summary>
-        /// Unit Set - Get Details
+        /// State Machine - Get Detail
         /// </summary>
         /// <param name="statemachineid"></param>
         /// <returns></returns>
-        [HttpGet("attributeunitset/{statemachineid}")]
-        public async Task<DetailResponse<StateMachine>> GetAttributeSet(String statemachineid)
+        [HttpGet("{statemachineid}")]
+        public async Task<DetailResponse<StateMachine>> GetStateMachineAsync(String statemachineid)
         {
             var stateMachine = await _deviceAmdinManager.GetStateMachineAsync(statemachineid, OrgEntityHeader);
 
             var response = DetailResponse<StateMachine>.Create(stateMachine);
 
+            return response;
+        }
+
+        /// <summary>
+        ///  State - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("state/factory")]
+        public DetailResponse<State> CreatState()
+        {
+            var response = DetailResponse<State>.Create();
+            return response;
+        }
+
+        /// <summary>
+        ///  State Event - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("event/factory")]
+        public DetailResponse<StateMachineEvent> CreateEvent()
+        {
+            var response = DetailResponse<StateMachineEvent>.Create();
+            return response;
+        }
+
+        /// <summary>
+        ///  State - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("transition/factory")]
+        public DetailResponse<StateTransition> CreateTransition()
+        {
+            var response = DetailResponse<StateTransition>.Create();
             return response;
         }
     }

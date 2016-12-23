@@ -15,20 +15,24 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task AddSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader org, EntityHeader user);
         Task AddStateMachineAsync(StateMachine attribute, EntityHeader org, EntityHeader user);
         Task AddUnitSetAsync(AttributeUnitSet unitSet, EntityHeader org, EntityHeader user);
-        Task<DeviceConfiguration> GetDeviceConfigurationAsync(string id, EntityHeader org);
+
         Task<IEnumerable<DeviceConfigurationSummary>> GetDeviceConfigurationsForOrgsAsync(string orgId);
         Task<IEnumerable<SharedActionSummary>> GetSharedActionsForOrgAsync(string orgId);
-        Task<SharedAttribute> GetSharedAttribute(string id, EntityHeader org);
         Task<IEnumerable<SharedAttributeSummary>> GetSharedAttributesForOrgAsync(string orgId);
-        Task<StateMachine> GetStateMachineAsync(string id, EntityHeader org);
         Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(string orgId);
-        Task<AttributeUnitSet> GetUnitSetAsync(string id, EntityHeader org);
         Task<IEnumerable<AttributeUnitSetSummary>> GetUnitSetsForOrgAsync(string orgId);
+
         Task<bool> QuerySharedActionKeyInUseAsync(string key, string orgId);
         Task<bool> QueryAttributeUnitSetKeyInUseAsync(string key, string orgId);
         Task<bool> QuerySharedAttributeKeyInUseAsync(string key, string orgId);
         Task<bool> QueryStateMachineKeyInUseAsync(string key, string orgId);
-        Task<SharedAction> SetSharedActionAsync(string id, EntityHeader org);
+
+        Task<StateMachine> GetStateMachineAsync(string id, EntityHeader org);
+        Task<SharedAction> GetSharedActionAsync(string id, EntityHeader org);
+        Task<SharedAttribute> GetSharedAttributeAsync(string id, EntityHeader org);
+        Task<AttributeUnitSet> GetAttributeUnitSetAsync(string id, EntityHeader org);
+        Task<DeviceConfiguration> GetDeviceConfigurationAsync(string id, EntityHeader org);
+
         Task UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfig, EntityHeader user);
         Task UpdateSharedActionAsync(SharedAction sharedAction, EntityHeader user);
         Task UpdateSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader user);

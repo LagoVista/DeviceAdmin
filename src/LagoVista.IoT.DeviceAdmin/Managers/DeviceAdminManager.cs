@@ -136,7 +136,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return stateMachine;
         }
 
-        public async Task<SharedAction> SetSharedActionAsync(String id, EntityHeader org)
+        public async Task<SharedAction> GetSharedActionAsync(String id, EntityHeader org)
         {
             var sharedAction = await _sharedActionRepo.GetSharedActionAsync(id);
             if (!sharedAction.IsPublic && sharedAction.OwnerOrganization != org)
@@ -147,7 +147,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return sharedAction;
         }
 
-        public async Task<SharedAttribute> GetSharedAttribute(String id, EntityHeader org)
+        public async Task<SharedAttribute> GetSharedAttributeAsync(String id, EntityHeader org)
         {
             var sharedAttribute = await _sharedAttributeRepo.GetSharedAttributeAsync(id);
             if (!sharedAttribute.IsPublic && sharedAttribute.OwnerOrganization != org)
@@ -158,7 +158,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return sharedAttribute;
         }
 
-        public async Task<AttributeUnitSet> GetUnitSetAsync(String id, EntityHeader org)
+        public async Task<AttributeUnitSet> GetAttributeUnitSetAsync(String id, EntityHeader org)
         {
             var unitSet = await _unitSetRepo.GetUnitSetAsync(id);
             if (!unitSet.IsPublic && unitSet.OwnerOrganization != org)
