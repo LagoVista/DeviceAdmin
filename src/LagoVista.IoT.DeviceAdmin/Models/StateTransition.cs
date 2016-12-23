@@ -20,4 +20,3 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public string Description { get; set; }
     }
 }
-                                                                                                                                      

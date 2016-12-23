@@ -12,7 +12,7 @@ namespace LagoVista.IoT.DeviceAdmin
     {
         public static void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IAttributeManager, AttributeManager>();
+            services.AddTransient<IDeviceAdminManager, DeviceAdminManager>();
         }
     }
 }

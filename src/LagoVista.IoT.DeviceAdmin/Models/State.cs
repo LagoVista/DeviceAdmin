@@ -2,6 +2,7 @@
 using LagoVista.Core.Interfaces;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
+using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -16,6 +17,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
         public String Key { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Transitions, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Transitions_Help, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
+        public IEnumerable<StateTransition> Transitions { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }

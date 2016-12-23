@@ -705,4 +705,16 @@
   <data name="AttributeUnit_Title" xml:space="preserve">
     <value>Attribute Unit</value>
   </data>
+  <data name="StateMachine_State_Transitions_Help" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StateMachine_Events" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="StateMachine_Events_Help" xml:space="preserve">
+    <value>A state machines transitions and actions are triggered by events.  These are the events that are assocaited with this state machine.</value>
+  </data>
+  <data name="StateMachine_State_Transitions" xml:space="preserve">
+    <value>Transitions</value>
+  </data>
 </root>

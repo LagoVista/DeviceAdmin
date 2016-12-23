@@ -14,12 +14,12 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 {
 
     [Authorize]
-    [Route("api/attributes")]
-    public class AttributeController : LagoVistaBaseController
+    [Route("api/deviceadmin")]
+    public class DeviceAdminController : LagoVistaBaseController
     {
-        IAttributeManager _attrManager;
+        IDeviceAdminManager _attrManager;
 
-        public AttributeController(UserManager<AppUser> userManager, ILogger logger, IAttributeManager attrManager) : base(userManager, logger)
+        public DeviceAdminController(UserManager<AppUser> userManager, ILogger logger, IDeviceAdminManager attrManager) : base(userManager, logger)
         {
             _attrManager = attrManager;
         }
@@ -41,9 +41,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <returns>Instance of Unit Set that can be populated.</returns>
         [HttpGet("attributeunitset/keyinuse/{key}")]
-        public async Task<bool> KeyInUse(String key)
+        public async Task<bool> UnitSetKeyInUse(String key)
         {
-            return await _attrManager.QueryUnitKeyInUseAsync(key, CurrentOrgId);
+            return await _attrManager.QueryAttributeUnitSetKeyInUseAsync(key, CurrentOrgId);
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         [HttpGet("attributeunitset/{unitsetid}")]
         public async Task<DetailResponse<AttributeUnitSet>> GetAttributeSet(String unitsetid)
         {
-            var unitSet = await _attrManager.GetUnitSetAsync(unitsetid);
+            var unitSet = await _attrManager.GetUnitSetAsync(unitsetid, OrgEntityHeader);
 
             var response = DetailResponse<AttributeUnitSet>.Create(unitSet);
 

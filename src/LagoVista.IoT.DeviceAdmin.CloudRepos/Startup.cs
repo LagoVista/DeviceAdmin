@@ -9,7 +9,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos
         public static void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IAttributeUnitSetRepo, AttributeUnitSetRepo>();
-            services.AddTransient<IAttributeRepo, AttributeRepo>();
+            services.AddTransient<ISharedAtributeRepo, SharedAttributeRepo>();
+            services.AddTransient<ISharedActionRepo, SharedActionRepo>();
+            services.AddTransient<IStateMachineRepo, StateMachineRepo>();
+            services.AddTransient<IDeviceConfigurationRepo, DeviceConfigurationRepo>();
         }
     }
 }

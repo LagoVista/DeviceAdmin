@@ -36,7 +36,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return items.Any();
         }
 
-        public async Task<IEnumerable<AttributeUnitSetSummary>> GetUnitSetsForOrg(string orgId)
+        public async Task<IEnumerable<AttributeUnitSetSummary>> GetUnitSetsForOrgAsync(string orgId)
         {
             var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId);
 

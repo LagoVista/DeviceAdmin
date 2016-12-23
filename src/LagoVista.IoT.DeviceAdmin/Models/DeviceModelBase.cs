@@ -26,7 +26,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader LastUpdatedBy { get; set; }
 
         private String _name;
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
         public String Name
         {
             get { return _name; }
