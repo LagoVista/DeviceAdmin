@@ -6,9 +6,9 @@
     "NETStandard.Library": "1.6.1",
     "Newtonsoft.Json": "9.0.1",
     "WindowsAzure.Storage": "8.0.0",
-    "LagoVista.Core": "0.8.25-alpha01269",
     "LagoVista.CloudStorage": "0.8.22-alpha01344",
-    "LagoVista.IoT.DeviceAdmin": "0.8"
+    "LagoVista.IoT.DeviceAdmin": "0.8",
+    "LagoVista.Core": "0.8.28-alpha00700"
   },
 
   "frameworks": {
