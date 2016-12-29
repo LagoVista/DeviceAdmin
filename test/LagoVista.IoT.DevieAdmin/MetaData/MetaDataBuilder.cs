@@ -1,10 +1,7 @@
 ﻿using LagoVista.Core.Models.UIMetaData;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
-using System.Reflection;
 using Newtonsoft.Json;
 
 namespace LagoVista.IoT.DevieAdmin.Tests.MetaData

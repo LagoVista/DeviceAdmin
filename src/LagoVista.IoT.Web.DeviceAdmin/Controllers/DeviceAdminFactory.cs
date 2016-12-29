@@ -1,4 +1,5 @@
-﻿using LagoVista.Core.Models.UIMetaData;
+﻿using LagoVista.Core.Interfaces;
+using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.PlatformSupport;
 using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.Web.Common.Controllers;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using LagoVista.Core;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,6 +24,21 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 
         }
 
+        private void SetAuditProperties(IAuditableEntity entity)
+        {
+            var createDate = DateTime.Now.ToJSONString();
+
+            entity.CreationDate = createDate;
+            entity.LastUpdatedDate = createDate;
+            entity.CreatedBy = UserEntityHeader;
+            entity.LastUpdatedBy = UserEntityHeader;
+        }
+
+        private void SetOwnedProperties(IOwnedEntity entity)
+        {
+            entity.OwnerOrganization = OrgEntityHeader;
+        }
+
         /// <summary>
         /// Unit Set - Create New
         /// </summary>
@@ -30,7 +47,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<AttributeUnitSet> CreateAttributeSet()
         {
             var response = DetailResponse<AttributeUnitSet>.Create();
-
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);
             return response;
         }
 
@@ -42,7 +61,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<SharedAttribute> CreateSharedAttribute()
         {
             var response = DetailResponse<SharedAttribute>.Create();
-
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);
             return response;
         }
 
@@ -55,7 +76,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<SharedAction> CreateSharedAction()
         {
             var response = DetailResponse<SharedAction>.Create();
-
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);
             return response;
         }
 
@@ -68,6 +91,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<DeviceConfiguration> CreateDeviceConfigurartion()
         {
             var response = DetailResponse<DeviceConfiguration>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);
             return response;
         }
 
@@ -79,6 +105,8 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<IoT.DeviceAdmin.Models.Action> CreateAction()
         {
             var response = DetailResponse<IoT.DeviceAdmin.Models.Action>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
             return response;
         }
 
@@ -87,10 +115,11 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         ///  Action Parameter- Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("actionparameter")]
-        public DetailResponse<ActionParameter> CreateActionParameter()
+        [HttpGet("actionparameter/{id}")]
+        public DetailResponse<ActionParameter> CreateActionParameter(String id)
         {
             var response = DetailResponse<ActionParameter>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }
 
@@ -102,6 +131,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<AdminNote> CreateAdminNote()
         {
             var response = DetailResponse<AdminNote>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }
 
@@ -114,6 +144,8 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<IoT.DeviceAdmin.Models.Attribute> CreateAttribute()
         {
             var response = DetailResponse<IoT.DeviceAdmin.Models.Attribute>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
             return response;
         }
 
@@ -126,6 +158,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<AttributeUnit> CreatAttributeUnit()
         {
             var response = DetailResponse<AttributeUnit>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }
 
@@ -137,6 +170,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<CustomField> CreateCustomField()
         {
             var response = DetailResponse<CustomField>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }
 
@@ -148,6 +182,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<CustomFieldCollection> CreateCustomFieldCollection()
         {
             var response = DetailResponse<CustomFieldCollection>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);
             return response;
         }
     }

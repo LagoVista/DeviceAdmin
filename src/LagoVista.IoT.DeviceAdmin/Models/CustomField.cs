@@ -1,6 +1,7 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.IoT.DeviceAdmin.Resources;
+using Newtonsoft.Json;
 using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
@@ -33,6 +34,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             [EnumLabel("time", DeviceLibraryResources.Names.CustomField_FieldType_Time,  typeof(DeviceLibraryResources))]
             Time
         }
+
+        [JsonProperty("id")]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        public String Id { get; set; }
+
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_Label, ResourceType: typeof(DeviceLibraryResources))]
         public String Label { get; set; }
