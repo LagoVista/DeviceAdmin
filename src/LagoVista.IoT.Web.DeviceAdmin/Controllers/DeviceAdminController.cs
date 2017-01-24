@@ -41,7 +41,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <returns></returns>
         public List<LagoVista.IoT.DeviceAdmin.Models.Environment> GetEnvironmentList()
         {
-            ///TODO: Eventually we will add to this, for now we have dev/test/prod
+            //TODO: Eventually we will add to this, for now we have dev/test/prod
             return LagoVista.IoT.DeviceAdmin.Models.Environment.GetStandardList();
         }
 
@@ -226,7 +226,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="deviceConfiguration"></param>
         /// <returns></returns>
         [HttpPost("deviceconfiguration")]
-        public Task AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration)
+        public Task AddDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
         {
             return _attrManager.AddDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader, OrgEntityHeader);
         }
@@ -237,7 +237,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="deviceConfiguration"></param>
         /// <returns></returns>
         [HttpPut("deviceconfiguration")]
-        public Task UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration)
+        public Task UpdateDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
         {
             return _attrManager.UpdateDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader);
         }
