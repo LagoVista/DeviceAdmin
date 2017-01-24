@@ -51,7 +51,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="unitSet"></param>
         /// <returns></returns>
         [HttpPost("attributeunitset")]
-        public Task AddAttributeSet(AttributeUnitSet unitSet)
+        public Task AddAttributeSet([FromBody] AttributeUnitSet unitSet)
         {
             return _attrManager.AddUnitSetAsync(unitSet, UserEntityHeader, OrgEntityHeader);
         }
@@ -113,7 +113,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="sharedAttribute"></param>
         /// <returns></returns>
         [HttpPost("sharedattribute")]
-        public Task AddSharedAttributeAsync(SharedAttribute sharedAttribute)
+        public Task AddSharedAttributeAsync([FromBody] SharedAttribute sharedAttribute)
         {
             return _attrManager.AddSharedAttributeAsync(sharedAttribute, UserEntityHeader, OrgEntityHeader);
         }
@@ -124,7 +124,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="sharedAttribute"></param>
         /// <returns></returns>
         [HttpPut("sharedattribute")]
-        public Task UpdateSharedAttribute(SharedAttribute sharedAttribute)
+        public Task UpdateSharedAttribute([FromBody] SharedAttribute sharedAttribute)
         {
             return _attrManager.UpdateSharedAttributeAsync(sharedAttribute, UserEntityHeader);
         }
@@ -175,7 +175,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="sharedAction"></param>
         /// <returns></returns>
         [HttpPost("sharedaction")]
-        public Task AddSharedActionAsync(SharedAction sharedAction)
+        public Task AddSharedActionAsync([FromBody] SharedAction sharedAction)
         {
             return _attrManager.AddSharedActionAsync(sharedAction, UserEntityHeader, OrgEntityHeader);
         }
@@ -186,7 +186,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="sharedAction"></param>
         /// <returns></returns>
         [HttpPut("sharedaction")]
-        public Task UpdateSharedAction(SharedAction sharedAction)
+        public Task UpdateSharedAction([FromBody] SharedAction sharedAction)
         {
             return _attrManager.UpdateSharedActionAsync(sharedAction, UserEntityHeader);
         }

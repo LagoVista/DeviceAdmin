@@ -81,7 +81,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="stateMachine"></param>
         /// <returns></returns>
         [HttpPost()]
-        public Task AddStateMachine(StateMachine stateMachine)
+        public Task AddStateMachine([FromBody] StateMachine stateMachine)
         {
             return _deviceAmdinManager.AddStateMachineAsync(stateMachine, UserEntityHeader, OrgEntityHeader);
         }
@@ -92,7 +92,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="stateMachine"></param>
         /// <returns></returns>
         [HttpPut()]
-        public Task UpdateAttributeSet(StateMachine stateMachine)
+        public Task UpdateAttributeSet([FromBody] StateMachine stateMachine)
         {
             return _deviceAmdinManager.UpdateStateMachineAsync(stateMachine, UserEntityHeader);
         }
