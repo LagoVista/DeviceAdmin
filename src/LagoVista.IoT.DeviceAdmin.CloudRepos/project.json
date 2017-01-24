@@ -5,10 +5,10 @@
     "Microsoft.Extensions.DependencyInjection": "1.1.0",
     "NETStandard.Library": "1.6.1",
     "Newtonsoft.Json": "9.0.1",
-    "WindowsAzure.Storage": "7.2.1",
-    "LagoVista.Core": "0.8.22-alpha01299",
-    "LagoVista.CloudStorage": "0.8.22-alpha01198",
-    "LagoVista.IoT.DeviceAdmin": "0.8"
+    "WindowsAzure.Storage": "8.0.0",
+    "LagoVista.CloudStorage": "0.8.22-alpha01344",
+    "LagoVista.IoT.DeviceAdmin": "0.8",
+    "LagoVista.Core": "0.8.28-alpha00700"
   },
 
   "frameworks": {

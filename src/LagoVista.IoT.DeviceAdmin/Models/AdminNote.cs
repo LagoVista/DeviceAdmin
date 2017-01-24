@@ -1,6 +1,7 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
+using Newtonsoft.Json;
 using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
@@ -8,6 +9,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.AdminNote_Title,DeviceLibraryResources.Names.AdminNote_Description, DeviceLibraryResources.Names.AdminNote_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class AdminNote
     {
+        [JsonProperty("id")]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        public String Id { get; set; }
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_CreationDate, FieldType: FieldTypes.JsonDateTime, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
         public String CreationDate { get; set; }
 

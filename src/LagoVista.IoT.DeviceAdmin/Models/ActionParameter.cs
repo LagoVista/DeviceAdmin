@@ -1,6 +1,7 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.IoT.DeviceAdmin.Resources;
+using Newtonsoft.Json;
 using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
@@ -8,6 +9,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.ActionParameter_Title, DeviceLibraryResources.Names.ActionParameter_Description, DeviceLibraryResources.Names.ActionParameter_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class ActionParameter : INamedEntity, IKeyedEntity
     {
+        [JsonProperty("id")]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        public String Id { get; set; }
+
         public enum ParameterTypes
         {
             [EnumLabel("String", DeviceLibraryResources.Names.Action_Parameter_Types_String, typeof(DeviceLibraryResources))]

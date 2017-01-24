@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
+using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using Newtonsoft.Json;
@@ -7,7 +8,7 @@ using System;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.SharedAction_Title, Resources.DeviceLibraryResources.Names.SharedAction_Help, Resources.DeviceLibraryResources.Names.SharedAction_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class SharedAction : DeviceModelBase
+    public class SharedAction : DeviceModelBase, IOwnedEntity
     {
         public EntityHeader OwnerOrganization { get; set; }
         public EntityHeader OwnerUser { get; set; }
