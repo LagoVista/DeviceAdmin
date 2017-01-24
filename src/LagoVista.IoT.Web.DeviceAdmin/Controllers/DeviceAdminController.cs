@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using LagoVista.IoT.Web.Common.Controllers;
+using System.Collections.Generic;
 
 namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 {
@@ -32,6 +33,16 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public async Task<bool> UnitSetKeyInUse(String key)
         {
             return await _attrManager.QueryAttributeUnitSetKeyInUseAsync(key, CurrentOrgId);
+        }
+
+        /// <summary>
+        /// Environment - Get List of Hosting Environments
+        /// </summary>
+        /// <returns></returns>
+        public List<LagoVista.IoT.DeviceAdmin.Models.Environment> GetEnvironmentList()
+        {
+            ///TODO: Eventually we will add to this, for now we have dev/test/prod
+            return LagoVista.IoT.DeviceAdmin.Models.Environment.GetStandardList();
         }
 
         /// <summary>

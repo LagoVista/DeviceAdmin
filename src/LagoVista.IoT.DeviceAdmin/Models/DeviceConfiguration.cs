@@ -31,9 +31,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String Model { get; set; }
 
 
-        public Environments Environment
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Environment, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader Environment
         {
-            get;set;
+            get;
+            set;
         }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]

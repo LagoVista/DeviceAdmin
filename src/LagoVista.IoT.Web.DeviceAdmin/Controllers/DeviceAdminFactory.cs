@@ -96,7 +96,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             response.Model.Attributes = new List<IoT.DeviceAdmin.Models.Attribute>();
             response.Model.StateMachines = new List<IoT.DeviceAdmin.Models.StateMachine>();
             response.Model.CustomFields = new List<IoT.DeviceAdmin.Models.CustomField>();
-            response.Model.Environment = DeviceConfiguration.Environments.Development;
+            response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             response.Model.ConfigurationVersion = 0.1;
 
             SetAuditProperties(response.Model);
