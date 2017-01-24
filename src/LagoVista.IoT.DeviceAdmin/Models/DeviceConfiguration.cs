@@ -21,8 +21,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Production
         }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceConfig_ConfigVersion, ResourceType: typeof(DeviceLibraryResources))]
-        public String ConfigurationVersion { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceConfig_ConfigVersion, FieldType:FieldTypes.Decimal, IsRequired:true, ResourceType: typeof(DeviceLibraryResources))]
+        public double ConfigurationVersion { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceConfig_Manufacture, ResourceType: typeof(DeviceLibraryResources))]
         public String Manufacture { get; set; }

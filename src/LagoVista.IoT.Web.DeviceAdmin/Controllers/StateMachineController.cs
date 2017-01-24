@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 {
     [Authorize]
-    [Route("api/statemachineadmin")]
+    [Route("api/statemachines")]
     public class StateMachineController : LagoVistaBaseController
     {
         IDeviceAdminManager _deviceAmdinManager;
@@ -100,7 +100,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         ///  State - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("state/factory")]
+        [HttpGet("factory/state")]
         public DetailResponse<State> CreatState()
         {
             var response = DetailResponse<State>.Create();
@@ -111,7 +111,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         ///  State Event - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("event/factory")]
+        [HttpGet("factory/event")]
         public DetailResponse<StateMachineEvent> CreateEvent()
         {
             var response = DetailResponse<StateMachineEvent>.Create();
@@ -122,7 +122,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         ///  State - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("transition/factory")]
+        [HttpGet("factory/transition")]
         public DetailResponse<StateTransition> CreateTransition()
         {
             var response = DetailResponse<StateTransition>.Create();
