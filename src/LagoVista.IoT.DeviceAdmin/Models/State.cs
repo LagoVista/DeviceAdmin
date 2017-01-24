@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.State_Title,  Resources.DeviceLibraryResources.Names.State_UserHelp, Resources.DeviceLibraryResources.Names.State_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel,  typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.State_Title, Resources.DeviceLibraryResources.Names.State_UserHelp, Resources.DeviceLibraryResources.Names.State_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class State : IKeyedEntity
     {
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_TransitionInAction, HelpResource:DeviceLibraryResources.Names.StateMachine_State_TransitionInAction_Help, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
-        public Action TransitionInAction { get; set; } 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_TransitionInAction, HelpResource: DeviceLibraryResources.Names.StateMachine_State_TransitionInAction_Help, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
+        public Action TransitionInAction { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public String Name { get; set; }
@@ -23,5 +23,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_DiagramX, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
+        public int DiagramX {get; set;}
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_DiagramY, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
+        public int DiagramY { get; set; }
+
     }
 }

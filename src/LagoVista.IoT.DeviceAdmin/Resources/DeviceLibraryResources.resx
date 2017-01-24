@@ -717,4 +717,10 @@
   <data name="StateMachine_State_Transitions" xml:space="preserve">
     <value>Transitions</value>
   </data>
+  <data name="StateMachine_State_DiagramX" xml:space="preserve">
+    <value>Diagram X is the location on the state machine diagram where this state should be displayed</value>
+  </data>
+  <data name="StateMachine_State_DiagramY" xml:space="preserve">
+    <value>Diagram Y is the location on the state machine diagram where this state should be displayed</value>
+  </data>
 </root>

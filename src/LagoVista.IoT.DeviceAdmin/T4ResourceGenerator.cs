@@ -590,6 +590,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateMachine_State_Action
 
 		public static string StateMachine_State_Action { get { return GetResourceString("StateMachine_State_Action"); } }
+//Resources:DeviceLibraryResources:StateMachine_State_DiagramX
+
+		public static string StateMachine_State_DiagramX { get { return GetResourceString("StateMachine_State_DiagramX"); } }
+//Resources:DeviceLibraryResources:StateMachine_State_DiagramY
+
+		public static string StateMachine_State_DiagramY { get { return GetResourceString("StateMachine_State_DiagramY"); } }
 //Resources:DeviceLibraryResources:StateMachine_State_TransitionInAction
 
 		public static string StateMachine_State_TransitionInAction { get { return GetResourceString("StateMachine_State_TransitionInAction"); } }
@@ -835,6 +841,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateMachine_NewState_Help = "StateMachine_NewState_Help";
 			public const string StateMachine_State = "StateMachine_State";
 			public const string StateMachine_State_Action = "StateMachine_State_Action";
+			public const string StateMachine_State_DiagramX = "StateMachine_State_DiagramX";
+			public const string StateMachine_State_DiagramY = "StateMachine_State_DiagramY";
 			public const string StateMachine_State_TransitionInAction = "StateMachine_State_TransitionInAction";
 			public const string StateMachine_State_TransitionInAction_Help = "StateMachine_State_TransitionInAction_Help";
 			public const string StateMachine_State_Transitions = "StateMachine_State_Transitions";
