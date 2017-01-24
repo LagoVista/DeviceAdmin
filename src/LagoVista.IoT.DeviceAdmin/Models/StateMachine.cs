@@ -38,6 +38,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Exception_OnInvalidEvent, FieldType: FieldTypes.Bool, HelpResource:DeviceLibraryResources.Names.StateMachine_Exception_OnInvalidEvent_Help, ResourceType: typeof(DeviceLibraryResources))]
         public bool ExceptionOnUnhandledEvent { get; set; }
 
+        public Point DiagramLocation { get; set; }
+
         public StateMachineSummary CreateSummary()
         {
             return new StateMachineSummary()

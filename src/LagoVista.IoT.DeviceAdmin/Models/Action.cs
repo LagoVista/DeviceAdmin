@@ -41,5 +41,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Action_NodeRedFlows, HelpResource: Resources.DeviceLibraryResources.Names.Action_NodeRedFlows, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
         public List<NodeRedFlow> NodeRedFlows { get; set; }
+
+        public Point DiagramLocation { get; set; }
     }
 }

@@ -25,11 +25,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_DiagramX, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
-        public int DiagramX {get; set;}
-
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_DiagramY, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
-        public int DiagramY { get; set; }
-
+        public Point DiagramLocation { get; set; }
     }
 }
