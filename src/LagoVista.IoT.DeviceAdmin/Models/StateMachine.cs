@@ -4,6 +4,7 @@ using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -20,19 +21,19 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader InitialState { get; set; }
 
         [FormField(LabelResource: DeviceLibraryResources.Names.StateMachine_Initialization_Actions, HelpResource: DeviceLibraryResources.Names.StateMachine_Initialization_Actions_Help, FieldType:FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
-        public IEnumerable<EntityHeader> InitialActions {get; set; }
+        public ObservableCollection<EntityHeader> InitialActions {get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
         public String Key { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_States, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_States, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
-        public IEnumerable<State> States { get; set; }
+        public ObservableCollection<State> States { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Variables, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_Variables_Help, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
-        public IEnumerable<CustomField> Variables { get; set; }
+        public ObservableCollection<CustomField> Variables { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Events, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_Events_Help, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
-        public IEnumerable<StateMachineEvent> Events { get; set; }
+        public ObservableCollection<StateMachineEvent> Events { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Exception_OnInvalidEvent, FieldType: FieldTypes.Bool, HelpResource:DeviceLibraryResources.Names.StateMachine_Exception_OnInvalidEvent_Help, ResourceType: typeof(DeviceLibraryResources))]
         public bool ExceptionOnUnhandledEvent { get; set; }
