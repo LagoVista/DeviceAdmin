@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LagoVista.Core.Models;
 using LagoVista.Core;
+using LagoVista.Core.Validation;
 
 namespace LagoVista.IoT.DeviceAdmin.Managers
 {
@@ -28,107 +29,141 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             _stateMachineRepo = stateMachineRepo;
         }
 
-        public Task AddStateMachineAsync(StateMachine attribute, EntityHeader org, EntityHeader user)
+        public async Task<InvokeResult> AddStateMachineAsync(StateMachine stateMachine, EntityHeader org, EntityHeader user)
         {
-            attribute.Id = Guid.NewGuid().ToId();
-            attribute.OwnerOrganization = org;
-            attribute.LastUpdatedBy = user;
-            attribute.CreatedBy = user;
-            attribute.CreationDate = DateTime.Now.ToJSONString();
-            attribute.LastUpdatedDate = attribute.CreationDate;
+            var result = Validator.Validate(stateMachine, Actions.Create);
+            if (result.IsValid)
+            {
+                await _stateMachineRepo.AddStateMachineAsync(stateMachine);
+            }
 
-            return _stateMachineRepo.AddStateMachineAsync(attribute);
+            return result.ToActionResult();
+
         }
 
-        public Task AddSharedActionAsync(SharedAction sharedAction, EntityHeader org, EntityHeader user)
+        public async Task<InvokeResult> AddSharedActionAsync(SharedAction sharedAction, EntityHeader org, EntityHeader user)
         {
-            sharedAction.Id = Guid.NewGuid().ToId();
-            sharedAction.OwnerOrganization = org;
-            sharedAction.LastUpdatedBy = user;
-            sharedAction.CreatedBy = user;
-            sharedAction.CreationDate = DateTime.Now.ToJSONString();
-            sharedAction.LastUpdatedDate = sharedAction.CreationDate;
+            var result = Validator.Validate(sharedAction, Actions.Create);
+            if (result.IsValid)
+            {
+                await _sharedActionRepo.AddSharedActionAsync(sharedAction);
+            }
 
-            return _sharedActionRepo.AddSharedActionAsync(sharedAction);
+            return result.ToActionResult();
         }
 
-        public Task AddSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader org, EntityHeader user)
+        public async Task<InvokeResult> AddSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader org, EntityHeader user)
         {
-            sharedAttribute.Id = Guid.NewGuid().ToId();
-            sharedAttribute.OwnerOrganization = org;
-            sharedAttribute.LastUpdatedBy = user;
-            sharedAttribute.CreatedBy = user;
-            sharedAttribute.CreationDate = DateTime.Now.ToJSONString();
-            sharedAttribute.LastUpdatedDate = sharedAttribute.CreationDate;
+            var result = Validator.Validate(sharedAttribute, Actions.Create);
+            if (result.IsValid)
+            {
+                await _sharedAttributeRepo.AddSharedAttributeAsync(sharedAttribute);
+            }
 
-            return _sharedAttributeRepo.AddSharedAttributeAsync(sharedAttribute);
+            return result.ToActionResult();
         }
 
-        public Task AddUnitSetAsync(AttributeUnitSet unitSet, EntityHeader org, EntityHeader user)
+        public async Task<InvokeResult> AddUnitSetAsync(AttributeUnitSet unitSet, EntityHeader org, EntityHeader user)
         {
-            unitSet.Id = Guid.NewGuid().ToId();
-            unitSet.OwnerOrganization = org;
-            unitSet.LastUpdatedBy = user;
-            unitSet.CreatedBy = user;
-            unitSet.CreationDate = DateTime.Now.ToJSONString();
-            unitSet.LastUpdatedDate = unitSet.CreationDate;
+            var result = Validator.Validate(unitSet, Actions.Create);
+            if (result.IsValid)
+            {
 
-            return _unitSetRepo.AddUnitSetAsync(unitSet);
+                await _unitSetRepo.AddUnitSetAsync(unitSet);
+            }
+
+            return result.ToActionResult();
+
         }
-        public Task AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration, EntityHeader org, EntityHeader user)
+        public async Task<InvokeResult> AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration, EntityHeader org, EntityHeader user)
         {
-            deviceConfiguration.Id = Guid.NewGuid().ToId();
-            deviceConfiguration.OwnerOrganization = org;
-            deviceConfiguration.LastUpdatedBy = user;
-            deviceConfiguration.CreatedBy = user;
-            deviceConfiguration.CreationDate = DateTime.Now.ToJSONString();
-            deviceConfiguration.LastUpdatedDate = deviceConfiguration.CreationDate;
+            var result = Validator.Validate(deviceConfiguration, Actions.Create);
 
-            return _deviceConfigRepo.AddDeviceConfigurationAsync(deviceConfiguration);
-        }
+            if (result.IsValid)
+            {
+                await _deviceConfigRepo.AddDeviceConfigurationAsync(deviceConfiguration);
+            }
 
-        public Task UpdateStateMachineAsync(StateMachine attribute,  EntityHeader user)
-        {
-            attribute.LastUpdatedBy = user;
-            attribute.LastUpdatedDate = DateTime.Now.ToJSONString();
-
-            return _stateMachineRepo.UpdateStateMachineAsync(attribute);
+            return result.ToActionResult();
         }
 
-        public Task UpdateSharedActionAsync(SharedAction sharedAction,  EntityHeader user)
+        public async Task<InvokeResult> UpdateStateMachineAsync(StateMachine stateMachine, EntityHeader user)
         {
-            sharedAction.LastUpdatedBy = user;
-            sharedAction.LastUpdatedDate = DateTime.Now.ToJSONString(); 
+            var result = Validator.Validate(stateMachine, Actions.Create);
 
-            return _sharedActionRepo.UpdateSharedActionAsync(sharedAction);
+            if (result.IsValid)
+            {
+                stateMachine.LastUpdatedBy = user;
+                stateMachine.LastUpdatedDate = DateTime.Now.ToJSONString();
+
+                await _stateMachineRepo.UpdateStateMachineAsync(stateMachine);
+            }
+
+            return result.ToActionResult();
         }
 
-        public Task UpdateSharedAttributeAsync(SharedAttribute sharedAttribute,  EntityHeader user)
+        public async Task<InvokeResult> UpdateSharedActionAsync(SharedAction sharedAction, EntityHeader user)
         {
-            sharedAttribute.LastUpdatedBy = user;
-            sharedAttribute.LastUpdatedDate = DateTime.Now.ToJSONString();
+            var result = Validator.Validate(sharedAction, Actions.Create);
 
-            return _sharedAttributeRepo.UpdateSharedAttributeAsync(sharedAttribute);
+            if (result.IsValid)
+            {
+                sharedAction.LastUpdatedBy = user;
+                sharedAction.LastUpdatedDate = DateTime.Now.ToJSONString();
+                await _sharedActionRepo.UpdateSharedActionAsync(sharedAction);
+            }
+
+            return result.ToActionResult();
+
         }
 
-        public Task UpdateUnitSetAsync(AttributeUnitSet unitSet,  EntityHeader user)
+        public async Task<InvokeResult> UpdateSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader user)
         {
-            unitSet.LastUpdatedBy = user;
-            unitSet.LastUpdatedDate = DateTime.Now.ToJSONString();
-            return _unitSetRepo.UpdateUnitSetAsync(unitSet);
+            var result = Validator.Validate(sharedAttribute, Actions.Create);
+
+            if (result.IsValid)
+            {
+                sharedAttribute.LastUpdatedBy = user;
+                sharedAttribute.LastUpdatedDate = DateTime.Now.ToJSONString();
+
+                await _sharedAttributeRepo.UpdateSharedAttributeAsync(sharedAttribute);
+            }
+
+            return result.ToActionResult();
         }
 
-        public Task UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfig, EntityHeader user)
+        public async Task<InvokeResult> UpdateUnitSetAsync(AttributeUnitSet unitSet, EntityHeader user)
         {
-            deviceConfig.LastUpdatedBy = user;
-            deviceConfig.LastUpdatedDate = DateTime.Now.ToJSONString();
-            return _deviceConfigRepo.UpdateDeviceConfigurationAsync(deviceConfig);
+            var result = Validator.Validate(unitSet, Actions.Create);
+
+            if (result.IsValid)
+            {
+                unitSet.LastUpdatedBy = user;
+                unitSet.LastUpdatedDate = DateTime.Now.ToJSONString();
+                await _unitSetRepo.UpdateUnitSetAsync(unitSet);
+            }
+
+            return result.ToActionResult();
+        }
+
+        public async Task<InvokeResult> UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfig, EntityHeader user)
+        {
+            var result = Validator.Validate(deviceConfig, Actions.Create);
+
+            if (result.IsValid)
+            {
+                deviceConfig.LastUpdatedBy = user;
+                deviceConfig.LastUpdatedDate = DateTime.Now.ToJSONString();
+                await _deviceConfigRepo.UpdateDeviceConfigurationAsync(deviceConfig);
+            }
+
+            return result.ToActionResult();
         }
 
         public async Task<StateMachine> GetStateMachineAsync(String id, EntityHeader org)
         {
             var stateMachine = await _stateMachineRepo.GetStateMachineAsync(id);
-            if(!stateMachine.IsPublic && stateMachine.OwnerOrganization != org)
+            if (!stateMachine.IsPublic && stateMachine.OwnerOrganization != org)
             {
                 throw new Exception();
             }
@@ -144,7 +179,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 throw new Exception();
             }
 
-            return sharedAction;
+            return  sharedAction ;
         }
 
         public async Task<SharedAttribute> GetSharedAttributeAsync(String id, EntityHeader org)
@@ -155,7 +190,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 throw new Exception();
             }
 
-            return sharedAttribute;
+            return  sharedAttribute ;
         }
 
         public async Task<AttributeUnitSet> GetAttributeUnitSetAsync(String id, EntityHeader org)
@@ -180,7 +215,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return deviceConfig;
         }
 
-        public  Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId)
+        public Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId)
         {
             return _stateMachineRepo.GetStateMachinesForOrgAsync(orgId);
         }

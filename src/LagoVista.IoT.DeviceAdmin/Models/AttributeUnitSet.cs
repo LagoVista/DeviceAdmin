@@ -1,6 +1,7 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
+using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Collections.Generic;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.AttributeUnitSet_Title,  Resources.DeviceLibraryResources.Names.AttributeUnitSet_Help, Resources.DeviceLibraryResources.Names.AttributeUnitSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
-    public class AttributeUnitSet : DeviceModelBase, IKeyedEntity, IOwnedEntity
+    public class AttributeUnitSet : DeviceModelBase, IKeyedEntity, IOwnedEntity, IValidateable
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsPublic { get; set; }
