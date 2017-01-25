@@ -33,7 +33,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 
         public async Task<IEnumerable<DeviceConfigurationSummary>> GetDeviceConfigurationsForOrgAsync(string orgId)
         {
-            var items = await base.QueryAsync(qry => qry.OwnerOrganization.Id == orgId);
+            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId);
 
             return from item in items
                    select item.CreateSummary();

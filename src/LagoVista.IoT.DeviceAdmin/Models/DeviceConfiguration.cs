@@ -97,16 +97,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Title, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Help, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Description, EntityDescriptionAttribute.EntityTypes.Summary, typeof(DeviceLibraryResources))]
     public class DeviceConfigurationSummary
     {
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        [ListColumn(Visible:false)]
         public String Id { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, IsUserEditable: false, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]
+        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsPublic { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsUserEditable: false)]
+        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources))]
         public String Name { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, IsUserEditable: false, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_Key,  ResourceType: typeof(DeviceLibraryResources))]
         public String Key { get; set; }
     }
 }
