@@ -165,7 +165,6 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<AttributeUnit> CreatAttributeUnit()
         {
             var response = DetailResponse<AttributeUnit>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }
 

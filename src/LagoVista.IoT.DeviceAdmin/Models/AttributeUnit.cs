@@ -22,7 +22,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.AttributeUnit_Abbreviation, IsRequired: true, MaxLength: 6, ResourceType: typeof(DeviceLibraryResources))]
         public String Abbreviation { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType:FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.AttributeUnit_NumberDecimal, IsRequired: true, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
@@ -31,7 +31,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.AttributeUnit_ConversionScript, FieldType:FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.AttributeUnit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
         public String ConversionScript { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.AttributeUnit_IsDefault, HelpResource: Resources.DeviceLibraryResources.Names.AttributeUnit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.AttributeUnit_IsDefault, FieldType:FieldTypes.CheckBox, HelpResource: Resources.DeviceLibraryResources.Names.AttributeUnit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
         public String IsDefault { get; set; }
     }
 
