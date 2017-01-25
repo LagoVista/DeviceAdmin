@@ -185,7 +185,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         public async Task<SharedAttribute> GetSharedAttributeAsync(String id, EntityHeader org)
         {
             var sharedAttribute = await _sharedAttributeRepo.GetSharedAttributeAsync(id);
-            if (!sharedAttribute.IsPublic && sharedAttribute.OwnerOrganization != org)
+            if (!sharedAttribute.IsPublic && sharedAttribute.OwnerOrganization.Id != org.Id)
             {
                 throw new Exception();
             }
@@ -196,7 +196,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         public async Task<AttributeUnitSet> GetAttributeUnitSetAsync(String id, EntityHeader org)
         {
             var unitSet = await _unitSetRepo.GetUnitSetAsync(id);
-            if (!unitSet.IsPublic && unitSet.OwnerOrganization != org)
+            if (!unitSet.IsPublic && (unitSet.OwnerOrganization.Id != org.Id))
             {
                 throw new Exception();
             }
@@ -207,7 +207,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         public async Task<DeviceConfiguration> GetDeviceConfigurationAsync(String id, EntityHeader org)
         {
             var deviceConfig = await _deviceConfigRepo.GetDeviceConfigurationAsync(id);
-            if (!deviceConfig.IsPublic && deviceConfig.OwnerOrganization != org)
+            if (!deviceConfig.IsPublic && deviceConfig.OwnerOrganization.Id != org.Id)
             {
                 throw new Exception();
             }
