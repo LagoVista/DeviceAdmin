@@ -39,7 +39,8 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <summary>
         /// Environment - Get List of Hosting Environments
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of current environments for org</returns>
+        [HttpGet("environments")]
         public InvokeResult<List<LagoVista.IoT.DeviceAdmin.Models.Environment>> GetEnvironmentList()
         {
             //TODO: Eventually we will add to this, for now we have dev/test/prod
