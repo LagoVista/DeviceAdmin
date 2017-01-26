@@ -765,6 +765,6 @@
     <value />
   </data>
   <data name="Attribute_AttributeType_Select" xml:space="preserve">
-    <value>select attribute type</value>
+    <value>-select attribute type-</value>
   </data>
 </root>
