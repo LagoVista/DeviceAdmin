@@ -27,6 +27,7 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<bool> QueryAttributeUnitSetKeyInUseAsync(string key, string orgId);
         Task<bool> QuerySharedAttributeKeyInUseAsync(string key, string orgId);
         Task<bool> QueryStateMachineKeyInUseAsync(string key, string orgId);
+        Task<bool> QueryDeviceConfigurationKeyInUseAsync(String key, String orgId);
 
         Task<StateMachine> GetStateMachineAsync(string id, EntityHeader org);
         Task<SharedAction> GetSharedActionAsync(string id, EntityHeader org);

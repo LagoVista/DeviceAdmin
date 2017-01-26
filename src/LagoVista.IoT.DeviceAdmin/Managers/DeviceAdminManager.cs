@@ -240,6 +240,11 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return _deviceConfigRepo.GetDeviceConfigurationsForOrgAsync(orgId);
         }
 
+        public Task<bool> QueryDeviceConfigurationKeyInUseAsync(String key, String orgId)
+        {
+            return _deviceConfigRepo.QueryKeyInUseAsync(key, orgId);
+        }
+
         public Task<bool> QueryStateMachineKeyInUseAsync(String key, String orgId)
         {
             return _stateMachineRepo.QueryKeyInUseAsync(key, orgId);

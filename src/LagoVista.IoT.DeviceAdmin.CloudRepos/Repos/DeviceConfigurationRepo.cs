@@ -39,5 +39,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
                    select item.CreateSummary();
         }
 
+        public async Task<bool> QueryKeyInUseAsync(string key, string orgId)
+        {
+            var items = await base.QueryAsync(attr => (attr.OwnerOrganization.Id == orgId || attr.IsPublic == true) && attr.Key == key);
+            return items.Any();
+        }
     }
 }

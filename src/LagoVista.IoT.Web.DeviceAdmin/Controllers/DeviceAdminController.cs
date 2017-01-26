@@ -271,5 +271,15 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 
             return response;
         }
+
+        /// <summary>
+        /// Device Config - Key In Use
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("deviceconfiguration/keyinuse/{key}")]
+        public Task<bool> DeviceConfigKeyInUse(String key)
+        {
+            return _attrManager.QueryAttributeUnitSetKeyInUseAsync(key, CurrentOrgId);
+        }
     }
 }
