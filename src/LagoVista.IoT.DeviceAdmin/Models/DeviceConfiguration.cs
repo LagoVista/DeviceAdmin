@@ -91,6 +91,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 Id = Id,
                 IsPublic = IsPublic,
+                Key = Key,
                 Name = Name,
             };
         }
