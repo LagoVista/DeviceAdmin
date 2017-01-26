@@ -1,6 +1,7 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
+using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 
@@ -17,7 +18,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     /// attached to it.
     /// </summary>
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.SharedAttribute_Title,  Resources.DeviceLibraryResources.Names.SharedAttribute_Help, DeviceLibraryResources.Names.SharedAttribute_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class SharedAttribute : DeviceModelBase, IOwnedEntity, IKeyedEntity
+    public class SharedAttribute : DeviceModelBase, IOwnedEntity, IKeyedEntity, IValidateable
     {
         public bool IsPublic { get; set; }
         public EntityHeader OwnerOrganization { get; set; }

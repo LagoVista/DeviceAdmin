@@ -2,8 +2,8 @@
   "version": "0.8",
   "supports": {},
   "dependencies": {
-    "LagoVista.Core": "0.8.28-alpha00700",
-    "LagoVista.UserManagement": "0.8.25-alpha00768",
+    "LagoVista.Core": "0.8.55-alpha01346",
+    "LagoVista.UserManagement": "0.8.55-alpha01133",
     "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
     "NETStandard.Library": "1.6.1",
     "Newtonsoft.Json": "9.0.1"

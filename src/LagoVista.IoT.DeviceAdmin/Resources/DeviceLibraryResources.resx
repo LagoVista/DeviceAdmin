@@ -717,4 +717,30 @@
   <data name="StateMachine_State_Transitions" xml:space="preserve">
     <value>Transitions</value>
   </data>
+  <data name="StateMachine_State_DiagramX" xml:space="preserve">
+    <value>Diagram X is the location on the state machine diagram where this state should be displayed</value>
+  </data>
+  <data name="StateMachine_State_DiagramY" xml:space="preserve">
+    <value>Diagram Y is the location on the state machine diagram where this state should be displayed</value>
+  </data>
+  <data name="Environment" xml:space="preserve">
+    <value>Environment</value>
+    <comment>You can configure different environments so you can test your configurations prior to putting them into production</comment>
+  </data>
+  <data name="Environments" xml:space="preserve">
+    <value>Environments</value>
+    <comment>You can configure different environments so you can test your configurations prior to putting them into production</comment>
+  </data>
+  <data name="Environment_Dev" xml:space="preserve">
+    <value>Development</value>
+  </data>
+  <data name="Environment_Help" xml:space="preserve">
+    <value>You can configure different environments so you can test your configurations prior to putting them into production</value>
+  </data>
+  <data name="Environment_Production" xml:space="preserve">
+    <value>Production</value>
+  </data>
+  <data name="Environment_Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
 </root>

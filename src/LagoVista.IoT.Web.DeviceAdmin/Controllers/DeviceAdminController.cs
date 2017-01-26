@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using LagoVista.IoT.Web.Common.Controllers;
+using System.Collections.Generic;
+using LagoVista.Core.Validation;
 
 namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 {
@@ -29,9 +31,19 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("attributeunitset/keyinuse/{key}")]
-        public async Task<bool> UnitSetKeyInUse(String key)
+        public Task<bool> UnitSetKeyInUse(String key)
         {
-            return await _attrManager.QueryAttributeUnitSetKeyInUseAsync(key, CurrentOrgId);
+            return _attrManager.QueryAttributeUnitSetKeyInUseAsync(key, CurrentOrgId);
+        }
+
+        /// <summary>
+        /// Environment - Get List of Hosting Environments
+        /// </summary>
+        /// <returns></returns>
+        public InvokeResult<List<LagoVista.IoT.DeviceAdmin.Models.Environment>> GetEnvironmentList()
+        {
+            //TODO: Eventually we will add to this, for now we have dev/test/prod
+            return new InvokeResult<List<IoT.DeviceAdmin.Models.Environment>>() { Result = LagoVista.IoT.DeviceAdmin.Models.Environment.GetStandardList() };
         }
 
         /// <summary>
@@ -40,7 +52,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="unitSet"></param>
         /// <returns></returns>
         [HttpPost("attributeunitset")]
-        public Task AddAttributeSet(AttributeUnitSet unitSet)
+        public Task<InvokeResult> AddAttributeSet([FromBody] AttributeUnitSet unitSet)
         {
             return _attrManager.AddUnitSetAsync(unitSet, UserEntityHeader, OrgEntityHeader);
         }
@@ -51,7 +63,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="unitSet"></param>
         /// <returns></returns>
         [HttpPut("attributeunitset")]
-        public Task UpdateAttributeSet(AttributeUnitSet unitSet)
+        public Task<InvokeResult> UpdateAttributeSet([FromBody] AttributeUnitSet unitSet)
         {
             return _attrManager.UpdateUnitSetAsync(unitSet, UserEntityHeader);
         }
@@ -91,9 +103,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <returns>.</returns>
         [HttpGet("sharedattribute/keyinuse/{key}")]
-        public async Task<bool> SharedAttributeKeyInUse(String key)
+        public  Task<bool> SharedAttributeKeyInUse(String key)
         {
-            return await _attrManager.QuerySharedAttributeKeyInUseAsync(key, CurrentOrgId);
+            return _attrManager.QuerySharedAttributeKeyInUseAsync(key, CurrentOrgId);
         }
 
         /// <summary>
@@ -102,7 +114,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="sharedAttribute"></param>
         /// <returns></returns>
         [HttpPost("sharedattribute")]
-        public Task AddSharedAttributeAsync(SharedAttribute sharedAttribute)
+        public Task<InvokeResult> AddSharedAttributeAsync([FromBody] SharedAttribute sharedAttribute)
         {
             return _attrManager.AddSharedAttributeAsync(sharedAttribute, UserEntityHeader, OrgEntityHeader);
         }
@@ -113,7 +125,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="sharedAttribute"></param>
         /// <returns></returns>
         [HttpPut("sharedattribute")]
-        public Task UpdateSharedAttribute(SharedAttribute sharedAttribute)
+        public Task<InvokeResult> UpdateSharedAttribute([FromBody] SharedAttribute sharedAttribute)
         {
             return _attrManager.UpdateSharedAttributeAsync(sharedAttribute, UserEntityHeader);
         }
@@ -164,7 +176,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="sharedAction"></param>
         /// <returns></returns>
         [HttpPost("sharedaction")]
-        public Task AddSharedActionAsync(SharedAction sharedAction)
+        public Task<InvokeResult> AddSharedActionAsync([FromBody] SharedAction sharedAction)
         {
             return _attrManager.AddSharedActionAsync(sharedAction, UserEntityHeader, OrgEntityHeader);
         }
@@ -175,7 +187,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="sharedAction"></param>
         /// <returns></returns>
         [HttpPut("sharedaction")]
-        public Task UpdateSharedAction(SharedAction sharedAction)
+        public Task<InvokeResult> UpdateSharedAction([FromBody] SharedAction sharedAction)
         {
             return _attrManager.UpdateSharedActionAsync(sharedAction, UserEntityHeader);
         }
@@ -215,7 +227,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="deviceConfiguration"></param>
         /// <returns></returns>
         [HttpPost("deviceconfiguration")]
-        public Task AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration)
+        public Task<InvokeResult> AddDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
         {
             return _attrManager.AddDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader, OrgEntityHeader);
         }
@@ -226,7 +238,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="deviceConfiguration"></param>
         /// <returns></returns>
         [HttpPut("deviceconfiguration")]
-        public Task UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration)
+        public Task<InvokeResult> UpdateDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
         {
             return _attrManager.UpdateDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader);
         }

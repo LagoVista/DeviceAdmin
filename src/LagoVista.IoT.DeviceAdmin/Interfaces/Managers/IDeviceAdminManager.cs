@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Models;
+using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
 {
     public interface IDeviceAdminManager
     {
-        Task AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration, EntityHeader org, EntityHeader user);
-        Task AddSharedActionAsync(SharedAction sharedAction, EntityHeader org, EntityHeader user);
-        Task AddSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader org, EntityHeader user);
-        Task AddStateMachineAsync(StateMachine attribute, EntityHeader org, EntityHeader user);
-        Task AddUnitSetAsync(AttributeUnitSet unitSet, EntityHeader org, EntityHeader user);
+        Task<InvokeResult> AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration, EntityHeader org, EntityHeader user);
+        Task<InvokeResult> AddSharedActionAsync(SharedAction sharedAction, EntityHeader org, EntityHeader user);
+        Task<InvokeResult> AddSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader org, EntityHeader user);
+        Task<InvokeResult> AddStateMachineAsync(StateMachine attribute, EntityHeader org, EntityHeader user);
+        Task<InvokeResult> AddUnitSetAsync(AttributeUnitSet unitSet, EntityHeader org, EntityHeader user);
 
         Task<IEnumerable<DeviceConfigurationSummary>> GetDeviceConfigurationsForOrgsAsync(string orgId);
         Task<IEnumerable<SharedActionSummary>> GetSharedActionsForOrgAsync(string orgId);
@@ -33,10 +34,10 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<AttributeUnitSet> GetAttributeUnitSetAsync(string id, EntityHeader org);
         Task<DeviceConfiguration> GetDeviceConfigurationAsync(string id, EntityHeader org);
 
-        Task UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfig, EntityHeader user);
-        Task UpdateSharedActionAsync(SharedAction sharedAction, EntityHeader user);
-        Task UpdateSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader user);
-        Task UpdateStateMachineAsync(StateMachine attribute, EntityHeader user);
-        Task UpdateUnitSetAsync(AttributeUnitSet unitSet, EntityHeader user);
+        Task<InvokeResult> UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfig, EntityHeader user);
+        Task<InvokeResult> UpdateSharedActionAsync(SharedAction sharedAction, EntityHeader user);
+        Task<InvokeResult> UpdateSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader user);
+        Task<InvokeResult> UpdateStateMachineAsync(StateMachine attribute, EntityHeader user);
+        Task<InvokeResult> UpdateUnitSetAsync(AttributeUnitSet unitSet, EntityHeader user);
     }
 }

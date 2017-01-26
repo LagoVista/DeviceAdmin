@@ -467,6 +467,32 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:DeviceConfiguration_Title
 
 		public static string DeviceConfiguration_Title { get { return GetResourceString("DeviceConfiguration_Title"); } }
+//Resources:DeviceLibraryResources:Environment
+
+
+		///<summary>
+		///You can configure different environments so you can test your configurations prior to putting them into production
+		///</summary>
+		public static string Environment { get { return GetResourceString("Environment"); } }
+//Resources:DeviceLibraryResources:Environment_Dev
+
+		public static string Environment_Dev { get { return GetResourceString("Environment_Dev"); } }
+//Resources:DeviceLibraryResources:Environment_Help
+
+		public static string Environment_Help { get { return GetResourceString("Environment_Help"); } }
+//Resources:DeviceLibraryResources:Environment_Production
+
+		public static string Environment_Production { get { return GetResourceString("Environment_Production"); } }
+//Resources:DeviceLibraryResources:Environment_Test
+
+		public static string Environment_Test { get { return GetResourceString("Environment_Test"); } }
+//Resources:DeviceLibraryResources:Environments
+
+
+		///<summary>
+		///You can configure different environments so you can test your configurations prior to putting them into production
+		///</summary>
+		public static string Environments { get { return GetResourceString("Environments"); } }
 //Resources:DeviceLibraryResources:Gateway_Account
 
 		public static string Gateway_Account { get { return GetResourceString("Gateway_Account"); } }
@@ -590,6 +616,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateMachine_State_Action
 
 		public static string StateMachine_State_Action { get { return GetResourceString("StateMachine_State_Action"); } }
+//Resources:DeviceLibraryResources:StateMachine_State_DiagramX
+
+		public static string StateMachine_State_DiagramX { get { return GetResourceString("StateMachine_State_DiagramX"); } }
+//Resources:DeviceLibraryResources:StateMachine_State_DiagramY
+
+		public static string StateMachine_State_DiagramY { get { return GetResourceString("StateMachine_State_DiagramY"); } }
 //Resources:DeviceLibraryResources:StateMachine_State_TransitionInAction
 
 		public static string StateMachine_State_TransitionInAction { get { return GetResourceString("StateMachine_State_TransitionInAction"); } }
@@ -794,6 +826,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string DeviceConfiguration_Description = "DeviceConfiguration_Description";
 			public const string DeviceConfiguration_Help = "DeviceConfiguration_Help";
 			public const string DeviceConfiguration_Title = "DeviceConfiguration_Title";
+			public const string Environment = "Environment";
+			public const string Environment_Dev = "Environment_Dev";
+			public const string Environment_Help = "Environment_Help";
+			public const string Environment_Production = "Environment_Production";
+			public const string Environment_Test = "Environment_Test";
+			public const string Environments = "Environments";
 			public const string Gateway_Account = "Gateway_Account";
 			public const string Gateway_Address = "Gateway_Address";
 			public const string Gateway_Address_Help = "Gateway_Address_Help";
@@ -835,6 +873,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateMachine_NewState_Help = "StateMachine_NewState_Help";
 			public const string StateMachine_State = "StateMachine_State";
 			public const string StateMachine_State_Action = "StateMachine_State_Action";
+			public const string StateMachine_State_DiagramX = "StateMachine_State_DiagramX";
+			public const string StateMachine_State_DiagramY = "StateMachine_State_DiagramY";
 			public const string StateMachine_State_TransitionInAction = "StateMachine_State_TransitionInAction";
 			public const string StateMachine_State_TransitionInAction_Help = "StateMachine_State_TransitionInAction_Help";
 			public const string StateMachine_State_Transitions = "StateMachine_State_Transitions";

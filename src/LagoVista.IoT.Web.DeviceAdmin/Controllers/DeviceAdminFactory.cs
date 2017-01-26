@@ -92,6 +92,13 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         {
             var response = DetailResponse<DeviceConfiguration>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
+            response.Model.Actions = new List<IoT.DeviceAdmin.Models.Action>();
+            response.Model.Attributes = new List<IoT.DeviceAdmin.Models.Attribute>();
+            response.Model.StateMachines = new List<IoT.DeviceAdmin.Models.StateMachine>();
+            response.Model.CustomFields = new List<IoT.DeviceAdmin.Models.CustomField>();
+            response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
+            response.Model.ConfigurationVersion = 0.1;
+
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
             return response;
@@ -158,7 +165,6 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<AttributeUnit> CreatAttributeUnit()
         {
             var response = DetailResponse<AttributeUnit>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }
 

@@ -22,7 +22,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Web", "src\LagoVista.IoT.We
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Repo", "src\LagoVista.IoT.DeviceAdmin.CloudRepos\Repo.xproj", "{F4AFB352-C589-4955-809A-B350576C8E9C}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LagoVista.IoT.DevieAdmin", "test\LagoVista.IoT.DevieAdmin\LagoVista.IoT.DevieAdmin.xproj", "{B7956272-06B8-448A-A566-E15EF7009F3C}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LagoVista.IoT.DeviceAdmin", "test\LagoVista.IoT.DeviceAdmin.Tests\DeviceAdminTests.xproj", "{B7956272-06B8-448A-A566-E15EF7009F3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

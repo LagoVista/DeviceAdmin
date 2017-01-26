@@ -1,4 +1,5 @@
-﻿using LagoVista.Core.Models.UIMetaData;
+﻿using LagoVista.Core.Interfaces;
+using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.PlatformSupport;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
 using LagoVista.IoT.DeviceAdmin.Models;
@@ -7,18 +8,36 @@ using LagoVista.UserManagement.Models.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using LagoVista.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 {
     [Authorize]
-    [Route("api/statemachineadmin")]
+    [Route("api/statemachines")]
     public class StateMachineController : LagoVistaBaseController
     {
         IDeviceAdminManager _deviceAmdinManager;
+
+        private void SetAuditProperties(IAuditableEntity entity)
+        {
+            var createDate = DateTime.Now.ToJSONString();
+
+            entity.CreationDate = createDate;
+            entity.LastUpdatedDate = createDate;
+            entity.CreatedBy = UserEntityHeader;
+            entity.LastUpdatedBy = UserEntityHeader;
+        }
+
+        private void SetOwnedProperties(IOwnedEntity entity)
+        {
+            entity.OwnerOrganization = OrgEntityHeader;
+        }
+
 
         public StateMachineController(UserManager<AppUser> userManager, ILogger logger, IDeviceAdminManager deviceAdminManager) : base(userManager, logger)
         {
@@ -32,7 +51,18 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         [HttpGet("factory")]
         public DetailResponse<StateMachine> NewStateMachine()
         {
-            return DetailResponse<StateMachine>.Create();
+            var stateMachine = DetailResponse<StateMachine>.Create();
+            stateMachine.Model.Id = Guid.NewGuid().ToId();
+
+            SetOwnedProperties(stateMachine.Model);
+            SetAuditProperties(stateMachine.Model);
+
+            stateMachine.Model.States = new ObservableCollection<State>();
+            stateMachine.Model.Events = new ObservableCollection<StateMachineEvent>();
+            stateMachine.Model.Variables = new ObservableCollection<CustomField>();
+            stateMachine.Model.InitialActions = new ObservableCollection<Core.Models.EntityHeader>();
+
+            return stateMachine;
         }
 
         /// <summary>
@@ -51,7 +81,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="stateMachine"></param>
         /// <returns></returns>
         [HttpPost()]
-        public Task AddStateMachine(StateMachine stateMachine)
+        public Task AddStateMachine([FromBody] StateMachine stateMachine)
         {
             return _deviceAmdinManager.AddStateMachineAsync(stateMachine, UserEntityHeader, OrgEntityHeader);
         }
@@ -62,7 +92,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="stateMachine"></param>
         /// <returns></returns>
         [HttpPut()]
-        public Task UpdateAttributeSet(StateMachine stateMachine)
+        public Task UpdateAttributeSet([FromBody] StateMachine stateMachine)
         {
             return _deviceAmdinManager.UpdateStateMachineAsync(stateMachine, UserEntityHeader);
         }
@@ -100,10 +130,11 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         ///  State - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("state/factory")]
+        [HttpGet("factory/state")]
         public DetailResponse<State> CreatState()
         {
             var response = DetailResponse<State>.Create();
+            response.Model.Transitions = new ObservableCollection<StateTransition>();
             return response;
         }
 
@@ -111,7 +142,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         ///  State Event - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("event/factory")]
+        [HttpGet("factory/event")]
         public DetailResponse<StateMachineEvent> CreateEvent()
         {
             var response = DetailResponse<StateMachineEvent>.Create();
@@ -122,10 +153,11 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         ///  State - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("transition/factory")]
+        [HttpGet("factory/transition")]
         public DetailResponse<StateTransition> CreateTransition()
         {
             var response = DetailResponse<StateTransition>.Create();
+            response.Model.TransitionActions = new ObservableCollection<IEntityHeader>();
             return response;
         }
     }

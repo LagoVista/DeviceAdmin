@@ -5,6 +5,7 @@ using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -48,12 +49,14 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Shared, HelpResource: Resources.DeviceLibraryResources.Names.Action_Standard_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader SharedAttribute { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Simple, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public IEnumerable<AttributeUnitSet> Units { get; set; }
+        public ObservableCollection<AttributeUnitSet> Units { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_StateMachine, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_StateMachine_Help, ResourceType: typeof(DeviceLibraryResources))]
         public StateMachine StateMachine { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Notes, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public IEnumerable<AdminNote> Notes { get; set; }
+        public ObservableCollection<AdminNote> Notes { get; set; }
+
+        public Point DiagramLocation { get; set; }
 
         public AttributeSummary CreateSummary()
         {
