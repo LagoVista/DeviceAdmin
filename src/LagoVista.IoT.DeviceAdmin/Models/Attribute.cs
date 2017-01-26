@@ -23,12 +23,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public enum AttributeTypes
         {
-            [EnumLabel("statemachine", DeviceLibraryResources.Names.Attribute_StateMachine, typeof(DeviceLibraryResources))]
+            [EnumLabel("statemachine", DeviceLibraryResources.Names.Attribute_StateMachine, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_StateMachine_Help)]
             StateMachine,
-            [EnumLabel("sharedattribute", DeviceLibraryResources.Names.Attribute_Shared, typeof(DeviceLibraryResources))]
-            SharedAttribute,
-            [EnumLabel("simple", DeviceLibraryResources.Names.Attribute_Simple, typeof(DeviceLibraryResources))]
-            Simple
+            [EnumLabel("discrete", DeviceLibraryResources.Names.Attribute_Discrete, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_Discrete_Help)]
+            Discrete
         }
 
         public enum AttributeDirections
@@ -45,15 +43,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public AttributeDirections Direction { get; set; }
 
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
         public EntityHeader AttributeType { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript_Hellp, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
         public String Script { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Shared, HelpResource: Resources.DeviceLibraryResources.Names.Action_Standard_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader SharedAttribute { get; set; }
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Simple, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.AttributeUnit_Help, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<AttributeUnitSet> Units { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_StateMachine, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_StateMachine_Help, ResourceType: typeof(DeviceLibraryResources))]
         public StateMachine StateMachine { get; set; }

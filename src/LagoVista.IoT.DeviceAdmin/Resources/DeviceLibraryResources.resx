@@ -417,8 +417,8 @@
   <data name="Common_Notes" xml:space="preserve">
     <value>Notes</value>
   </data>
-  <data name="Attribute_Simple" xml:space="preserve">
-    <value>Simple</value>
+  <data name="Attribute_Discrete" xml:space="preserve">
+    <value>Discrete Value</value>
   </data>
   <data name="Attribute_Shared" xml:space="preserve">
     <value>Shared</value>
@@ -746,7 +746,22 @@
   <data name="Attribute_SetScript" xml:space="preserve">
     <value>On Set Script</value>
   </data>
-  <data name="Attribute_SetScript_Hellp" xml:space="preserve">
+  <data name="Attribute_SetScript_Help" xml:space="preserve">
     <value>You can modify the On Set Script to run an action when this value is being set.  You will have the old value, new value and where this attribute is getting set from available to use in your script.</value>
+  </data>
+  <data name="Attribute_AttributeType" xml:space="preserve">
+    <value>Attribute Type</value>
+  </data>
+  <data name="Attribute_AttributeType_Help" xml:space="preserve">
+    <value>The Attribute Type is used to determine the type of value that will be stored.  It can be a discrete value such as a number for a measurement, or it can be a state machine.  A simple example of a state machine is an On Off switch, it can have one of two states On or Off.</value>
+  </data>
+  <data name="Attribute_Discrete_Help" xml:space="preserve">
+    <value>A discrete value is a numeric value that qunatifies something.  This could be something like a temperature, speed. RPM.</value>
+  </data>
+  <data name="Attribute_UnitSet" xml:space="preserve">
+    <value>Units</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
 </root>

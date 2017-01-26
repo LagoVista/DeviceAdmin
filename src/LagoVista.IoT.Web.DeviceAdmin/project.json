@@ -9,8 +9,8 @@
     "Microsoft.AspNetCore.Identity": "1.1.0",
     "Microsoft.AspNetCore.Routing": "1.1.0",
     "LagoVista.IoT.DeviceAdmin.CloudRepos": "0.8",
-    "LagoVista.UserManagement": "0.8.55-alpha01133",
-    "LagoVista.IoT.Web.Common": "0.8.48-alpha01199",
+    "LagoVista.UserManagement":"0.8.56-alpha01014",
+    "LagoVista.IoT.Web.Common":"0.8.48-alpha01199",
     "LagoVista.Core": "0.8.56-alpha00940"
   },
 

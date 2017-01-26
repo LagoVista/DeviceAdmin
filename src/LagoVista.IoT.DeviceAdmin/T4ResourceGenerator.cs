@@ -149,6 +149,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:AdminNote_Title
 
 		public static string AdminNote_Title { get { return GetResourceString("AdminNote_Title"); } }
+//Resources:DeviceLibraryResources:Attribute_AttributeType
+
+		public static string Attribute_AttributeType { get { return GetResourceString("Attribute_AttributeType"); } }
+//Resources:DeviceLibraryResources:Attribute_AttributeType_Help
+
+		public static string Attribute_AttributeType_Help { get { return GetResourceString("Attribute_AttributeType_Help"); } }
 //Resources:DeviceLibraryResources:Attribute_Description
 
 		public static string Attribute_Description { get { return GetResourceString("Attribute_Description"); } }
@@ -167,24 +173,27 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Attribute_Direction_Output
 
 		public static string Attribute_Direction_Output { get { return GetResourceString("Attribute_Direction_Output"); } }
+//Resources:DeviceLibraryResources:Attribute_Discrete
+
+		public static string Attribute_Discrete { get { return GetResourceString("Attribute_Discrete"); } }
+//Resources:DeviceLibraryResources:Attribute_Discrete_Help
+
+		public static string Attribute_Discrete_Help { get { return GetResourceString("Attribute_Discrete_Help"); } }
 //Resources:DeviceLibraryResources:Attribute_Help
 
 		public static string Attribute_Help { get { return GetResourceString("Attribute_Help"); } }
 //Resources:DeviceLibraryResources:Attribute_SetScript
 
 		public static string Attribute_SetScript { get { return GetResourceString("Attribute_SetScript"); } }
-//Resources:DeviceLibraryResources:Attribute_SetScript_Hellp
+//Resources:DeviceLibraryResources:Attribute_SetScript_Help
 
-		public static string Attribute_SetScript_Hellp { get { return GetResourceString("Attribute_SetScript_Hellp"); } }
+		public static string Attribute_SetScript_Help { get { return GetResourceString("Attribute_SetScript_Help"); } }
 //Resources:DeviceLibraryResources:Attribute_Shared
 
 		public static string Attribute_Shared { get { return GetResourceString("Attribute_Shared"); } }
 //Resources:DeviceLibraryResources:Attribute_SharedAttribute_Help
 
 		public static string Attribute_SharedAttribute_Help { get { return GetResourceString("Attribute_SharedAttribute_Help"); } }
-//Resources:DeviceLibraryResources:Attribute_Simple
-
-		public static string Attribute_Simple { get { return GetResourceString("Attribute_Simple"); } }
 //Resources:DeviceLibraryResources:Attribute_StateMachine
 
 		public static string Attribute_StateMachine { get { return GetResourceString("Attribute_StateMachine"); } }
@@ -194,6 +203,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Attribute_Title
 
 		public static string Attribute_Title { get { return GetResourceString("Attribute_Title"); } }
+//Resources:DeviceLibraryResources:Attribute_UnitSet
+
+		public static string Attribute_UnitSet { get { return GetResourceString("Attribute_UnitSet"); } }
 //Resources:DeviceLibraryResources:Attribute_UnitSet_Help
 
 		public static string Attribute_UnitSet_Help { get { return GetResourceString("Attribute_UnitSet_Help"); } }
@@ -691,6 +703,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateTransition_UserHelp
 
 		public static string StateTransition_UserHelp { get { return GetResourceString("StateTransition_UserHelp"); } }
+//Resources:DeviceLibraryResources:String1
+
+		public static string String1 { get { return GetResourceString("String1"); } }
 
 		public static class Names
 		{
@@ -726,21 +741,25 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string AdminNote_Description = "AdminNote_Description";
 			public const string AdminNote_Help = "AdminNote_Help";
 			public const string AdminNote_Title = "AdminNote_Title";
+			public const string Attribute_AttributeType = "Attribute_AttributeType";
+			public const string Attribute_AttributeType_Help = "Attribute_AttributeType_Help";
 			public const string Attribute_Description = "Attribute_Description";
 			public const string Attribute_Direction = "Attribute_Direction";
 			public const string Attribute_Direction_Help = "Attribute_Direction_Help";
 			public const string Attribute_Direction_Input = "Attribute_Direction_Input";
 			public const string Attribute_Direction_InputAndOutput = "Attribute_Direction_InputAndOutput";
 			public const string Attribute_Direction_Output = "Attribute_Direction_Output";
+			public const string Attribute_Discrete = "Attribute_Discrete";
+			public const string Attribute_Discrete_Help = "Attribute_Discrete_Help";
 			public const string Attribute_Help = "Attribute_Help";
 			public const string Attribute_SetScript = "Attribute_SetScript";
-			public const string Attribute_SetScript_Hellp = "Attribute_SetScript_Hellp";
+			public const string Attribute_SetScript_Help = "Attribute_SetScript_Help";
 			public const string Attribute_Shared = "Attribute_Shared";
 			public const string Attribute_SharedAttribute_Help = "Attribute_SharedAttribute_Help";
-			public const string Attribute_Simple = "Attribute_Simple";
 			public const string Attribute_StateMachine = "Attribute_StateMachine";
 			public const string Attribute_StateMachine_Help = "Attribute_StateMachine_Help";
 			public const string Attribute_Title = "Attribute_Title";
+			public const string Attribute_UnitSet = "Attribute_UnitSet";
 			public const string Attribute_UnitSet_Help = "Attribute_UnitSet_Help";
 			public const string AttributeUnit_Abbreviation = "AttributeUnit_Abbreviation";
 			public const string AttributeUnit_ConversionScript = "AttributeUnit_ConversionScript";
@@ -904,6 +923,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateTransition_Description = "StateTransition_Description";
 			public const string StateTransition_Title = "StateTransition_Title";
 			public const string StateTransition_UserHelp = "StateTransition_UserHelp";
+			public const string String1 = "String1";
 		}
 	}
 }
