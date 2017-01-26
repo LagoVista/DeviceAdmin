@@ -155,6 +155,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Attribute_AttributeType_Help
 
 		public static string Attribute_AttributeType_Help { get { return GetResourceString("Attribute_AttributeType_Help"); } }
+//Resources:DeviceLibraryResources:Attribute_AttributeType_Select
+
+		public static string Attribute_AttributeType_Select { get { return GetResourceString("Attribute_AttributeType_Select"); } }
 //Resources:DeviceLibraryResources:Attribute_Description
 
 		public static string Attribute_Description { get { return GetResourceString("Attribute_Description"); } }
@@ -743,6 +746,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string AdminNote_Title = "AdminNote_Title";
 			public const string Attribute_AttributeType = "Attribute_AttributeType";
 			public const string Attribute_AttributeType_Help = "Attribute_AttributeType_Help";
+			public const string Attribute_AttributeType_Select = "Attribute_AttributeType_Select";
 			public const string Attribute_Description = "Attribute_Description";
 			public const string Attribute_Direction = "Attribute_Direction";
 			public const string Attribute_Direction_Help = "Attribute_Direction_Help";

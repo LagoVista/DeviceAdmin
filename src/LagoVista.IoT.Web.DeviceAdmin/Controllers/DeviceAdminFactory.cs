@@ -44,7 +44,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("attributeunitset")]
-        public DetailResponse<AttributeUnitSet> CreateAttributeSet()
+        public DetailResponse<AttributeUnitSet> CreateAttributeUnitSet()
         {
             var response = DetailResponse<AttributeUnitSet>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
@@ -114,6 +114,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             var response = DetailResponse<IoT.DeviceAdmin.Models.Action>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);
             return response;
         }
 
@@ -127,6 +128,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         {
             var response = DetailResponse<ActionParameter>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
+
             return response;
         }
 
@@ -152,6 +154,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         {
             var response = DetailResponse<IoT.DeviceAdmin.Models.Attribute>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
+            response.Model.AttributeType = new Core.Models.EntityHeader() { Id = "-1" };
+
+            SetOwnedProperties(response.Model);
             SetAuditProperties(response.Model);
             return response;
         }
