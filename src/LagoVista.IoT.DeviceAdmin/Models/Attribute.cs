@@ -45,6 +45,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public AttributeDirections Direction { get; set; }
 
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript_Hellp, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
+        public String Script { get; set; }
+
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_Shared, HelpResource: Resources.DeviceLibraryResources.Names.Action_Standard_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader SharedAttribute { get; set; }

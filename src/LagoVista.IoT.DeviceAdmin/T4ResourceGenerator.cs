@@ -170,6 +170,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Attribute_Help
 
 		public static string Attribute_Help { get { return GetResourceString("Attribute_Help"); } }
+//Resources:DeviceLibraryResources:Attribute_SetScript
+
+		public static string Attribute_SetScript { get { return GetResourceString("Attribute_SetScript"); } }
+//Resources:DeviceLibraryResources:Attribute_SetScript_Hellp
+
+		public static string Attribute_SetScript_Hellp { get { return GetResourceString("Attribute_SetScript_Hellp"); } }
 //Resources:DeviceLibraryResources:Attribute_Shared
 
 		public static string Attribute_Shared { get { return GetResourceString("Attribute_Shared"); } }
@@ -727,6 +733,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Attribute_Direction_InputAndOutput = "Attribute_Direction_InputAndOutput";
 			public const string Attribute_Direction_Output = "Attribute_Direction_Output";
 			public const string Attribute_Help = "Attribute_Help";
+			public const string Attribute_SetScript = "Attribute_SetScript";
+			public const string Attribute_SetScript_Hellp = "Attribute_SetScript_Hellp";
 			public const string Attribute_Shared = "Attribute_Shared";
 			public const string Attribute_SharedAttribute_Help = "Attribute_SharedAttribute_Help";
 			public const string Attribute_Simple = "Attribute_Simple";

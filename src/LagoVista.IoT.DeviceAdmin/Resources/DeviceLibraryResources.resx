@@ -743,4 +743,10 @@
   <data name="Environment_Test" xml:space="preserve">
     <value>Test</value>
   </data>
+  <data name="Attribute_SetScript" xml:space="preserve">
+    <value>On Set Script</value>
+  </data>
+  <data name="Attribute_SetScript_Hellp" xml:space="preserve">
+    <value>You can modify the On Set Script to run an action when this value is being set.  You will have the old value, new value and where this attribute is getting set from available to use in your script.</value>
+  </data>
 </root>
