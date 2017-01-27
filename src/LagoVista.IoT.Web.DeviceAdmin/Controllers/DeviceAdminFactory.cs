@@ -113,6 +113,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         {
             var response = DetailResponse<IoT.DeviceAdmin.Models.Action>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
+            response.Model.DiagramLocation = new Point();
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
             return response;
@@ -155,6 +156,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             var response = DetailResponse<IoT.DeviceAdmin.Models.Attribute>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             response.Model.AttributeType = new Core.Models.EntityHeader() { Id = "-1" };
+            response.Model.DiagramLocation = new Point();
 
             SetOwnedProperties(response.Model);
             SetAuditProperties(response.Model);
