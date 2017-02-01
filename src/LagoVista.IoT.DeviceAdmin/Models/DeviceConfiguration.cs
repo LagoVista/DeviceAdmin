@@ -53,6 +53,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceConfig_Actions, HelpResource:DeviceLibraryResources.Names.DeviceConfig_Actions_Help, ResourceType: typeof(DeviceLibraryResources))]
         public List<Models.Action> Actions { get; set; }
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceConfig_Attributes, HelpResource: DeviceLibraryResources.Names.DeviceConfig_Attributes_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public List<DeviceCommand> DeviceCommands { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceConfig_Actions, HelpResource: DeviceLibraryResources.Names.DeviceConfig_Actions_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public List<Sensor> Sensors { get; set; }
+
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceConfig_CustomFields, ResourceType: typeof(DeviceLibraryResources))]
         public List<Models.CustomField> CustomFields { get; set; }

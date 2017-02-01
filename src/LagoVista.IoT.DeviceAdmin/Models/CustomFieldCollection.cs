@@ -12,13 +12,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     /// to help build templates for adding a number of custom fields at once.
     /// </summary>
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.CustomFieldCollection_Title,Resources.DeviceLibraryResources.Names.CustomFieldCollection_Help,  Resources.DeviceLibraryResources.Names.CustomFieldCollection_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class CustomFieldCollection : DeviceModelBase, IOwnedEntity
+    public class CustomFieldCollection : KeyOwnedDeviceAdminBase, IOwnedEntity
     {
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]
-        public bool IsPublic { get; set; }
-        public EntityHeader OwnerOrganization { get; set; }
-        public EntityHeader OwnerUser { get; set; }
-
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_Label, FieldType: FieldTypes.OptionsList, ResourceType: typeof(DeviceLibraryResources))]
         public List<CustomField> CustomFields { get; set; }
     }

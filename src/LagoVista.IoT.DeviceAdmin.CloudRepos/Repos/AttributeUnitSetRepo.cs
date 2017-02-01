@@ -8,24 +8,24 @@ using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
-    public class AttributeUnitSetRepo : DocumentDBRepoBase<AttributeUnitSet>, IAttributeUnitSetRepo
+    public class AttributeUnitSetRepo : DocumentDBRepoBase<UnitSet>, IAttributeUnitSetRepo
     {
         public AttributeUnitSetRepo(IDeviceRepoSettings settings, ILogger logger) : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, logger)
         {
 
         }
 
-        public Task AddUnitSetAsync(AttributeUnitSet unitSet)
+        public Task AddUnitSetAsync(UnitSet unitSet)
         {
             return CreateDocumentAsync(unitSet);
         }
 
-        public Task UpdateUnitSetAsync(AttributeUnitSet unitSet)
+        public Task UpdateUnitSetAsync(UnitSet unitSet)
         {
             return CreateDocumentAsync(unitSet);
         }
 
-        public Task<AttributeUnitSet> GetUnitSetAsync(string unitSetId)
+        public Task<UnitSet> GetUnitSetAsync(string unitSetId)
         {
             return GetDocumentAsync(unitSetId);
         }
@@ -36,7 +36,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return items.Any();
         }
 
-        public async Task<IEnumerable<AttributeUnitSetSummary>> GetUnitSetsForOrgAsync(string orgId)
+        public async Task<IEnumerable<UnitSetSummary>> GetUnitSetsForOrgAsync(string orgId)
         {
             var items = await base.QueryAsync(qry => qry.IsPublic == true ||  qry.OwnerOrganization.Id == orgId);
 

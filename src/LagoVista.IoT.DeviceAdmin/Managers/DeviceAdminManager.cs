@@ -63,7 +63,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return result.ToActionResult();
         }
 
-        public async Task<InvokeResult> AddUnitSetAsync(AttributeUnitSet unitSet, EntityHeader org, EntityHeader user)
+        public async Task<InvokeResult> AddUnitSetAsync(UnitSet unitSet, EntityHeader org, EntityHeader user)
         {
             var result = Validator.Validate(unitSet, Actions.Create);
             if (result.IsValid)
@@ -132,7 +132,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return result.ToActionResult();
         }
 
-        public async Task<InvokeResult> UpdateUnitSetAsync(AttributeUnitSet unitSet, EntityHeader user)
+        public async Task<InvokeResult> UpdateUnitSetAsync(UnitSet unitSet, EntityHeader user)
         {
             var result = Validator.Validate(unitSet, Actions.Create);
 
@@ -193,7 +193,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return  sharedAttribute ;
         }
 
-        public async Task<AttributeUnitSet> GetAttributeUnitSetAsync(String id, EntityHeader org)
+        public async Task<UnitSet> GetAttributeUnitSetAsync(String id, EntityHeader org)
         {
             var unitSet = await _unitSetRepo.GetUnitSetAsync(id);
             if (!unitSet.IsPublic && (unitSet.OwnerOrganization.Id != org.Id))
@@ -220,7 +220,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return _stateMachineRepo.GetStateMachinesForOrgAsync(orgId);
         }
 
-        public Task<IEnumerable<AttributeUnitSetSummary>> GetUnitSetsForOrgAsync(String orgId)
+        public Task<IEnumerable<UnitSetSummary>> GetUnitSetsForOrgAsync(String orgId)
         {
             return _unitSetRepo.GetUnitSetsForOrgAsync(orgId);
         }

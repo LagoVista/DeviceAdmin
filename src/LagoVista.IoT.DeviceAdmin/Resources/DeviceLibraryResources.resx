@@ -267,25 +267,25 @@
   <data name="Common_Key_Validation" xml:space="preserve">
     <value>The key must use only letters and numbers, and must be lowercase and must be between 3 and 20 characters.</value>
   </data>
-  <data name="AttributeUnitDefinitions" xml:space="preserve">
+  <data name="Unit_Definitions" xml:space="preserve">
     <value>Unit Definitions</value>
   </data>
-  <data name="AttributeUnitSet_Help" xml:space="preserve">
-    <value>Unit Sets are a collection of units that can be attached to an attribute.   An example of a unit set is Weight, weight can be Pounds, Kilograms, Grams, etc...</value>
+  <data name="UnitSet_Help" xml:space="preserve">
+    <value>Unit Sets are a collection of units that can be attached to an value.   An example of a unit set is Weight, weight can be Pounds, Kilograms, Grams, etc...</value>
   </data>
-  <data name="AttributeUnit_Abbreviation" xml:space="preserve">
+  <data name="Unit_Abbreviation" xml:space="preserve">
     <value>Abbreviation</value>
   </data>
-  <data name="AttributeUnit_ConversionScript" xml:space="preserve">
+  <data name="Unit_ConversionScript" xml:space="preserve">
     <value>Conversion Script</value>
   </data>
-  <data name="AttributeUnit_ConversionScript_Help" xml:space="preserve">
+  <data name="Unit_ConversionScript_Help" xml:space="preserve">
     <value>Provide a formula that will convert from the default units to this unit.  </value>
   </data>
-  <data name="AttributeUnit_IsDefault" xml:space="preserve">
+  <data name="Unit_IsDefault" xml:space="preserve">
     <value>Default Units</value>
   </data>
-  <data name="AttributeUnit_NumberDecimal" xml:space="preserve">
+  <data name="Unit_NumberDecimal" xml:space="preserve">
     <value>NumberDecimal</value>
   </data>
   <data name="Common_IsPublic" xml:space="preserve">
@@ -405,11 +405,8 @@
   <data name="Attribute_SharedAttribute_Help" xml:space="preserve">
     <value>You can configure your attribute to be a Shared Attribute.  Some attributes such as temperature, speed, battery level, direction may be common accross your devices.  A Shared Attribute is easy to add and promotes re-use across devices.</value>
   </data>
-  <data name="Attribute_StateMachine_Help" xml:space="preserve">
-    <value>You can configure your attribute to be a state machine.  If you do so you can describe the different states that your device can be in and perform an action when the device transitions between states.  Your device configuration can have many state machines that can communicate with each other.</value>
-  </data>
-  <data name="Attribute_UnitSet_Help" xml:space="preserve">
-    <value>You can configure your attribute to be a simple value that is specific for this device configuration.  If you do so you have the option to provide a set of units such as MPH, KPH for speed, F/C for temperature.</value>
+  <data name="Attribute_Type_State_Help" xml:space="preserve">
+    <value>You can configure your attribute to be a collection of states.  If you do so you can describe the different states that your attribute can be in at any one time.  States are fixed set of conditions such as On/Off, Running/Idle/Error.  You will need to define all the states here that your attribute can be in at any one time.</value>
   </data>
   <data name="Common_Note" xml:space="preserve">
     <value>Note</value>
@@ -417,13 +414,13 @@
   <data name="Common_Notes" xml:space="preserve">
     <value>Notes</value>
   </data>
-  <data name="Attribute_Discrete" xml:space="preserve">
+  <data name="Attribute_Type_Discrete" xml:space="preserve">
     <value>Discrete Value</value>
   </data>
   <data name="Attribute_Shared" xml:space="preserve">
     <value>Shared</value>
   </data>
-  <data name="Attribute_StateMachine" xml:space="preserve">
+  <data name="Attribute_Type_States" xml:space="preserve">
     <value>State Machine</value>
   </data>
   <data name="CustomField_FieldType_Email" xml:space="preserve">
@@ -600,20 +597,17 @@
   <data name="AdminNote_Title" xml:space="preserve">
     <value>Admin Note</value>
   </data>
-  <data name="AttributeUnitSetObj_Help" xml:space="preserve">
-    <value>An attribute can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
+  <data name="UnitSet_Description" xml:space="preserve">
+    <value>An value can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  A Unit belongs to a Unit Set, values are stored with a default value that can be converted between different units via the default units.</value>
   </data>
-  <data name="AttributeUnitSet_Description" xml:space="preserve">
-    <value>An attribute can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
-  </data>
-  <data name="AttributeUnitSet_Title" xml:space="preserve">
-    <value>Attribute Unit Set</value>
+  <data name="UnitSet_Title" xml:space="preserve">
+    <value>Unit Set</value>
   </data>
   <data name="Attribute_Description" xml:space="preserve">
-    <value>Attributes are meta-data that are attached to a device configuration that are used to maintain the state of the device.  Attributes can be one of the following, a simple value with a unit, a standard attribute that is common across many device configurations or a state machine.</value>
+    <value>Attributes are used to store data associated with your devices.  This data generally comes from the sensor inputs, but can also come from other external actions that are applied to your device.  Attributes are used for reporting, can be used for state machines and can also be used in prepared commands to be sent to your device.</value>
   </data>
   <data name="Attribute_Help" xml:space="preserve">
-    <value>Attributes are meta-data that are attached to a device configuration that are used to maintain the state of the device.  Attributes can be one of the following, a simple value with a unit, a standard attribute that is common across many device configurations or a state machine.</value>
+    <value>The attributes you create will be used to store data for your device, this data can come from a sensor, an external action or the business logic associated with device.  Attributes reflect the most current data however you can configure your attribute to store historical data.  Attribute may also have units or can have a finite set of states.</value>
   </data>
   <data name="Attribute_Title" xml:space="preserve">
     <value>Attribute</value>
@@ -696,14 +690,14 @@
   <data name="State_UserHelp" xml:space="preserve">
     <value>A State is a conceptual entity that a Device Configuration, Attribute or other mechanism can be in.  The state machine can only be in exactly one state at a given time, an action is used to transition the state into another state and optionally perform an action at that time.</value>
   </data>
-  <data name="AttributeUnit_Description" xml:space="preserve">
-    <value>An attribute can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
+  <data name="Unit_Description" xml:space="preserve">
+    <value>An value can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
   </data>
-  <data name="AttributeUnit_Help" xml:space="preserve">
-    <value>An attribute can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
+  <data name="Unit_Help" xml:space="preserve">
+    <value>An value can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
   </data>
-  <data name="AttributeUnit_Title" xml:space="preserve">
-    <value>Attribute Unit</value>
+  <data name="Unit_Title" xml:space="preserve">
+    <value>Unit</value>
   </data>
   <data name="StateMachine_State_Transitions_Help" xml:space="preserve">
     <value />
@@ -747,7 +741,7 @@
     <value>On Set Script</value>
   </data>
   <data name="Attribute_SetScript_Help" xml:space="preserve">
-    <value>You can modify the On Set Script to run an action when this value is being set.  You will have the old value, new value and where this attribute is getting set from available to use in your script.</value>
+    <value>You can modify the Set Script to run an action when this value is being set.  You will have the old value, new value and where this attribute is getting set from available to use in your script.</value>
   </data>
   <data name="Attribute_AttributeType" xml:space="preserve">
     <value>Attribute Type</value>
@@ -755,16 +749,106 @@
   <data name="Attribute_AttributeType_Help" xml:space="preserve">
     <value>The Attribute Type is used to determine the type of value that will be stored.  It can be a discrete value such as a number for a measurement, or it can be a state machine.  A simple example of a state machine is an On Off switch, it can have one of two states On or Off.</value>
   </data>
-  <data name="Attribute_Discrete_Help" xml:space="preserve">
+  <data name="Attribute_Type_Discrete_Help" xml:space="preserve">
     <value>A discrete value is a numeric value that qunatifies something.  This could be something like a temperature, speed. RPM.</value>
   </data>
-  <data name="Attribute_UnitSet" xml:space="preserve">
-    <value>Units</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
+  <data name="DeviceCommand_Title" xml:space="preserve">
+    <value>Device Command</value>
   </data>
   <data name="Attribute_AttributeType_Select" xml:space="preserve">
     <value>-select attribute type-</value>
+  </data>
+  <data name="DeviceCommand_Description" xml:space="preserve">
+    <value>Device Commands are used to send messages to your device</value>
+  </data>
+  <data name="DeviceCommand_Help" xml:space="preserve">
+    <value>You can create a device command to send a message to your device.  In your device command you prepare the data from the available data on the device configuration.</value>
+  </data>
+  <data name="Sensor_Description" xml:space="preserve">
+    <value>Sensors are the entry point of data coming from your device.  Sensors can be as simple as an on/off switch, a thermostat or as complex as a GPS that sends in latitude and longitude.  Your sensor can also be virtual in that they provide an end point for your physical device to send additional data.  The Sensor is just the entry point and will eventually pass its data to an attribute for permanent storage.</value>
+  </data>
+  <data name="Sensor_Help" xml:space="preserve">
+    <value>You should start by creating sensors that match the physical sensors on your device.  These would be like an on/off contact switch or maybe a motion detector.  Once you add your sensor you need to specify the type of data that it will receive. The most common type of data would be discrete values such as a temperature, RPM or speed.  It could also be a more complex set of data such as a latitude or longitude.  In some cases your sensor will have certain conditions it can be in, we call these states.  You can identify those states here.</value>
+  </data>
+  <data name="Sensor_Title" xml:space="preserve">
+    <value>Sensor</value>
+  </data>
+  <data name="Sensor_Type" xml:space="preserve">
+    <value>Sensor Type</value>
+  </data>
+  <data name="Sensor_Type_Description" xml:space="preserve">
+    <value>The Sensor Type defines the type of data you expect to receive from your sensor. Typically this would be a simple value such as a temperature or speed, but also can have more complex data such as a latitude or longitude. A sensor might also be used to monitor certain conditions such as on/off or motion/no motions. We call these states. </value>
+  </data>
+  <data name="Sensor_Type_Help" xml:space="preserve">
+    <value>The Sensor Type defines the type of data you expect to receive from your sensor. Typically this would be a simple value such as a temperature or speed, but also can have more complex data such as a latitude or longitude. A sensor might also be used to monitor certain conditions such as on/off or motion/no motions. We call these states.</value>
+  </data>
+  <data name="Sensor_States" xml:space="preserve">
+    <value>States</value>
+  </data>
+  <data name="Sensor_States_Help" xml:space="preserve">
+    <value>If your sensor will provide you changes of conditions that have unique categories, your sensor should likely be be defined as a state based sensor.  You can provide a list of the certain states or a list of conditions that the sensor may report. These might be as simple as On/Off, Motion, No Motion, Position 1, Postiion 2, etc..  For your state configuration you don't need to provide the exact message the sensor will send, the translation value will do that mapping.</value>
+  </data>
+  <data name="Sensor_Units" xml:space="preserve">
+    <value>Units</value>
+  </data>
+  <data name="Sensor_Units_Help" xml:space="preserve">
+    <value>You can optionally provide a unit or set of units to describe the type of data your sensor will receive. This does not apply to state based sensors and is optional. If you don't provide a value it is assumed that the sensor just provides simple numeric data and will be treated as so.</value>
+  </data>
+  <data name="DeviceCommand_Script" xml:space="preserve">
+    <value>Script</value>
+  </data>
+  <data name="DeviceCommand_Script_Help" xml:space="preserve">
+    <value>You need to provide a script that will prepare a payload of data that can be sent to the device.  This payload typically uses data from the attributes of the device.</value>
+  </data>
+  <data name="Attribute_Type_Discrete_Units" xml:space="preserve">
+    <value>Discrete with Units</value>
+  </data>
+  <data name="Attribute_Type_Discrete_Units_Help" xml:space="preserve">
+    <value>You can congifure your attribute to capture a simple numeric value and specify a default type of unit such as RPM, KPH, etc...</value>
+  </data>
+  <data name="Attribute_States" xml:space="preserve">
+    <value>States</value>
+  </data>
+  <data name="Attribute_States_Help" xml:space="preserve">
+    <value>If your attribute is of type State, you will need to provide a list of states that the attribute will support.</value>
+  </data>
+  <data name="Sensor_SetScript" xml:space="preserve">
+    <value>Set Script</value>
+  </data>
+  <data name="Sensor_SetScript_Help" xml:space="preserve">
+    <value>You can either map your sensor directly to an attribute, or you can provide a script that can manipulate the raw values prior them to applying the sensor value to the attribute.  If you provide a script, you can map your sensor input to many different attributes.</value>
+  </data>
+  <data name="Sensor_Type_Discrete" xml:space="preserve">
+    <value>Discrete </value>
+  </data>
+  <data name="Sensor_Type_Discrete_Help" xml:space="preserve">
+    <value>You can configure your sensor to provide a simple numeric value that does not have any units attached.</value>
+  </data>
+  <data name="Sensor_Type_Discrete_Units" xml:space="preserve">
+    <value>Discrete with Units</value>
+  </data>
+  <data name="Sensor_Type_Discrete_Units_Help" xml:space="preserve">
+    <value>You can congifure your sensor to provide a simple numeric value and specify a default type of unit such as RPM, KPH, etc...  </value>
+  </data>
+  <data name="Sensor_Type_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Sensor_Type_State_Help" xml:space="preserve">
+    <value>You can configure your sensor input to only map to a certain set of conditions that we call states, these can be things like Open/Closed, Working/Idle/Error.</value>
+  </data>
+  <data name="Attribute_UnitSet" xml:space="preserve">
+    <value>Unit Set</value>
+  </data>
+  <data name="Attribute_UnitSet_Help" xml:space="preserve">
+    <value>If your attribute type is defined as Discrete with Units you must provide the unit set associated with this attribute.</value>
+  </data>
+  <data name="UnitSet_DefaultUnit" xml:space="preserve">
+    <value>Default Unit</value>
+  </data>
+  <data name="Unit_IsDefault_Help" xml:space="preserve">
+    <value>Only one unit can be defined as the default unit.  The values will be stored as this unit and the conversion scripts for the other units will provide conversions. Once a default unit is set, it can not be modified.</value>
+  </data>
+  <data name="UnitSet_Units" xml:space="preserve">
+    <value>Units</value>
   </data>
 </root>

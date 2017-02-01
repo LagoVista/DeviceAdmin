@@ -10,14 +10,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     public class Device : DeviceModelBase
     {
-        private String _notes;
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_DeviceNotes, FieldType:FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
-        public String Notes
-        {
-            get { return _notes; }
-            set { Set(ref _notes, value); }
-        }
-
         private String _deviceId;
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_DeviceId, IsRequired:true,
             ReqMessageResource:Resources.DeviceLibraryResources.Names.Device_DeviceId_Required, 

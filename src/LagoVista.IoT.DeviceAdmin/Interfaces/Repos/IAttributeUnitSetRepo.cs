@@ -8,10 +8,10 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
 {
     public interface IAttributeUnitSetRepo
     {
-        Task AddUnitSetAsync(AttributeUnitSet unitSet);
-        Task<AttributeUnitSet> GetUnitSetAsync(String unitSetId);
-        Task UpdateUnitSetAsync(AttributeUnitSet unitSet);
-        Task<IEnumerable<AttributeUnitSetSummary>> GetUnitSetsForOrgAsync(string orgId);
+        Task AddUnitSetAsync(UnitSet unitSet);
+        Task<UnitSet> GetUnitSetAsync(String unitSetId);
+        Task UpdateUnitSetAsync(UnitSet unitSet);
+        Task<IEnumerable<UnitSetSummary>> GetUnitSetsForOrgAsync(string orgId);
         Task<bool> QueryKeyInUseAsync(String key, String orgId);
     }
 }

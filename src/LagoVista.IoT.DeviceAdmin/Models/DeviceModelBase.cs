@@ -4,11 +4,17 @@ using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using Newtonsoft.Json;
 using System;
+using System.Collections.ObjectModel;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     public class DeviceModelBase : ModelBase, INamedEntity, IIDEntity, IAuditableEntity
     {
+        public DeviceModelBase()
+        {
+            Notes = new ObservableCollection<AdminNote>();
+        }
+
         [JsonProperty("id")]
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Id { get; set; }
@@ -40,5 +46,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             get { return _description; }
             set { Set(ref _description, value); }
         }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Notes, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public ObservableCollection<AdminNote> Notes { get; set; }
     }
 }

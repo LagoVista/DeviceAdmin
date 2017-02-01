@@ -44,9 +44,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("attributeunitset")]
-        public DetailResponse<AttributeUnitSet> CreateAttributeUnitSet()
+        public DetailResponse<UnitSet> CreateAttributeUnitSet()
         {
-            var response = DetailResponse<AttributeUnitSet>.Create();
+            var response = DetailResponse<UnitSet>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
@@ -81,6 +81,36 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             SetOwnedProperties(response.Model);
             return response;
         }
+
+
+        /// <summary>
+        /// Shared Action - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("devicecommand")]
+        public DetailResponse<DeviceCommand> CreateDeviceCommand()
+        {
+            var response = DetailResponse<DeviceCommand>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);           
+            return response;
+        }
+
+        /// <summary>
+        /// Shared Action - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("sensor")]
+        public DetailResponse<Sensor> CreateSensor()
+        {
+            var response = DetailResponse<Sensor>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);            
+            return response;
+        }
+
 
 
         /// <summary>
@@ -169,9 +199,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("attributeunit")]
-        public DetailResponse<AttributeUnit> CreatAttributeUnit()
+        public DetailResponse<Unit> CreatAttributeUnit()
         {
-            var response = DetailResponse<AttributeUnit>.Create();
+            var response = DetailResponse<Unit>.Create();
             return response;
         }
 

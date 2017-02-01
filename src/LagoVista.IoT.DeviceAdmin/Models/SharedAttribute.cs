@@ -24,7 +24,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader OwnerOrganization { get; set; }
         public EntityHeader OwnerUser { get; set; }
 
-        public AttributeUnitSet UnitSet { get; set; }
+        public UnitSet UnitSet { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Key { get; set; }

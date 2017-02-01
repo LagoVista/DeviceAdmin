@@ -53,7 +53,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="unitSet"></param>
         /// <returns></returns>
         [HttpPost("attributeunitset")]
-        public Task<InvokeResult> AddAttributeSet([FromBody] AttributeUnitSet unitSet)
+        public Task<InvokeResult> AddAttributeSet([FromBody] UnitSet unitSet)
         {
             return _attrManager.AddUnitSetAsync(unitSet, UserEntityHeader, OrgEntityHeader);
         }
@@ -64,7 +64,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="unitSet"></param>
         /// <returns></returns>
         [HttpPut("attributeunitset")]
-        public Task<InvokeResult> UpdateAttributeSet([FromBody] AttributeUnitSet unitSet)
+        public Task<InvokeResult> UpdateAttributeSet([FromBody] UnitSet unitSet)
         {
             return _attrManager.UpdateUnitSetAsync(unitSet, UserEntityHeader);
         }
@@ -75,10 +75,10 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
         [HttpGet("attributeunitsets/{orgid}")]
-        public async Task<ListResponse<AttributeUnitSetSummary>> GetAttributeUnitSets(String orgId)
+        public async Task<ListResponse<UnitSetSummary>> GetAttributeUnitSets(String orgId)
         {
             var unitSets = await _attrManager.GetUnitSetsForOrgAsync(orgId);
-            var response = ListResponse<AttributeUnitSetSummary>.Create(unitSets);
+            var response = ListResponse<UnitSetSummary>.Create(unitSets);
 
             return response;
         }
@@ -89,11 +89,11 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="unitsetid"></param>
         /// <returns></returns>
         [HttpGet("attributeunitset/{unitsetid}")]
-        public async Task<DetailResponse<AttributeUnitSet>> GetAttributeSet(String unitsetid)
+        public async Task<DetailResponse<UnitSet>> GetAttributeSet(String unitsetid)
         {
             var unitSet = await _attrManager.GetAttributeUnitSetAsync(unitsetid, OrgEntityHeader);
 
-            var response = DetailResponse<AttributeUnitSet>.Create(unitSet);
+            var response = DetailResponse<UnitSet>.Create(unitSet);
 
             return response;
         }
