@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Attribute_Title, DeviceLibraryResources.Names.Attribute_Description, DeviceLibraryResources.Names.Attribute_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Sensor_Title, DeviceLibraryResources.Names.Sensor_Description, DeviceLibraryResources.Names.Sensor_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class Sensor : KeyOwnedDeviceAdminBase, IValidateable
     {
         public Sensor()
