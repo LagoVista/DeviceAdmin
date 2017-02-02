@@ -228,7 +228,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="deviceConfiguration"></param>
         /// <returns></returns>
         [HttpPost("deviceconfiguration")]
-        public Task<InvokeResult> AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration)
+        public Task<InvokeResult> AddDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
         {
             return _attrManager.AddDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader, OrgEntityHeader);
         }
@@ -239,7 +239,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="deviceConfiguration"></param>
         /// <returns></returns>
         [HttpPut("deviceconfiguration")]
-        public Task<InvokeResult> UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration)
+        public Task<InvokeResult> UpdateDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
         {
             return _attrManager.UpdateDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader);
         }
