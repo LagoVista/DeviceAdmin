@@ -231,7 +231,6 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         [HttpPost("deviceconfiguration")]
         public Task<InvokeResult> AddDeviceConfigurationAsync([FromBody] object request)
         {
-
             try
             {
                 var deviceConfiguration = JsonConvert.DeserializeObject<DeviceConfiguration>(request.ToString());
@@ -239,6 +238,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             }
             catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 Console.WriteLine(request);
             }
 
