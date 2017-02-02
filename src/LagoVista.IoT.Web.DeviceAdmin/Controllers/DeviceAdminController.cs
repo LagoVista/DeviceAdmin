@@ -52,8 +52,8 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="unitSet"></param>
         /// <returns></returns>
-        [HttpPost("attributeunitset")]
-        public Task<InvokeResult> AddAttributeSet([FromBody] UnitSet unitSet)
+        [HttpPost("unitset")]
+        public Task<InvokeResult> AddUnitSet([FromBody] UnitSet unitSet)
         {
             return _attrManager.AddUnitSetAsync(unitSet, UserEntityHeader, OrgEntityHeader);
         }
@@ -63,8 +63,8 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="unitSet"></param>
         /// <returns></returns>
-        [HttpPut("attributeunitset")]
-        public Task<InvokeResult> UpdateAttributeSet([FromBody] UnitSet unitSet)
+        [HttpPut("unitset")]
+        public Task<InvokeResult> UpdateUnitSet([FromBody] UnitSet unitSet)
         {
             return _attrManager.UpdateUnitSetAsync(unitSet, UserEntityHeader);
         }
@@ -74,7 +74,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("attributeunitsets/{orgid}")]
+        [HttpGet("unitset/{orgid}")]
         public async Task<ListResponse<UnitSetSummary>> GetAttributeUnitSets(String orgId)
         {
             var unitSets = await _attrManager.GetUnitSetsForOrgAsync(orgId);
@@ -88,7 +88,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="unitsetid"></param>
         /// <returns></returns>
-        [HttpGet("attributeunitset/{unitsetid}")]
+        [HttpGet("unitset/{unitsetid}")]
         public async Task<DetailResponse<UnitSet>> GetAttributeSet(String unitsetid)
         {
             var unitSet = await _attrManager.GetAttributeUnitSetAsync(unitsetid, OrgEntityHeader);
@@ -230,6 +230,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         [HttpPost("deviceconfiguration")]
         public Task<InvokeResult> AddDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
         {
+            Console.WriteLine("DEVICE CONFIG IS NULL ==>>>>" + deviceConfiguration == null);
+            Console.WriteLine(deviceConfiguration.Name);
+
             return _attrManager.AddDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader, OrgEntityHeader);
         }
 
