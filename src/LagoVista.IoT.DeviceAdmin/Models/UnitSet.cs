@@ -17,7 +17,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, ResourceType: typeof(DeviceLibraryResources))]
-        public IEnumerable<Unit> Units { get; set; }
+        public ObservableCollection<Unit> Units { get; set; }
 
         public UnitSetSummary CreateUnitSetSummary()
         {
