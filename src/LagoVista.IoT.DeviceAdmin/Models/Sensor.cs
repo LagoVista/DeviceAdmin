@@ -25,7 +25,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             DiscreteUnits
         }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Sensor_Type, EnumType:typeof(SensorTypes), HelpResource: Resources.DeviceLibraryResources.Names.Sensor_Type_Help, FieldType:FieldTypes.Picker, IsRequired: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Sensor_Type, EnumType:typeof(SensorTypes), HelpResource: Resources.DeviceLibraryResources.Names.Sensor_Type_Help, FieldType:FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public SensorTypes SensorType { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Sensor_SetScript, HelpResource: Resources.DeviceLibraryResources.Names.Sensor_SetScript_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
