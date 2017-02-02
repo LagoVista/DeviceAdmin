@@ -124,8 +124,10 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             response.Model.Id = Guid.NewGuid().ToId();
             response.Model.Actions = new List<IoT.DeviceAdmin.Models.Action>();
             response.Model.Attributes = new List<IoT.DeviceAdmin.Models.Attribute>();
-            response.Model.StateMachines = new List<IoT.DeviceAdmin.Models.StateMachine>();
-            response.Model.CustomFields = new List<IoT.DeviceAdmin.Models.CustomField>();
+            response.Model.StateMachines = new List<StateMachine>();
+            response.Model.CustomFields = new List<CustomField>();
+            response.Model.Sensors = new List<Sensor>();
+            response.Model.DeviceCommands = new List<DeviceCommand>();
             response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             response.Model.ConfigurationVersion = 0.1;
 

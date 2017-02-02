@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using LagoVista.IoT.Web.Common.Controllers;
 using System.Collections.Generic;
 using LagoVista.Core.Validation;
+using Newtonsoft.Json;
 
 namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 {
@@ -228,9 +229,20 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="deviceConfiguration"></param>
         /// <returns></returns>
         [HttpPost("deviceconfiguration")]
-        public Task<InvokeResult> AddDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
+        public Task<InvokeResult> AddDeviceConfigurationAsync([FromBody] object request)
         {
-            return _attrManager.AddDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader, OrgEntityHeader);
+
+            try
+            {
+                var deviceConfiguration = JsonConvert.DeserializeObject<DeviceConfiguration>(request.ToString());
+                return _attrManager.AddDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader, OrgEntityHeader);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(request);
+            }
+
+            return Task.FromResult(default(InvokeResult));
         }
 
         /// <summary>
