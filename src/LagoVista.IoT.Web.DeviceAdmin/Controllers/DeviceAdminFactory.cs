@@ -12,6 +12,7 @@ using LagoVista.Core;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 {
@@ -133,6 +134,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
+
             return response;
         }
 
