@@ -105,7 +105,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <returns>.</returns>
         [HttpGet("sharedattribute/keyinuse/{key}")]
-        public  Task<bool> SharedAttributeKeyInUse(String key)
+        public Task<bool> SharedAttributeKeyInUse(String key)
         {
             return _attrManager.QuerySharedAttributeKeyInUseAsync(key, CurrentOrgId);
         }
@@ -229,20 +229,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="deviceConfiguration"></param>
         /// <returns></returns>
         [HttpPost("deviceconfiguration")]
-        public Task<InvokeResult> AddDeviceConfigurationAsync([FromBody] object request)
+        public Task<InvokeResult> AddDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
         {
-            try
-            {
-                var deviceConfiguration = JsonConvert.DeserializeObject<DeviceConfiguration>(request.ToString());
-                return _attrManager.AddDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader, OrgEntityHeader);
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(request);
-            }
-
-            return Task.FromResult(default(InvokeResult));
+            return _attrManager.AddDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader, OrgEntityHeader);
         }
 
         /// <summary>

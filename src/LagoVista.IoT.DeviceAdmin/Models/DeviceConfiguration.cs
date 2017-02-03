@@ -14,13 +14,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Title, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Help,  Resources.DeviceLibraryResources.Names.DeviceConfiguration_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class DeviceConfiguration : DeviceModelBase, IOwnedEntity, IValidateable, IKeyedEntity
     {
-        public enum Environments
-        {
-            Development,
-            Staging,
-            Production
-        }
-
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceConfig_ConfigVersion, FieldType:FieldTypes.Decimal, IsRequired:true, ResourceType: typeof(DeviceLibraryResources))]
         public double ConfigurationVersion { get; set; }
 
@@ -35,7 +28,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Environment, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader Environment
+        public EntityHeader ConfigEnvironment
         {
             get;
             set;
