@@ -128,7 +128,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             response.Model.CustomFields = new List<CustomField>();
             response.Model.Sensors = new List<Sensor>();
             response.Model.DeviceCommands = new List<DeviceCommand>();
-            response.Model.ConfigEnvironment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
+            response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             response.Model.ConfigurationVersion = 0.1;
 
             SetAuditProperties(response.Model);
