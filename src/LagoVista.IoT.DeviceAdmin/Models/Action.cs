@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Action_Title, DeviceLibraryResources.Names.Action_Help,  DeviceLibraryResources.Names.Action_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources) )]
-    public class Action : KeyOwnedDeviceAdminBase, IValidateable
+    public class Action : NodeBase, IValidateable
     {
         public Action()
         {
@@ -22,7 +22,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Action_Script, HelpResource: Resources.DeviceLibraryResources.Names.Action_ExecuteFromScript_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
         public String Script { get; set; }
-
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Action_ExecuteFromScript, HelpResource: Resources.DeviceLibraryResources.Names.Action_ExecuteFromScript_Help, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
         public bool ExecuteFromScript { get; set; }
@@ -38,6 +37,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public List<ActionParameter> Parameters { get; set; }
         
               
-        public Point DiagramLocation { get; set; }
+        
     }
 }

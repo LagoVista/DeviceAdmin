@@ -28,32 +28,5 @@ namespace LagoVista.IoT.DevieAdmin.Tests.MetaData
             }
    //         Console.WriteLine(JsonConvert.SerializeObject(MetaDataHelper.Instance.Entities.Where(ent=>ent.DomainName == MetaDataHelper.Instance.Domains.First().Key)));
         }
-
-        [Fact]
-        public void testSeri()
-        {
-            var response = DetailResponse<DeviceConfiguration>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
-            response.Model.Actions = new List<IoT.DeviceAdmin.Models.Action>();
-            response.Model.Attributes = new List<IoT.DeviceAdmin.Models.Attribute>();
-            response.Model.StateMachines = new List<StateMachine>();
-            response.Model.CustomFields = new List<CustomField>();
-            response.Model.Sensors = new List<Sensor>();
-            response.Model.OwnerOrganization = new Core.Models.EntityHeader() { Id = "123", Text = "OWNER" };
-            response.Model.CreatedBy = new Core.Models.EntityHeader() { Id = "123", Text = "CREATED" };
-            response.Model.LastUpdatedBy = new Core.Models.EntityHeader() { Id = "123", Text = "UPDATED" };
-            response.Model.DeviceCommands = new List<DeviceCommand>();
-            response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
-            response.Model.ConfigurationVersion = 0.1;
-            response.Model.Name = "KEVIN";
-
-            Console.WriteLine(JsonConvert.SerializeObject(response.Model));
-
-            var config = JsonConvert.DeserializeObject<DeviceConfiguration>(JsonConvert.SerializeObject(response.Model));
-
-            Console.WriteLine(config.Name);
-            
-        }
-
     }
 }

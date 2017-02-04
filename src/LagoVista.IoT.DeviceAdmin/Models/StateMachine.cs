@@ -8,8 +8,16 @@ using System.Collections.ObjectModel;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.StateMachine_Title, Resources.DeviceLibraryResources.Names.StateMachine_UserHelp, Resources.DeviceLibraryResources.Names.StateMachine_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class StateMachine : KeyOwnedDeviceAdminBase, IValidateable
+    public class StateMachine : NodeBase, IValidateable
     {
+        public StateMachine()
+        {
+            States = new ObservableCollection<State>();
+            Events = new ObservableCollection<StateMachineEvent>();
+            Variables = new ObservableCollection<CustomField>();
+        }
+
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_InitialState, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader InitialState { get; set; }
 
@@ -27,8 +35,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Exception_OnInvalidEvent, FieldType: FieldTypes.Bool, HelpResource:DeviceLibraryResources.Names.StateMachine_Exception_OnInvalidEvent_Help, ResourceType: typeof(DeviceLibraryResources))]
         public bool ExceptionOnUnhandledEvent { get; set; }
-
-        public Point DiagramLocation { get; set; }
 
         public StateMachineSummary CreateSummary()
         {

@@ -2,18 +2,21 @@
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Attribute_Title, DeviceLibraryResources.Names.Attribute_Description, DeviceLibraryResources.Names.Attribute_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class Attribute : KeyOwnedDeviceAdminBase, IValidateable
+    public class Attribute : NodeBase, IValidateable
     {
         public Attribute()
         {
             States = new ObservableCollection<State>();
             Units = new ObservableCollection<UnitSet>();
+            Connections = new List<Connection>();
         }
 
         public enum AttributeTypes

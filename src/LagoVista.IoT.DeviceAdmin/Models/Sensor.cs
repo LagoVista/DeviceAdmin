@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Sensor_Title, DeviceLibraryResources.Names.Sensor_Description, DeviceLibraryResources.Names.Sensor_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class Sensor : KeyOwnedDeviceAdminBase, IValidateable
+    public class Sensor : NodeBase, IValidateable
     {
         public Sensor()
         {
@@ -39,7 +39,5 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Sensor_States, HelpResource: Resources.DeviceLibraryResources.Names.Sensor_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<State> States { get; set; }
-        
-        public Point DiagramLocation { get; set; }
     }
 }
