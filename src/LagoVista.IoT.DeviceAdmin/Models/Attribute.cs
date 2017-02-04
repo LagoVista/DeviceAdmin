@@ -16,7 +16,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         {
             States = new ObservableCollection<State>();
             Units = new ObservableCollection<UnitSet>();
-            Connections = new List<Connection>();
         }
 
         public enum AttributeTypes
@@ -42,7 +41,5 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<State> States { get; set; }
-
-        public Point DiagramLocation { get; set; }       
     }
 }
