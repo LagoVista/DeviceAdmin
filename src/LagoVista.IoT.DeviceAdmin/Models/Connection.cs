@@ -7,9 +7,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     public class Connection
     {
-        public String DestinationKey { get; set; }
-        public String DestinationName { get; set; }
-        public String DestinationType { get; set; }
+        public String NodeKey { get; set; }
+        public String NodeName { get; set; }
+        public String NodeType { get; set; }
         public String Script { get; set; }
 
     }
