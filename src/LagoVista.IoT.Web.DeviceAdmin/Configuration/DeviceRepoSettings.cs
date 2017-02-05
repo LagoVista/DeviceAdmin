@@ -2,6 +2,7 @@
 using LagoVista.Core.Interfaces;
 using LagoVista.IoT.DeviceAdmin.CloudRepos;
 using LagoVista.Core.Models;
+using System;
 
 namespace LagoVista.IoT.Web.DeviceAdmin
 {
@@ -9,6 +10,10 @@ namespace LagoVista.IoT.Web.DeviceAdmin
     {
         public DeviceRepoSettings(IConfigurationRoot configuration)
         {
+            bool shouldConsolidate = true;
+            bool.TryParse(configuration["ConsolidateCollections"], out shouldConsolidate);
+            ShouldConsolidateCollections = shouldConsolidate;
+
             var deviceDocDbSection = configuration.GetSection("DeviceDocDbStorage");
             DeviceDocDbStorage = new ConnectionSettings()
             {
@@ -29,5 +34,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin
 
         public IConnectionSettings DeviceTableStorage { get; set; }
 
+        public bool ShouldConsolidateCollections
+        {
+            get; private set;
+        }
     }
 }

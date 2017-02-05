@@ -19,6 +19,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         {
             [EnumLabel("state", DeviceLibraryResources.Names.Sensor_Type_State, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Sensor_Type_State_Help)]
             States,
+            [EnumLabel("text", DeviceLibraryResources.Names.Sensor_Type_Text, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Sensor_Type_Text_Help)]
+            Text,
             [EnumLabel("discrete", DeviceLibraryResources.Names.Sensor_Type_Discrete, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Sensor_Type_Discrete_Help)]
             Discrete,
             [EnumLabel("discrete-units", DeviceLibraryResources.Names.Sensor_Type_Discrete_Units, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Sensor_Type_Discrete_Units_Help)]

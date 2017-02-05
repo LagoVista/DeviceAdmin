@@ -11,9 +11,18 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class DeviceConfigurationRepo : DocumentDBRepoBase<DeviceConfiguration>, IDeviceConfigurationRepo
     {
+        private bool _shouldConsolidateCollections;
         public DeviceConfigurationRepo(IDeviceRepoSettings repoSettings, ILogger logger) : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, logger)
         {
+            _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
+        }
 
+        protected override bool ShouldConsolidateCollections
+        {
+            get
+            {
+                return _shouldConsolidateCollections;
+            }
         }
 
         public Task AddDeviceConfigurationAsync(DeviceConfiguration sharedAction)

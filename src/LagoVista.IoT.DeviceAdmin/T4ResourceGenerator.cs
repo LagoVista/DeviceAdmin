@@ -218,6 +218,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Attribute_Type_States
 
 		public static string Attribute_Type_States { get { return GetResourceString("Attribute_Type_States"); } }
+//Resources:DeviceLibraryResources:Attribute_Type_Text
+
+		public static string Attribute_Type_Text { get { return GetResourceString("Attribute_Type_Text"); } }
+//Resources:DeviceLibraryResources:Attribute_Type_Text_Help
+
+		public static string Attribute_Type_Text_Help { get { return GetResourceString("Attribute_Type_Text_Help"); } }
 //Resources:DeviceLibraryResources:Attribute_UnitSet
 
 		public static string Attribute_UnitSet { get { return GetResourceString("Attribute_UnitSet"); } }
@@ -601,6 +607,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Sensor_Type_State_Help
 
 		public static string Sensor_Type_State_Help { get { return GetResourceString("Sensor_Type_State_Help"); } }
+//Resources:DeviceLibraryResources:Sensor_Type_Text
+
+		public static string Sensor_Type_Text { get { return GetResourceString("Sensor_Type_Text"); } }
+//Resources:DeviceLibraryResources:Sensor_Type_Text_Help
+
+		public static string Sensor_Type_Text_Help { get { return GetResourceString("Sensor_Type_Text_Help"); } }
 //Resources:DeviceLibraryResources:Sensor_Units
 
 		public static string Sensor_Units { get { return GetResourceString("Sensor_Units"); } }
@@ -751,6 +763,30 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Unit_Abbreviation
 
 		public static string Unit_Abbreviation { get { return GetResourceString("Unit_Abbreviation"); } }
+//Resources:DeviceLibraryResources:Unit_Conversion_Factor
+
+		public static string Unit_Conversion_Factor { get { return GetResourceString("Unit_Conversion_Factor"); } }
+//Resources:DeviceLibraryResources:Unit_Conversion_Factor_Help
+
+		public static string Unit_Conversion_Factor_Help { get { return GetResourceString("Unit_Conversion_Factor_Help"); } }
+//Resources:DeviceLibraryResources:Unit_Conversion_Type
+
+		public static string Unit_Conversion_Type { get { return GetResourceString("Unit_Conversion_Type"); } }
+//Resources:DeviceLibraryResources:Unit_Conversion_Type_Factor
+
+		public static string Unit_Conversion_Type_Factor { get { return GetResourceString("Unit_Conversion_Type_Factor"); } }
+//Resources:DeviceLibraryResources:Unit_Conversion_Type_Factor_Help
+
+		public static string Unit_Conversion_Type_Factor_Help { get { return GetResourceString("Unit_Conversion_Type_Factor_Help"); } }
+//Resources:DeviceLibraryResources:Unit_Conversion_Type_Help
+
+		public static string Unit_Conversion_Type_Help { get { return GetResourceString("Unit_Conversion_Type_Help"); } }
+//Resources:DeviceLibraryResources:Unit_Conversion_Type_Script
+
+		public static string Unit_Conversion_Type_Script { get { return GetResourceString("Unit_Conversion_Type_Script"); } }
+//Resources:DeviceLibraryResources:Unit_Conversion_Type_Script_Help
+
+		public static string Unit_Conversion_Type_Script_Help { get { return GetResourceString("Unit_Conversion_Type_Script_Help"); } }
 //Resources:DeviceLibraryResources:Unit_ConversionScript
 
 		public static string Unit_ConversionScript { get { return GetResourceString("Unit_ConversionScript"); } }
@@ -851,6 +887,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Attribute_Type_Discrete_Units_Help = "Attribute_Type_Discrete_Units_Help";
 			public const string Attribute_Type_State_Help = "Attribute_Type_State_Help";
 			public const string Attribute_Type_States = "Attribute_Type_States";
+			public const string Attribute_Type_Text = "Attribute_Type_Text";
+			public const string Attribute_Type_Text_Help = "Attribute_Type_Text_Help";
 			public const string Attribute_UnitSet = "Attribute_UnitSet";
 			public const string Attribute_UnitSet_Help = "Attribute_UnitSet_Help";
 			public const string Common_CreatedBy = "Common_CreatedBy";
@@ -976,6 +1014,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Sensor_Type_Help = "Sensor_Type_Help";
 			public const string Sensor_Type_State = "Sensor_Type_State";
 			public const string Sensor_Type_State_Help = "Sensor_Type_State_Help";
+			public const string Sensor_Type_Text = "Sensor_Type_Text";
+			public const string Sensor_Type_Text_Help = "Sensor_Type_Text_Help";
 			public const string Sensor_Units = "Sensor_Units";
 			public const string Sensor_Units_Help = "Sensor_Units_Help";
 			public const string SharedAction_Description = "SharedAction_Description";
@@ -1026,6 +1066,14 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateTransition_Title = "StateTransition_Title";
 			public const string StateTransition_UserHelp = "StateTransition_UserHelp";
 			public const string Unit_Abbreviation = "Unit_Abbreviation";
+			public const string Unit_Conversion_Factor = "Unit_Conversion_Factor";
+			public const string Unit_Conversion_Factor_Help = "Unit_Conversion_Factor_Help";
+			public const string Unit_Conversion_Type = "Unit_Conversion_Type";
+			public const string Unit_Conversion_Type_Factor = "Unit_Conversion_Type_Factor";
+			public const string Unit_Conversion_Type_Factor_Help = "Unit_Conversion_Type_Factor_Help";
+			public const string Unit_Conversion_Type_Help = "Unit_Conversion_Type_Help";
+			public const string Unit_Conversion_Type_Script = "Unit_Conversion_Type_Script";
+			public const string Unit_Conversion_Type_Script_Help = "Unit_Conversion_Type_Script_Help";
 			public const string Unit_ConversionScript = "Unit_ConversionScript";
 			public const string Unit_ConversionScript_Help = "Unit_ConversionScript_Help";
 			public const string Unit_Definitions = "Unit_Definitions";

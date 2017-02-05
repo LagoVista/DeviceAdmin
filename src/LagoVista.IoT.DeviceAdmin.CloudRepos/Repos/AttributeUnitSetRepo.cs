@@ -8,11 +8,18 @@ using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
-    public class AttributeUnitSetRepo : DocumentDBRepoBase<UnitSet>, IAttributeUnitSetRepo
+    public class UnitSetRepo : DocumentDBRepoBase<UnitSet>, IUnitSetRepo
     {
-        public AttributeUnitSetRepo(IDeviceRepoSettings settings, ILogger logger) : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, logger)
+        public UnitSetRepo(IDeviceRepoSettings settings, ILogger logger) : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, logger)
         {
 
+        }
+        protected override bool ShouldConsolidateCollections
+        {
+            get
+            {
+                return true;
+            }
         }
 
         public Task AddUnitSetAsync(UnitSet unitSet)

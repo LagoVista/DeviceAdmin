@@ -11,10 +11,21 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class SharedAttributeRepo : DocumentDBRepoBase<SharedAttribute>, ISharedAtributeRepo
     {
+        private bool _shouldConsolidateCollections;
+
         public SharedAttributeRepo(IDeviceRepoSettings repoSettings, ILogger logger) : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, logger)
         {
-
+            _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }
+
+        protected override bool ShouldConsolidateCollections
+        {
+            get
+            {
+                return _shouldConsolidateCollections;
+            }
+        }
+
 
         public Task AddSharedAttributeAsync(SharedAttribute sharedAttribute)
         {

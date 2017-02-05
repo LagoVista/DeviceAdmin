@@ -851,4 +851,40 @@
   <data name="UnitSet_Units" xml:space="preserve">
     <value>Units</value>
   </data>
+  <data name="Attribute_Type_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Attribute_Type_Text_Help" xml:space="preserve">
+    <value>Simple text as attribute type.  </value>
+  </data>
+  <data name="Sensor_Type_Text_Help" xml:space="preserve">
+    <value>Simple text as sensor input.</value>
+  </data>
+  <data name="Sensor_Type_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Unit_Conversion_Type" xml:space="preserve">
+    <value>Conversion Type</value>
+  </data>
+  <data name="Unit_Conversion_Type_Factor" xml:space="preserve">
+    <value>Factor</value>
+  </data>
+  <data name="Unit_Conversion_Type_Script" xml:space="preserve">
+    <value>Script</value>
+  </data>
+  <data name="Unit_Conversion_Factor" xml:space="preserve">
+    <value>Conversion Factor</value>
+  </data>
+  <data name="Unit_Conversion_Factor_Help" xml:space="preserve">
+    <value>If converting between this unit and the default unit type is a simple numeric factor that can be applied you don't need to write a script, you can just enter the conversion factor.</value>
+  </data>
+  <data name="Unit_Conversion_Type_Factor_Help" xml:space="preserve">
+    <value>Converting between this unit and the default unit is just applying a numeric constant to the original unit.</value>
+  </data>
+  <data name="Unit_Conversion_Type_Script_Help" xml:space="preserve">
+    <value>Converting between this unit and the default unit requires a more complex formula that requires more than just a constant value.</value>
+  </data>
+  <data name="Unit_Conversion_Type_Help" xml:space="preserve">
+    <value>You can only have one default unit per unit set. That default unit is how the data is stored. Your data however can be displayed and used in different types of units.  You can provide either a factor or formula to convert the default unit value to these different units.</value>
+  </data>
 </root>

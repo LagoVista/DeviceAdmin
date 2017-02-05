@@ -18,11 +18,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     /// attached to it.
     /// </summary>
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.SharedAttribute_Title,  Resources.DeviceLibraryResources.Names.SharedAttribute_Help, DeviceLibraryResources.Names.SharedAttribute_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class SharedAttribute : DeviceModelBase, IOwnedEntity, IKeyedEntity, IValidateable
+    public class SharedAttribute : DeviceModelBase, IOwnedEntity, IKeyedEntity, IValidateable, INoSQLEntity
     {
         public bool IsPublic { get; set; }
         public EntityHeader OwnerOrganization { get; set; }
         public EntityHeader OwnerUser { get; set; }
+
+        public String DatabaseName { get; set; }
+
+        public String EntityType { get; set; }
+
 
         public UnitSet UnitSet { get; set; }
 

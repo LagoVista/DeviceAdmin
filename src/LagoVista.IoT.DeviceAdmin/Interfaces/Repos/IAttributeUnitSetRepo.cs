@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
 {
-    public interface IAttributeUnitSetRepo
+    public interface IUnitSetRepo
     {
         Task AddUnitSetAsync(UnitSet unitSet);
         Task<UnitSet> GetUnitSetAsync(String unitSetId);

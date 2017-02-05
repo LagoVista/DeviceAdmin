@@ -16,11 +16,11 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         IDeviceConfigurationRepo _deviceConfigRepo;
         ISharedActionRepo _sharedActionRepo;
         ISharedAtributeRepo _sharedAttributeRepo;
-        IAttributeUnitSetRepo _unitSetRepo;
+        IUnitSetRepo _unitSetRepo;
         IStateMachineRepo _stateMachineRepo;
 
         public DeviceAdminManager(IDeviceConfigurationRepo deviceConfigRepo, ISharedActionRepo sharedActionRepo, ISharedAtributeRepo sharedAttributeRepo,
-            IAttributeUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo)
+            IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo)
         {
             _deviceConfigRepo = deviceConfigRepo;
             _sharedActionRepo = sharedActionRepo;

@@ -1,5 +1,6 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Geo;
+using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using Newtonsoft.Json;
@@ -8,13 +9,18 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    public class Device : DeviceModelBase
+    public class Device : DeviceModelBase, INoSQLEntity
     {
         private String _deviceId;
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_DeviceId, IsRequired:true,
             ReqMessageResource:Resources.DeviceLibraryResources.Names.Device_DeviceId_Required, 
             HelpResource:Resources.DeviceLibraryResources.Names.Device_DeviceId_Help, 
             ResourceType: typeof(DeviceLibraryResources))]
+
+        public String DatabaseName { get; set; }
+
+        public String EntityType { get; set; }
+
         public String DeviceId
         {
             get { return _deviceId; }

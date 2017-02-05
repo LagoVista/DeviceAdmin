@@ -12,8 +12,12 @@ using LagoVista.Core.Interfaces;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Title, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Help,  Resources.DeviceLibraryResources.Names.DeviceConfiguration_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class DeviceConfiguration : DeviceModelBase, IOwnedEntity, IValidateable, IKeyedEntity
+    public class DeviceConfiguration : DeviceModelBase, IOwnedEntity, IValidateable, IKeyedEntity, INoSQLEntity
     {
+        public String DatabaseName { get; set; }
+
+        public String EntityType { get; set; }
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceConfig_ConfigVersion, FieldType:FieldTypes.Decimal, IsRequired:true, ResourceType: typeof(DeviceLibraryResources))]
         public double ConfigurationVersion { get; set; }
 

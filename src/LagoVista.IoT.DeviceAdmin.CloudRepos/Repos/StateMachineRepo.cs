@@ -11,10 +11,21 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class StateMachineRepo : DocumentDBRepoBase<StateMachine>, IStateMachineRepo
     {
+        private bool _shouldConsolidateCollections;
+
         public StateMachineRepo(IDeviceRepoSettings repoSettings, ILogger logger) : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, logger)
         {
-
+            _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }
+
+        protected override bool ShouldConsolidateCollections
+        {
+            get
+            {
+                return _shouldConsolidateCollections;
+            }
+        }
+
 
         public Task AddStateMachineAsync(StateMachine stateMachine)
         {
