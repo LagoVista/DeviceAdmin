@@ -126,8 +126,8 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         [HttpGet("statemachines/{orgid}")]
         public async Task<ListResponse<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId)
         {
-            var unitSets = await _deviceAdminManager.GetStateMachinesForOrgAsync(orgId);
-            var response = ListResponse<StateMachineSummary>.Create(unitSets);
+            var stateMachines = await _deviceAdminManager.GetStateMachinesForOrgAsync(orgId);
+            var response = ListResponse<StateMachineSummary>.Create(stateMachines);
 
             return response;
         }
