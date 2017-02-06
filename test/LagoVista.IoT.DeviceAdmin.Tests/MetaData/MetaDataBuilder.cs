@@ -11,7 +11,7 @@ namespace LagoVista.IoT.DevieAdmin.Tests.MetaData
 {
     public class MetaDataBuilder
     {
-        [Fact]
+        //[Fact]
         public void BuildMetaData()
         {
             MetaDataHelper.Instance.RegisterAssembly(typeof(LagoVista.IoT.DeviceAdmin.Startup).Assembly);
@@ -28,5 +28,16 @@ namespace LagoVista.IoT.DevieAdmin.Tests.MetaData
             }
    //         Console.WriteLine(JsonConvert.SerializeObject(MetaDataHelper.Instance.Entities.Where(ent=>ent.DomainName == MetaDataHelper.Instance.Domains.First().Key)));
         }
+
+        [Fact]
+        public void SerializeUnits()
+        {
+            UnitSet unitSet = new UnitSet();
+
+            Console.WriteLine(JsonConvert.SerializeObject(unitSet));
+        }
+    
+
+
     }
 }

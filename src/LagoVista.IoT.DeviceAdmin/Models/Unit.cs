@@ -42,7 +42,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type_Factor, FieldType: FieldTypes.Decimal, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public double ConversionFactor { get; set; }
+        public double? ConversionFactor { get; set; }
 
         // Look at for running the scripts https://github.com/sebastienros/jint
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript, FieldType:FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
