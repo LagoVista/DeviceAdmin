@@ -19,12 +19,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public UnitSet()
         {
-            Units = new ObservableCollection<Unit>();
+            Units = new List<Unit>();
         }
 
         [JsonProperty]
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, ResourceType: typeof(DeviceLibraryResources))]
-        public ObservableCollection<Unit> Units { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, FieldType:FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        public List<Unit> Units { get; set; }
 
         public UnitSetSummary CreateUnitSetSummary()
         {
