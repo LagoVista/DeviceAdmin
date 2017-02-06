@@ -75,7 +75,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("unitset/{orgid}")]
+        [HttpGet("unitsets/{orgid}")]
         public async Task<ListResponse<UnitSetSummary>> GetAttributeUnitSets(String orgId)
         {
             var unitSets = await _attrManager.GetUnitSetsForOrgAsync(orgId);

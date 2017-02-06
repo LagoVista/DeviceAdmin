@@ -44,8 +44,8 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// Unit Set - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("attributeunitset")]
-        public DetailResponse<UnitSet> CreateAttributeUnitSet()
+        [HttpGet("unitset")]
+        public DetailResponse<UnitSet> CreateUnitSet()
         {
             var response = DetailResponse<UnitSet>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
@@ -199,11 +199,11 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 
 
         /// <summary>
-        ///  Attribute Unit - Create New
+        ///  Unit - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("attributeunit")]
-        public DetailResponse<Unit> CreatAttributeUnit()
+        [HttpGet("unit")]
+        public DetailResponse<Unit> CreatUnit()
         {
             var response = DetailResponse<Unit>.Create();
             return response;
