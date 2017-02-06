@@ -2,6 +2,7 @@
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,6 +22,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Units = new ObservableCollection<Unit>();
         }
 
+        [JsonProperty]
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<Unit> Units { get; set; }
 
