@@ -887,4 +887,46 @@
   <data name="Unit_Conversion_Type_Help" xml:space="preserve">
     <value>You can only have one default unit per unit set. That default unit is how the data is stored. Your data however can be displayed and used in different types of units.  You can provide either a factor or formula to convert the default unit value to these different units.</value>
   </data>
+  <data name="UnitSet_IsLocked" xml:space="preserve">
+    <value>Is Locked</value>
+  </data>
+  <data name="UnitSet_IsLocked_Help" xml:space="preserve">
+    <value>Once you establish your unit set, you may want to lock this so it can't be edited. Since unit sets in many different areas, making changes to an existing unit set may have undesired side effects</value>
+  </data>
+  <data name="StateSet_Description" xml:space="preserve">
+    <value>You can define different conditions that your device can be in.  These are called states. States can be things such as On/Off, Running/Idle/Error, Motion/NoMotion, etc...</value>
+  </data>
+  <data name="StateSet_Help" xml:space="preserve">
+    <value>You can define different conditions that your device can be in.  These are called states. States can be things such as On/Off, Running/Idle/Error, Motion/NoMotion, etc...  </value>
+  </data>
+  <data name="StateSet_IsLocked" xml:space="preserve">
+    <value>Is Locked</value>
+  </data>
+  <data name="StateSet_IsLocked_Help" xml:space="preserve">
+    <value>Once you establish your unit set, you may want to lock this so it can't be edited. Since unit sets in many different areas, making changes to an existing unit set may have undesired side effects</value>
+  </data>
+  <data name="StateSet_States" xml:space="preserve">
+    <value>States</value>
+  </data>
+  <data name="StateSet_Title" xml:space="preserve">
+    <value>State Sets</value>
+  </data>
+  <data name="EventSet_Description" xml:space="preserve">
+    <value>Events are used to trigger actions against a state machine.  An event belongs to an Event Set that can be resused across different state machines to implement custom logic.</value>
+  </data>
+  <data name="EventSet_Events" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="EventSet_Help" xml:space="preserve">
+    <value>Events are used to trigger actions against a state machine.  An event belongs to an Event Set that can be resused across different state machines to implement custom logic.</value>
+  </data>
+  <data name="EventSet_IsLocked" xml:space="preserve">
+    <value>Is Locked</value>
+  </data>
+  <data name="EventSet_IsLocked_Help" xml:space="preserve">
+    <value>An event set can be locked to prevent users from changing it.  It is a good idea to lock an event set when your device configuration goes into production since changing it may impact existing configurations.</value>
+  </data>
+  <data name="EventSet_Title" xml:space="preserve">
+    <value>Event Set</value>
+  </data>
 </root>

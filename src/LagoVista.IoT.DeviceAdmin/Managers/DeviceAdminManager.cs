@@ -18,15 +18,19 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         ISharedAtributeRepo _sharedAttributeRepo;
         IUnitSetRepo _unitSetRepo;
         IStateMachineRepo _stateMachineRepo;
+        IStateSetRepo _stateSetRepo;
+        IEventSetRepo _eventSetRepo;
 
         public DeviceAdminManager(IDeviceConfigurationRepo deviceConfigRepo, ISharedActionRepo sharedActionRepo, ISharedAtributeRepo sharedAttributeRepo,
-            IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo)
+            IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo, IStateSetRepo stateSetRepo, IEventSetRepo eventSetRepo)
         {
             _deviceConfigRepo = deviceConfigRepo;
             _sharedActionRepo = sharedActionRepo;
             _sharedAttributeRepo = sharedAttributeRepo;
             _unitSetRepo = unitSetRepo;
             _stateMachineRepo = stateMachineRepo;
+            _stateSetRepo = stateSetRepo;
+            _eventSetRepo = eventSetRepo;
         }
 
         public async Task<InvokeResult> AddStateMachineAsync(StateMachine stateMachine, EntityHeader org, EntityHeader user)
@@ -73,8 +77,32 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             }
 
             return result.ToActionResult();
-
         }
+
+        public async Task<InvokeResult> AddStateSetAsync(StateSet stateSet, EntityHeader org, EntityHeader user)
+        {
+            var result = Validator.Validate(stateSet, Actions.Create);
+            if (result.IsValid)
+            {
+                await _stateSetRepo.AddStateSetAsync(stateSet);
+            }
+
+            return result.ToActionResult();
+        }
+
+        public async Task<InvokeResult> AddEventSetAsync(EventSet eventSet, EntityHeader org, EntityHeader user)
+        {
+            var result = Validator.Validate(eventSet, Actions.Create);
+            if (result.IsValid)
+            {
+                await _eventSetRepo.AddEventSetAsync(eventSet);
+            }
+
+            return result.ToActionResult();
+        }
+
+
+
         public async Task<InvokeResult> AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration, EntityHeader org, EntityHeader user)
         {
             var result = Validator.Validate(deviceConfiguration, Actions.Create);
@@ -160,6 +188,34 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return result.ToActionResult();
         }
 
+        public async Task<InvokeResult> UpdateStateSetAsync(StateSet stateSet, EntityHeader user)
+        {
+            var result = Validator.Validate(stateSet, Actions.Create);
+
+            if (result.IsValid)
+            {
+                stateSet.LastUpdatedBy = user;
+                stateSet.LastUpdatedDate = DateTime.Now.ToJSONString();
+                await _stateSetRepo.UpdateStateSetAsync(stateSet);
+            }
+
+            return result.ToActionResult();
+        }
+
+        public async Task<InvokeResult> UpdateEventSetAsync(EventSet eventSet, EntityHeader user)
+        {
+            var result = Validator.Validate(eventSet, Actions.Create);
+
+            if (result.IsValid)
+            {
+                eventSet.LastUpdatedBy = user;
+                eventSet.LastUpdatedDate = DateTime.Now.ToJSONString();
+                await _eventSetRepo.UpdateEventSetAsync(eventSet);
+            }
+
+            return result.ToActionResult();
+        }
+
         public async Task<StateMachine> GetStateMachineAsync(String id, EntityHeader org)
         {
             var stateMachine = await _stateMachineRepo.GetStateMachineAsync(id);
@@ -215,6 +271,28 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return deviceConfig;
         }
 
+        public async Task<StateSet> GetStateSetAsync(String id, EntityHeader org)
+        {
+            var stateSet = await _stateSetRepo.GetStateSetAsync(id);
+            if (!stateSet.IsPublic && (stateSet.OwnerOrganization.Id != org.Id))
+            {
+                throw new Exception();
+            }
+
+            return stateSet;
+        }
+
+        public async Task<EventSet> GetEventSetAsync(String id, EntityHeader org)
+        {
+            var eventSet = await _eventSetRepo.GetEventSetAsync(id);
+            if (!eventSet.IsPublic && (eventSet.OwnerOrganization.Id != org.Id))
+            {
+                throw new Exception();
+            }
+
+            return eventSet;
+        }
+
         public Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId)
         {
             return _stateMachineRepo.GetStateMachinesForOrgAsync(orgId);
@@ -240,6 +318,17 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return _deviceConfigRepo.GetDeviceConfigurationsForOrgAsync(orgId);
         }
 
+        public Task<IEnumerable<StateSetSummary>> GetStateSetsForOrgAsync(String orgId)
+        {
+            return _stateSetRepo.GetStateSetsForOrgAsync(orgId);
+        }
+
+        public Task<IEnumerable<EventSetSummary>> GetEventSetsForOrgAsync(String orgId)
+        {
+            return _eventSetRepo.GetEventSetsForOrgAsync(orgId);
+        }
+
+
         public Task<bool> QueryDeviceConfigurationKeyInUseAsync(String key, String orgId)
         {
             return _deviceConfigRepo.QueryKeyInUseAsync(key, orgId);
@@ -264,5 +353,16 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         {
             return _sharedAttributeRepo.QueryKeyInUseAsync(key, orgId);
         }
+
+        public Task<bool> QueryStateSetKeyInUseAsync(String key, String orgId)
+        {
+            return _stateSetRepo.QueryKeyInUseAsync(key, orgId);
+        }
+
+        public Task<bool> QueryEventSetKeyInUseAsync(String key, String orgId)
+        {
+            return _eventSetRepo.QueryKeyInUseAsync(key, orgId);
+        }
+
     }
 }

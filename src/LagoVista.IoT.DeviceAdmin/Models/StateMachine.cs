@@ -18,7 +18,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public StateMachine()
         {
             States = new ObservableCollection<State>();
-            Events = new ObservableCollection<StateMachineEvent>();
+            Events = new ObservableCollection<Event>();
             Variables = new ObservableCollection<CustomField>();
         }
 
@@ -36,7 +36,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public ObservableCollection<CustomField> Variables { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Events, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_Events_Help, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
-        public ObservableCollection<StateMachineEvent> Events { get; set; }
+        public ObservableCollection<Event> Events { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Exception_OnInvalidEvent, FieldType: FieldTypes.Bool, HelpResource:DeviceLibraryResources.Names.StateMachine_Exception_OnInvalidEvent_Help, ResourceType: typeof(DeviceLibraryResources))]
         public bool ExceptionOnUnhandledEvent { get; set; }
