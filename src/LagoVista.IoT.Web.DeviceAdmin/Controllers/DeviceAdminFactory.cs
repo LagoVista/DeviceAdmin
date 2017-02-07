@@ -206,6 +206,14 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<Unit> CreatUnit()
         {
             var response = DetailResponse<Unit>.Create();
+            response.Model.IsDefault = "false";
+            response.Model.ConversionType = new Core.Models.EntityHeader()
+            {
+                Text = "Factor",
+                Id = "factor"
+            };
+            response.Model.ConversionFactor = 1.0;
+
             return response;
         }
 
