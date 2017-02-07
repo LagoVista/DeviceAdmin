@@ -49,7 +49,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String ConversionScript { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_IsDefault, FieldType:FieldTypes.CheckBox, HelpResource: Resources.DeviceLibraryResources.Names.Unit_IsDefault, ResourceType: typeof(DeviceLibraryResources))]
-        public String IsDefault { get; set; }
+        public bool IsDefault { get; set; }
     }
 
 }
