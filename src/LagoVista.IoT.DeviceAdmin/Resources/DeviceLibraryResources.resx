@@ -929,4 +929,10 @@
   <data name="EventSet_Title" xml:space="preserve">
     <value>Event Set</value>
   </data>
+  <data name="Unit_DisplayFormat" xml:space="preserve">
+    <value>Display Format</value>
+  </data>
+  <data name="Unit_DisplayFormat_Help" xml:space="preserve">
+    <value>You can create a script that will return a formatted string that will display units properly.</value>
+  </data>
 </root>

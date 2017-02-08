@@ -835,6 +835,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Unit_Description
 
 		public static string Unit_Description { get { return GetResourceString("Unit_Description"); } }
+//Resources:DeviceLibraryResources:Unit_DisplayFormat
+
+		public static string Unit_DisplayFormat { get { return GetResourceString("Unit_DisplayFormat"); } }
+//Resources:DeviceLibraryResources:Unit_DisplayFormat_Help
+
+		public static string Unit_DisplayFormat_Help { get { return GetResourceString("Unit_DisplayFormat_Help"); } }
 //Resources:DeviceLibraryResources:Unit_Help
 
 		public static string Unit_Help { get { return GetResourceString("Unit_Help"); } }
@@ -1132,6 +1138,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Unit_ConversionScript_Help = "Unit_ConversionScript_Help";
 			public const string Unit_Definitions = "Unit_Definitions";
 			public const string Unit_Description = "Unit_Description";
+			public const string Unit_DisplayFormat = "Unit_DisplayFormat";
+			public const string Unit_DisplayFormat_Help = "Unit_DisplayFormat_Help";
 			public const string Unit_Help = "Unit_Help";
 			public const string Unit_IsDefault = "Unit_IsDefault";
 			public const string Unit_IsDefault_Help = "Unit_IsDefault_Help";

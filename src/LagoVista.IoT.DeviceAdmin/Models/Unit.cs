@@ -48,6 +48,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript, FieldType:FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
         public String ConversionScript { get; set; }
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_DisplayFormat, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_DisplayFormat_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public String DisplayFormat { get; set; }
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_IsDefault, FieldType:FieldTypes.CheckBox, HelpResource: Resources.DeviceLibraryResources.Names.Unit_IsDefault, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsDefault { get; set; }
     }
