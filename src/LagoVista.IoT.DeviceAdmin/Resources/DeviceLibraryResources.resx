@@ -501,7 +501,7 @@
   <data name="StateMachine_Transitions" xml:space="preserve">
     <value>Transitions</value>
   </data>
-  <data name="StateMachine_Transition_Action" xml:space="preserve">
+  <data name="StateMachine_Transition_Script" xml:space="preserve">
     <value>Transition Actions</value>
   </data>
   <data name="StateMachine_Transition_State" xml:space="preserve">
@@ -547,7 +547,7 @@
     <value>When this transition occurs, the New State will be the state that the State Machine will currently be in.  It is possible that the the transition may leave the State Machine in the current state, if that's the case, the Transition is used to simply exectue an action.</value>
   </data>
   <data name="StateMachine_Transition_Action_Help" xml:space="preserve">
-    <value>As the event triggers a transition between different states a set of actions can be execute.  The actions are guarenteed to be execute in the order they are listed and each action will finish executing prior to the next action being started.</value>
+    <value>As the event triggers a transition between different states a script can be executed.</value>
   </data>
   <data name="StateMachine_Transition_EventHelp" xml:space="preserve">
     <value>This is the event that can be handled by the current state in which this transition is defined.  Each current state must have unique events defined that can be handled and it is not required for all states to handle all events.  The state machine can be configured to send an error message if an event comes in while the state machine can not handle the event.</value>
@@ -934,5 +934,11 @@
   </data>
   <data name="Unit_DisplayFormat_Help" xml:space="preserve">
     <value>You can create a script that will return a formatted string that will display units properly.</value>
+  </data>
+  <data name="StateMachine_State_IsInitialState" xml:space="preserve">
+    <value>Is Initial State</value>
+  </data>
+  <data name="StateMachine_State_IsInitialState_Help" xml:space="preserve">
+    <value>For a state set, you can specify the initial or default state.</value>
   </data>
 </root>

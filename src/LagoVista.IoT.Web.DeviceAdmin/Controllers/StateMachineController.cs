@@ -272,7 +272,6 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<State> CreatState()
         {
             var response = DetailResponse<State>.Create();
-            response.Model.Transitions = new ObservableCollection<StateTransition>();
             return response;
         }
 
@@ -310,7 +309,6 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<StateTransition> CreateTransition()
         {
             var response = DetailResponse<StateTransition>.Create();
-            response.Model.TransitionActions = new ObservableCollection<IEntityHeader>();
             return response;
         }
     }
