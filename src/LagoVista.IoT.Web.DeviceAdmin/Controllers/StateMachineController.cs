@@ -232,7 +232,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="stateSet"></param>
         /// <returns></returns>
-        [HttpPost("statemachines/stateset")]
+        [HttpPost("stateset")]
         public Task UpdateStateSet([FromBody] StateSet stateSet)
         {
             return _deviceAdminManager.UpdateStateSetAsync(stateSet, UserEntityHeader);
@@ -243,7 +243,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="eventSet"></param>
         /// <returns></returns>
-        [HttpPost("statemachines/eventset")]
+        [HttpPost("eventset")]
         public Task UpdateEventSet([FromBody] EventSet eventSet)
         {
             return _deviceAdminManager.UpdateEventSetAsync(eventSet, UserEntityHeader);
