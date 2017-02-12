@@ -153,7 +153,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="stateSetId"></param>
         /// <returns></returns>
-        [HttpGet("stateset/{statemachineid}")]
+        [HttpGet("stateset/{stateSetId}")]
         public async Task<DetailResponse<StateSet>> GetStateSet(String stateSetId)
         {
             var stateMachine = await _deviceAdminManager.GetStateSetAsync(stateSetId, OrgEntityHeader);
@@ -168,7 +168,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="eventSetId"></param>
         /// <returns></returns>
-        [HttpGet("eventset/{statemachineid}")]
+        [HttpGet("eventset/{eventSetId}")]
         public async Task<DetailResponse<EventSet>> GetEventSet(String eventSetId)
         {
             var eventSet = await _deviceAdminManager.GetEventSetAsync(eventSetId, OrgEntityHeader);
