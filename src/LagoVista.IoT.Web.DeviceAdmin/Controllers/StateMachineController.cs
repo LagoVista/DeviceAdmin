@@ -232,7 +232,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="stateSet"></param>
         /// <returns></returns>
-        [HttpPost("stateset")]
+        [HttpPut("stateset")]
         public Task UpdateStateSet([FromBody] StateSet stateSet)
         {
             return _deviceAdminManager.UpdateStateSetAsync(stateSet, UserEntityHeader);
