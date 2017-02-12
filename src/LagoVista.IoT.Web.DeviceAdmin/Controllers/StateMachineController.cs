@@ -258,6 +258,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         {
             var response = DetailResponse<StateSet>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
+            response.Model.States = new List<State>();
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
             return response;
