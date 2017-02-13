@@ -153,7 +153,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="stateSetId"></param>
         /// <returns></returns>
-        [HttpGet("stateset/{statemachineid}")]
+        [HttpGet("stateset/{stateSetId}")]
         public async Task<DetailResponse<StateSet>> GetStateSet(String stateSetId)
         {
             var stateMachine = await _deviceAdminManager.GetStateSetAsync(stateSetId, OrgEntityHeader);
@@ -168,7 +168,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="eventSetId"></param>
         /// <returns></returns>
-        [HttpGet("eventset/{statemachineid}")]
+        [HttpGet("eventset/{eventSetId}")]
         public async Task<DetailResponse<EventSet>> GetEventSet(String eventSetId)
         {
             var eventSet = await _deviceAdminManager.GetEventSetAsync(eventSetId, OrgEntityHeader);
@@ -232,7 +232,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="stateSet"></param>
         /// <returns></returns>
-        [HttpPost("statemachines/stateset")]
+        [HttpPut("stateset")]
         public Task UpdateStateSet([FromBody] StateSet stateSet)
         {
             return _deviceAdminManager.UpdateStateSetAsync(stateSet, UserEntityHeader);
@@ -243,7 +243,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="eventSet"></param>
         /// <returns></returns>
-        [HttpPost("statemachines/eventset")]
+        [HttpPost("eventset")]
         public Task UpdateEventSet([FromBody] EventSet eventSet)
         {
             return _deviceAdminManager.UpdateEventSetAsync(eventSet, UserEntityHeader);
@@ -258,6 +258,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         {
             var response = DetailResponse<StateSet>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
+            response.Model.States = new List<State>();
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
             return response;
@@ -272,7 +273,6 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<State> CreatState()
         {
             var response = DetailResponse<State>.Create();
-            response.Model.Transitions = new ObservableCollection<StateTransition>();
             return response;
         }
 
@@ -310,7 +310,6 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<StateTransition> CreateTransition()
         {
             var response = DetailResponse<StateTransition>.Create();
-            response.Model.TransitionActions = new ObservableCollection<IEntityHeader>();
             return response;
         }
     }
