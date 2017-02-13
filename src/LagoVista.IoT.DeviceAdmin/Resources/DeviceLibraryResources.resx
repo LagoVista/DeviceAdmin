@@ -625,7 +625,7 @@
     <value>Custom Field</value>
   </data>
   <data name="DeviceConfiguration_Description" xml:space="preserve">
-    <value>A Device Configuration can be thought of as a template for provisioning devices.  It defines the Meta-Data, Actions and Attributes that need to be effectively managed when provisioning thousand or even millions of devices</value>
+    <value>A device configuration is a collection of listeners, input translators, device configurations and senders.</value>
   </data>
   <data name="DeviceConfiguration_Help" xml:space="preserve">
     <value>A Device Configuration can be thought of as a template for provisioning devices.  It defines the Meta-Data, Actions and Attributes that need to be effectively managed when provisioning thousand or even millions of devices</value>
@@ -970,5 +970,14 @@
   </data>
   <data name="WorkflowInput_Type_GeoLocation_Help" xml:space="preserve">
     <value>You can configure your input to accept GeoLocation (Latitude/Longitude) data</value>
+  </data>
+  <data name="DeviceWorkflow_Description" xml:space="preserve">
+    <value>A Device Workflow is the business logic you can implement based in inputs coming from your sensors, input commands that can be sent via another application or a user interface as well as the current state of the device configuration.</value>
+  </data>
+  <data name="DeviceWorkflow_Help" xml:space="preserve">
+    <value>A Device Workflow is the business logic you can implement based in inputs coming from your sensors, input commands that can be sent via another application or a user interface as well as the current state of the device configuration.</value>
+  </data>
+  <data name="DeviceWorkflow_Title" xml:space="preserve">
+    <value>Device Workflow</value>
   </data>
 </root>

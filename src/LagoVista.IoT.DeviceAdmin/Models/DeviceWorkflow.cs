@@ -13,7 +13,7 @@ using LagoVista.UserManagement.Models.Account;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Title, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Help, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class DeviceWorkflow : DeviceModelBase, IOwnedEntity, IValidateable, IKeyedEntity, INoSQLEntity
     {
         public String DatabaseName { get; set; }

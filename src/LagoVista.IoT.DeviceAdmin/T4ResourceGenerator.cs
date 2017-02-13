@@ -416,6 +416,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_CustomFields
 
 		public static string DeviceWorkflow_CustomFields { get { return GetResourceString("DeviceWorkflow_CustomFields"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Description
+
+		public static string DeviceWorkflow_Description { get { return GetResourceString("DeviceWorkflow_Description"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_Environment
 
 		public static string DeviceWorkflow_Environment { get { return GetResourceString("DeviceWorkflow_Environment"); } }
@@ -437,6 +440,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_Environment_Staging_Help
 
 		public static string DeviceWorkflow_Environment_Staging_Help { get { return GetResourceString("DeviceWorkflow_Environment_Staging_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Help
+
+		public static string DeviceWorkflow_Help { get { return GetResourceString("DeviceWorkflow_Help"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_InputCommands
 
 		public static string DeviceWorkflow_InputCommands { get { return GetResourceString("DeviceWorkflow_InputCommands"); } }
@@ -449,6 +455,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_OutputCommands
 
 		public static string DeviceWorkflow_OutputCommands { get { return GetResourceString("DeviceWorkflow_OutputCommands"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Title
+
+		public static string DeviceWorkflow_Title { get { return GetResourceString("DeviceWorkflow_Title"); } }
 //Resources:DeviceLibraryResources:Environment
 
 
@@ -682,12 +691,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateMachine_State_DiagramY
 
 		public static string StateMachine_State_DiagramY { get { return GetResourceString("StateMachine_State_DiagramY"); } }
-//Resources:DeviceLibraryResources:StateMachine_State_IsInitialState
-
-		public static string StateMachine_State_IsInitialState { get { return GetResourceString("StateMachine_State_IsInitialState"); } }
-//Resources:DeviceLibraryResources:StateMachine_State_IsInitialState_Help
-
-		public static string StateMachine_State_IsInitialState_Help { get { return GetResourceString("StateMachine_State_IsInitialState_Help"); } }
 //Resources:DeviceLibraryResources:StateMachine_State_TransitionInAction
 
 		public static string StateMachine_State_TransitionInAction { get { return GetResourceString("StateMachine_State_TransitionInAction"); } }
@@ -706,15 +709,15 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateMachine_Title
 
 		public static string StateMachine_Title { get { return GetResourceString("StateMachine_Title"); } }
+//Resources:DeviceLibraryResources:StateMachine_Transition_Action
+
+		public static string StateMachine_Transition_Action { get { return GetResourceString("StateMachine_Transition_Action"); } }
 //Resources:DeviceLibraryResources:StateMachine_Transition_Action_Help
 
 		public static string StateMachine_Transition_Action_Help { get { return GetResourceString("StateMachine_Transition_Action_Help"); } }
 //Resources:DeviceLibraryResources:StateMachine_Transition_EventHelp
 
 		public static string StateMachine_Transition_EventHelp { get { return GetResourceString("StateMachine_Transition_EventHelp"); } }
-//Resources:DeviceLibraryResources:StateMachine_Transition_Script
-
-		public static string StateMachine_Transition_Script { get { return GetResourceString("StateMachine_Transition_Script"); } }
 //Resources:DeviceLibraryResources:StateMachine_Transition_State
 
 		public static string StateMachine_Transition_State { get { return GetResourceString("StateMachine_Transition_State"); } }
@@ -1043,6 +1046,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string DeviceWorkflow_Attributes_Help = "DeviceWorkflow_Attributes_Help";
 			public const string DeviceWorkflow_ConfigVersion = "DeviceWorkflow_ConfigVersion";
 			public const string DeviceWorkflow_CustomFields = "DeviceWorkflow_CustomFields";
+			public const string DeviceWorkflow_Description = "DeviceWorkflow_Description";
 			public const string DeviceWorkflow_Environment = "DeviceWorkflow_Environment";
 			public const string DeviceWorkflow_Environment_Development = "DeviceWorkflow_Environment_Development";
 			public const string DeviceWorkflow_Environment_Development_Help = "DeviceWorkflow_Environment_Development_Help";
@@ -1050,10 +1054,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string DeviceWorkflow_Environment_Production_Help = "DeviceWorkflow_Environment_Production_Help";
 			public const string DeviceWorkflow_Environment_Staging = "DeviceWorkflow_Environment_Staging";
 			public const string DeviceWorkflow_Environment_Staging_Help = "DeviceWorkflow_Environment_Staging_Help";
+			public const string DeviceWorkflow_Help = "DeviceWorkflow_Help";
 			public const string DeviceWorkflow_InputCommands = "DeviceWorkflow_InputCommands";
 			public const string DeviceWorkflow_InputCommands_Help = "DeviceWorkflow_InputCommands_Help";
 			public const string DeviceWorkflow_Inputs = "DeviceWorkflow_Inputs";
 			public const string DeviceWorkflow_OutputCommands = "DeviceWorkflow_OutputCommands";
+			public const string DeviceWorkflow_Title = "DeviceWorkflow_Title";
 			public const string Environment = "Environment";
 			public const string Environment_Dev = "Environment_Dev";
 			public const string Environment_Help = "Environment_Help";
@@ -1129,17 +1135,15 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateMachine_State_Action = "StateMachine_State_Action";
 			public const string StateMachine_State_DiagramX = "StateMachine_State_DiagramX";
 			public const string StateMachine_State_DiagramY = "StateMachine_State_DiagramY";
-			public const string StateMachine_State_IsInitialState = "StateMachine_State_IsInitialState";
-			public const string StateMachine_State_IsInitialState_Help = "StateMachine_State_IsInitialState_Help";
 			public const string StateMachine_State_TransitionInAction = "StateMachine_State_TransitionInAction";
 			public const string StateMachine_State_TransitionInAction_Help = "StateMachine_State_TransitionInAction_Help";
 			public const string StateMachine_State_Transitions = "StateMachine_State_Transitions";
 			public const string StateMachine_State_Transitions_Help = "StateMachine_State_Transitions_Help";
 			public const string StateMachine_States = "StateMachine_States";
 			public const string StateMachine_Title = "StateMachine_Title";
+			public const string StateMachine_Transition_Action = "StateMachine_Transition_Action";
 			public const string StateMachine_Transition_Action_Help = "StateMachine_Transition_Action_Help";
 			public const string StateMachine_Transition_EventHelp = "StateMachine_Transition_EventHelp";
-			public const string StateMachine_Transition_Script = "StateMachine_Transition_Script";
 			public const string StateMachine_Transition_State = "StateMachine_Transition_State";
 			public const string StateMachine_Transitions = "StateMachine_Transitions";
 			public const string StateMachine_UserHelp = "StateMachine_UserHelp";
