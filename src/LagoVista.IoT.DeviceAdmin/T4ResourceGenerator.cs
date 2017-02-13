@@ -92,27 +92,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Action_NodeRedFlows
 
 		public static string Action_NodeRedFlows { get { return GetResourceString("Action_NodeRedFlows"); } }
-//Resources:DeviceLibraryResources:Action_Parameter_Tyeps_TrueFalse
-
-		public static string Action_Parameter_Tyeps_TrueFalse { get { return GetResourceString("Action_Parameter_Tyeps_TrueFalse"); } }
-//Resources:DeviceLibraryResources:Action_Parameter_Type
-
-		public static string Action_Parameter_Type { get { return GetResourceString("Action_Parameter_Type"); } }
-//Resources:DeviceLibraryResources:Action_Parameter_Types
-
-		public static string Action_Parameter_Types { get { return GetResourceString("Action_Parameter_Types"); } }
-//Resources:DeviceLibraryResources:Action_Parameter_Types_Decimal
-
-		public static string Action_Parameter_Types_Decimal { get { return GetResourceString("Action_Parameter_Types_Decimal"); } }
-//Resources:DeviceLibraryResources:Action_Parameter_Types_Integer
-
-		public static string Action_Parameter_Types_Integer { get { return GetResourceString("Action_Parameter_Types_Integer"); } }
-//Resources:DeviceLibraryResources:Action_Parameter_Types_String
-
-		public static string Action_Parameter_Types_String { get { return GetResourceString("Action_Parameter_Types_String"); } }
-//Resources:DeviceLibraryResources:Action_Parameters
-
-		public static string Action_Parameters { get { return GetResourceString("Action_Parameters"); } }
 //Resources:DeviceLibraryResources:Action_RemoteUri
 
 		public static string Action_RemoteUri { get { return GetResourceString("Action_RemoteUri"); } }
@@ -413,66 +392,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Device_Status
 
 		public static string Device_Status { get { return GetResourceString("Device_Status"); } }
-//Resources:DeviceLibraryResources:DeviceCommand_Description
-
-		public static string DeviceCommand_Description { get { return GetResourceString("DeviceCommand_Description"); } }
-//Resources:DeviceLibraryResources:DeviceCommand_Help
-
-		public static string DeviceCommand_Help { get { return GetResourceString("DeviceCommand_Help"); } }
-//Resources:DeviceLibraryResources:DeviceCommand_Script
-
-		public static string DeviceCommand_Script { get { return GetResourceString("DeviceCommand_Script"); } }
-//Resources:DeviceLibraryResources:DeviceCommand_Script_Help
-
-		public static string DeviceCommand_Script_Help { get { return GetResourceString("DeviceCommand_Script_Help"); } }
-//Resources:DeviceLibraryResources:DeviceCommand_Title
-
-		public static string DeviceCommand_Title { get { return GetResourceString("DeviceCommand_Title"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Actions
-
-		public static string DeviceConfig_Actions { get { return GetResourceString("DeviceConfig_Actions"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Actions_Help
-
-		public static string DeviceConfig_Actions_Help { get { return GetResourceString("DeviceConfig_Actions_Help"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Attributes
-
-		public static string DeviceConfig_Attributes { get { return GetResourceString("DeviceConfig_Attributes"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Attributes_Help
-
-		public static string DeviceConfig_Attributes_Help { get { return GetResourceString("DeviceConfig_Attributes_Help"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_ConfigVersion
-
-		public static string DeviceConfig_ConfigVersion { get { return GetResourceString("DeviceConfig_ConfigVersion"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_CustomFields
-
-		public static string DeviceConfig_CustomFields { get { return GetResourceString("DeviceConfig_CustomFields"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Environment
-
-		public static string DeviceConfig_Environment { get { return GetResourceString("DeviceConfig_Environment"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Environment_Development
-
-		public static string DeviceConfig_Environment_Development { get { return GetResourceString("DeviceConfig_Environment_Development"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Environment_Development_Help
-
-		public static string DeviceConfig_Environment_Development_Help { get { return GetResourceString("DeviceConfig_Environment_Development_Help"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Environment_Production
-
-		public static string DeviceConfig_Environment_Production { get { return GetResourceString("DeviceConfig_Environment_Production"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Environment_Production_Help
-
-		public static string DeviceConfig_Environment_Production_Help { get { return GetResourceString("DeviceConfig_Environment_Production_Help"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Environment_Staging
-
-		public static string DeviceConfig_Environment_Staging { get { return GetResourceString("DeviceConfig_Environment_Staging"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Environment_Staging_Help
-
-		public static string DeviceConfig_Environment_Staging_Help { get { return GetResourceString("DeviceConfig_Environment_Staging_Help"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Manufacture
-
-		public static string DeviceConfig_Manufacture { get { return GetResourceString("DeviceConfig_Manufacture"); } }
-//Resources:DeviceLibraryResources:DeviceConfig_Model
-
-		public static string DeviceConfig_Model { get { return GetResourceString("DeviceConfig_Model"); } }
 //Resources:DeviceLibraryResources:DeviceConfiguration_Description
 
 		public static string DeviceConfiguration_Description { get { return GetResourceString("DeviceConfiguration_Description"); } }
@@ -482,6 +401,54 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:DeviceConfiguration_Title
 
 		public static string DeviceConfiguration_Title { get { return GetResourceString("DeviceConfiguration_Title"); } }
+//Resources:DeviceLibraryResources:DeviceConfiguration_Version
+
+		public static string DeviceConfiguration_Version { get { return GetResourceString("DeviceConfiguration_Version"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Attributes
+
+		public static string DeviceWorkflow_Attributes { get { return GetResourceString("DeviceWorkflow_Attributes"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Attributes_Help
+
+		public static string DeviceWorkflow_Attributes_Help { get { return GetResourceString("DeviceWorkflow_Attributes_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_ConfigVersion
+
+		public static string DeviceWorkflow_ConfigVersion { get { return GetResourceString("DeviceWorkflow_ConfigVersion"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_CustomFields
+
+		public static string DeviceWorkflow_CustomFields { get { return GetResourceString("DeviceWorkflow_CustomFields"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Environment
+
+		public static string DeviceWorkflow_Environment { get { return GetResourceString("DeviceWorkflow_Environment"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Environment_Development
+
+		public static string DeviceWorkflow_Environment_Development { get { return GetResourceString("DeviceWorkflow_Environment_Development"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Environment_Development_Help
+
+		public static string DeviceWorkflow_Environment_Development_Help { get { return GetResourceString("DeviceWorkflow_Environment_Development_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Environment_Production
+
+		public static string DeviceWorkflow_Environment_Production { get { return GetResourceString("DeviceWorkflow_Environment_Production"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Environment_Production_Help
+
+		public static string DeviceWorkflow_Environment_Production_Help { get { return GetResourceString("DeviceWorkflow_Environment_Production_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Environment_Staging
+
+		public static string DeviceWorkflow_Environment_Staging { get { return GetResourceString("DeviceWorkflow_Environment_Staging"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Environment_Staging_Help
+
+		public static string DeviceWorkflow_Environment_Staging_Help { get { return GetResourceString("DeviceWorkflow_Environment_Staging_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_InputCommands
+
+		public static string DeviceWorkflow_InputCommands { get { return GetResourceString("DeviceWorkflow_InputCommands"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_InputCommands_Help
+
+		public static string DeviceWorkflow_InputCommands_Help { get { return GetResourceString("DeviceWorkflow_InputCommands_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Inputs
+
+		public static string DeviceWorkflow_Inputs { get { return GetResourceString("DeviceWorkflow_Inputs"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_OutputCommands
+
+		public static string DeviceWorkflow_OutputCommands { get { return GetResourceString("DeviceWorkflow_OutputCommands"); } }
 //Resources:DeviceLibraryResources:Environment
 
 
@@ -568,6 +535,30 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Gatway_Firmware_Version
 
 		public static string Gatway_Firmware_Version { get { return GetResourceString("Gatway_Firmware_Version"); } }
+//Resources:DeviceLibraryResources:InputCommand_Description
+
+		public static string InputCommand_Description { get { return GetResourceString("InputCommand_Description"); } }
+//Resources:DeviceLibraryResources:InputCommand_Help
+
+		public static string InputCommand_Help { get { return GetResourceString("InputCommand_Help"); } }
+//Resources:DeviceLibraryResources:InputCommand_Parameters
+
+		public static string InputCommand_Parameters { get { return GetResourceString("InputCommand_Parameters"); } }
+//Resources:DeviceLibraryResources:InputCommand_Title
+
+		public static string InputCommand_Title { get { return GetResourceString("InputCommand_Title"); } }
+//Resources:DeviceLibraryResources:InputCommandParameter_Help
+
+		public static string InputCommandParameter_Help { get { return GetResourceString("InputCommandParameter_Help"); } }
+//Resources:DeviceLibraryResources:InputCommandParameter_Title
+
+		public static string InputCommandParameter_Title { get { return GetResourceString("InputCommandParameter_Title"); } }
+//Resources:DeviceLibraryResources:InputCommandParameter_Type
+
+		public static string InputCommandParameter_Type { get { return GetResourceString("InputCommandParameter_Type"); } }
+//Resources:DeviceLibraryResources:InputCommandParamter_Description
+
+		public static string InputCommandParamter_Description { get { return GetResourceString("InputCommandParamter_Description"); } }
 //Resources:DeviceLibraryResources:NodeRedFlow_Description
 
 		public static string NodeRedFlow_Description { get { return GetResourceString("NodeRedFlow_Description"); } }
@@ -577,66 +568,42 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:NodeRedFlow_Title
 
 		public static string NodeRedFlow_Title { get { return GetResourceString("NodeRedFlow_Title"); } }
-//Resources:DeviceLibraryResources:Sensor_Description
+//Resources:DeviceLibraryResources:OutputCommand_Description
 
-		public static string Sensor_Description { get { return GetResourceString("Sensor_Description"); } }
-//Resources:DeviceLibraryResources:Sensor_Help
+		public static string OutputCommand_Description { get { return GetResourceString("OutputCommand_Description"); } }
+//Resources:DeviceLibraryResources:OutputCommand_Help
 
-		public static string Sensor_Help { get { return GetResourceString("Sensor_Help"); } }
-//Resources:DeviceLibraryResources:Sensor_SetScript
+		public static string OutputCommand_Help { get { return GetResourceString("OutputCommand_Help"); } }
+//Resources:DeviceLibraryResources:OutputCommand_Script
 
-		public static string Sensor_SetScript { get { return GetResourceString("Sensor_SetScript"); } }
-//Resources:DeviceLibraryResources:Sensor_SetScript_Help
+		public static string OutputCommand_Script { get { return GetResourceString("OutputCommand_Script"); } }
+//Resources:DeviceLibraryResources:OutputCommand_Script_Help
 
-		public static string Sensor_SetScript_Help { get { return GetResourceString("Sensor_SetScript_Help"); } }
-//Resources:DeviceLibraryResources:Sensor_States
+		public static string OutputCommand_Script_Help { get { return GetResourceString("OutputCommand_Script_Help"); } }
+//Resources:DeviceLibraryResources:OutputCommand_Title
 
-		public static string Sensor_States { get { return GetResourceString("Sensor_States"); } }
-//Resources:DeviceLibraryResources:Sensor_States_Help
+		public static string OutputCommand_Title { get { return GetResourceString("OutputCommand_Title"); } }
+//Resources:DeviceLibraryResources:Parameter_Type
 
-		public static string Sensor_States_Help { get { return GetResourceString("Sensor_States_Help"); } }
-//Resources:DeviceLibraryResources:Sensor_Title
+		public static string Parameter_Type { get { return GetResourceString("Parameter_Type"); } }
+//Resources:DeviceLibraryResources:Parameter_Types
 
-		public static string Sensor_Title { get { return GetResourceString("Sensor_Title"); } }
-//Resources:DeviceLibraryResources:Sensor_Type
+		public static string Parameter_Types { get { return GetResourceString("Parameter_Types"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_Decimal
 
-		public static string Sensor_Type { get { return GetResourceString("Sensor_Type"); } }
-//Resources:DeviceLibraryResources:Sensor_Type_Description
+		public static string Parameter_Types_Decimal { get { return GetResourceString("Parameter_Types_Decimal"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_Integer
 
-		public static string Sensor_Type_Description { get { return GetResourceString("Sensor_Type_Description"); } }
-//Resources:DeviceLibraryResources:Sensor_Type_Discrete
+		public static string Parameter_Types_Integer { get { return GetResourceString("Parameter_Types_Integer"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_String
 
-		public static string Sensor_Type_Discrete { get { return GetResourceString("Sensor_Type_Discrete"); } }
-//Resources:DeviceLibraryResources:Sensor_Type_Discrete_Help
+		public static string Parameter_Types_String { get { return GetResourceString("Parameter_Types_String"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_TrueFalse
 
-		public static string Sensor_Type_Discrete_Help { get { return GetResourceString("Sensor_Type_Discrete_Help"); } }
-//Resources:DeviceLibraryResources:Sensor_Type_Discrete_Units
+		public static string Parameter_Types_TrueFalse { get { return GetResourceString("Parameter_Types_TrueFalse"); } }
+//Resources:DeviceLibraryResources:Parameters
 
-		public static string Sensor_Type_Discrete_Units { get { return GetResourceString("Sensor_Type_Discrete_Units"); } }
-//Resources:DeviceLibraryResources:Sensor_Type_Discrete_Units_Help
-
-		public static string Sensor_Type_Discrete_Units_Help { get { return GetResourceString("Sensor_Type_Discrete_Units_Help"); } }
-//Resources:DeviceLibraryResources:Sensor_Type_Help
-
-		public static string Sensor_Type_Help { get { return GetResourceString("Sensor_Type_Help"); } }
-//Resources:DeviceLibraryResources:Sensor_Type_State
-
-		public static string Sensor_Type_State { get { return GetResourceString("Sensor_Type_State"); } }
-//Resources:DeviceLibraryResources:Sensor_Type_State_Help
-
-		public static string Sensor_Type_State_Help { get { return GetResourceString("Sensor_Type_State_Help"); } }
-//Resources:DeviceLibraryResources:Sensor_Type_Text
-
-		public static string Sensor_Type_Text { get { return GetResourceString("Sensor_Type_Text"); } }
-//Resources:DeviceLibraryResources:Sensor_Type_Text_Help
-
-		public static string Sensor_Type_Text_Help { get { return GetResourceString("Sensor_Type_Text_Help"); } }
-//Resources:DeviceLibraryResources:Sensor_Units
-
-		public static string Sensor_Units { get { return GetResourceString("Sensor_Units"); } }
-//Resources:DeviceLibraryResources:Sensor_Units_Help
-
-		public static string Sensor_Units_Help { get { return GetResourceString("Sensor_Units_Help"); } }
+		public static string Parameters { get { return GetResourceString("Parameters"); } }
 //Resources:DeviceLibraryResources:SharedAction_Description
 
 		public static string SharedAction_Description { get { return GetResourceString("SharedAction_Description"); } }
@@ -877,6 +844,75 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:UnitSet_Units
 
 		public static string UnitSet_Units { get { return GetResourceString("UnitSet_Units"); } }
+//Resources:DeviceLibraryResources:WorkflowInptuType_GeoLocation_Help
+
+		public static string WorkflowInptuType_GeoLocation_Help { get { return GetResourceString("WorkflowInptuType_GeoLocation_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Description
+
+		public static string WorkflowInput_Description { get { return GetResourceString("WorkflowInput_Description"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Help
+
+		public static string WorkflowInput_Help { get { return GetResourceString("WorkflowInput_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_SetScript
+
+		public static string WorkflowInput_SetScript { get { return GetResourceString("WorkflowInput_SetScript"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_SetScript_Help
+
+		public static string WorkflowInput_SetScript_Help { get { return GetResourceString("WorkflowInput_SetScript_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_States
+
+		public static string WorkflowInput_States { get { return GetResourceString("WorkflowInput_States"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_States_Help
+
+		public static string WorkflowInput_States_Help { get { return GetResourceString("WorkflowInput_States_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Title
+
+		public static string WorkflowInput_Title { get { return GetResourceString("WorkflowInput_Title"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type
+
+		public static string WorkflowInput_Type { get { return GetResourceString("WorkflowInput_Type"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_Description
+
+		public static string WorkflowInput_Type_Description { get { return GetResourceString("WorkflowInput_Type_Description"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_Discrete
+
+		public static string WorkflowInput_Type_Discrete { get { return GetResourceString("WorkflowInput_Type_Discrete"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_Discrete_Help
+
+		public static string WorkflowInput_Type_Discrete_Help { get { return GetResourceString("WorkflowInput_Type_Discrete_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_Discrete_Units
+
+		public static string WorkflowInput_Type_Discrete_Units { get { return GetResourceString("WorkflowInput_Type_Discrete_Units"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_Discrete_Units_Help
+
+		public static string WorkflowInput_Type_Discrete_Units_Help { get { return GetResourceString("WorkflowInput_Type_Discrete_Units_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_GeoLocation
+
+		public static string WorkflowInput_Type_GeoLocation { get { return GetResourceString("WorkflowInput_Type_GeoLocation"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_GeoLocation_Help
+
+		public static string WorkflowInput_Type_GeoLocation_Help { get { return GetResourceString("WorkflowInput_Type_GeoLocation_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_Help
+
+		public static string WorkflowInput_Type_Help { get { return GetResourceString("WorkflowInput_Type_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_State
+
+		public static string WorkflowInput_Type_State { get { return GetResourceString("WorkflowInput_Type_State"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_State_Help
+
+		public static string WorkflowInput_Type_State_Help { get { return GetResourceString("WorkflowInput_Type_State_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_Text
+
+		public static string WorkflowInput_Type_Text { get { return GetResourceString("WorkflowInput_Type_Text"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_Text_Help
+
+		public static string WorkflowInput_Type_Text_Help { get { return GetResourceString("WorkflowInput_Type_Text_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Units
+
+		public static string WorkflowInput_Units { get { return GetResourceString("WorkflowInput_Units"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Units_Help
+
+		public static string WorkflowInput_Units_Help { get { return GetResourceString("WorkflowInput_Units_Help"); } }
 
 		public static class Names
 		{
@@ -893,13 +929,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Action_ExecuteFromstateMachine_Help = "Action_ExecuteFromstateMachine_Help";
 			public const string Action_Help = "Action_Help";
 			public const string Action_NodeRedFlows = "Action_NodeRedFlows";
-			public const string Action_Parameter_Tyeps_TrueFalse = "Action_Parameter_Tyeps_TrueFalse";
-			public const string Action_Parameter_Type = "Action_Parameter_Type";
-			public const string Action_Parameter_Types = "Action_Parameter_Types";
-			public const string Action_Parameter_Types_Decimal = "Action_Parameter_Types_Decimal";
-			public const string Action_Parameter_Types_Integer = "Action_Parameter_Types_Integer";
-			public const string Action_Parameter_Types_String = "Action_Parameter_Types_String";
-			public const string Action_Parameters = "Action_Parameters";
 			public const string Action_RemoteUri = "Action_RemoteUri";
 			public const string Action_Script = "Action_Script";
 			public const string Action_Shared = "Action_Shared";
@@ -1000,29 +1029,25 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Device_Online = "Device_Online";
 			public const string Device_SerialNumber = "Device_SerialNumber";
 			public const string Device_Status = "Device_Status";
-			public const string DeviceCommand_Description = "DeviceCommand_Description";
-			public const string DeviceCommand_Help = "DeviceCommand_Help";
-			public const string DeviceCommand_Script = "DeviceCommand_Script";
-			public const string DeviceCommand_Script_Help = "DeviceCommand_Script_Help";
-			public const string DeviceCommand_Title = "DeviceCommand_Title";
-			public const string DeviceConfig_Actions = "DeviceConfig_Actions";
-			public const string DeviceConfig_Actions_Help = "DeviceConfig_Actions_Help";
-			public const string DeviceConfig_Attributes = "DeviceConfig_Attributes";
-			public const string DeviceConfig_Attributes_Help = "DeviceConfig_Attributes_Help";
-			public const string DeviceConfig_ConfigVersion = "DeviceConfig_ConfigVersion";
-			public const string DeviceConfig_CustomFields = "DeviceConfig_CustomFields";
-			public const string DeviceConfig_Environment = "DeviceConfig_Environment";
-			public const string DeviceConfig_Environment_Development = "DeviceConfig_Environment_Development";
-			public const string DeviceConfig_Environment_Development_Help = "DeviceConfig_Environment_Development_Help";
-			public const string DeviceConfig_Environment_Production = "DeviceConfig_Environment_Production";
-			public const string DeviceConfig_Environment_Production_Help = "DeviceConfig_Environment_Production_Help";
-			public const string DeviceConfig_Environment_Staging = "DeviceConfig_Environment_Staging";
-			public const string DeviceConfig_Environment_Staging_Help = "DeviceConfig_Environment_Staging_Help";
-			public const string DeviceConfig_Manufacture = "DeviceConfig_Manufacture";
-			public const string DeviceConfig_Model = "DeviceConfig_Model";
 			public const string DeviceConfiguration_Description = "DeviceConfiguration_Description";
 			public const string DeviceConfiguration_Help = "DeviceConfiguration_Help";
 			public const string DeviceConfiguration_Title = "DeviceConfiguration_Title";
+			public const string DeviceConfiguration_Version = "DeviceConfiguration_Version";
+			public const string DeviceWorkflow_Attributes = "DeviceWorkflow_Attributes";
+			public const string DeviceWorkflow_Attributes_Help = "DeviceWorkflow_Attributes_Help";
+			public const string DeviceWorkflow_ConfigVersion = "DeviceWorkflow_ConfigVersion";
+			public const string DeviceWorkflow_CustomFields = "DeviceWorkflow_CustomFields";
+			public const string DeviceWorkflow_Environment = "DeviceWorkflow_Environment";
+			public const string DeviceWorkflow_Environment_Development = "DeviceWorkflow_Environment_Development";
+			public const string DeviceWorkflow_Environment_Development_Help = "DeviceWorkflow_Environment_Development_Help";
+			public const string DeviceWorkflow_Environment_Production = "DeviceWorkflow_Environment_Production";
+			public const string DeviceWorkflow_Environment_Production_Help = "DeviceWorkflow_Environment_Production_Help";
+			public const string DeviceWorkflow_Environment_Staging = "DeviceWorkflow_Environment_Staging";
+			public const string DeviceWorkflow_Environment_Staging_Help = "DeviceWorkflow_Environment_Staging_Help";
+			public const string DeviceWorkflow_InputCommands = "DeviceWorkflow_InputCommands";
+			public const string DeviceWorkflow_InputCommands_Help = "DeviceWorkflow_InputCommands_Help";
+			public const string DeviceWorkflow_Inputs = "DeviceWorkflow_Inputs";
+			public const string DeviceWorkflow_OutputCommands = "DeviceWorkflow_OutputCommands";
 			public const string Environment = "Environment";
 			public const string Environment_Dev = "Environment_Dev";
 			public const string Environment_Help = "Environment_Help";
@@ -1049,29 +1074,29 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Gateway_Notes = "Gateway_Notes";
 			public const string Gateway_SerialNumber = "Gateway_SerialNumber";
 			public const string Gatway_Firmware_Version = "Gatway_Firmware_Version";
+			public const string InputCommand_Description = "InputCommand_Description";
+			public const string InputCommand_Help = "InputCommand_Help";
+			public const string InputCommand_Parameters = "InputCommand_Parameters";
+			public const string InputCommand_Title = "InputCommand_Title";
+			public const string InputCommandParameter_Help = "InputCommandParameter_Help";
+			public const string InputCommandParameter_Title = "InputCommandParameter_Title";
+			public const string InputCommandParameter_Type = "InputCommandParameter_Type";
+			public const string InputCommandParamter_Description = "InputCommandParamter_Description";
 			public const string NodeRedFlow_Description = "NodeRedFlow_Description";
 			public const string NodeRedFlow_Help = "NodeRedFlow_Help";
 			public const string NodeRedFlow_Title = "NodeRedFlow_Title";
-			public const string Sensor_Description = "Sensor_Description";
-			public const string Sensor_Help = "Sensor_Help";
-			public const string Sensor_SetScript = "Sensor_SetScript";
-			public const string Sensor_SetScript_Help = "Sensor_SetScript_Help";
-			public const string Sensor_States = "Sensor_States";
-			public const string Sensor_States_Help = "Sensor_States_Help";
-			public const string Sensor_Title = "Sensor_Title";
-			public const string Sensor_Type = "Sensor_Type";
-			public const string Sensor_Type_Description = "Sensor_Type_Description";
-			public const string Sensor_Type_Discrete = "Sensor_Type_Discrete";
-			public const string Sensor_Type_Discrete_Help = "Sensor_Type_Discrete_Help";
-			public const string Sensor_Type_Discrete_Units = "Sensor_Type_Discrete_Units";
-			public const string Sensor_Type_Discrete_Units_Help = "Sensor_Type_Discrete_Units_Help";
-			public const string Sensor_Type_Help = "Sensor_Type_Help";
-			public const string Sensor_Type_State = "Sensor_Type_State";
-			public const string Sensor_Type_State_Help = "Sensor_Type_State_Help";
-			public const string Sensor_Type_Text = "Sensor_Type_Text";
-			public const string Sensor_Type_Text_Help = "Sensor_Type_Text_Help";
-			public const string Sensor_Units = "Sensor_Units";
-			public const string Sensor_Units_Help = "Sensor_Units_Help";
+			public const string OutputCommand_Description = "OutputCommand_Description";
+			public const string OutputCommand_Help = "OutputCommand_Help";
+			public const string OutputCommand_Script = "OutputCommand_Script";
+			public const string OutputCommand_Script_Help = "OutputCommand_Script_Help";
+			public const string OutputCommand_Title = "OutputCommand_Title";
+			public const string Parameter_Type = "Parameter_Type";
+			public const string Parameter_Types = "Parameter_Types";
+			public const string Parameter_Types_Decimal = "Parameter_Types_Decimal";
+			public const string Parameter_Types_Integer = "Parameter_Types_Integer";
+			public const string Parameter_Types_String = "Parameter_Types_String";
+			public const string Parameter_Types_TrueFalse = "Parameter_Types_TrueFalse";
+			public const string Parameters = "Parameters";
 			public const string SharedAction_Description = "SharedAction_Description";
 			public const string SharedAction_Help = "SharedAction_Help";
 			public const string SharedAction_Title = "SharedAction_Title";
@@ -1152,6 +1177,29 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string UnitSet_IsLocked_Help = "UnitSet_IsLocked_Help";
 			public const string UnitSet_Title = "UnitSet_Title";
 			public const string UnitSet_Units = "UnitSet_Units";
+			public const string WorkflowInptuType_GeoLocation_Help = "WorkflowInptuType_GeoLocation_Help";
+			public const string WorkflowInput_Description = "WorkflowInput_Description";
+			public const string WorkflowInput_Help = "WorkflowInput_Help";
+			public const string WorkflowInput_SetScript = "WorkflowInput_SetScript";
+			public const string WorkflowInput_SetScript_Help = "WorkflowInput_SetScript_Help";
+			public const string WorkflowInput_States = "WorkflowInput_States";
+			public const string WorkflowInput_States_Help = "WorkflowInput_States_Help";
+			public const string WorkflowInput_Title = "WorkflowInput_Title";
+			public const string WorkflowInput_Type = "WorkflowInput_Type";
+			public const string WorkflowInput_Type_Description = "WorkflowInput_Type_Description";
+			public const string WorkflowInput_Type_Discrete = "WorkflowInput_Type_Discrete";
+			public const string WorkflowInput_Type_Discrete_Help = "WorkflowInput_Type_Discrete_Help";
+			public const string WorkflowInput_Type_Discrete_Units = "WorkflowInput_Type_Discrete_Units";
+			public const string WorkflowInput_Type_Discrete_Units_Help = "WorkflowInput_Type_Discrete_Units_Help";
+			public const string WorkflowInput_Type_GeoLocation = "WorkflowInput_Type_GeoLocation";
+			public const string WorkflowInput_Type_GeoLocation_Help = "WorkflowInput_Type_GeoLocation_Help";
+			public const string WorkflowInput_Type_Help = "WorkflowInput_Type_Help";
+			public const string WorkflowInput_Type_State = "WorkflowInput_Type_State";
+			public const string WorkflowInput_Type_State_Help = "WorkflowInput_Type_State_Help";
+			public const string WorkflowInput_Type_Text = "WorkflowInput_Type_Text";
+			public const string WorkflowInput_Type_Text_Help = "WorkflowInput_Type_Text_Help";
+			public const string WorkflowInput_Units = "WorkflowInput_Units";
+			public const string WorkflowInput_Units_Help = "WorkflowInput_Units_Help";
 		}
 	}
 }

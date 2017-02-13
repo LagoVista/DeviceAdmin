@@ -85,13 +85,13 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 
 
         /// <summary>
-        /// Shared Action - Create New
+        /// Output Command - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("devicecommand")]
-        public DetailResponse<DeviceCommand> CreateDeviceCommand()
+        [HttpGet("outputcommand")]
+        public DetailResponse<OutputCommand> CreateOutputCommand()
         {
-            var response = DetailResponse<DeviceCommand>.Create();
+            var response = DetailResponse<OutputCommand>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);           
@@ -99,13 +99,13 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         }
 
         /// <summary>
-        /// Shared Action - Create New
+        /// Input - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("sensor")]
-        public DetailResponse<Sensor> CreateSensor()
+        [HttpGet("input")]
+        public DetailResponse<WorkflowInput> CreateSensor()
         {
-            var response = DetailResponse<Sensor>.Create();
+            var response = DetailResponse<WorkflowInput>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);            
@@ -113,6 +113,28 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         }
 
 
+        /// <summary>
+        ///  Workflow Config - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("deviceworkflow")]
+        public DetailResponse<DeviceWorkflow> CreateWorkflowConfigurartion()
+        {
+            var response = DetailResponse<DeviceWorkflow>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            response.Model.InputCommands = new List<IoT.DeviceAdmin.Models.InputCommand>();
+            response.Model.Attributes = new List<IoT.DeviceAdmin.Models.Attribute>();
+            response.Model.StateMachines = new List<StateMachine>();
+            response.Model.Inputs = new List<WorkflowInput>();
+            response.Model.OutputCommands = new List<OutputCommand>();
+            response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
+            response.Model.ConfigurationVersion = 0.1;
+
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);
+
+            return response;
+        }
 
         /// <summary>
         ///  Device Config - Create New
@@ -123,12 +145,6 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         {
             var response = DetailResponse<DeviceConfiguration>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
-            response.Model.Actions = new List<IoT.DeviceAdmin.Models.Action>();
-            response.Model.Attributes = new List<IoT.DeviceAdmin.Models.Attribute>();
-            response.Model.StateMachines = new List<StateMachine>();
-            response.Model.CustomFields = new List<CustomField>();
-            response.Model.Sensors = new List<Sensor>();
-            response.Model.DeviceCommands = new List<DeviceCommand>();
             response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             response.Model.ConfigurationVersion = 0.1;
 
@@ -153,6 +169,30 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             return response;
         }
 
+        /// <summary>
+        ///  Input Command - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("inputcommand")]
+        public DetailResponse<IoT.DeviceAdmin.Models.WorkflowInput> CreateInputCommand()
+        {
+            var response = DetailResponse<IoT.DeviceAdmin.Models.WorkflowInput>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            response.Model.DiagramLocation = new Point();
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);
+            return response;
+        }
+
+        /// <summary>
+        ///  Input Command - Create New Parameter
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("inputcommandparameter")]
+        public DetailResponse<IoT.DeviceAdmin.Models.InputCommandParameter> CreateInputCommanParameter()
+        {
+            return DetailResponse<IoT.DeviceAdmin.Models.InputCommandParameter>.Create();
+        }
 
         /// <summary>
         ///  Action Parameter- Create New

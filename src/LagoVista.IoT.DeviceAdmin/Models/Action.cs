@@ -18,7 +18,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Action_Shared, HelpResource: Resources.DeviceLibraryResources.Names.Action_Standard_Help, FieldType: FieldTypes.ChildItem, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
         public SharedAction SharedAction { get; set; }
-   
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Action_Script, HelpResource: Resources.DeviceLibraryResources.Names.Action_ExecuteFromScript_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
         public String Script { get; set; }
@@ -33,7 +32,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public bool ExecuteFromStateMachine { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Action_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Action_Parameters, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameters, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
         public List<ActionParameter> Parameters { get; set; }
         
               

@@ -240,16 +240,10 @@
   <data name="Gateway_CustomFields" xml:space="preserve">
     <value>Custom Fields</value>
   </data>
-  <data name="DeviceConfig_CustomFields" xml:space="preserve">
+  <data name="DeviceWorkflow_CustomFields" xml:space="preserve">
     <value>Custom Fields</value>
   </data>
-  <data name="DeviceConfig_Manufacture" xml:space="preserve">
-    <value>Manufacture</value>
-  </data>
-  <data name="DeviceConfig_Model" xml:space="preserve">
-    <value>Model</value>
-  </data>
-  <data name="DeviceConfig_ConfigVersion" xml:space="preserve">
+  <data name="DeviceWorkflow_ConfigVersion" xml:space="preserve">
     <value>Configuration Version</value>
   </data>
   <data name="Common_Name" xml:space="preserve">
@@ -360,22 +354,22 @@
   <data name="Action_ExecuteFromScript_Help" xml:space="preserve">
     <value>This action can be executed by another action or a script associated with the device configuration</value>
   </data>
-  <data name="Action_Parameters" xml:space="preserve">
+  <data name="Parameters" xml:space="preserve">
     <value>Parameters</value>
   </data>
-  <data name="Action_Parameter_Tyeps_TrueFalse" xml:space="preserve">
+  <data name="Parameter_Types_TrueFalse" xml:space="preserve">
     <value>True/False</value>
   </data>
-  <data name="Action_Parameter_Types" xml:space="preserve">
+  <data name="Parameter_Types" xml:space="preserve">
     <value>Parameter Types</value>
   </data>
-  <data name="Action_Parameter_Types_Decimal" xml:space="preserve">
+  <data name="Parameter_Types_Decimal" xml:space="preserve">
     <value>Decimal</value>
   </data>
-  <data name="Action_Parameter_Types_Integer" xml:space="preserve">
+  <data name="Parameter_Types_Integer" xml:space="preserve">
     <value>Integer</value>
   </data>
-  <data name="Action_Parameter_Types_String" xml:space="preserve">
+  <data name="Parameter_Types_String" xml:space="preserve">
     <value>String</value>
   </data>
   <data name="Action_Script" xml:space="preserve">
@@ -390,7 +384,7 @@
   <data name="Common_IsRequired" xml:space="preserve">
     <value>Is Required</value>
   </data>
-  <data name="Action_Parameter_Type" xml:space="preserve">
+  <data name="Parameter_Type" xml:space="preserve">
     <value>Parameter Type</value>
   </data>
   <data name="Actoin_Parameter_Key_Help" xml:space="preserve">
@@ -444,41 +438,41 @@
   <data name="Attribute_Direction_Output" xml:space="preserve">
     <value>Output</value>
   </data>
-  <data name="DeviceConfig_Environment_Development" xml:space="preserve">
+  <data name="DeviceWorkflow_Environment_Development" xml:space="preserve">
     <value>Development</value>
   </data>
-  <data name="DeviceConfig_Environment" xml:space="preserve">
+  <data name="DeviceWorkflow_Environment" xml:space="preserve">
     <value>Environments are used to maintain different device configurations that can be updated and tested without impacting production.  Also once an environment is migrated into Production it can be rolled back to Staging if issues are found.</value>
   </data>
-  <data name="DeviceConfig_Environment_Development_Help" xml:space="preserve">
-    <value>The Development Environment should be used to make changes to a device configuration where it won't impact any devices that are used in a production capacity.  Once development or updates have been completed in this environment, those changes are published to the Staging environment so they can be tested.</value>
+  <data name="DeviceWorkflow_Environment_Development_Help" xml:space="preserve">
+    <value>The Development Environment should be used to make changes to a device workflow where it won't impact any devices that are used in a production capacity.  Once development or updates have been completed in this environment, those changes are published to the Staging environment so they can be tested.</value>
   </data>
-  <data name="DeviceConfig_Environment_Production" xml:space="preserve">
+  <data name="DeviceWorkflow_Environment_Production" xml:space="preserve">
     <value>Production</value>
   </data>
-  <data name="DeviceConfig_Environment_Production_Help" xml:space="preserve">
-    <value>The Production Environment is the default environment for a device to be in.  Once it has been developed and tested, the device configuration will be moved in to production.</value>
+  <data name="DeviceWorkflow_Environment_Production_Help" xml:space="preserve">
+    <value>The Production Environment is the default workflow for a device to be in.  Once it has been developed and tested, the device configuration will be moved in to production.</value>
   </data>
-  <data name="DeviceConfig_Environment_Staging" xml:space="preserve">
+  <data name="DeviceWorkflow_Environment_Staging" xml:space="preserve">
     <value>Staging</value>
   </data>
-  <data name="DeviceConfig_Environment_Staging_Help" xml:space="preserve">
-    <value>Once a new device configuration has been created or updated in the Development Environment and Tested in the Testing Environemnt, it will be moved to the Staging Environment where it be then be swapped into the Production Environment.  If issues are found once the new device configuration goes live the previous production configuration can be restored.</value>
+  <data name="DeviceWorkflow_Environment_Staging_Help" xml:space="preserve">
+    <value>Once a new device workflow has been created or updated in the Development Environment and Tested in the Testing Environemnt, it will be moved to the Staging Environment where it be then be swapped into the Production Environment.  If issues are found once the new device configuration goes live the previous production configuration can be restored.</value>
   </data>
   <data name="Attribute_Direction_Help" xml:space="preserve">
     <value>An attribute can be an Input which can only be set, it can be an Output which is Read Only or it can be and Input and an Output which can both be read and updated.</value>
   </data>
-  <data name="DeviceConfig_Actions" xml:space="preserve">
-    <value>Actions</value>
+  <data name="DeviceWorkflow_InputCommands" xml:space="preserve">
+    <value>Input Commands</value>
   </data>
-  <data name="DeviceConfig_Actions_Help" xml:space="preserve">
-    <value>Actions can perform functionality on a Device to manipulate it's real world or attribute states.</value>
+  <data name="DeviceWorkflow_InputCommands_Help" xml:space="preserve">
+    <value>Input Commands can perform functionality on a Device to manipulate it's real world attribute or states.</value>
   </data>
-  <data name="DeviceConfig_Attributes" xml:space="preserve">
+  <data name="DeviceWorkflow_Attributes" xml:space="preserve">
     <value>Attributes</value>
   </data>
-  <data name="DeviceConfig_Attributes_Help" xml:space="preserve">
-    <value>Attributes are meta-data that are attached to a device configuration that are used to maintain the state of the device.  Attributes can be one of the following, a simple value with a unit, a standard attribute that is common across many device configurations or a state machine.</value>
+  <data name="DeviceWorkflow_Attributes_Help" xml:space="preserve">
+    <value>Attributes are meta-data that are attached to a device workflow that are used to maintain the state of the device.  Attributes can be one of the following, a simple value with a unit, a standard attribute that is common across many device configurations or a state machine.</value>
   </data>
   <data name="Action_Shared" xml:space="preserve">
     <value>Shared Action</value>
@@ -752,52 +746,52 @@
   <data name="Attribute_Type_Discrete_Help" xml:space="preserve">
     <value>A discrete value is a numeric value that qunatifies something.  This could be something like a temperature, speed. RPM.</value>
   </data>
-  <data name="DeviceCommand_Title" xml:space="preserve">
-    <value>Device Command</value>
+  <data name="OutputCommand_Title" xml:space="preserve">
+    <value>Output Command</value>
   </data>
   <data name="Attribute_AttributeType_Select" xml:space="preserve">
     <value>-select attribute type-</value>
   </data>
-  <data name="DeviceCommand_Description" xml:space="preserve">
-    <value>Device Commands are used to send messages to your device</value>
+  <data name="OutputCommand_Description" xml:space="preserve">
+    <value>Output Commands are used to send Commands or Messages to your device</value>
   </data>
-  <data name="DeviceCommand_Help" xml:space="preserve">
-    <value>You can create a device command to send a message to your device.  In your device command you prepare the data from the available data on the device configuration.</value>
+  <data name="OutputCommand_Help" xml:space="preserve">
+    <value>You can create a output command to send a message to your device.  In your device command you prepare the data from the available data on the device configuration.</value>
   </data>
-  <data name="Sensor_Description" xml:space="preserve">
-    <value>Sensors are the entry point of data coming from your device.  Sensors can be as simple as an on/off switch, a thermostat or as complex as a GPS that sends in latitude and longitude.  Your sensor can also be virtual in that they provide an end point for your physical device to send additional data.  The Sensor is just the entry point and will eventually pass its data to an attribute for permanent storage.</value>
+  <data name="WorkflowInput_Description" xml:space="preserve">
+    <value>Inputs are the entry point of data coming from your device.  Inputs can be as simple as an on/off switch, a thermostat or as complex as a GPS that sends in latitude and longitude.  Your sensor can also be virtual in that they provide an end point for your physical device to send additional data.  The Sensor is just the entry point and will eventually pass its data to an attribute for permanent storage.</value>
   </data>
-  <data name="Sensor_Help" xml:space="preserve">
-    <value>You should start by creating sensors that match the physical sensors on your device.  These would be like an on/off contact switch or maybe a motion detector.  Once you add your sensor you need to specify the type of data that it will receive. The most common type of data would be discrete values such as a temperature, RPM or speed.  It could also be a more complex set of data such as a latitude or longitude.  In some cases your sensor will have certain conditions it can be in, we call these states.  You can identify those states here.</value>
+  <data name="WorkflowInput_Help" xml:space="preserve">
+    <value>You should start by creating input that match the physical sensors on your device.  These would be like an on/off contact switch or maybe a motion detector.  Once you add your sensor you need to specify the type of data that it will receive. The most common type of data would be discrete values such as a temperature, RPM or speed.  It could also be a more complex set of data such as a latitude or longitude.  In some cases your sensor will have certain conditions it can be in, we call these states.  You can identify those states here.</value>
   </data>
-  <data name="Sensor_Title" xml:space="preserve">
-    <value>Sensor</value>
+  <data name="WorkflowInput_Title" xml:space="preserve">
+    <value>Input</value>
   </data>
-  <data name="Sensor_Type" xml:space="preserve">
-    <value>Sensor Type</value>
+  <data name="WorkflowInput_Type" xml:space="preserve">
+    <value>Input Type</value>
   </data>
-  <data name="Sensor_Type_Description" xml:space="preserve">
-    <value>The Sensor Type defines the type of data you expect to receive from your sensor. Typically this would be a simple value such as a temperature or speed, but also can have more complex data such as a latitude or longitude. A sensor might also be used to monitor certain conditions such as on/off or motion/no motions. We call these states. </value>
+  <data name="WorkflowInput_Type_Description" xml:space="preserve">
+    <value>The Input Type defines the type of data you expect to receive from your sensor. Typically this would be a simple value such as a temperature or speed, but also can have more complex data such as a latitude or longitude. A sensor might also be used to monitor certain conditions such as on/off or motion/no motions. We call these states. </value>
   </data>
-  <data name="Sensor_Type_Help" xml:space="preserve">
-    <value>The Sensor Type defines the type of data you expect to receive from your sensor. Typically this would be a simple value such as a temperature or speed, but also can have more complex data such as a latitude or longitude. A sensor might also be used to monitor certain conditions such as on/off or motion/no motions. We call these states.</value>
+  <data name="WorkflowInput_Type_Help" xml:space="preserve">
+    <value>The Input Type defines the type of data you expect to receive from your input. Typically this would be a simple value such as a temperature or speed, but also can have more complex data such as a latitude or longitude. A sensor might also be used to monitor certain conditions such as on/off or motion/no motions. We call these states.</value>
   </data>
-  <data name="Sensor_States" xml:space="preserve">
+  <data name="WorkflowInput_States" xml:space="preserve">
     <value>States</value>
   </data>
-  <data name="Sensor_States_Help" xml:space="preserve">
+  <data name="WorkflowInput_States_Help" xml:space="preserve">
     <value>If your sensor will provide you changes of conditions that have unique categories, your sensor should likely be be defined as a state based sensor.  You can provide a list of the certain states or a list of conditions that the sensor may report. These might be as simple as On/Off, Motion, No Motion, Position 1, Postiion 2, etc..  For your state configuration you don't need to provide the exact message the sensor will send, the translation value will do that mapping.</value>
   </data>
-  <data name="Sensor_Units" xml:space="preserve">
+  <data name="WorkflowInput_Units" xml:space="preserve">
     <value>Units</value>
   </data>
-  <data name="Sensor_Units_Help" xml:space="preserve">
+  <data name="WorkflowInput_Units_Help" xml:space="preserve">
     <value>You can optionally provide a unit or set of units to describe the type of data your sensor will receive. This does not apply to state based sensors and is optional. If you don't provide a value it is assumed that the sensor just provides simple numeric data and will be treated as so.</value>
   </data>
-  <data name="DeviceCommand_Script" xml:space="preserve">
+  <data name="OutputCommand_Script" xml:space="preserve">
     <value>Script</value>
   </data>
-  <data name="DeviceCommand_Script_Help" xml:space="preserve">
+  <data name="OutputCommand_Script_Help" xml:space="preserve">
     <value>You need to provide a script that will prepare a payload of data that can be sent to the device.  This payload typically uses data from the attributes of the device.</value>
   </data>
   <data name="Attribute_Type_Discrete_Units" xml:space="preserve">
@@ -812,29 +806,29 @@
   <data name="Attribute_States_Help" xml:space="preserve">
     <value>If your attribute is of type State, you will need to provide a list of states that the attribute will support.</value>
   </data>
-  <data name="Sensor_SetScript" xml:space="preserve">
+  <data name="WorkflowInput_SetScript" xml:space="preserve">
     <value>Set Script</value>
   </data>
-  <data name="Sensor_SetScript_Help" xml:space="preserve">
+  <data name="WorkflowInput_SetScript_Help" xml:space="preserve">
     <value>You can either map your sensor directly to an attribute, or you can provide a script that can manipulate the raw values prior them to applying the sensor value to the attribute.  If you provide a script, you can map your sensor input to many different attributes.</value>
   </data>
-  <data name="Sensor_Type_Discrete" xml:space="preserve">
+  <data name="WorkflowInput_Type_Discrete" xml:space="preserve">
     <value>Discrete </value>
   </data>
-  <data name="Sensor_Type_Discrete_Help" xml:space="preserve">
-    <value>You can configure your sensor to provide a simple numeric value that does not have any units attached.</value>
+  <data name="WorkflowInput_Type_Discrete_Help" xml:space="preserve">
+    <value>You can configure your input to provide a simple numeric value that does not have any units attached.</value>
   </data>
-  <data name="Sensor_Type_Discrete_Units" xml:space="preserve">
+  <data name="WorkflowInput_Type_Discrete_Units" xml:space="preserve">
     <value>Discrete with Units</value>
   </data>
-  <data name="Sensor_Type_Discrete_Units_Help" xml:space="preserve">
-    <value>You can congifure your sensor to provide a simple numeric value and specify a default type of unit such as RPM, KPH, etc...  </value>
+  <data name="WorkflowInput_Type_Discrete_Units_Help" xml:space="preserve">
+    <value>You can congifure your input to provide a simple numeric value and specify a default type of unit such as RPM, KPH, etc...  </value>
   </data>
-  <data name="Sensor_Type_State" xml:space="preserve">
+  <data name="WorkflowInput_Type_State" xml:space="preserve">
     <value>State</value>
   </data>
-  <data name="Sensor_Type_State_Help" xml:space="preserve">
-    <value>You can configure your sensor input to only map to a certain set of conditions that we call states, these can be things like Open/Closed, Working/Idle/Error.</value>
+  <data name="WorkflowInput_Type_State_Help" xml:space="preserve">
+    <value>You can configure your input to only map to a certain set of conditions that we call states, these can be things like Open/Closed, Working/Idle/Error.</value>
   </data>
   <data name="Attribute_UnitSet" xml:space="preserve">
     <value>Unit Set</value>
@@ -857,10 +851,10 @@
   <data name="Attribute_Type_Text_Help" xml:space="preserve">
     <value>Simple text as attribute type.  </value>
   </data>
-  <data name="Sensor_Type_Text_Help" xml:space="preserve">
-    <value>Simple text as sensor input.</value>
+  <data name="WorkflowInput_Type_Text_Help" xml:space="preserve">
+    <value>Simple text as input.</value>
   </data>
-  <data name="Sensor_Type_Text" xml:space="preserve">
+  <data name="WorkflowInput_Type_Text" xml:space="preserve">
     <value>Text</value>
   </data>
   <data name="Unit_Conversion_Type" xml:space="preserve">
@@ -934,5 +928,47 @@
   </data>
   <data name="Unit_DisplayFormat_Help" xml:space="preserve">
     <value>You can create a script that will return a formatted string that will display units properly.</value>
+  </data>
+  <data name="DeviceConfiguration_Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="InputCommandParameter_Help" xml:space="preserve">
+    <value>When an input command is exposed from your device configuration, you can pass in parameters along with that command.</value>
+  </data>
+  <data name="InputCommandParameter_Title" xml:space="preserve">
+    <value>Input Command Parameter</value>
+  </data>
+  <data name="InputCommandParameter_Type" xml:space="preserve">
+    <value>Parameter Type</value>
+  </data>
+  <data name="InputCommandParamter_Description" xml:space="preserve">
+    <value>When an input command is exposed from your device configuration, you can pass in parameters along with that command.</value>
+  </data>
+  <data name="InputCommand_Description" xml:space="preserve">
+    <value>Input Commands are used to send messages or commands into your device workflow that usually originate from somewhere other than the actual device itself.  These are exposed as an API in the format of your choosing and can be things like "Reset Device", "Start", "Stop", etc...</value>
+  </data>
+  <data name="InputCommand_Help" xml:space="preserve">
+    <value>Input Commands are used to send messages or commands into your device workflow that usually originate from somewhere other than the actual device itself.  These are exposed as an API in the format of your choosing and can be things like "Reset Device", "Start", "Stop", etc...</value>
+  </data>
+  <data name="InputCommand_Parameters" xml:space="preserve">
+    <value>When an input command is exposed from your device configuration, you can pass in parameters along with that command.</value>
+  </data>
+  <data name="InputCommand_Title" xml:space="preserve">
+    <value>Input Command</value>
+  </data>
+  <data name="WorkflowInptuType_GeoLocation_Help" xml:space="preserve">
+    <value>The Geolocation Input Type captures a latitude, longitude and altitude in meters.</value>
+  </data>
+  <data name="WorkflowInput_Type_GeoLocation" xml:space="preserve">
+    <value>Geolocation</value>
+  </data>
+  <data name="DeviceWorkflow_Inputs" xml:space="preserve">
+    <value>Inputs</value>
+  </data>
+  <data name="DeviceWorkflow_OutputCommands" xml:space="preserve">
+    <value>Output Commands</value>
+  </data>
+  <data name="WorkflowInput_Type_GeoLocation_Help" xml:space="preserve">
+    <value>You can configure your input to accept GeoLocation (Latitude/Longitude) data</value>
   </data>
 </root>

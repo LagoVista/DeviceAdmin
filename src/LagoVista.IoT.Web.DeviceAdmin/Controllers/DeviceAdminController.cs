@@ -253,8 +253,8 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         [HttpGet("deviceconfigurations/{orgid}")]
         public async Task<ListResponse<DeviceConfigurationSummary>> GetDeviceConfigurationsForOrgAsync(String orgId)
         {
-            var deviceConfiguration = await _attrManager.GetDeviceConfigurationsForOrgsAsync(orgId);
-            var response = ListResponse<DeviceConfigurationSummary>.Create(deviceConfiguration);
+            var deviceConfigurations = await _attrManager.GetDeviceConfigurationsForOrgsAsync(orgId);
+            var response = ListResponse<DeviceConfigurationSummary>.Create(deviceConfigurations);
 
             return response;
         }
@@ -267,9 +267,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         [HttpGet("deviceconfiguration/{deviceconfigurationid}")]
         public async Task<DetailResponse<DeviceConfiguration>> GetDeviceConfigurationAsync(String deviceconfigurationid)
         {
-            var sharedAttribute = await _attrManager.GetDeviceConfigurationAsync(deviceconfigurationid, OrgEntityHeader);
+            var deviceConfiguration = await _attrManager.GetDeviceConfigurationAsync(deviceconfigurationid, OrgEntityHeader);
 
-            var response = DetailResponse<DeviceConfiguration>.Create(sharedAttribute);
+            var response = DetailResponse<DeviceConfiguration>.Create(deviceConfiguration);
 
             return response;
         }
@@ -281,7 +281,72 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         [HttpGet("deviceconfiguration/keyinuse/{key}")]
         public Task<bool> DeviceConfigKeyInUse(String key)
         {
-            return _attrManager.QueryAttributeUnitSetKeyInUseAsync(key, CurrentOrgId);
+            return _attrManager.QueryDeviceConfigurationKeyInUseAsync(key, CurrentOrgId);
         }
+
+
+        /********** Device Workflows *****/
+
+        /// <summary>
+        /// Device Workflow - Add New
+        /// </summary>
+        /// <param name="deviceWorkflow"></param>
+        /// <returns></returns>
+        [HttpPost("deviceworkflow")]
+        public Task<InvokeResult> AddDeviceWorkflowAsync([FromBody] DeviceWorkflow deviceWorkflow)
+        {
+            return _attrManager.AddDeviceWorkflowAsync(deviceWorkflow, UserEntityHeader, OrgEntityHeader);
+        }
+
+        /// <summary>
+        /// Device Workflow - Update Config
+        /// </summary>
+        /// <param name="workflow"></param>
+        /// <returns></returns>
+        [HttpPut("deviceworkflow")]
+        public Task<InvokeResult> UpdateDeviceWorkflowAsync([FromBody] DeviceWorkflow workflow)
+        {
+            return _attrManager.UpdateDeviceWorkflowAsync(workflow, UserEntityHeader);
+        }
+
+        /// <summary>
+        /// Device Workflow - Get Device Workflows for Org
+        /// </summary>
+        /// <param name="orgId">Organization Id</param>
+        /// <returns></returns>
+        [HttpGet("deviceworkflows/{orgid}")]
+        public async Task<ListResponse<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync(String orgId)
+        {
+            var deviceWorkflows = await _attrManager.GetDeviceWorkflowsForOrgsAsync(orgId);
+            var response = ListResponse<DeviceWorkflowSummary>.Create(deviceWorkflows);
+            return response;
+        }
+
+        /// <summary>
+        /// Device Workflow - Get A Device Workflow
+        /// </summary>
+        /// <param name="deviceWorkflowId"></param>
+        /// <returns></returns>
+        [HttpGet("deviceworkflow/{deviceconfigurationid}")]
+        public async Task<DetailResponse<DeviceWorkflow>> GetDeviceWorkflowAsync(String deviceWorkflowId)
+        {
+            var deviceWorkflow = await _attrManager.GetDeviceWorkflowAsync(deviceWorkflowId, OrgEntityHeader);
+
+            var response = DetailResponse<DeviceWorkflow>.Create(deviceWorkflow);
+
+            return response;
+        }
+
+        /// <summary>
+        /// Device Config - Key In Use
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("deviceworkflows/keyinuse/{key}")]
+        public Task<bool> DeviceWorkflowsKeyInUse(String key)
+        {
+            return _attrManager.QueryDeviceWorkflowKeyInUseAsync(key, CurrentOrgId);
+        }
+
+
     }
 }
