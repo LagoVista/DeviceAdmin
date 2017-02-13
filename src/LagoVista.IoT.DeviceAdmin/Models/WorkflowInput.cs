@@ -29,7 +29,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             GeoLocation,
         }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Type, EnumType:typeof(InputTypes), HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Type_Help, FieldType:FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Type, WaterMark:DeviceLibraryResources.Names.WorkflowInput_Type_Watermark, EnumType:typeof(InputTypes), HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Type_Help, FieldType:FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public InputTypes InputType { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]

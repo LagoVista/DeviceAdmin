@@ -998,4 +998,10 @@
   <data name="Parameter_Types_GeoLocation" xml:space="preserve">
     <value>Geolocation</value>
   </data>
+  <data name="Parameter_Type_Watermark" xml:space="preserve">
+    <value>-select parameter type-</value>
+  </data>
+  <data name="WorkflowInput_Type_Watermark" xml:space="preserve">
+    <value>-select input type-</value>
+  </data>
 </root>

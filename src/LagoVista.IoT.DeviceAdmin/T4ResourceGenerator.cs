@@ -601,6 +601,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Parameter_Type
 
 		public static string Parameter_Type { get { return GetResourceString("Parameter_Type"); } }
+//Resources:DeviceLibraryResources:Parameter_Type_Watermark
+
+		public static string Parameter_Type_Watermark { get { return GetResourceString("Parameter_Type_Watermark"); } }
 //Resources:DeviceLibraryResources:Parameter_Types
 
 		public static string Parameter_Types { get { return GetResourceString("Parameter_Types"); } }
@@ -934,6 +937,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:WorkflowInput_Type_Text_Help
 
 		public static string WorkflowInput_Type_Text_Help { get { return GetResourceString("WorkflowInput_Type_Text_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Type_Watermark
+
+		public static string WorkflowInput_Type_Watermark { get { return GetResourceString("WorkflowInput_Type_Watermark"); } }
 //Resources:DeviceLibraryResources:WorkflowInput_Units
 
 		public static string WorkflowInput_Units { get { return GetResourceString("WorkflowInput_Units"); } }
@@ -1123,6 +1129,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string OutputCommand_Script_Help = "OutputCommand_Script_Help";
 			public const string OutputCommand_Title = "OutputCommand_Title";
 			public const string Parameter_Type = "Parameter_Type";
+			public const string Parameter_Type_Watermark = "Parameter_Type_Watermark";
 			public const string Parameter_Types = "Parameter_Types";
 			public const string Parameter_Types_Decimal = "Parameter_Types_Decimal";
 			public const string Parameter_Types_GeoLocation = "Parameter_Types_GeoLocation";
@@ -1234,6 +1241,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string WorkflowInput_Type_State_Help = "WorkflowInput_Type_State_Help";
 			public const string WorkflowInput_Type_Text = "WorkflowInput_Type_Text";
 			public const string WorkflowInput_Type_Text_Help = "WorkflowInput_Type_Text_Help";
+			public const string WorkflowInput_Type_Watermark = "WorkflowInput_Type_Watermark";
 			public const string WorkflowInput_Units = "WorkflowInput_Units";
 			public const string WorkflowInput_Units_Help = "WorkflowInput_Units_Help";
 		}
