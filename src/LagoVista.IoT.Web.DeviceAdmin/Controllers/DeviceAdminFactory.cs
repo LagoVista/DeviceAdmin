@@ -174,9 +174,9 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("inputcommand")]
-        public DetailResponse<IoT.DeviceAdmin.Models.WorkflowInput> CreateInputCommand()
+        public DetailResponse<IoT.DeviceAdmin.Models.InputCommand> CreateInputCommand()
         {
-            var response = DetailResponse<IoT.DeviceAdmin.Models.WorkflowInput>.Create();
+            var response = DetailResponse<IoT.DeviceAdmin.Models.InputCommand>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             response.Model.DiagramLocation = new Point();
             SetAuditProperties(response.Model);

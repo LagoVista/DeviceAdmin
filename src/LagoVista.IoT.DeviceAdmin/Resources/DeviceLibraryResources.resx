@@ -980,4 +980,13 @@
   <data name="DeviceWorkflow_Title" xml:space="preserve">
     <value>Device Workflow</value>
   </data>
+  <data name="StateMachine_State_IsInitialState" xml:space="preserve">
+    <value>Is Initial State</value>
+  </data>
+  <data name="StateMachine_State_IsInitialState_Help" xml:space="preserve">
+    <value>Whenever you create a set of states, only one state can be active at any time.  You need to specifiy the default or initial state that will be used to initialize data.</value>
+  </data>
+  <data name="StateMachine_Transition_Script" xml:space="preserve">
+    <value>On Transition Script</value>
+  </data>
 </root>
