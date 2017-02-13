@@ -327,7 +327,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="deviceWorkflowId"></param>
         /// <returns></returns>
-        [HttpGet("deviceworkflow/{deviceconfigurationid}")]
+        [HttpGet("deviceworkflow/{deviceWorkflowId}")]
         public async Task<DetailResponse<DeviceWorkflow>> GetDeviceWorkflowAsync(String deviceWorkflowId)
         {
             var deviceWorkflow = await _attrManager.GetDeviceWorkflowAsync(deviceWorkflowId, OrgEntityHeader);
