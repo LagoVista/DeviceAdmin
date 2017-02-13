@@ -12,14 +12,17 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public enum InputCommandParameterTypes
         {
-            [EnumLabel("String", DeviceLibraryResources.Names.Parameter_Types_String, typeof(DeviceLibraryResources))]
+            [EnumLabel("string", DeviceLibraryResources.Names.Parameter_Types_String, typeof(DeviceLibraryResources))]
             String,
-            [EnumLabel("Integer", DeviceLibraryResources.Names.Parameter_Types_Integer, typeof(DeviceLibraryResources))]
+            [EnumLabel("integer", DeviceLibraryResources.Names.Parameter_Types_Integer, typeof(DeviceLibraryResources))]
             Integer,
-            [EnumLabel("Decimal", DeviceLibraryResources.Names.Parameter_Types_Decimal, typeof(DeviceLibraryResources))]
+            [EnumLabel("decimal", DeviceLibraryResources.Names.Parameter_Types_Decimal, typeof(DeviceLibraryResources))]
             Decimal,
-            [EnumLabel("TrueFalse", DeviceLibraryResources.Names.Parameter_Types_TrueFalse, typeof(DeviceLibraryResources))]
-            TrueFalse
+            [EnumLabel("true-false", DeviceLibraryResources.Names.Parameter_Types_TrueFalse, typeof(DeviceLibraryResources))]
+            TrueFalse,
+            [EnumLabel("geolocation", DeviceLibraryResources.Names.Parameter_Types_GeoLocation, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.WorkflowInput_Type_GeoLocation_Help)]
+            GeoLocation,
+
         }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsRequired, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]

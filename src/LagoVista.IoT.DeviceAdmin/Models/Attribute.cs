@@ -27,7 +27,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             [EnumLabel("discrete", DeviceLibraryResources.Names.Attribute_Type_Discrete, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_Type_Discrete_Help)]
             Discrete,
             [EnumLabel("discrete-units", DeviceLibraryResources.Names.Attribute_Type_Discrete_Units, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_Type_Discrete_Units_Help)]
-            DiscreteUnits
+            DiscreteUnits,
+            [EnumLabel("geolocation", DeviceLibraryResources.Names.Attribute_Type_GeoLocation, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_Type_GeoLocation_Help)]
+            GeoLocation,
         }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType, EnumType:(typeof(AttributeTypes)), HelpResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), WaterMark:Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Select, IsRequired: true, IsUserEditable: true)]

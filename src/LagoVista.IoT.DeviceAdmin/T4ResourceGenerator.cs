@@ -191,6 +191,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Attribute_Type_Discrete_Units_Help
 
 		public static string Attribute_Type_Discrete_Units_Help { get { return GetResourceString("Attribute_Type_Discrete_Units_Help"); } }
+//Resources:DeviceLibraryResources:Attribute_Type_GeoLocation
+
+		public static string Attribute_Type_GeoLocation { get { return GetResourceString("Attribute_Type_GeoLocation"); } }
+//Resources:DeviceLibraryResources:Attribute_Type_GeoLocation_Help
+
+		public static string Attribute_Type_GeoLocation_Help { get { return GetResourceString("Attribute_Type_GeoLocation_Help"); } }
 //Resources:DeviceLibraryResources:Attribute_Type_State_Help
 
 		public static string Attribute_Type_State_Help { get { return GetResourceString("Attribute_Type_State_Help"); } }
@@ -601,6 +607,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Parameter_Types_Decimal
 
 		public static string Parameter_Types_Decimal { get { return GetResourceString("Parameter_Types_Decimal"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_GeoLocation
+
+		public static string Parameter_Types_GeoLocation { get { return GetResourceString("Parameter_Types_GeoLocation"); } }
 //Resources:DeviceLibraryResources:Parameter_Types_Integer
 
 		public static string Parameter_Types_Integer { get { return GetResourceString("Parameter_Types_Integer"); } }
@@ -980,6 +989,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Attribute_Type_Discrete_Help = "Attribute_Type_Discrete_Help";
 			public const string Attribute_Type_Discrete_Units = "Attribute_Type_Discrete_Units";
 			public const string Attribute_Type_Discrete_Units_Help = "Attribute_Type_Discrete_Units_Help";
+			public const string Attribute_Type_GeoLocation = "Attribute_Type_GeoLocation";
+			public const string Attribute_Type_GeoLocation_Help = "Attribute_Type_GeoLocation_Help";
 			public const string Attribute_Type_State_Help = "Attribute_Type_State_Help";
 			public const string Attribute_Type_States = "Attribute_Type_States";
 			public const string Attribute_Type_Text = "Attribute_Type_Text";
@@ -1114,6 +1125,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Parameter_Type = "Parameter_Type";
 			public const string Parameter_Types = "Parameter_Types";
 			public const string Parameter_Types_Decimal = "Parameter_Types_Decimal";
+			public const string Parameter_Types_GeoLocation = "Parameter_Types_GeoLocation";
 			public const string Parameter_Types_Integer = "Parameter_Types_Integer";
 			public const string Parameter_Types_String = "Parameter_Types_String";
 			public const string Parameter_Types_TrueFalse = "Parameter_Types_TrueFalse";

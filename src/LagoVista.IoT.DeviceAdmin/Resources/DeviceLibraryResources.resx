@@ -989,4 +989,13 @@
   <data name="StateMachine_Transition_Script" xml:space="preserve">
     <value>On Transition Script</value>
   </data>
+  <data name="Attribute_Type_GeoLocation" xml:space="preserve">
+    <value>Geolocation</value>
+  </data>
+  <data name="Attribute_Type_GeoLocation_Help" xml:space="preserve">
+    <value>Specifies a Lattitude and Longitude</value>
+  </data>
+  <data name="Parameter_Types_GeoLocation" xml:space="preserve">
+    <value>Geolocation</value>
+  </data>
 </root>

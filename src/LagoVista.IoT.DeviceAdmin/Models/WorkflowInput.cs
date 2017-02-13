@@ -34,8 +34,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
         public String Script { get; set; }
-
-
         
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units_Help, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<UnitSet> Units { get; set; }
