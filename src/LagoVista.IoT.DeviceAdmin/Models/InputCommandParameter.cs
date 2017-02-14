@@ -35,7 +35,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Key { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommandParameter_Type, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, WaterMark: DeviceLibraryResources.Names.Parameter_Type_Watermark)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommandParameter_Type, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, EnumType:typeof(InputCommandParameterTypes), WaterMark: DeviceLibraryResources.Names.Parameter_Type_Watermark)]
         public EntityHeader ParameterType { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
