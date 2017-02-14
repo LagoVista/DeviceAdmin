@@ -951,7 +951,7 @@
     <value>Input Commands are used to send messages or commands into your device workflow that usually originate from somewhere other than the actual device itself.  These are exposed as an API in the format of your choosing and can be things like "Reset Device", "Start", "Stop", etc...</value>
   </data>
   <data name="InputCommand_Parameters" xml:space="preserve">
-    <value>When an input command is exposed from your device configuration, you can pass in parameters along with that command.</value>
+    <value>Parameters</value>
   </data>
   <data name="InputCommand_Title" xml:space="preserve">
     <value>Input Command</value>
