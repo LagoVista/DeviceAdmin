@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
+using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String Key { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommandParameter_Type, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false, WaterMark:DeviceLibraryResources.Names.Parameter_Type_Watermark)]
-        public InputCommandParameterTypes ParameterType { get; set; }
+        public EntityHeader ParameterType { get; set; }
     }
 }
 

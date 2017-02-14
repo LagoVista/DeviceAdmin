@@ -1,5 +1,6 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
+using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using Newtonsoft.Json;
 using System;
@@ -15,14 +16,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public enum ParameterTypes
         {
-            [EnumLabel("String", DeviceLibraryResources.Names.Parameter_Types_String, typeof(DeviceLibraryResources))]
+            [EnumLabel("string", DeviceLibraryResources.Names.Parameter_Types_String, typeof(DeviceLibraryResources))]
             String,
-            [EnumLabel("Integer", DeviceLibraryResources.Names.Parameter_Types_Integer, typeof(DeviceLibraryResources))]
+            [EnumLabel("integer", DeviceLibraryResources.Names.Parameter_Types_Integer, typeof(DeviceLibraryResources))]
             Integer,
-            [EnumLabel("Decimal", DeviceLibraryResources.Names.Parameter_Types_Decimal,  typeof(DeviceLibraryResources))]
+            [EnumLabel("decimal", DeviceLibraryResources.Names.Parameter_Types_Decimal, typeof(DeviceLibraryResources))]
             Decimal,
-            [EnumLabel("TrueFalse", DeviceLibraryResources.Names.Parameter_Types_TrueFalse, typeof(DeviceLibraryResources))]
-            TrueFalse
+            [EnumLabel("true-false", DeviceLibraryResources.Names.Parameter_Types_TrueFalse, typeof(DeviceLibraryResources))]
+            TrueFalse,
+            [EnumLabel("geolocation", DeviceLibraryResources.Names.Parameter_Types_GeoLocation, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.WorkflowInput_Type_GeoLocation_Help)]
+            GeoLocation,
         }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsRequired, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
@@ -36,6 +39,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String Key { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameter_Type, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false, WaterMark: DeviceLibraryResources.Names.Parameter_Type_Watermark)]
-        public ParameterTypes ParameterType { get; set; }
+        public EntityHeader ParameterType { get; set; }
     }
 }
