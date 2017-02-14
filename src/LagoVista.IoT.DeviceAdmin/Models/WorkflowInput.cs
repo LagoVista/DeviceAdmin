@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
+using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
@@ -30,7 +31,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Type, WaterMark:DeviceLibraryResources.Names.WorkflowInput_Type_Watermark, EnumType:typeof(InputTypes), HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Type_Help, FieldType:FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
-        public InputTypes InputType { get; set; }
+        public EntityHeader InputType { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
         public String Script { get; set; }
