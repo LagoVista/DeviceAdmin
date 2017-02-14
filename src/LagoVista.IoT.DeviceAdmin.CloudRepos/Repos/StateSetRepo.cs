@@ -26,7 +26,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 
         public Task UpdateStateSetAsync(StateSet unitSet)
         {
-            return CreateDocumentAsync(unitSet);
+            return UpsertDocumentAsync(unitSet);
         }
 
         public Task<StateSet> GetStateSetAsync(string unitSetId)
