@@ -178,6 +178,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         {
             var response = DetailResponse<IoT.DeviceAdmin.Models.InputCommand>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
+            response.Model.Parameters = new List<InputCommandParameter>();
             response.Model.DiagramLocation = new Point();
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
@@ -191,7 +192,8 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         [HttpGet("inputcommandparameter")]
         public DetailResponse<IoT.DeviceAdmin.Models.InputCommandParameter> CreateInputCommanParameter()
         {
-            return DetailResponse<IoT.DeviceAdmin.Models.InputCommandParameter>.Create();
+            var parameter = DetailResponse<IoT.DeviceAdmin.Models.InputCommandParameter>.Create();
+            return parameter;
         }
 
         /// <summary>
