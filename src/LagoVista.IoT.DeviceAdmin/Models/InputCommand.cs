@@ -33,7 +33,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             [EnumLabel("put", Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_REST_Put, typeof(Resources.DeviceLibraryResources))]
             RestPut,
             [EnumLabel("delete", Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_REST_Delete, typeof(Resources.DeviceLibraryResources))]
-            RestDelete
+            RestDelete,
+            [EnumLabel("internal", Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_REST_Get, typeof(Resources.DeviceLibraryResources), Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Internal_Help)]
+            Internal
         }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.InputCommandParameter_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
@@ -45,7 +47,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Help, WaterMark:Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Watermark, FieldType: FieldTypes.Picker, EnumType:typeof(EndpointTypes), ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public EntityHeader EndpointType { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Help, WaterMark: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Watermark, FieldType: FieldTypes.Picker, EnumType:typeof(PayloadTypes), ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Help, WaterMark: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Watermark, FieldType: FieldTypes.Picker, EnumType:typeof(PayloadTypes), ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader EndpointPayload { get; set; }
     }
 }

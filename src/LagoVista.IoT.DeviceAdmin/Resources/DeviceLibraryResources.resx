@@ -1054,4 +1054,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="InputCommand_EndpointType_Watermark" xml:space="preserve">
     <value>-select endpoint type-</value>
   </data>
+  <data name="InputCommand_EndpointType_Internal" xml:space="preserve">
+    <value>Internal</value>
+  </data>
+  <data name="InputCommand_EndpointType_Internal_Help" xml:space="preserve">
+    <value>This input command will not be exposed as a REST input command, and will only be available via scripting from other internal components.</value>
+  </data>
 </root>

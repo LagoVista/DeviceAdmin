@@ -580,6 +580,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:InputCommand_EndpointType_Help
 
 		public static string InputCommand_EndpointType_Help { get { return GetResourceString("InputCommand_EndpointType_Help"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointType_Internal
+
+		public static string InputCommand_EndpointType_Internal { get { return GetResourceString("InputCommand_EndpointType_Internal"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointType_Internal_Help
+
+		public static string InputCommand_EndpointType_Internal_Help { get { return GetResourceString("InputCommand_EndpointType_Internal_Help"); } }
 //Resources:DeviceLibraryResources:InputCommand_EndpointType_REST_Delete
 
 		public static string InputCommand_EndpointType_REST_Delete { get { return GetResourceString("InputCommand_EndpointType_REST_Delete"); } }
@@ -1170,6 +1176,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string InputCommand_EndpointPayload_XML = "InputCommand_EndpointPayload_XML";
 			public const string InputCommand_EndpointType = "InputCommand_EndpointType";
 			public const string InputCommand_EndpointType_Help = "InputCommand_EndpointType_Help";
+			public const string InputCommand_EndpointType_Internal = "InputCommand_EndpointType_Internal";
+			public const string InputCommand_EndpointType_Internal_Help = "InputCommand_EndpointType_Internal_Help";
 			public const string InputCommand_EndpointType_REST_Delete = "InputCommand_EndpointType_REST_Delete";
 			public const string InputCommand_EndpointType_REST_Get = "InputCommand_EndpointType_REST_Get";
 			public const string InputCommand_EndpointType_REST_Post = "InputCommand_EndpointType_REST_Post";
