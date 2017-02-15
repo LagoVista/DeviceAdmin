@@ -12,8 +12,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public WorkflowInput()
         {
-            States = new ObservableCollection<State>();
-            Units = new ObservableCollection<UnitSet>();
         }
 
         public enum InputTypes
@@ -37,10 +35,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String Script { get; set; }
         
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public ObservableCollection<UnitSet> Units { get; set; }
+        public EntityHeader<UnitSet> UnitSet { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public ObservableCollection<State> States { get; set; }
+        public EntityHeader<StateSet> StateSet { get; set; }
     }
 }

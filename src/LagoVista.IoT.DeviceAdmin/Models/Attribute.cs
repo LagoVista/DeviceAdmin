@@ -14,8 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public Attribute()
         {
-            States = new ObservableCollection<State>();
-            Units = new ObservableCollection<UnitSet>();
+
         }
 
         public enum AttributeTypes
@@ -40,10 +39,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public ObservableCollection<UnitSet> Units { get; set; }
+        public EntityHeader<UnitSet> UnitSetReference { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public ObservableCollection<State> States { get; set; }
+        public EntityHeader<StateSet> StateSet { get; set; }
     }
 }

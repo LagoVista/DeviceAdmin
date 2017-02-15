@@ -415,7 +415,7 @@
     <value>Shared</value>
   </data>
   <data name="Attribute_Type_States" xml:space="preserve">
-    <value>State Machine</value>
+    <value>States</value>
   </data>
   <data name="CustomField_FieldType_Email" xml:space="preserve">
     <value>Email</value>
