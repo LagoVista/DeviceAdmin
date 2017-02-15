@@ -6,7 +6,7 @@
     "NETStandard.Library": "1.6.1",
     "Newtonsoft.Json": "9.0.1",
     "WindowsAzure.Storage": "8.0.1",
-    "LagoVista.CloudStorage": "0.8.66-alpha01034",
+    "LagoVista.CloudStorage": "0.8.76-alpha00689",
     "LagoVista.IoT.DeviceAdmin": "0.8",
     "LagoVista.Core": "0.8.75-alpha01398"
   },
@@ -21,7 +21,7 @@
       "imports": [ "dnxcore50", "portable-net45+win8" ]
     },
     "net461": {
-      "dependencies": { "Microsoft.Azure.DocumentDB":"1.11.3" },
+      "dependencies": { "Microsoft.Azure.DocumentDB":"1.11.4" },
       "imports": [ "dotnet5.4", "portable-net451+netcore451+win81" ]
     }
 

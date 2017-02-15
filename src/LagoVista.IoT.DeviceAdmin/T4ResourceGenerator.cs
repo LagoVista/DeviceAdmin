@@ -553,12 +553,54 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:InputCommand_Description
 
 		public static string InputCommand_Description { get { return GetResourceString("InputCommand_Description"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointPayload
+
+		public static string InputCommand_EndpointPayload { get { return GetResourceString("InputCommand_EndpointPayload"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointPayload_Form
+
+		public static string InputCommand_EndpointPayload_Form { get { return GetResourceString("InputCommand_EndpointPayload_Form"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointPayload_Help
+
+		public static string InputCommand_EndpointPayload_Help { get { return GetResourceString("InputCommand_EndpointPayload_Help"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointPayload_JSON
+
+		public static string InputCommand_EndpointPayload_JSON { get { return GetResourceString("InputCommand_EndpointPayload_JSON"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointPayload_None
+
+		public static string InputCommand_EndpointPayload_None { get { return GetResourceString("InputCommand_EndpointPayload_None"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointPayload_XML
+
+		public static string InputCommand_EndpointPayload_XML { get { return GetResourceString("InputCommand_EndpointPayload_XML"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointType
+
+		public static string InputCommand_EndpointType { get { return GetResourceString("InputCommand_EndpointType"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointType_Help
+
+		public static string InputCommand_EndpointType_Help { get { return GetResourceString("InputCommand_EndpointType_Help"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointType_REST_Delete
+
+		public static string InputCommand_EndpointType_REST_Delete { get { return GetResourceString("InputCommand_EndpointType_REST_Delete"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointType_REST_Get
+
+		public static string InputCommand_EndpointType_REST_Get { get { return GetResourceString("InputCommand_EndpointType_REST_Get"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointType_REST_Post
+
+		public static string InputCommand_EndpointType_REST_Post { get { return GetResourceString("InputCommand_EndpointType_REST_Post"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointType_REST_Put
+
+		public static string InputCommand_EndpointType_REST_Put { get { return GetResourceString("InputCommand_EndpointType_REST_Put"); } }
 //Resources:DeviceLibraryResources:InputCommand_Help
 
 		public static string InputCommand_Help { get { return GetResourceString("InputCommand_Help"); } }
 //Resources:DeviceLibraryResources:InputCommand_Parameters
 
 		public static string InputCommand_Parameters { get { return GetResourceString("InputCommand_Parameters"); } }
+//Resources:DeviceLibraryResources:InputCommand_Script
+
+		public static string InputCommand_Script { get { return GetResourceString("InputCommand_Script"); } }
+//Resources:DeviceLibraryResources:InputCommand_Script_Help
+
+		public static string InputCommand_Script_Help { get { return GetResourceString("InputCommand_Script_Help"); } }
 //Resources:DeviceLibraryResources:InputCommand_Title
 
 		public static string InputCommand_Title { get { return GetResourceString("InputCommand_Title"); } }
@@ -1113,8 +1155,22 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Gateway_SerialNumber = "Gateway_SerialNumber";
 			public const string Gatway_Firmware_Version = "Gatway_Firmware_Version";
 			public const string InputCommand_Description = "InputCommand_Description";
+			public const string InputCommand_EndpointPayload = "InputCommand_EndpointPayload";
+			public const string InputCommand_EndpointPayload_Form = "InputCommand_EndpointPayload_Form";
+			public const string InputCommand_EndpointPayload_Help = "InputCommand_EndpointPayload_Help";
+			public const string InputCommand_EndpointPayload_JSON = "InputCommand_EndpointPayload_JSON";
+			public const string InputCommand_EndpointPayload_None = "InputCommand_EndpointPayload_None";
+			public const string InputCommand_EndpointPayload_XML = "InputCommand_EndpointPayload_XML";
+			public const string InputCommand_EndpointType = "InputCommand_EndpointType";
+			public const string InputCommand_EndpointType_Help = "InputCommand_EndpointType_Help";
+			public const string InputCommand_EndpointType_REST_Delete = "InputCommand_EndpointType_REST_Delete";
+			public const string InputCommand_EndpointType_REST_Get = "InputCommand_EndpointType_REST_Get";
+			public const string InputCommand_EndpointType_REST_Post = "InputCommand_EndpointType_REST_Post";
+			public const string InputCommand_EndpointType_REST_Put = "InputCommand_EndpointType_REST_Put";
 			public const string InputCommand_Help = "InputCommand_Help";
 			public const string InputCommand_Parameters = "InputCommand_Parameters";
+			public const string InputCommand_Script = "InputCommand_Script";
+			public const string InputCommand_Script_Help = "InputCommand_Script_Help";
 			public const string InputCommand_Title = "InputCommand_Title";
 			public const string InputCommandParameter_Help = "InputCommandParameter_Help";
 			public const string InputCommandParameter_Title = "InputCommandParameter_Title";

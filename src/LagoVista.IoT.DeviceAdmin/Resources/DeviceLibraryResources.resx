@@ -948,7 +948,9 @@
     <value>Input Commands are used to send messages or commands into your device workflow that usually originate from somewhere other than the actual device itself.  These are exposed as an API in the format of your choosing and can be things like "Reset Device", "Start", "Stop", etc...</value>
   </data>
   <data name="InputCommand_Help" xml:space="preserve">
-    <value>Input Commands are used to send messages or commands into your device workflow that usually originate from somewhere other than the actual device itself.  These are exposed as an API in the format of your choosing and can be things like "Reset Device", "Start", "Stop", etc...</value>
+    <value>Input Commands are used to send messages or commands into your device workflow that usually originate from somewhere other than the actual device itself.  These are exposed as an API in the format of your choosing and can be things like "Reset Device", "Start", "Stop", etc... 
+
+Your input commands will be exposed as a generated API that you can call for this device configuration.</value>
   </data>
   <data name="InputCommand_Parameters" xml:space="preserve">
     <value>Parameters</value>
@@ -1003,5 +1005,47 @@
   </data>
   <data name="WorkflowInput_Type_Watermark" xml:space="preserve">
     <value>-select input type-</value>
+  </data>
+  <data name="InputCommand_EndpointPayload" xml:space="preserve">
+    <value>Payload Type</value>
+  </data>
+  <data name="InputCommand_EndpointPayload_Form" xml:space="preserve">
+    <value>Form (HTML Post)</value>
+  </data>
+  <data name="InputCommand_EndpointPayload_JSON" xml:space="preserve">
+    <value>JSON</value>
+  </data>
+  <data name="InputCommand_EndpointPayload_XML" xml:space="preserve">
+    <value>XML</value>
+  </data>
+  <data name="InputCommand_EndpointType" xml:space="preserve">
+    <value>Select the type of end point that will be created for this input command</value>
+  </data>
+  <data name="InputCommand_EndpointType_REST_Delete" xml:space="preserve">
+    <value>REST - Delete</value>
+  </data>
+  <data name="InputCommand_EndpointType_REST_Get" xml:space="preserve">
+    <value>REST - Get</value>
+  </data>
+  <data name="InputCommand_EndpointType_REST_Post" xml:space="preserve">
+    <value>REST - Post</value>
+  </data>
+  <data name="InputCommand_EndpointType_REST_Put" xml:space="preserve">
+    <value>REST - Put</value>
+  </data>
+  <data name="InputCommand_Script" xml:space="preserve">
+    <value>Script</value>
+  </data>
+  <data name="InputCommand_Script_Help" xml:space="preserve">
+    <value>You can enter a script that is execute when you receive an input command, you will have any parameters that were passed to the command available to the script</value>
+  </data>
+  <data name="InputCommand_EndpointPayload_Help" xml:space="preserve">
+    <value>If you need to pass in parameters you can specify how you want those parameters to be sent in your generated API.</value>
+  </data>
+  <data name="InputCommand_EndpointPayload_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="InputCommand_EndpointType_Help" xml:space="preserve">
+    <value>You can specify how you want this input command exposed in your generated API.</value>
   </data>
 </root>
