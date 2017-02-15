@@ -1019,7 +1019,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>XML</value>
   </data>
   <data name="InputCommand_EndpointType" xml:space="preserve">
-    <value>Select the type of end point that will be created for this input command</value>
+    <value>End Point Type</value>
   </data>
   <data name="InputCommand_EndpointType_REST_Delete" xml:space="preserve">
     <value>REST - Delete</value>
@@ -1047,5 +1047,11 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="InputCommand_EndpointType_Help" xml:space="preserve">
     <value>You can specify how you want this input command exposed in your generated API.</value>
+  </data>
+  <data name="InputCommand_EndpointPayload_Watermark" xml:space="preserve">
+    <value>-select endpoint payload type-</value>
+  </data>
+  <data name="InputCommand_EndpointType_Watermark" xml:space="preserve">
+    <value>-select endpoint type-</value>
   </data>
 </root>
