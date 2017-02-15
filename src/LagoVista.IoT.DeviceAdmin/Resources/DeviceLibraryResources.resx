@@ -1054,6 +1054,9 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="InputCommand_EndpointType_Watermark" xml:space="preserve">
     <value>-select endpoint type-</value>
   </data>
+  <data name="InputCommand_EndpointPayload_QueryString" xml:space="preserve">
+    <value>Query String</value>
+  </data>
   <data name="InputCommand_EndpointType_Internal" xml:space="preserve">
     <value>Internal</value>
   </data>

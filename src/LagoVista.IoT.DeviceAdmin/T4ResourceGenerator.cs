@@ -568,6 +568,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:InputCommand_EndpointPayload_None
 
 		public static string InputCommand_EndpointPayload_None { get { return GetResourceString("InputCommand_EndpointPayload_None"); } }
+//Resources:DeviceLibraryResources:InputCommand_EndpointPayload_QueryString
+
+		public static string InputCommand_EndpointPayload_QueryString { get { return GetResourceString("InputCommand_EndpointPayload_QueryString"); } }
 //Resources:DeviceLibraryResources:InputCommand_EndpointPayload_Watermark
 
 		public static string InputCommand_EndpointPayload_Watermark { get { return GetResourceString("InputCommand_EndpointPayload_Watermark"); } }
@@ -1172,6 +1175,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string InputCommand_EndpointPayload_Help = "InputCommand_EndpointPayload_Help";
 			public const string InputCommand_EndpointPayload_JSON = "InputCommand_EndpointPayload_JSON";
 			public const string InputCommand_EndpointPayload_None = "InputCommand_EndpointPayload_None";
+			public const string InputCommand_EndpointPayload_QueryString = "InputCommand_EndpointPayload_QueryString";
 			public const string InputCommand_EndpointPayload_Watermark = "InputCommand_EndpointPayload_Watermark";
 			public const string InputCommand_EndpointPayload_XML = "InputCommand_EndpointPayload_XML";
 			public const string InputCommand_EndpointType = "InputCommand_EndpointType";

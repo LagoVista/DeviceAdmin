@@ -20,6 +20,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Xml,
             [EnumLabel("form", Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Form, typeof(Resources.DeviceLibraryResources))]
             Form,
+            [EnumLabel("querystring", Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_QueryString, typeof(Resources.DeviceLibraryResources))]
+            QueryString,
             [EnumLabel("none", Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_None, typeof(Resources.DeviceLibraryResources))]
             None
         }
@@ -48,6 +50,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader EndpointType { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Help, WaterMark: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Watermark, FieldType: FieldTypes.Picker, EnumType:typeof(PayloadTypes), ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader EndpointPayload { get; set; }
+        public EntityHeader EndpointPayloadType { get; set; }
     }
 }
