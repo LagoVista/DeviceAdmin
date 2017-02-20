@@ -1063,4 +1063,25 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="InputCommand_EndpointType_Internal_Help" xml:space="preserve">
     <value>This input command will not be exposed as a REST input command, and will only be available via scripting from other internal components.</value>
   </data>
+  <data name="Attribute_Script_Watermark" xml:space="preserve">
+    <value>Edit On-Set Script</value>
+  </data>
+  <data name="Attribute_UnitSet_Watermark" xml:space="preserve">
+    <value>Set Units</value>
+  </data>
+  <data name="Atttribute_StateSet_Watermark" xml:space="preserve">
+    <value>Set States</value>
+  </data>
+  <data name="WorkflowInput_Script_Watermark" xml:space="preserve">
+    <value>Edit On-Arrival Script</value>
+  </data>
+  <data name="WorkflowInput_StateSet_Watermark" xml:space="preserve">
+    <value>Set States</value>
+  </data>
+  <data name="WorkflowInput_UnitSet_Watermark" xml:space="preserve">
+    <value>Set Units</value>
+  </data>
+  <data name="Unit_Conversion_EditScriptWatermark" xml:space="preserve">
+    <value>Edit Conversion Script</value>
+  </data>
 </root>

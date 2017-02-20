@@ -158,6 +158,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Attribute_Help
 
 		public static string Attribute_Help { get { return GetResourceString("Attribute_Help"); } }
+//Resources:DeviceLibraryResources:Attribute_Script_Watermark
+
+		public static string Attribute_Script_Watermark { get { return GetResourceString("Attribute_Script_Watermark"); } }
 //Resources:DeviceLibraryResources:Attribute_SetScript
 
 		public static string Attribute_SetScript { get { return GetResourceString("Attribute_SetScript"); } }
@@ -215,6 +218,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Attribute_UnitSet_Help
 
 		public static string Attribute_UnitSet_Help { get { return GetResourceString("Attribute_UnitSet_Help"); } }
+//Resources:DeviceLibraryResources:Attribute_UnitSet_Watermark
+
+		public static string Attribute_UnitSet_Watermark { get { return GetResourceString("Attribute_UnitSet_Watermark"); } }
+//Resources:DeviceLibraryResources:Atttribute_StateSet_Watermark
+
+		public static string Atttribute_StateSet_Watermark { get { return GetResourceString("Atttribute_StateSet_Watermark"); } }
 //Resources:DeviceLibraryResources:Common_CreatedBy
 
 		public static string Common_CreatedBy { get { return GetResourceString("Common_CreatedBy"); } }
@@ -853,6 +862,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Unit_Abbreviation
 
 		public static string Unit_Abbreviation { get { return GetResourceString("Unit_Abbreviation"); } }
+//Resources:DeviceLibraryResources:Unit_Conversion_EditScriptWatermark
+
+		public static string Unit_Conversion_EditScriptWatermark { get { return GetResourceString("Unit_Conversion_EditScriptWatermark"); } }
 //Resources:DeviceLibraryResources:Unit_Conversion_Factor
 
 		public static string Unit_Conversion_Factor { get { return GetResourceString("Unit_Conversion_Factor"); } }
@@ -940,6 +952,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:WorkflowInput_Help
 
 		public static string WorkflowInput_Help { get { return GetResourceString("WorkflowInput_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_Script_Watermark
+
+		public static string WorkflowInput_Script_Watermark { get { return GetResourceString("WorkflowInput_Script_Watermark"); } }
 //Resources:DeviceLibraryResources:WorkflowInput_SetScript
 
 		public static string WorkflowInput_SetScript { get { return GetResourceString("WorkflowInput_SetScript"); } }
@@ -952,6 +967,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:WorkflowInput_States_Help
 
 		public static string WorkflowInput_States_Help { get { return GetResourceString("WorkflowInput_States_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_StateSet_Watermark
+
+		public static string WorkflowInput_StateSet_Watermark { get { return GetResourceString("WorkflowInput_StateSet_Watermark"); } }
 //Resources:DeviceLibraryResources:WorkflowInput_Title
 
 		public static string WorkflowInput_Title { get { return GetResourceString("WorkflowInput_Title"); } }
@@ -1003,6 +1021,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:WorkflowInput_Units_Help
 
 		public static string WorkflowInput_Units_Help { get { return GetResourceString("WorkflowInput_Units_Help"); } }
+//Resources:DeviceLibraryResources:WorkflowInput_UnitSet_Watermark
+
+		public static string WorkflowInput_UnitSet_Watermark { get { return GetResourceString("WorkflowInput_UnitSet_Watermark"); } }
 
 		public static class Names
 		{
@@ -1041,6 +1062,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Attribute_Direction_InputAndOutput = "Attribute_Direction_InputAndOutput";
 			public const string Attribute_Direction_Output = "Attribute_Direction_Output";
 			public const string Attribute_Help = "Attribute_Help";
+			public const string Attribute_Script_Watermark = "Attribute_Script_Watermark";
 			public const string Attribute_SetScript = "Attribute_SetScript";
 			public const string Attribute_SetScript_Help = "Attribute_SetScript_Help";
 			public const string Attribute_Shared = "Attribute_Shared";
@@ -1060,6 +1082,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Attribute_Type_Text_Help = "Attribute_Type_Text_Help";
 			public const string Attribute_UnitSet = "Attribute_UnitSet";
 			public const string Attribute_UnitSet_Help = "Attribute_UnitSet_Help";
+			public const string Attribute_UnitSet_Watermark = "Attribute_UnitSet_Watermark";
+			public const string Atttribute_StateSet_Watermark = "Atttribute_StateSet_Watermark";
 			public const string Common_CreatedBy = "Common_CreatedBy";
 			public const string Common_CreationDate = "Common_CreationDate";
 			public const string Common_Description = "Common_Description";
@@ -1270,6 +1294,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateTransition_Title = "StateTransition_Title";
 			public const string StateTransition_UserHelp = "StateTransition_UserHelp";
 			public const string Unit_Abbreviation = "Unit_Abbreviation";
+			public const string Unit_Conversion_EditScriptWatermark = "Unit_Conversion_EditScriptWatermark";
 			public const string Unit_Conversion_Factor = "Unit_Conversion_Factor";
 			public const string Unit_Conversion_Factor_Help = "Unit_Conversion_Factor_Help";
 			public const string Unit_Conversion_Type = "Unit_Conversion_Type";
@@ -1299,10 +1324,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string WorkflowInptuType_GeoLocation_Help = "WorkflowInptuType_GeoLocation_Help";
 			public const string WorkflowInput_Description = "WorkflowInput_Description";
 			public const string WorkflowInput_Help = "WorkflowInput_Help";
+			public const string WorkflowInput_Script_Watermark = "WorkflowInput_Script_Watermark";
 			public const string WorkflowInput_SetScript = "WorkflowInput_SetScript";
 			public const string WorkflowInput_SetScript_Help = "WorkflowInput_SetScript_Help";
 			public const string WorkflowInput_States = "WorkflowInput_States";
 			public const string WorkflowInput_States_Help = "WorkflowInput_States_Help";
+			public const string WorkflowInput_StateSet_Watermark = "WorkflowInput_StateSet_Watermark";
 			public const string WorkflowInput_Title = "WorkflowInput_Title";
 			public const string WorkflowInput_Type = "WorkflowInput_Type";
 			public const string WorkflowInput_Type_Description = "WorkflowInput_Type_Description";
@@ -1320,6 +1347,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string WorkflowInput_Type_Watermark = "WorkflowInput_Type_Watermark";
 			public const string WorkflowInput_Units = "WorkflowInput_Units";
 			public const string WorkflowInput_Units_Help = "WorkflowInput_Units_Help";
+			public const string WorkflowInput_UnitSet_Watermark = "WorkflowInput_UnitSet_Watermark";
 		}
 	}
 }

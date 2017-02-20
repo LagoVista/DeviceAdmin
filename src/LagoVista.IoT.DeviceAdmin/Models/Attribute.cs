@@ -34,15 +34,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType, EnumType:(typeof(AttributeTypes)), HelpResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), WaterMark:Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Select, IsRequired: true, IsUserEditable: true)]
         public EntityHeader AttributeType { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript, WaterMark:Resources.DeviceLibraryResources.Names.Attribute_Script_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Script { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet, FieldType:FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet,  FieldType:FieldTypes.EntityHeaderPicker, WaterMark:Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<UnitSet> UnitSet { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: Resources.DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
     }
 }
