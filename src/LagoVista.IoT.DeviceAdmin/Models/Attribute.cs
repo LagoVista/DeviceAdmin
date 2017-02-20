@@ -38,11 +38,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String Script { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader<UnitSet> UnitSetReference { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet, FieldType:FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader<UnitSet> UnitSet { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
     }
 }

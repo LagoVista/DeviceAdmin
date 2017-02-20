@@ -34,11 +34,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
         public String Script { get; set; }
         
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units, FieldType: FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<UnitSet> UnitSet { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States, FieldType: FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
     }
 }

@@ -8,7 +8,7 @@
     "WindowsAzure.Storage": "8.0.1",
     "LagoVista.CloudStorage": "0.8.76-alpha00689",
     "LagoVista.IoT.DeviceAdmin": "0.8",
-    "LagoVista.Core": "0.8.75-alpha01398"
+    "LagoVista.Core": "0.8.81-alpha01015"
   },
 
   "frameworks": {
