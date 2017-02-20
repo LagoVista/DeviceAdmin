@@ -1084,4 +1084,13 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Unit_Conversion_EditScriptWatermark" xml:space="preserve">
     <value>Edit Conversion Script</value>
   </data>
+  <data name="Common_ValidationErrors" xml:space="preserve">
+    <value>Validation Errors</value>
+  </data>
+  <data name="Is Valid" xml:space="preserve">
+    <value>Is Valid</value>
+  </data>
+  <data name="Common_IsValid" xml:space="preserve">
+    <value>Is Valid</value>
+  </data>
 </root>

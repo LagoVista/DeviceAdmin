@@ -1,6 +1,7 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
+using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using Newtonsoft.Json;
 using System;
@@ -13,6 +14,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public DeviceModelBase()
         {
             Notes = new ObservableCollection<AdminNote>();
+            ValidationErrors = new ObservableCollection<ValidationMessage>();
+            IsValid = true;
         }
 
         [JsonProperty("id")]
@@ -49,5 +52,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Notes, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<AdminNote> Notes { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsValid, FieldType:FieldTypes.Bool, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources))]
+        public bool IsValid { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_ValidationErrors, FieldType: FieldTypes.ChildList, IsUserEditable: false, ResourceType:typeof(DeviceLibraryResources))]
+        public ObservableCollection<ValidationMessage> ValidationErrors { get; set; }
+
     }
 }

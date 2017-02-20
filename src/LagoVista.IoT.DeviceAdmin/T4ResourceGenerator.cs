@@ -239,6 +239,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Common_IsRequired
 
 		public static string Common_IsRequired { get { return GetResourceString("Common_IsRequired"); } }
+//Resources:DeviceLibraryResources:Common_IsValid
+
+		public static string Common_IsValid { get { return GetResourceString("Common_IsValid"); } }
 //Resources:DeviceLibraryResources:Common_Key
 
 		public static string Common_Key { get { return GetResourceString("Common_Key"); } }
@@ -266,6 +269,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Common_UniqueId
 
 		public static string Common_UniqueId { get { return GetResourceString("Common_UniqueId"); } }
+//Resources:DeviceLibraryResources:Common_ValidationErrors
+
+		public static string Common_ValidationErrors { get { return GetResourceString("Common_ValidationErrors"); } }
 //Resources:DeviceLibraryResources:CustomField_Description
 
 		public static string CustomField_Description { get { return GetResourceString("CustomField_Description"); } }
@@ -640,6 +646,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:InputCommandParamter_Description
 
 		public static string InputCommandParamter_Description { get { return GetResourceString("InputCommandParamter_Description"); } }
+//Resources:DeviceLibraryResources:IsValid
+
+		public static string IsValid { get { return GetResourceString("IsValid"); } }
 //Resources:DeviceLibraryResources:NodeRedFlow_Description
 
 		public static string NodeRedFlow_Description { get { return GetResourceString("NodeRedFlow_Description"); } }
@@ -1089,6 +1098,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Common_Description = "Common_Description";
 			public const string Common_IsPublic = "Common_IsPublic";
 			public const string Common_IsRequired = "Common_IsRequired";
+			public const string Common_IsValid = "Common_IsValid";
 			public const string Common_Key = "Common_Key";
 			public const string Common_Key_Help = "Common_Key_Help";
 			public const string Common_Key_Validation = "Common_Key_Validation";
@@ -1098,6 +1108,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Common_Note = "Common_Note";
 			public const string Common_Notes = "Common_Notes";
 			public const string Common_UniqueId = "Common_UniqueId";
+			public const string Common_ValidationErrors = "Common_ValidationErrors";
 			public const string CustomField_Description = "CustomField_Description";
 			public const string CustomField_FieldType = "CustomField_FieldType";
 			public const string CustomField_FieldType_Bool = "CustomField_FieldType_Bool";
@@ -1220,6 +1231,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string InputCommandParameter_Title = "InputCommandParameter_Title";
 			public const string InputCommandParameter_Type = "InputCommandParameter_Type";
 			public const string InputCommandParamter_Description = "InputCommandParamter_Description";
+			public const string IsValid = "IsValid";
 			public const string NodeRedFlow_Description = "NodeRedFlow_Description";
 			public const string NodeRedFlow_Help = "NodeRedFlow_Help";
 			public const string NodeRedFlow_Title = "NodeRedFlow_Title";
