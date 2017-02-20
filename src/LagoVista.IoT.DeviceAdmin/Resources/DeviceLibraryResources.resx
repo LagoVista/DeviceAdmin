@@ -1070,13 +1070,13 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>-select units for attribute-</value>
   </data>
   <data name="Atttribute_StateSet_Watermark" xml:space="preserve">
-    <value>Set States</value>
+    <value>-select states for attribute-</value>
   </data>
   <data name="WorkflowInput_Script_Watermark" xml:space="preserve">
     <value>Edit On-Arrival Script</value>
   </data>
   <data name="WorkflowInput_StateSet_Watermark" xml:space="preserve">
-    <value>Set States</value>
+    <value>-select states for input-</value>
   </data>
   <data name="WorkflowInput_UnitSet_Watermark" xml:space="preserve">
     <value>-select units for input-</value>
