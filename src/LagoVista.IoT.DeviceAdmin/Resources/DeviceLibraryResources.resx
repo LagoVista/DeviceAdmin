@@ -1067,7 +1067,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Edit On-Set Script</value>
   </data>
   <data name="Attribute_UnitSet_Watermark" xml:space="preserve">
-    <value>Set Units</value>
+    <value>-select units for attribute-</value>
   </data>
   <data name="Atttribute_StateSet_Watermark" xml:space="preserve">
     <value>Set States</value>
@@ -1079,7 +1079,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Set States</value>
   </data>
   <data name="WorkflowInput_UnitSet_Watermark" xml:space="preserve">
-    <value>Set Units</value>
+    <value>-select units for input-</value>
   </data>
   <data name="Unit_Conversion_EditScriptWatermark" xml:space="preserve">
     <value>Edit Conversion Script</value>
