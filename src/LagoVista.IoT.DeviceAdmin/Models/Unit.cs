@@ -8,7 +8,7 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Unit_Title, Resources.DeviceLibraryResources.Names.Unit_Help, DeviceLibraryResources.Names.Unit_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel,typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Unit_Title, Resources.DeviceLibraryResources.Names.Unit_Help, DeviceLibraryResources.Names.Unit_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class Unit : IKeyedEntity, INamedEntity, IValidateable
     {
         public enum ConversionTypes
@@ -34,7 +34,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_Abbreviation, IsRequired: true, MaxLength: 6, ResourceType: typeof(DeviceLibraryResources))]
         public String Abbreviation { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType:FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_NumberDecimal, IsRequired: true, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
@@ -45,13 +45,17 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public double? ConversionFactor { get; set; }
 
         // Look at for running the scripts https://github.com/sebastienros/jint
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript, WaterMark:Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark, FieldType:FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public String ConversionScript { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript, WaterMark: Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public String ConversionToScript { get; set; }
+
+        // Look at for running the scripts https://github.com/sebastienros/jint
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript, WaterMark: Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public String ConversionFromScript { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_DisplayFormat, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_DisplayFormat_Help, ResourceType: typeof(DeviceLibraryResources))]
         public String DisplayFormat { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_IsDefault, FieldType:FieldTypes.CheckBox, HelpResource: Resources.DeviceLibraryResources.Names.Unit_IsDefault, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_IsDefault, FieldType: FieldTypes.CheckBox, HelpResource: Resources.DeviceLibraryResources.Names.Unit_IsDefault, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsDefault { get; set; }
     }
 
