@@ -31,7 +31,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Type, WaterMark:DeviceLibraryResources.Names.WorkflowInput_Type_Watermark, EnumType:typeof(InputTypes), HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Type_Help, FieldType:FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public EntityHeader InputType { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript, WaterMark: Resources.DeviceLibraryResources.Names.WorkflowInput_Script_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript, WaterMark: Resources.DeviceLibraryResources.Names.WorkflowInput_Script_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public String Script { get; set; }
         
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units, WaterMark: Resources.DeviceLibraryResources.Names.WorkflowInput_UnitSet_Watermark, FieldType: FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units_Help, ResourceType: typeof(DeviceLibraryResources))]
