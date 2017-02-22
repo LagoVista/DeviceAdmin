@@ -16,8 +16,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public enum InputTypes
         {
+            
             [EnumLabel("state", DeviceLibraryResources.Names.WorkflowInput_Type_State, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.WorkflowInput_Type_State_Help)]
             States,
+            [EnumLabel("boolean", DeviceLibraryResources.Names.WorkflowInput_Type_Boolean, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.WorkflowInput_Type_Boolean_Help)]
+            Boolean,
             [EnumLabel("text", DeviceLibraryResources.Names.WorkflowInput_Type_Text, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.WorkflowInput_Type_Text_Help)]
             Text,
             [EnumLabel("discrete", DeviceLibraryResources.Names.WorkflowInput_Type_Discrete, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.WorkflowInput_Type_Discrete_Help)]

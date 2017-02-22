@@ -958,9 +958,6 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="InputCommand_Title" xml:space="preserve">
     <value>Input Command</value>
   </data>
-  <data name="WorkflowInptuType_GeoLocation_Help" xml:space="preserve">
-    <value>The Geolocation Input Type captures a latitude, longitude and altitude in meters.</value>
-  </data>
   <data name="WorkflowInput_Type_GeoLocation" xml:space="preserve">
     <value>Geolocation</value>
   </data>
@@ -1092,5 +1089,23 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="Common_IsValid" xml:space="preserve">
     <value>Is Valid</value>
+  </data>
+  <data name="Attribute_Type_Boolean_Help" xml:space="preserve">
+    <value>An attribute that can either be true or false</value>
+  </data>
+  <data name="Attribute_ReadOnly" xml:space="preserve">
+    <value>Read Only</value>
+  </data>
+  <data name="Attribute_ReadOnly_Help" xml:space="preserve">
+    <value>You can specify your attribute to be read only, if you do so it can only be updated explicity by adding a link to the componet that will update it.  If it's not read only you can update it from any script.</value>
+  </data>
+  <data name="Attribute_Type_Boolean" xml:space="preserve">
+    <value>True/False</value>
+  </data>
+  <data name="WorkflowInput_Type_Boolean" xml:space="preserve">
+    <value>True/False</value>
+  </data>
+  <data name="WorkflowInput_Type_Boolean_Help" xml:space="preserve">
+    <value>An input that can either be true or false</value>
   </data>
 </root>
