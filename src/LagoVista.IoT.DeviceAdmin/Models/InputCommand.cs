@@ -4,6 +4,7 @@ using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,6 +13,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.InputCommand_Title, DeviceLibraryResources.Names.InputCommand_Parameters, DeviceLibraryResources.Names.InputCommand_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class InputCommand : NodeBase, IValidateable
     {
+        public InputCommand()
+        {
+            Parameters = new ObservableCollection<Parameter>();
+        }
+
         public enum PayloadTypes
         {
             [EnumLabel("json", Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_JSON, typeof(Resources.DeviceLibraryResources))]
@@ -40,11 +46,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Internal
         }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.InputCommandParameter_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
-        public List<InputCommandParameter> Parameters { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Parameter_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        public ObservableCollection<Parameter> Parameters { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Script, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_Script_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
-        public String Script { get; set; }
+        public String OnArriveScript { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Help, WaterMark:Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Watermark, FieldType: FieldTypes.Picker, EnumType:typeof(EndpointTypes), ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public EntityHeader EndpointType { get; set; }

@@ -646,15 +646,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:InputCommand_Title
 
 		public static string InputCommand_Title { get { return GetResourceString("InputCommand_Title"); } }
-//Resources:DeviceLibraryResources:InputCommandParameter_Help
-
-		public static string InputCommandParameter_Help { get { return GetResourceString("InputCommandParameter_Help"); } }
-//Resources:DeviceLibraryResources:InputCommandParameter_Title
-
-		public static string InputCommandParameter_Title { get { return GetResourceString("InputCommandParameter_Title"); } }
-//Resources:DeviceLibraryResources:InputCommandParameter_Type
-
-		public static string InputCommandParameter_Type { get { return GetResourceString("InputCommandParameter_Type"); } }
 //Resources:DeviceLibraryResources:InputCommandParamter_Description
 
 		public static string InputCommandParamter_Description { get { return GetResourceString("InputCommandParamter_Description"); } }
@@ -685,6 +676,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:OutputCommand_Title
 
 		public static string OutputCommand_Title { get { return GetResourceString("OutputCommand_Title"); } }
+//Resources:DeviceLibraryResources:Parameter_Help
+
+		public static string Parameter_Help { get { return GetResourceString("Parameter_Help"); } }
+//Resources:DeviceLibraryResources:Parameter_Title
+
+		public static string Parameter_Title { get { return GetResourceString("Parameter_Title"); } }
 //Resources:DeviceLibraryResources:Parameter_Type
 
 		public static string Parameter_Type { get { return GetResourceString("Parameter_Type"); } }
@@ -694,6 +691,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Parameter_Types
 
 		public static string Parameter_Types { get { return GetResourceString("Parameter_Types"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_DateTime
+
+		public static string Parameter_Types_DateTime { get { return GetResourceString("Parameter_Types_DateTime"); } }
 //Resources:DeviceLibraryResources:Parameter_Types_Decimal
 
 		public static string Parameter_Types_Decimal { get { return GetResourceString("Parameter_Types_Decimal"); } }
@@ -1246,9 +1246,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string InputCommand_Script = "InputCommand_Script";
 			public const string InputCommand_Script_Help = "InputCommand_Script_Help";
 			public const string InputCommand_Title = "InputCommand_Title";
-			public const string InputCommandParameter_Help = "InputCommandParameter_Help";
-			public const string InputCommandParameter_Title = "InputCommandParameter_Title";
-			public const string InputCommandParameter_Type = "InputCommandParameter_Type";
 			public const string InputCommandParamter_Description = "InputCommandParamter_Description";
 			public const string IsValid = "IsValid";
 			public const string NodeRedFlow_Description = "NodeRedFlow_Description";
@@ -1259,9 +1256,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string OutputCommand_Script = "OutputCommand_Script";
 			public const string OutputCommand_Script_Help = "OutputCommand_Script_Help";
 			public const string OutputCommand_Title = "OutputCommand_Title";
+			public const string Parameter_Help = "Parameter_Help";
+			public const string Parameter_Title = "Parameter_Title";
 			public const string Parameter_Type = "Parameter_Type";
 			public const string Parameter_Type_Watermark = "Parameter_Type_Watermark";
 			public const string Parameter_Types = "Parameter_Types";
+			public const string Parameter_Types_DateTime = "Parameter_Types_DateTime";
 			public const string Parameter_Types_Decimal = "Parameter_Types_Decimal";
 			public const string Parameter_Types_GeoLocation = "Parameter_Types_GeoLocation";
 			public const string Parameter_Types_Integer = "Parameter_Types_Integer";

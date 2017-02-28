@@ -8,7 +8,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.OutputCommand_Title, DeviceLibraryResources.Names.OutputCommand_Description, DeviceLibraryResources.Names.OutputCommand_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class OutputCommand : NodeBase, IValidateable
     {
+        public OutputCommand()
+        {
+            Parameters = new ObservableCollection<Parameter>();
+        }
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.OutputCommand_Script, HelpResource: Resources.DeviceLibraryResources.Names.OutputCommand_Script_Help, IsRequired:true, FieldType:FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
-        public string Script { get; set; }
+        public string OnExecuteScript { get; set; }
+
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Parameter_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        public ObservableCollection<Parameter> Parameters { get; set; }
     }
 }

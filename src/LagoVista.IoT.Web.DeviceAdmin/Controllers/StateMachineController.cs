@@ -57,12 +57,6 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             SetOwnedProperties(stateMachine.Model);
             SetAuditProperties(stateMachine.Model);
 
-            stateMachine.Model.DiagramLocation = new Point();
-            stateMachine.Model.States = new ObservableCollection<State>();
-            stateMachine.Model.Events = new ObservableCollection<Event>();
-            stateMachine.Model.Variables = new ObservableCollection<CustomField>();
-            stateMachine.Model.InitialActions = new ObservableCollection<Core.Models.EntityHeader>();
-
             return stateMachine;
         }
 

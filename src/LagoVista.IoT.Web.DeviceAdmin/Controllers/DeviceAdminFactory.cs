@@ -163,36 +163,19 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         {
             var response = DetailResponse<IoT.DeviceAdmin.Models.Action>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
-            response.Model.DiagramLocation = new Point();
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
             return response;
         }
 
         /// <summary>
-        ///  Input Command - Create New
+        ///  Create New Parameter
         /// </summary>
         /// <returns></returns>
-        [HttpGet("inputcommand")]
-        public DetailResponse<IoT.DeviceAdmin.Models.InputCommand> CreateInputCommand()
+        [HttpGet("parameter")]
+        public DetailResponse<IoT.DeviceAdmin.Models.Parameter> CreateInputParameter()
         {
-            var response = DetailResponse<IoT.DeviceAdmin.Models.InputCommand>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
-            response.Model.Parameters = new List<InputCommandParameter>();
-            response.Model.DiagramLocation = new Point();
-            SetAuditProperties(response.Model);
-            SetOwnedProperties(response.Model);
-            return response;
-        }
-
-        /// <summary>
-        ///  Input Command - Create New Parameter
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("inputcommandparameter")]
-        public DetailResponse<IoT.DeviceAdmin.Models.InputCommandParameter> CreateInputCommanParameter()
-        {
-            var parameter = DetailResponse<IoT.DeviceAdmin.Models.InputCommandParameter>.Create();
+            var parameter = DetailResponse<IoT.DeviceAdmin.Models.Parameter>.Create();
             return parameter;
         }
 
@@ -232,8 +215,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             var response = DetailResponse<IoT.DeviceAdmin.Models.Attribute>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             response.Model.AttributeType = new Core.Models.EntityHeader() { Id = "-1" };
-            response.Model.DiagramLocation = new Point();
-
+    
             SetOwnedProperties(response.Model);
             SetAuditProperties(response.Model);
             return response;

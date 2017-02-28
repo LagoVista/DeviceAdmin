@@ -17,34 +17,17 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         }
 
-        public enum AttributeTypes
-        {
-            [EnumLabel("boolean", DeviceLibraryResources.Names.Attribute_Type_Boolean, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_Type_Boolean_Help)]
-            Boolean,
-            [EnumLabel("state", DeviceLibraryResources.Names.Attribute_Type_States, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_Type_State_Help)]
-            States,
-            [EnumLabel("text", DeviceLibraryResources.Names.Attribute_Type_Text, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_Type_Text_Help)]
-            Text,
-            [EnumLabel("discrete", DeviceLibraryResources.Names.Attribute_Type_Discrete, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_Type_Discrete_Help)]
-            Discrete,
-            [EnumLabel("discrete-units", DeviceLibraryResources.Names.Attribute_Type_Discrete_Units, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_Type_Discrete_Units_Help)]
-            DiscreteUnits,
-            [EnumLabel("geolocation", DeviceLibraryResources.Names.Attribute_Type_GeoLocation, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Attribute_Type_GeoLocation_Help)]
-            GeoLocation,
-        }
-
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType, EnumType:(typeof(AttributeTypes)), HelpResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), WaterMark:Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Select, IsRequired: true, IsUserEditable: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType, EnumType:(typeof(ParameterTypes)), HelpResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), WaterMark:Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Select, IsRequired: true, IsUserEditable: true)]
         public EntityHeader AttributeType { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript, WaterMark:Resources.DeviceLibraryResources.Names.Attribute_Script_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_SetScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
-        public String Script { get; set; }
+        public String OnSetScript { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_ReadOnly,  HelpResource: Resources.DeviceLibraryResources.Names.Attribute_ReadOnly_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool ReadOnly { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet,  FieldType:FieldTypes.EntityHeaderPicker, WaterMark:Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<UnitSet> UnitSet { get; set; }
-
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: Resources.DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }

@@ -10,6 +10,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.State_Title,  Resources.DeviceLibraryResources.Names.State_UserHelp, Resources.DeviceLibraryResources.Names.State_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel,  typeof(DeviceLibraryResources))]
     public class State : IKeyedEntity
     {
+        public State()
+        {
+            DiagramLocation = new ObservableCollection<Models.DiagramLocation>();
+            Transitions = new ObservableCollection<StateTransition>();
+        }
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_TransitionInAction, HelpResource: DeviceLibraryResources.Names.StateMachine_State_TransitionInAction_Help, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
         public String TransitionInAction { get; set; }
 
@@ -29,6 +35,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }
 
-        public Point DiagramLocation { get; set; }
+        public ObservableCollection<DiagramLocation> DiagramLocation { get; set; }
     }
 }

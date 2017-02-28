@@ -20,9 +20,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             States = new ObservableCollection<State>();
             Events = new ObservableCollection<Event>();
             Variables = new ObservableCollection<CustomField>();
+            InitialActions = new ObservableCollection<EntityHeader>();
         }
-
-
+    
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_InitialState, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader InitialState { get; set; }
 

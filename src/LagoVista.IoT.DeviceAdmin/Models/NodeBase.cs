@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,15 +10,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public NodeBase()
         {
-            OutgoingConnections = new List<Connection>();
-            IncomingConnections = new List<Connection>();
+            OutgoingConnections = new ObservableCollection<Connection>();
+            IncomingConnections = new ObservableCollection<Connection>();
+            DiagramLocations = new ObservableCollection<DiagramLocation>();
         }
 
 
-        public List<Connection> OutgoingConnections { get; set; }
-        public List<Connection> IncomingConnections { get; set; }
+        public ObservableCollection<Connection> OutgoingConnections { get; set; }
+        public ObservableCollection<Connection> IncomingConnections { get; set; }
 
 
-        public Point DiagramLocation { get; set; }
+        public ObservableCollection<DiagramLocation> DiagramLocations { get; set; }
     }
 }
