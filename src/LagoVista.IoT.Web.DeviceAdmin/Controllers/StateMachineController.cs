@@ -237,7 +237,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// </summary>
         /// <param name="eventSet"></param>
         /// <returns></returns>
-        [HttpPost("eventset")]
+        [HttpPut("eventset")]
         public Task UpdateEventSet([FromBody] EventSet eventSet)
         {
             return _deviceAdminManager.UpdateEventSetAsync(eventSet, UserEntityHeader);
