@@ -5,7 +5,6 @@
   },
   "dependencies": {
     "System.Runtime.Serialization.Primitives": "4.3.0",
-
     "dotnet-test-Xunit": "2.2.0-preview2-build1029",
     "LagoVista.IoT.DeviceAdmin": "0.8",
     "Newtonsoft.Json": "9.0.1",
