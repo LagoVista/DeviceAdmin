@@ -1081,9 +1081,6 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Common_ValidationErrors" xml:space="preserve">
     <value>Validation Errors</value>
   </data>
-  <data name="Is Valid" xml:space="preserve">
-    <value>Is Valid</value>
-  </data>
   <data name="Common_IsValid" xml:space="preserve">
     <value>Is Valid</value>
   </data>
@@ -1107,5 +1104,8 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="Parameter_Types_DateTime" xml:space="preserve">
     <value>Date Time</value>
+  </data>
+  <data name="Parameter_Types_States" xml:space="preserve">
+    <value>States</value>
   </data>
 </root>

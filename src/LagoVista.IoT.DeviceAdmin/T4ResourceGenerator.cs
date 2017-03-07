@@ -649,9 +649,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:InputCommandParamter_Description
 
 		public static string InputCommandParamter_Description { get { return GetResourceString("InputCommandParamter_Description"); } }
-//Resources:DeviceLibraryResources:IsValid
-
-		public static string IsValid { get { return GetResourceString("IsValid"); } }
 //Resources:DeviceLibraryResources:NodeRedFlow_Description
 
 		public static string NodeRedFlow_Description { get { return GetResourceString("NodeRedFlow_Description"); } }
@@ -703,6 +700,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Parameter_Types_Integer
 
 		public static string Parameter_Types_Integer { get { return GetResourceString("Parameter_Types_Integer"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_States
+
+		public static string Parameter_Types_States { get { return GetResourceString("Parameter_Types_States"); } }
 //Resources:DeviceLibraryResources:Parameter_Types_String
 
 		public static string Parameter_Types_String { get { return GetResourceString("Parameter_Types_String"); } }
@@ -1247,7 +1247,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string InputCommand_Script_Help = "InputCommand_Script_Help";
 			public const string InputCommand_Title = "InputCommand_Title";
 			public const string InputCommandParamter_Description = "InputCommandParamter_Description";
-			public const string IsValid = "IsValid";
 			public const string NodeRedFlow_Description = "NodeRedFlow_Description";
 			public const string NodeRedFlow_Help = "NodeRedFlow_Help";
 			public const string NodeRedFlow_Title = "NodeRedFlow_Title";
@@ -1265,6 +1264,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Parameter_Types_Decimal = "Parameter_Types_Decimal";
 			public const string Parameter_Types_GeoLocation = "Parameter_Types_GeoLocation";
 			public const string Parameter_Types_Integer = "Parameter_Types_Integer";
+			public const string Parameter_Types_States = "Parameter_Types_States";
 			public const string Parameter_Types_String = "Parameter_Types_String";
 			public const string Parameter_Types_TrueFalse = "Parameter_Types_TrueFalse";
 			public const string Parameters = "Parameters";
