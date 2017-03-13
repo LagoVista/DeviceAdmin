@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using LagoVista.IoT.DeviceAdmin.Resources;
 
 namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 {
@@ -127,6 +128,13 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             response.Model.StateMachines = new List<StateMachine>();
             response.Model.Inputs = new List<WorkflowInput>();
             response.Model.OutputCommands = new List<OutputCommand>();
+            response.Model.Pages = new List<Page>();
+            response.Model.Pages.Add(new Page()
+            {
+                PageNumber = 1,
+                Name = DeviceLibraryResources.Common_PageNumberOne
+            });
+
             response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             response.Model.ConfigurationVersion = 0.1;
 

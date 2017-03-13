@@ -278,6 +278,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Common_Notes
 
 		public static string Common_Notes { get { return GetResourceString("Common_Notes"); } }
+//Resources:DeviceLibraryResources:Common_PageNumberOne
+
+		public static string Common_PageNumberOne { get { return GetResourceString("Common_PageNumberOne"); } }
 //Resources:DeviceLibraryResources:Common_UniqueId
 
 		public static string Common_UniqueId { get { return GetResourceString("Common_UniqueId"); } }
@@ -488,6 +491,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_OutputCommands
 
 		public static string DeviceWorkflow_OutputCommands { get { return GetResourceString("DeviceWorkflow_OutputCommands"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Pages
+
+		public static string DeviceWorkflow_Pages { get { return GetResourceString("DeviceWorkflow_Pages"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Pages_Help
+
+		public static string DeviceWorkflow_Pages_Help { get { return GetResourceString("DeviceWorkflow_Pages_Help"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_Title
 
 		public static string DeviceWorkflow_Title { get { return GetResourceString("DeviceWorkflow_Title"); } }
@@ -673,6 +682,21 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:OutputCommand_Title
 
 		public static string OutputCommand_Title { get { return GetResourceString("OutputCommand_Title"); } }
+//Resources:DeviceLibraryResources:Page_Description
+
+		public static string Page_Description { get { return GetResourceString("Page_Description"); } }
+//Resources:DeviceLibraryResources:Page_Help
+
+		public static string Page_Help { get { return GetResourceString("Page_Help"); } }
+//Resources:DeviceLibraryResources:Page_Name
+
+		public static string Page_Name { get { return GetResourceString("Page_Name"); } }
+//Resources:DeviceLibraryResources:Page_PageNumber
+
+		public static string Page_PageNumber { get { return GetResourceString("Page_PageNumber"); } }
+//Resources:DeviceLibraryResources:Page_Title
+
+		public static string Page_Title { get { return GetResourceString("Page_Title"); } }
 //Resources:DeviceLibraryResources:Parameter_Help
 
 		public static string Parameter_Help { get { return GetResourceString("Parameter_Help"); } }
@@ -778,6 +802,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateMachine_NewState_Help
 
 		public static string StateMachine_NewState_Help { get { return GetResourceString("StateMachine_NewState_Help"); } }
+//Resources:DeviceLibraryResources:StateMachine_Pages
+
+		public static string StateMachine_Pages { get { return GetResourceString("StateMachine_Pages"); } }
+//Resources:DeviceLibraryResources:StateMachine_Pages_Help
+
+		public static string StateMachine_Pages_Help { get { return GetResourceString("StateMachine_Pages_Help"); } }
 //Resources:DeviceLibraryResources:StateMachine_State
 
 		public static string StateMachine_State { get { return GetResourceString("StateMachine_State"); } }
@@ -1126,6 +1156,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Common_Name = "Common_Name";
 			public const string Common_Note = "Common_Note";
 			public const string Common_Notes = "Common_Notes";
+			public const string Common_PageNumberOne = "Common_PageNumberOne";
 			public const string Common_UniqueId = "Common_UniqueId";
 			public const string Common_ValidationErrors = "Common_ValidationErrors";
 			public const string CustomField_Description = "CustomField_Description";
@@ -1196,6 +1227,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string DeviceWorkflow_InputCommands_Help = "DeviceWorkflow_InputCommands_Help";
 			public const string DeviceWorkflow_Inputs = "DeviceWorkflow_Inputs";
 			public const string DeviceWorkflow_OutputCommands = "DeviceWorkflow_OutputCommands";
+			public const string DeviceWorkflow_Pages = "DeviceWorkflow_Pages";
+			public const string DeviceWorkflow_Pages_Help = "DeviceWorkflow_Pages_Help";
 			public const string DeviceWorkflow_Title = "DeviceWorkflow_Title";
 			public const string Environment = "Environment";
 			public const string Environment_Dev = "Environment_Dev";
@@ -1255,6 +1288,11 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string OutputCommand_Script = "OutputCommand_Script";
 			public const string OutputCommand_Script_Help = "OutputCommand_Script_Help";
 			public const string OutputCommand_Title = "OutputCommand_Title";
+			public const string Page_Description = "Page_Description";
+			public const string Page_Help = "Page_Help";
+			public const string Page_Name = "Page_Name";
+			public const string Page_PageNumber = "Page_PageNumber";
+			public const string Page_Title = "Page_Title";
 			public const string Parameter_Help = "Parameter_Help";
 			public const string Parameter_Title = "Parameter_Title";
 			public const string Parameter_Type = "Parameter_Type";
@@ -1290,6 +1328,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateMachine_InitialState_Help = "StateMachine_InitialState_Help";
 			public const string StateMachine_NewState = "StateMachine_NewState";
 			public const string StateMachine_NewState_Help = "StateMachine_NewState_Help";
+			public const string StateMachine_Pages = "StateMachine_Pages";
+			public const string StateMachine_Pages_Help = "StateMachine_Pages_Help";
 			public const string StateMachine_State = "StateMachine_State";
 			public const string StateMachine_State_Action = "StateMachine_State_Action";
 			public const string StateMachine_State_DiagramX = "StateMachine_State_DiagramX";
