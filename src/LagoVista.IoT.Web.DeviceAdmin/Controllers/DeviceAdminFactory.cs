@@ -115,11 +115,26 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 
 
         /// <summary>
-        ///  Workflow Config - Create New
+        /// Input Command - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("inputcommand")]
+        public DetailResponse<InputCommand> CreateInputCommand()
+        {
+            var response = DetailResponse<InputCommand>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);
+            return response;
+        }
+
+
+        /// <summary>
+        ///  Device Workflow - Create New
         /// </summary>
         /// <returns></returns>
         [HttpGet("deviceworkflow")]
-        public DetailResponse<DeviceWorkflow> CreateWorkflowConfigurartion()
+        public DetailResponse<DeviceWorkflow> CreateDeviceWorkflow()
         {
             var response = DetailResponse<DeviceWorkflow>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
