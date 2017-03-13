@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using LagoVista.IoT.DeviceAdmin.Resources;
 
 namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 {
@@ -53,6 +54,11 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         {
             var stateMachine = DetailResponse<StateMachine>.Create();
             stateMachine.Model.Id = Guid.NewGuid().ToId();
+            stateMachine.Model.Pages.Add(new Page()
+            {
+                PageNumber = 1,
+                Name = DeviceLibraryResources.Common_PageNumberOne
+            });
 
             SetOwnedProperties(stateMachine.Model);
             SetAuditProperties(stateMachine.Model);
@@ -107,7 +113,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         /// <param name="stateMachine"></param>
         /// <returns></returns>
         [HttpPut()]
-        public Task UpdateAttributeSet([FromBody] StateMachine stateMachine)
+        public Task UpdateStateMachine([FromBody] StateMachine stateMachine)
         {
             return _deviceAdminManager.UpdateStateMachineAsync(stateMachine, UserEntityHeader);
         }
