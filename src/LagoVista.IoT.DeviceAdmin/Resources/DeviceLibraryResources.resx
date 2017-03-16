@@ -1141,4 +1141,70 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Parameter_Types_ValueWithUnit" xml:space="preserve">
     <value>Value with Units</value>
   </data>
+  <data name="DeviceWorkflow_Timer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="Timer_DailyEndTime" xml:space="preserve">
+    <value>Daily End Time</value>
+  </data>
+  <data name="Timer_DailyEndTime_Help" xml:space="preserve">
+    <value>The time at which this timer will not execute each day</value>
+  </data>
+  <data name="Timer_DailyStartTime" xml:space="preserve">
+    <value>Daily Start Time</value>
+  </data>
+  <data name="Timer_DailyStartTime_Help" xml:space="preserve">
+    <value>The time at which this timer will start each day</value>
+  </data>
+  <data name="Timer_Days" xml:space="preserve">
+    <value>Days</value>
+  </data>
+  <data name="Timer_Description" xml:space="preserve">
+    <value>Timers can be used to exeute scripts at fixed intervals</value>
+  </data>
+  <data name="Timer_Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="Timer_Help" xml:space="preserve">
+    <value>Timers can be used to exeute scripts at fixed intervals</value>
+  </data>
+  <data name="Timer_HourOfDay" xml:space="preserve">
+    <value>Hour of Day</value>
+  </data>
+  <data name="Timer_Hours" xml:space="preserve">
+    <value>Hours</value>
+  </data>
+  <data name="Timer_MinuteOfDay" xml:space="preserve">
+    <value>Minute of Day</value>
+  </data>
+  <data name="Timer_Minutes" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
+  <data name="Timer_Monday" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="Timer_Saturday" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="Timer_Script" xml:space="preserve">
+    <value>Script</value>
+  </data>
+  <data name="Timer_Seconds" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
+  <data name="Timer_Sunday" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="Timer_Thursday" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="Timer_Title" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="Timer_Tuesday" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="Timer_Wednesday" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
 </root>

@@ -52,6 +52,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Inputs,  ResourceType: typeof(DeviceLibraryResources))]
         public List<WorkflowInput> Inputs { get; set; }
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Timer, ResourceType: typeof(DeviceLibraryResources))]
+        public List<Timer> Timers { get; set; }
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages, HelpResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
         public List<Page> Pages { get; set; }
 

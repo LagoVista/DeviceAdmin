@@ -497,6 +497,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_Pages_Help
 
 		public static string DeviceWorkflow_Pages_Help { get { return GetResourceString("DeviceWorkflow_Pages_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Timer
+
+		public static string DeviceWorkflow_Timer { get { return GetResourceString("DeviceWorkflow_Timer"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_Title
 
 		public static string DeviceWorkflow_Title { get { return GetResourceString("DeviceWorkflow_Title"); } }
@@ -913,6 +916,69 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateTransition_UserHelp
 
 		public static string StateTransition_UserHelp { get { return GetResourceString("StateTransition_UserHelp"); } }
+//Resources:DeviceLibraryResources:Timer_DailyEndTime
+
+		public static string Timer_DailyEndTime { get { return GetResourceString("Timer_DailyEndTime"); } }
+//Resources:DeviceLibraryResources:Timer_DailyEndTime_Help
+
+		public static string Timer_DailyEndTime_Help { get { return GetResourceString("Timer_DailyEndTime_Help"); } }
+//Resources:DeviceLibraryResources:Timer_DailyStartTime
+
+		public static string Timer_DailyStartTime { get { return GetResourceString("Timer_DailyStartTime"); } }
+//Resources:DeviceLibraryResources:Timer_DailyStartTime_Help
+
+		public static string Timer_DailyStartTime_Help { get { return GetResourceString("Timer_DailyStartTime_Help"); } }
+//Resources:DeviceLibraryResources:Timer_Days
+
+		public static string Timer_Days { get { return GetResourceString("Timer_Days"); } }
+//Resources:DeviceLibraryResources:Timer_Description
+
+		public static string Timer_Description { get { return GetResourceString("Timer_Description"); } }
+//Resources:DeviceLibraryResources:Timer_Friday
+
+		public static string Timer_Friday { get { return GetResourceString("Timer_Friday"); } }
+//Resources:DeviceLibraryResources:Timer_Help
+
+		public static string Timer_Help { get { return GetResourceString("Timer_Help"); } }
+//Resources:DeviceLibraryResources:Timer_HourOfDay
+
+		public static string Timer_HourOfDay { get { return GetResourceString("Timer_HourOfDay"); } }
+//Resources:DeviceLibraryResources:Timer_Hours
+
+		public static string Timer_Hours { get { return GetResourceString("Timer_Hours"); } }
+//Resources:DeviceLibraryResources:Timer_MinuteOfDay
+
+		public static string Timer_MinuteOfDay { get { return GetResourceString("Timer_MinuteOfDay"); } }
+//Resources:DeviceLibraryResources:Timer_Minutes
+
+		public static string Timer_Minutes { get { return GetResourceString("Timer_Minutes"); } }
+//Resources:DeviceLibraryResources:Timer_Monday
+
+		public static string Timer_Monday { get { return GetResourceString("Timer_Monday"); } }
+//Resources:DeviceLibraryResources:Timer_Saturday
+
+		public static string Timer_Saturday { get { return GetResourceString("Timer_Saturday"); } }
+//Resources:DeviceLibraryResources:Timer_Script
+
+		public static string Timer_Script { get { return GetResourceString("Timer_Script"); } }
+//Resources:DeviceLibraryResources:Timer_Seconds
+
+		public static string Timer_Seconds { get { return GetResourceString("Timer_Seconds"); } }
+//Resources:DeviceLibraryResources:Timer_Sunday
+
+		public static string Timer_Sunday { get { return GetResourceString("Timer_Sunday"); } }
+//Resources:DeviceLibraryResources:Timer_Thursday
+
+		public static string Timer_Thursday { get { return GetResourceString("Timer_Thursday"); } }
+//Resources:DeviceLibraryResources:Timer_Title
+
+		public static string Timer_Title { get { return GetResourceString("Timer_Title"); } }
+//Resources:DeviceLibraryResources:Timer_Tuesday
+
+		public static string Timer_Tuesday { get { return GetResourceString("Timer_Tuesday"); } }
+//Resources:DeviceLibraryResources:Timer_Wednesday
+
+		public static string Timer_Wednesday { get { return GetResourceString("Timer_Wednesday"); } }
 //Resources:DeviceLibraryResources:Unit_Abbreviation
 
 		public static string Unit_Abbreviation { get { return GetResourceString("Unit_Abbreviation"); } }
@@ -1232,6 +1298,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string DeviceWorkflow_OutputCommands = "DeviceWorkflow_OutputCommands";
 			public const string DeviceWorkflow_Pages = "DeviceWorkflow_Pages";
 			public const string DeviceWorkflow_Pages_Help = "DeviceWorkflow_Pages_Help";
+			public const string DeviceWorkflow_Timer = "DeviceWorkflow_Timer";
 			public const string DeviceWorkflow_Title = "DeviceWorkflow_Title";
 			public const string Environment = "Environment";
 			public const string Environment_Dev = "Environment_Dev";
@@ -1368,6 +1435,27 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateTransition_Description = "StateTransition_Description";
 			public const string StateTransition_Title = "StateTransition_Title";
 			public const string StateTransition_UserHelp = "StateTransition_UserHelp";
+			public const string Timer_DailyEndTime = "Timer_DailyEndTime";
+			public const string Timer_DailyEndTime_Help = "Timer_DailyEndTime_Help";
+			public const string Timer_DailyStartTime = "Timer_DailyStartTime";
+			public const string Timer_DailyStartTime_Help = "Timer_DailyStartTime_Help";
+			public const string Timer_Days = "Timer_Days";
+			public const string Timer_Description = "Timer_Description";
+			public const string Timer_Friday = "Timer_Friday";
+			public const string Timer_Help = "Timer_Help";
+			public const string Timer_HourOfDay = "Timer_HourOfDay";
+			public const string Timer_Hours = "Timer_Hours";
+			public const string Timer_MinuteOfDay = "Timer_MinuteOfDay";
+			public const string Timer_Minutes = "Timer_Minutes";
+			public const string Timer_Monday = "Timer_Monday";
+			public const string Timer_Saturday = "Timer_Saturday";
+			public const string Timer_Script = "Timer_Script";
+			public const string Timer_Seconds = "Timer_Seconds";
+			public const string Timer_Sunday = "Timer_Sunday";
+			public const string Timer_Thursday = "Timer_Thursday";
+			public const string Timer_Title = "Timer_Title";
+			public const string Timer_Tuesday = "Timer_Tuesday";
+			public const string Timer_Wednesday = "Timer_Wednesday";
 			public const string Unit_Abbreviation = "Unit_Abbreviation";
 			public const string Unit_Conversion_EditScriptWatermark = "Unit_Conversion_EditScriptWatermark";
 			public const string Unit_Conversion_Factor = "Unit_Conversion_Factor";
