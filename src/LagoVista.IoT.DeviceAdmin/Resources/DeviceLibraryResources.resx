@@ -1138,4 +1138,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Page_Title" xml:space="preserve">
     <value>Page</value>
   </data>
+  <data name="Parameter_Types_ValueWithUnit" xml:space="preserve">
+    <value>Value with Units</value>
+  </data>
 </root>

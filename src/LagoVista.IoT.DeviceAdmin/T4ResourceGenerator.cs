@@ -733,6 +733,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Parameter_Types_TrueFalse
 
 		public static string Parameter_Types_TrueFalse { get { return GetResourceString("Parameter_Types_TrueFalse"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_ValueWithUnit
+
+		public static string Parameter_Types_ValueWithUnit { get { return GetResourceString("Parameter_Types_ValueWithUnit"); } }
 //Resources:DeviceLibraryResources:Parameters
 
 		public static string Parameters { get { return GetResourceString("Parameters"); } }
@@ -1305,6 +1308,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Parameter_Types_States = "Parameter_Types_States";
 			public const string Parameter_Types_String = "Parameter_Types_String";
 			public const string Parameter_Types_TrueFalse = "Parameter_Types_TrueFalse";
+			public const string Parameter_Types_ValueWithUnit = "Parameter_Types_ValueWithUnit";
 			public const string Parameters = "Parameters";
 			public const string SharedAction_Description = "SharedAction_Description";
 			public const string SharedAction_Help = "SharedAction_Help";
