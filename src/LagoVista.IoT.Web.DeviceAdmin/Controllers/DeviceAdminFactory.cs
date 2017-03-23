@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using LagoVista.IoT.DeviceAdmin.Resources;
 
 namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 {
@@ -114,11 +115,26 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
 
 
         /// <summary>
-        ///  Workflow Config - Create New
+        /// Input Command - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("inputcommand")]
+        public DetailResponse<InputCommand> CreateInputCommand()
+        {
+            var response = DetailResponse<InputCommand>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            SetAuditProperties(response.Model);
+            SetOwnedProperties(response.Model);
+            return response;
+        }
+
+
+        /// <summary>
+        ///  Device Workflow - Create New
         /// </summary>
         /// <returns></returns>
         [HttpGet("deviceworkflow")]
-        public DetailResponse<DeviceWorkflow> CreateWorkflowConfigurartion()
+        public DetailResponse<DeviceWorkflow> CreateDeviceWorkflow()
         {
             var response = DetailResponse<DeviceWorkflow>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
@@ -127,6 +143,13 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             response.Model.StateMachines = new List<StateMachine>();
             response.Model.Inputs = new List<WorkflowInput>();
             response.Model.OutputCommands = new List<OutputCommand>();
+            response.Model.Pages = new List<Page>();
+            response.Model.Pages.Add(new Page()
+            {
+                PageNumber = 1,
+                Name = DeviceLibraryResources.Common_PageNumberOne
+            });
+
             response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             response.Model.ConfigurationVersion = 0.1;
 

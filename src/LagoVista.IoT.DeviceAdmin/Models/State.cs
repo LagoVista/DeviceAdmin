@@ -12,7 +12,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public State()
         {
-            DiagramLocation = new ObservableCollection<Models.DiagramLocation>();
+            DiagramLocations = new ObservableCollection<Models.DiagramLocation>();
             Transitions = new ObservableCollection<StateTransition>();
         }
 
@@ -35,6 +35,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }
 
-        public ObservableCollection<DiagramLocation> DiagramLocation { get; set; }
+        public ObservableCollection<DiagramLocation> DiagramLocations { get; set; }
     }
 }

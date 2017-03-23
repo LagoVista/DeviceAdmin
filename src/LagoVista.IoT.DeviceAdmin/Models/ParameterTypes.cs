@@ -21,5 +21,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         GeoLocation,
         [EnumLabel("datetime", DeviceLibraryResources.Names.Parameter_Types_DateTime, typeof(DeviceLibraryResources))]
         DateTime,
+        [EnumLabel("states", DeviceLibraryResources.Names.Parameter_Types_States, typeof(DeviceLibraryResources))]
+        States,
+        [EnumLabel("unitwithvalues", DeviceLibraryResources.Names.Parameter_Types_ValueWithUnit, typeof(DeviceLibraryResources))]
+        UnitWithValues,
     }
 }

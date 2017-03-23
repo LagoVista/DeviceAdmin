@@ -278,6 +278,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Common_Notes
 
 		public static string Common_Notes { get { return GetResourceString("Common_Notes"); } }
+//Resources:DeviceLibraryResources:Common_PageNumberOne
+
+		public static string Common_PageNumberOne { get { return GetResourceString("Common_PageNumberOne"); } }
 //Resources:DeviceLibraryResources:Common_UniqueId
 
 		public static string Common_UniqueId { get { return GetResourceString("Common_UniqueId"); } }
@@ -488,6 +491,15 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_OutputCommands
 
 		public static string DeviceWorkflow_OutputCommands { get { return GetResourceString("DeviceWorkflow_OutputCommands"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Pages
+
+		public static string DeviceWorkflow_Pages { get { return GetResourceString("DeviceWorkflow_Pages"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Pages_Help
+
+		public static string DeviceWorkflow_Pages_Help { get { return GetResourceString("DeviceWorkflow_Pages_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Timer
+
+		public static string DeviceWorkflow_Timer { get { return GetResourceString("DeviceWorkflow_Timer"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_Title
 
 		public static string DeviceWorkflow_Title { get { return GetResourceString("DeviceWorkflow_Title"); } }
@@ -649,9 +661,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:InputCommandParamter_Description
 
 		public static string InputCommandParamter_Description { get { return GetResourceString("InputCommandParamter_Description"); } }
-//Resources:DeviceLibraryResources:IsValid
-
-		public static string IsValid { get { return GetResourceString("IsValid"); } }
 //Resources:DeviceLibraryResources:NodeRedFlow_Description
 
 		public static string NodeRedFlow_Description { get { return GetResourceString("NodeRedFlow_Description"); } }
@@ -676,6 +685,21 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:OutputCommand_Title
 
 		public static string OutputCommand_Title { get { return GetResourceString("OutputCommand_Title"); } }
+//Resources:DeviceLibraryResources:Page_Description
+
+		public static string Page_Description { get { return GetResourceString("Page_Description"); } }
+//Resources:DeviceLibraryResources:Page_Help
+
+		public static string Page_Help { get { return GetResourceString("Page_Help"); } }
+//Resources:DeviceLibraryResources:Page_Name
+
+		public static string Page_Name { get { return GetResourceString("Page_Name"); } }
+//Resources:DeviceLibraryResources:Page_PageNumber
+
+		public static string Page_PageNumber { get { return GetResourceString("Page_PageNumber"); } }
+//Resources:DeviceLibraryResources:Page_Title
+
+		public static string Page_Title { get { return GetResourceString("Page_Title"); } }
 //Resources:DeviceLibraryResources:Parameter_Help
 
 		public static string Parameter_Help { get { return GetResourceString("Parameter_Help"); } }
@@ -703,12 +727,18 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Parameter_Types_Integer
 
 		public static string Parameter_Types_Integer { get { return GetResourceString("Parameter_Types_Integer"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_States
+
+		public static string Parameter_Types_States { get { return GetResourceString("Parameter_Types_States"); } }
 //Resources:DeviceLibraryResources:Parameter_Types_String
 
 		public static string Parameter_Types_String { get { return GetResourceString("Parameter_Types_String"); } }
 //Resources:DeviceLibraryResources:Parameter_Types_TrueFalse
 
 		public static string Parameter_Types_TrueFalse { get { return GetResourceString("Parameter_Types_TrueFalse"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_ValueWithUnit
+
+		public static string Parameter_Types_ValueWithUnit { get { return GetResourceString("Parameter_Types_ValueWithUnit"); } }
 //Resources:DeviceLibraryResources:Parameters
 
 		public static string Parameters { get { return GetResourceString("Parameters"); } }
@@ -778,6 +808,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateMachine_NewState_Help
 
 		public static string StateMachine_NewState_Help { get { return GetResourceString("StateMachine_NewState_Help"); } }
+//Resources:DeviceLibraryResources:StateMachine_Pages
+
+		public static string StateMachine_Pages { get { return GetResourceString("StateMachine_Pages"); } }
+//Resources:DeviceLibraryResources:StateMachine_Pages_Help
+
+		public static string StateMachine_Pages_Help { get { return GetResourceString("StateMachine_Pages_Help"); } }
 //Resources:DeviceLibraryResources:StateMachine_State
 
 		public static string StateMachine_State { get { return GetResourceString("StateMachine_State"); } }
@@ -880,6 +916,69 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateTransition_UserHelp
 
 		public static string StateTransition_UserHelp { get { return GetResourceString("StateTransition_UserHelp"); } }
+//Resources:DeviceLibraryResources:Timer_DailyEndTime
+
+		public static string Timer_DailyEndTime { get { return GetResourceString("Timer_DailyEndTime"); } }
+//Resources:DeviceLibraryResources:Timer_DailyEndTime_Help
+
+		public static string Timer_DailyEndTime_Help { get { return GetResourceString("Timer_DailyEndTime_Help"); } }
+//Resources:DeviceLibraryResources:Timer_DailyStartTime
+
+		public static string Timer_DailyStartTime { get { return GetResourceString("Timer_DailyStartTime"); } }
+//Resources:DeviceLibraryResources:Timer_DailyStartTime_Help
+
+		public static string Timer_DailyStartTime_Help { get { return GetResourceString("Timer_DailyStartTime_Help"); } }
+//Resources:DeviceLibraryResources:Timer_Days
+
+		public static string Timer_Days { get { return GetResourceString("Timer_Days"); } }
+//Resources:DeviceLibraryResources:Timer_Description
+
+		public static string Timer_Description { get { return GetResourceString("Timer_Description"); } }
+//Resources:DeviceLibraryResources:Timer_Friday
+
+		public static string Timer_Friday { get { return GetResourceString("Timer_Friday"); } }
+//Resources:DeviceLibraryResources:Timer_Help
+
+		public static string Timer_Help { get { return GetResourceString("Timer_Help"); } }
+//Resources:DeviceLibraryResources:Timer_HourOfDay
+
+		public static string Timer_HourOfDay { get { return GetResourceString("Timer_HourOfDay"); } }
+//Resources:DeviceLibraryResources:Timer_Hours
+
+		public static string Timer_Hours { get { return GetResourceString("Timer_Hours"); } }
+//Resources:DeviceLibraryResources:Timer_MinuteOfDay
+
+		public static string Timer_MinuteOfDay { get { return GetResourceString("Timer_MinuteOfDay"); } }
+//Resources:DeviceLibraryResources:Timer_Minutes
+
+		public static string Timer_Minutes { get { return GetResourceString("Timer_Minutes"); } }
+//Resources:DeviceLibraryResources:Timer_Monday
+
+		public static string Timer_Monday { get { return GetResourceString("Timer_Monday"); } }
+//Resources:DeviceLibraryResources:Timer_Saturday
+
+		public static string Timer_Saturday { get { return GetResourceString("Timer_Saturday"); } }
+//Resources:DeviceLibraryResources:Timer_Script
+
+		public static string Timer_Script { get { return GetResourceString("Timer_Script"); } }
+//Resources:DeviceLibraryResources:Timer_Seconds
+
+		public static string Timer_Seconds { get { return GetResourceString("Timer_Seconds"); } }
+//Resources:DeviceLibraryResources:Timer_Sunday
+
+		public static string Timer_Sunday { get { return GetResourceString("Timer_Sunday"); } }
+//Resources:DeviceLibraryResources:Timer_Thursday
+
+		public static string Timer_Thursday { get { return GetResourceString("Timer_Thursday"); } }
+//Resources:DeviceLibraryResources:Timer_Title
+
+		public static string Timer_Title { get { return GetResourceString("Timer_Title"); } }
+//Resources:DeviceLibraryResources:Timer_Tuesday
+
+		public static string Timer_Tuesday { get { return GetResourceString("Timer_Tuesday"); } }
+//Resources:DeviceLibraryResources:Timer_Wednesday
+
+		public static string Timer_Wednesday { get { return GetResourceString("Timer_Wednesday"); } }
 //Resources:DeviceLibraryResources:Unit_Abbreviation
 
 		public static string Unit_Abbreviation { get { return GetResourceString("Unit_Abbreviation"); } }
@@ -1126,6 +1225,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Common_Name = "Common_Name";
 			public const string Common_Note = "Common_Note";
 			public const string Common_Notes = "Common_Notes";
+			public const string Common_PageNumberOne = "Common_PageNumberOne";
 			public const string Common_UniqueId = "Common_UniqueId";
 			public const string Common_ValidationErrors = "Common_ValidationErrors";
 			public const string CustomField_Description = "CustomField_Description";
@@ -1196,6 +1296,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string DeviceWorkflow_InputCommands_Help = "DeviceWorkflow_InputCommands_Help";
 			public const string DeviceWorkflow_Inputs = "DeviceWorkflow_Inputs";
 			public const string DeviceWorkflow_OutputCommands = "DeviceWorkflow_OutputCommands";
+			public const string DeviceWorkflow_Pages = "DeviceWorkflow_Pages";
+			public const string DeviceWorkflow_Pages_Help = "DeviceWorkflow_Pages_Help";
+			public const string DeviceWorkflow_Timer = "DeviceWorkflow_Timer";
 			public const string DeviceWorkflow_Title = "DeviceWorkflow_Title";
 			public const string Environment = "Environment";
 			public const string Environment_Dev = "Environment_Dev";
@@ -1247,7 +1350,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string InputCommand_Script_Help = "InputCommand_Script_Help";
 			public const string InputCommand_Title = "InputCommand_Title";
 			public const string InputCommandParamter_Description = "InputCommandParamter_Description";
-			public const string IsValid = "IsValid";
 			public const string NodeRedFlow_Description = "NodeRedFlow_Description";
 			public const string NodeRedFlow_Help = "NodeRedFlow_Help";
 			public const string NodeRedFlow_Title = "NodeRedFlow_Title";
@@ -1256,6 +1358,11 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string OutputCommand_Script = "OutputCommand_Script";
 			public const string OutputCommand_Script_Help = "OutputCommand_Script_Help";
 			public const string OutputCommand_Title = "OutputCommand_Title";
+			public const string Page_Description = "Page_Description";
+			public const string Page_Help = "Page_Help";
+			public const string Page_Name = "Page_Name";
+			public const string Page_PageNumber = "Page_PageNumber";
+			public const string Page_Title = "Page_Title";
 			public const string Parameter_Help = "Parameter_Help";
 			public const string Parameter_Title = "Parameter_Title";
 			public const string Parameter_Type = "Parameter_Type";
@@ -1265,8 +1372,10 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Parameter_Types_Decimal = "Parameter_Types_Decimal";
 			public const string Parameter_Types_GeoLocation = "Parameter_Types_GeoLocation";
 			public const string Parameter_Types_Integer = "Parameter_Types_Integer";
+			public const string Parameter_Types_States = "Parameter_Types_States";
 			public const string Parameter_Types_String = "Parameter_Types_String";
 			public const string Parameter_Types_TrueFalse = "Parameter_Types_TrueFalse";
+			public const string Parameter_Types_ValueWithUnit = "Parameter_Types_ValueWithUnit";
 			public const string Parameters = "Parameters";
 			public const string SharedAction_Description = "SharedAction_Description";
 			public const string SharedAction_Help = "SharedAction_Help";
@@ -1290,6 +1399,8 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateMachine_InitialState_Help = "StateMachine_InitialState_Help";
 			public const string StateMachine_NewState = "StateMachine_NewState";
 			public const string StateMachine_NewState_Help = "StateMachine_NewState_Help";
+			public const string StateMachine_Pages = "StateMachine_Pages";
+			public const string StateMachine_Pages_Help = "StateMachine_Pages_Help";
 			public const string StateMachine_State = "StateMachine_State";
 			public const string StateMachine_State_Action = "StateMachine_State_Action";
 			public const string StateMachine_State_DiagramX = "StateMachine_State_DiagramX";
@@ -1324,6 +1435,27 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateTransition_Description = "StateTransition_Description";
 			public const string StateTransition_Title = "StateTransition_Title";
 			public const string StateTransition_UserHelp = "StateTransition_UserHelp";
+			public const string Timer_DailyEndTime = "Timer_DailyEndTime";
+			public const string Timer_DailyEndTime_Help = "Timer_DailyEndTime_Help";
+			public const string Timer_DailyStartTime = "Timer_DailyStartTime";
+			public const string Timer_DailyStartTime_Help = "Timer_DailyStartTime_Help";
+			public const string Timer_Days = "Timer_Days";
+			public const string Timer_Description = "Timer_Description";
+			public const string Timer_Friday = "Timer_Friday";
+			public const string Timer_Help = "Timer_Help";
+			public const string Timer_HourOfDay = "Timer_HourOfDay";
+			public const string Timer_Hours = "Timer_Hours";
+			public const string Timer_MinuteOfDay = "Timer_MinuteOfDay";
+			public const string Timer_Minutes = "Timer_Minutes";
+			public const string Timer_Monday = "Timer_Monday";
+			public const string Timer_Saturday = "Timer_Saturday";
+			public const string Timer_Script = "Timer_Script";
+			public const string Timer_Seconds = "Timer_Seconds";
+			public const string Timer_Sunday = "Timer_Sunday";
+			public const string Timer_Thursday = "Timer_Thursday";
+			public const string Timer_Title = "Timer_Title";
+			public const string Timer_Tuesday = "Timer_Tuesday";
+			public const string Timer_Wednesday = "Timer_Wednesday";
 			public const string Unit_Abbreviation = "Unit_Abbreviation";
 			public const string Unit_Conversion_EditScriptWatermark = "Unit_Conversion_EditScriptWatermark";
 			public const string Unit_Conversion_Factor = "Unit_Conversion_Factor";

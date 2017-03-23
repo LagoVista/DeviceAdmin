@@ -21,6 +21,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Events = new ObservableCollection<Event>();
             Variables = new ObservableCollection<CustomField>();
             InitialActions = new ObservableCollection<EntityHeader>();
+            Pages = new ObservableCollection<Page>();
         }
     
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_InitialState, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
@@ -40,6 +41,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Exception_OnInvalidEvent, FieldType: FieldTypes.Bool, HelpResource:DeviceLibraryResources.Names.StateMachine_Exception_OnInvalidEvent_Help, ResourceType: typeof(DeviceLibraryResources))]
         public bool ExceptionOnUnhandledEvent { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Pages, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_Pages_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
+        public ObservableCollection<Page> Pages { get; set; }
 
         public StateMachineSummary CreateSummary()
         {

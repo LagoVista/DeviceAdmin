@@ -12,7 +12,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String Key { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Name { get; set; }
         
 

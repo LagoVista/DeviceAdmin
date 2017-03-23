@@ -3,15 +3,15 @@
 
   "dependencies": {
     "NETStandard.Library": "1.6.1",
-    "WindowsAzure.Storage": "8.0.1",
+    "WindowsAzure.Storage": "8.1.1",
     "Microsoft.AspNetCore.Identity": "1.1.0",
     "Microsoft.AspNetCore.Routing": "1.1.0",
     "LagoVista.IoT.DeviceAdmin.CloudRepos": "0.8",
-    "LagoVista.UserManagement": "0.8.76-alpha00711",
+    "LagoVista.UserManagement": "0.8.92-alpha00550",
     "Microsoft.AspNetCore.Mvc": "1.1.1",
     "Microsoft.AspNetCore.Mvc.TagHelpers": "1.1.1",
-    "LagoVista.Core": "0.8.81-alpha01015",
-    "LagoVista.IoT.Web.Common": "0.8.76-alpha00763"
+    "LagoVista.IoT.Web.Common": "0.8.92-alpha00558",
+    "LagoVista.Core":"0.8.92-alpha00522"
   },
 
   "frameworks": {
@@ -20,7 +20,7 @@
     },
     "netcoreapp1.0": {
       "dependencies": {
-        "Microsoft.Azure.DocumentDB.Core": "1.0.0"
+        "Microsoft.Azure.DocumentDB.Core": "1.1.0"
       },
       "imports": [ "dotnet5.6", "portable-net45+win8" ]
     },
