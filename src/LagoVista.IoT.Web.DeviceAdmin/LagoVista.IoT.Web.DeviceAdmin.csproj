@@ -1,41 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net461;netcoreapp1.0</TargetFrameworks>
+    <TargetFrameworks>netstandard1.6;netcoreapp1.1</TargetFrameworks>
     <NoWarn>$(NoWarn);1591</NoWarn>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <AssemblyName>LagoVista.IoT.Web.DeviceAdmin</AssemblyName>
-    <PackageId>LagoVista.IoT.Web.DeviceAdmin</PackageId>
-    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
-    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'net461' ">$(PackageTargetFallback);dotnet5.4;portable-net451+netcore451+win81</PackageTargetFallback>
-    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\LagoVista.IoT.DeviceAdmin.CloudRepos\LagoVista.IoT.DeviceAdmin.CloudRepos.csproj" />
   </ItemGroup>
 
+ 
   <ItemGroup>
-    <PackageReference Include="WindowsAzure.Storage" Version="8.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.0" />
-    <PackageReference Include="LagoVista.UserManagement" Version="0.8.76-alpha00711" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="1.1.1" />
-    <PackageReference Include="LagoVista.Core" Version="0.8.81-alpha01015" />
-    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.76-alpha00763" />
+    <PackageReference Include="LagoVista.Core" Version="0.8.112-alpha00944" />
+    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.112-alpha01270" />
+    <PackageReference Include="LagoVista.UserManagement" Version="0.8.112-alpha01250" />
+        
+    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    
+    
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.1.2" />
+    <PackageReference Include="WindowsAzure.Storage" Version="8.1.1" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
+ 
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">
-    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.0.0" />
-  </ItemGroup>
+  
+
 
 </Project>

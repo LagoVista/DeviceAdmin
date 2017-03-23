@@ -2,26 +2,33 @@
 
   <PropertyGroup>
     <VersionPrefix>0.8</VersionPrefix>
-    <TargetFrameworks>portable46-net451+win81;netstandard1.2</TargetFrameworks>
-    <AssemblyName>LagoVista.IoT.DeviceAdmin</AssemblyName>
-    <PackageId>LagoVista.IoT.DeviceAdmin</PackageId>
-    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
-    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
-    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
-    <GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
-    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <TargetFrameworks>netstandard1.2</TargetFrameworks>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="0.8.81-alpha01015" />
-    <PackageReference Include="LagoVista.UserManagement" Version="0.8.76-alpha00711" />
+ 
+   <ItemGroup>
+    <PackageReference Include="LagoVista.Core" Version="0.8.112-alpha00944" />
+    <PackageReference Include="LagoVista.UserManagement" Version="0.8.112-alpha01250" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
   </ItemGroup>
+
+  <!--<ItemGroup>
+     <None Update="T4ResourceGenerator.tt">
+       <Generator>TextTemplatingFileGenerator</Generator>
+       <LastGenOutput>T4ResourceGenerator.cs</LastGenOutput>
+     </None>
+   </ItemGroup>-->
+
+   <ItemGroup>
+     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+   </ItemGroup>
+
+  <!--<ItemGroup>
+     <Compile Update="T4ResourceGenerator.cs">
+       <DesignTime>True</DesignTime>
+       <AutoGen>True</AutoGen>
+       <DependentUpon>T4ResourceGenerator.tt</DependentUpon>
+     </Compile>
+   </ItemGroup>-->
 
 </Project>

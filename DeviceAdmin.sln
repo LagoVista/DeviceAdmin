@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CEC21295-346D-4369-9511-FBB4BFFE1863}"
 EndProject
@@ -10,19 +10,18 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{236D95BF-5F2A-4EA8-9E93-86AA7051AA6D}"
 	ProjectSection(SolutionItems) = preProject
 		CreateLocalPackage.ps1 = CreateLocalPackage.ps1
-		global.json = global.json
 		nuget.config = nuget.config
 		README.md = README.md
 		UpdateNuspecVersion.ps1 = UpdateNuspecVersion.ps1
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DeviceAdmin", "src\LagoVista.IoT.DeviceAdmin\DeviceAdmin.xproj", "{53DD89CC-3F5C-4328-9336-BB656AABAED3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Tests", "test\LagoVista.IoT.DeviceAdmin.Tests\LagoVista.IoT.DeviceAdmin.Tests.csproj", "{B7956272-06B8-448A-A566-E15EF7009F3C}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Web", "src\LagoVista.IoT.Web.DeviceAdmin\Web.xproj", "{8CB22E7E-9B13-4F3C-9A34-B68F878C212D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin", "src\LagoVista.IoT.DeviceAdmin\LagoVista.IoT.DeviceAdmin.csproj", "{356687BE-A437-4D2C-95C2-334187B2BA34}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Repo", "src\LagoVista.IoT.DeviceAdmin.CloudRepos\Repo.xproj", "{F4AFB352-C589-4955-809A-B350576C8E9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.CloudRepos", "src\LagoVista.IoT.DeviceAdmin.CloudRepos\LagoVista.IoT.DeviceAdmin.CloudRepos.csproj", "{AD2AF9F0-D136-40B3-806F-629C17FA56F5}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LagoVista.IoT.DeviceAdmin", "test\LagoVista.IoT.DeviceAdmin.Tests\DeviceAdminTests.xproj", "{B7956272-06B8-448A-A566-E15EF7009F3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.Web.DeviceAdmin", "src\LagoVista.IoT.Web.DeviceAdmin\LagoVista.IoT.Web.DeviceAdmin.csproj", "{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,30 +29,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{53DD89CC-3F5C-4328-9336-BB656AABAED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53DD89CC-3F5C-4328-9336-BB656AABAED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53DD89CC-3F5C-4328-9336-BB656AABAED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53DD89CC-3F5C-4328-9336-BB656AABAED3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8CB22E7E-9B13-4F3C-9A34-B68F878C212D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8CB22E7E-9B13-4F3C-9A34-B68F878C212D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8CB22E7E-9B13-4F3C-9A34-B68F878C212D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8CB22E7E-9B13-4F3C-9A34-B68F878C212D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4AFB352-C589-4955-809A-B350576C8E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4AFB352-C589-4955-809A-B350576C8E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4AFB352-C589-4955-809A-B350576C8E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4AFB352-C589-4955-809A-B350576C8E9C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7956272-06B8-448A-A566-E15EF7009F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7956272-06B8-448A-A566-E15EF7009F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7956272-06B8-448A-A566-E15EF7009F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7956272-06B8-448A-A566-E15EF7009F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{356687BE-A437-4D2C-95C2-334187B2BA34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356687BE-A437-4D2C-95C2-334187B2BA34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356687BE-A437-4D2C-95C2-334187B2BA34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356687BE-A437-4D2C-95C2-334187B2BA34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2AF9F0-D136-40B3-806F-629C17FA56F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2AF9F0-D136-40B3-806F-629C17FA56F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2AF9F0-D136-40B3-806F-629C17FA56F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2AF9F0-D136-40B3-806F-629C17FA56F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{53DD89CC-3F5C-4328-9336-BB656AABAED3} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
-		{8CB22E7E-9B13-4F3C-9A34-B68F878C212D} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
-		{F4AFB352-C589-4955-809A-B350576C8E9C} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{B7956272-06B8-448A-A566-E15EF7009F3C} = {789A2940-98A7-4A45-B302-0FEE3151886E}
+		{356687BE-A437-4D2C-95C2-334187B2BA34} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
+		{AD2AF9F0-D136-40B3-806F-629C17FA56F5} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
+		{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 	EndGlobalSection
 EndGlobal
