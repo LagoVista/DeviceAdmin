@@ -25,7 +25,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         IConnectionSettings ConnectionSettings { get; set; }
 
-        public TransmitterTypes ListenerType { get; set; }
+        public TransmitterTypes TransmitterType { get; set; }
 
         public String Script { get; set; }    
     }
