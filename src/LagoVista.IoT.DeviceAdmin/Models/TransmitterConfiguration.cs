@@ -6,6 +6,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public enum TransmitterTypes
         {
+            AzureServiceBus,
+            AzureEventHub,
+            AzureIoTHub,
             Rest,
             Soap,
             RawTCP,
@@ -14,6 +17,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             MQTT,
             Outbox,
             SMTPServer,
+            SMSTransmitter,
             OriginalListener,
             Custom
         }

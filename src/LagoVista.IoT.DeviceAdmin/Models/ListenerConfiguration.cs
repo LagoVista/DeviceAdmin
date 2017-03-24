@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LagoVista.Core.Interfaces;
+using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -6,14 +7,20 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public enum ListnerTypes
         {
+            AzureServiceBus,
+            AzureEventHub,
+            AzureIoTEventHub,
             Rest,
             Soap,
             RawTCP,
             RawUDP,
             AMQP,
             MQTT,
+            POP3Server,
             Custom
         }
+
+        IConnectionSettings ConnectionSettings { get; set; }
 
         public ListnerTypes ListenerType { get; set; }
 
