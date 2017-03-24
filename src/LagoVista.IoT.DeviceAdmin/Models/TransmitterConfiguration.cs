@@ -12,7 +12,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             RawUDP,
             AMQP,
             MQTT,
-            MailBox,
+            Outbox,
+            SMTPServer,
+            OriginalListener,
             Custom
         }
 
