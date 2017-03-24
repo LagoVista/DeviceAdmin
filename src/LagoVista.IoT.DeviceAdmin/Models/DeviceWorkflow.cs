@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 using LagoVista.Core.Models;
 using LagoVista.UserManagement.Models.Orgs;
 using LagoVista.UserManagement.Models.Account;
+using LagoVista.IoT.DeviceAdmin.Interfaces;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class DeviceWorkflow : DeviceModelBase, IOwnedEntity, IValidateable, IKeyedEntity, INoSQLEntity
+    public class DeviceWorkflow : DeviceModelBase, IOwnedEntity, IValidateable, IKeyedEntity, INoSQLEntity, IPipelineModuleConfiguration
     {
         public String DatabaseName { get; set; }
 

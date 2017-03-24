@@ -3,6 +3,8 @@ using LagoVista.Core.Geo;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
+using LagoVista.UserManagement.Models.Account;
+using LagoVista.UserManagement.Models.Orgs;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -21,31 +23,56 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public String EntityType { get; set; }
 
+
+        public EntityHeader<DeviceConfiguration> DeviceConfiguration { get; set; }
+
+
+        public string AttributeJSON { get; set; }
+
+        public string CurrentStateJSON { get; set; }
+
         public String DeviceId
         {
             get { return _deviceId; }
             set { Set(ref _deviceId, value); }
         }
 
-        private EntityHeader _accountLocation;
+        private EntityHeader<OrganizationLocation> _organizationLocation;
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_Location, ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader AccountLocation
+        public EntityHeader<OrganizationLocation> OrganiazationLocation
         {
-            get { return _accountLocation; }
-            set { Set(ref _accountLocation, value); }
+            get { return _organizationLocation; }
+            set { Set(ref _organizationLocation, value); }
         }
 
-        private EntityHeader _account;
+        private EntityHeader<Organization> _organization;
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_Location, ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader Account
+        public EntityHeader<Organization> Organization
         {
-            get { return _account; }
-            set { Set(ref _account, value); }
+            get { return _organization; }
+            set { Set(ref _organization, value); }
         }
 
-        private Dictionary<String, String> _customFields;
+        private EntityHeader<AppUser> _ownerTechnician;
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_Location, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader<AppUser> OwnerTechnician
+        {
+            get { return _ownerTechnician; }
+            set { Set(ref _ownerTechnician, value); }
+        }
+
+        private EntityHeader<AppUser> _ownerAdmin;
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_Location, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader<AppUser> OwnerAdmin
+        {
+            get { return _ownerAdmin; }
+            set { Set(ref _ownerAdmin, value); }
+        }
+
+
+        private List<CustomField> _customFields;
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_CustomFields, ResourceType: typeof(DeviceLibraryResources))]
-        private Dictionary<String, String> CustomFields
+        private List<CustomField> CustomFields
         {
             get { return _customFields; }
             set { Set(ref _customFields, value);}

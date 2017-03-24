@@ -54,9 +54,9 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return (await QueryAsync(dvc => dvc.DeviceId == deviceId)).FirstOrDefault();
         }
 
-        public Task<IEnumerable<Device>> GetDevicesByAccountAsync(String accountId)
+        public Task<IEnumerable<Device>> GetDevicesByAccountAsync(String organizationId)
         {
-            return QueryAsync(dvc => dvc.Account.Id == accountId);
+            return QueryAsync(dvc => dvc.Organization.Id == organizationId);
         } 
     }
 }

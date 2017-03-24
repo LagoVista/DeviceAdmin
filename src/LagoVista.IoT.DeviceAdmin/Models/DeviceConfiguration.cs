@@ -14,6 +14,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Title, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Help,  Resources.DeviceLibraryResources.Names.DeviceConfiguration_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class DeviceConfiguration : DeviceModelBase, IOwnedEntity, IValidateable, IKeyedEntity, INoSQLEntity
     {
+        public DeviceConfiguration()
+        {
+            
+        }
+
         public String DatabaseName { get; set; }
 
         public String EntityType { get; set; }
@@ -23,6 +28,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Key { get; set; }
+
+
+        public IConnectionSettings DeviceStorageConnectionSettings { get; set; }
+        public IConnectionSettings DeviceArchiveConnectionSettings { get; set; }
+        public IConnectionSettings QueueSettings { get; set; }
+        public IConnectionSettings LoggerSettings { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Environment, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
@@ -45,6 +56,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Text = Name,
             };
         }
+
+        public DevicePipelineModuleConfiguration<ListenerConfiguration> Listener { get; set; }
+        public DevicePipelineModuleConfiguration<SentinalConfiguration> Sentinal { get; set; }
+        public DevicePipelineModuleConfiguration<InputTranslatorConfiguration> InputTranslator { get; set; }
+        public DevicePipelineModuleConfiguration<DeviceWorkflow> DeviceWorkflow { get; set; }
+        public DevicePipelineModuleConfiguration<OutputTranslatorConfiguration> OutputTranslator { get; set; }
+        public DevicePipelineModuleConfiguration<TransmitterConfiguration> Transmitter { get; set; }
+
+        public List<DevicePipelineModuleConfiguration<CustomPipelineModuleConfiguration>> CustomPipelineModuleConfigurations { get; set; }
+
 
         public static DeviceConfiguration Create(Organization org, AppUser appUser)
         {
