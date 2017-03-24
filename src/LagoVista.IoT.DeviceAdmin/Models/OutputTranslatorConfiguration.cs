@@ -14,7 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Custom
         }
 
-        public OutputTranslatorTypes InputTranslatorType { get; set; }
+        public OutputTranslatorTypes OutputTranslatorType { get; set; }
 
         public string DelimiterSequence { get; set; }
 
