@@ -2,7 +2,7 @@
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    public class SentinalConfiguration : PipelineModuleConfiguration
+    public class SentinelConfiguration : PipelineModuleConfiguration
     {
         public String Script { get; set; }
     }

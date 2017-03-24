@@ -51,7 +51,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
 
         public DevicePipelineModuleConfiguration<ListenerConfiguration> Listener { get; set; }
-        public DevicePipelineModuleConfiguration<SentinalConfiguration> Sentinal { get; set; }
+        public DevicePipelineModuleConfiguration<SentinelConfiguration> Sentinel { get; set; }
         public DevicePipelineModuleConfiguration<InputTranslatorConfiguration> InputTranslator { get; set; }
         public DevicePipelineModuleConfiguration<DeviceWorkflow> DeviceWorkflow { get; set; }
         public DevicePipelineModuleConfiguration<OutputTranslatorConfiguration> OutputTranslator { get; set; }

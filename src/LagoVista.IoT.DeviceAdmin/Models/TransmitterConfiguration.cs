@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LagoVista.Core.Interfaces;
+using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -21,6 +22,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             OriginalListener,
             Custom
         }
+
+        IConnectionSettings ConnectionSettings { get; set; }
 
         public TransmitterTypes ListenerType { get; set; }
 
