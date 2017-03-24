@@ -167,8 +167,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         public DetailResponse<DeviceConfiguration> CreateDeviceConfigurartion()
         {
             var response = DetailResponse<DeviceConfiguration>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
-            response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
+            response.Model.Id = Guid.NewGuid().ToId();            
             response.Model.ConfigurationVersion = 0.1;
 
             SetAuditProperties(response.Model);

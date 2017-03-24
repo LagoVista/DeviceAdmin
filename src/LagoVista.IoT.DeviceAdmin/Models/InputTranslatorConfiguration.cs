@@ -8,6 +8,19 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     public class InputTranslatorConfiguration : PipelineModuleConfiguration
     {        
+        public enum InputTranslatorTypes
+        {
+            Binary,
+            Delimitted,
+            JSON,
+            XML,
+            Custom
+        }
+
+        public InputTranslatorTypes InputTranslatorType { get; set; }
+
+        public string DelimiterSequence { get; set; }
+
         public String Script { get; set; }        
     }
 }

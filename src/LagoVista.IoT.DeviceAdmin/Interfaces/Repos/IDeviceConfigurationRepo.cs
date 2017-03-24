@@ -6,10 +6,10 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
 {
     public interface IDeviceConfigurationRepo
     {
-        Task AddDeviceConfigurationAsync(DeviceConfiguration sharedAction);
+        Task AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration);
         Task<DeviceConfiguration> GetDeviceConfigurationAsync(string id);
         Task<IEnumerable<DeviceConfigurationSummary>> GetDeviceConfigurationsForOrgAsync(string orgId);
-        Task UpdateDeviceConfigurationAsync(DeviceConfiguration sharedAction);
+        Task UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration);
         Task<bool> QueryKeyInUseAsync(string key, string orgId);
     }
 }

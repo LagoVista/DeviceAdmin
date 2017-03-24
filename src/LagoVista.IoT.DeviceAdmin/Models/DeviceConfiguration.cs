@@ -34,14 +34,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public IConnectionSettings DeviceArchiveConnectionSettings { get; set; }
         public IConnectionSettings QueueSettings { get; set; }
         public IConnectionSettings LoggerSettings { get; set; }
-
-
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Environment, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader Environment
-        {
-            get;
-            set;
-        }
+        
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsPublic { get; set; }

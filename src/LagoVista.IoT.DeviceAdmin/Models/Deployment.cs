@@ -16,6 +16,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             DeviceConfigurations = new List<DeviceConfiguration>();
         }
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Environment, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader Environment
+        {
+            get;
+            set;
+        }
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsPublic { get; set; }
         public EntityHeader OwnerOrganization { get; set; }
@@ -34,5 +41,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String Key { get; set; }
 
         public List<DeviceConfiguration> DeviceConfigurations { get; set; }
+
+        public string MonitoringEndpoint { get; set; }
     }
 }
