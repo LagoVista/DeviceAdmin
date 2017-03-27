@@ -13,14 +13,14 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
     public class PipelineModuleManager : ManagerBase
     {
         IListenerConfigurationRepo _listenerConfigurationRepo;
-        IInputTranslatorRepo _inputTranslatorConfigurationRepo;
+        IInputTranslatorConfigurationRepo _inputTranslatorConfigurationRepo;
         ISentinelConfigurationRepo _sentinalConfigurationRepo;
-        IOutputTranslatorRepo _outputTranslatorConfigurationRepo;
+        IOutputTranslatorConfigurationRepo _outputTranslatorConfigurationRepo;
         ITransmitterConfigurationRepo _transmitterConfigurationRepo;
         IPipelineModuleConfigurationRepo _pipelineConfiguratoinRepo;
 
-        public PipelineModuleManager(IListenerConfigurationRepo listenerConfigurationRep, IInputTranslatorRepo inputConfigurationRepo, ISentinelConfigurationRepo sentinalConfigurationRepo,
-               IOutputTranslatorRepo outputConfigurationRepo, ITransmitterConfigurationRepo translatorConfigurationRepo, IPipelineModuleConfigurationRepo pipelineConfigrationRepo)
+        public PipelineModuleManager(IListenerConfigurationRepo listenerConfigurationRep, IInputTranslatorConfigurationRepo inputConfigurationRepo, ISentinelConfigurationRepo sentinalConfigurationRepo,
+               IOutputTranslatorConfigurationRepo outputConfigurationRepo, ITransmitterConfigurationRepo translatorConfigurationRepo, IPipelineModuleConfigurationRepo pipelineConfigrationRepo)
         {
             _listenerConfigurationRepo = listenerConfigurationRep;
             _inputTranslatorConfigurationRepo = inputConfigurationRepo;

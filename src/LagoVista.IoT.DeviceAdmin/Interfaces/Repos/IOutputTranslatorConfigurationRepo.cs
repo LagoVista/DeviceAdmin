@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
 {
-    public interface IOutputTranslatorRepo
+    public interface IOutputTranslatorConfigurationRepo
     {
         Task AddOutputTranslatorConfigurationAsync(OutputTranslatorConfiguration outputTranslator);
         Task<OutputTranslatorConfiguration> GetOutputTranslatorConfigurationAsync(string id);
