@@ -17,6 +17,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
         {
             _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
         }
+
         protected override bool ShouldConsolidateCollections { get { return _shouldConsolidateCollections; } }
 
         public Task AddStateSetAsync(StateSet unitSet)

@@ -8,9 +8,9 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
 {
     public interface IDeploymentRepo
     {
-        Task AddDeployment(Deployment deployment);
+        Task AddDeploymentAsync(Deployment deployment);
         Task<Deployment> GetDeploymentAsync(string id, bool populateChildren = false);
         Task<IEnumerable<Deployment>> GetDeploymentsForOrgsAsync(string orgId);
-        Task UpdateDeviceConfigurationAsync(Deployment deployment);     
+        Task UpdateDeploymentAsync(Deployment deployment);     
     }
 }
