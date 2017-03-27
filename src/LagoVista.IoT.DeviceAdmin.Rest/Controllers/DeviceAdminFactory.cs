@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using LagoVista.IoT.DeviceAdmin.Resources;
 
-namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
+namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
     [Authorize]
     [Route("api/deviceadmin/factory")]

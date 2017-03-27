@@ -1,5 +1,6 @@
 ﻿using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
+using LagoVista.IoT.DeviceAdmin.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,11 +19,17 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             GetForOrgs,
         }
 
-
-
-        protected Task<AuthorizeResult> AuthorizeAsync(IOwnedEntity ownedEntity, EntityHeader org, EntityHeader user, AuthorizeActions action)
+        protected Task<AuthorizeResult> AuthorizeAsync(IOwnedEntity ownedEntity, AuthorizeActions action, EntityHeader user, EntityHeader org = null)
         {
             return Task.FromResult(AuthorizeResult.Authorized);
+        }
+
+        protected Task<DependentObjectCheckResult> CheckDepenenciesAsync(Object instance)
+        {
+            return Task.FromResult(new DependentObjectCheckResult()
+            {
+                
+            });
         }
     }
 }

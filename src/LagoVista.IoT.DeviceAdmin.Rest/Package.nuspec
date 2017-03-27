@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>LagoVista.IoT.Web.DeviceAdmin</id>
+    <id>LagoVista.IoT.DeviceAdmin.Rest</id>
     <version>0.8.65-alpha00969</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
@@ -30,7 +30,7 @@
   </metadata>
   <files>
     <file src="readme.txt" target="" />
-    <file src="bin\release\netstandard1.6\LagoVista.IoT.Web.DeviceAdmin.xml" target="wwwroot\xmldocs" />
+    <file src="bin\release\netstandard1.6\LagoVistaIoT.DeviceAdmin.Rest.xml" target="wwwroot\xmldocs" />
     <file src="bin\release\netstandard1.6\*.dll" target="lib\netstandard1.6" />
     <file src="bin\release\netcoreapp1.1\*.dll" target="lib\netcoreapp1.1" />
   </files>

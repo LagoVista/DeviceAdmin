@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.CloudRepos", "src\LagoVista.IoT.DeviceAdmin.CloudRepos\LagoVista.IoT.DeviceAdmin.CloudRepos.csproj", "{AD2AF9F0-D136-40B3-806F-629C17FA56F5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.Web.DeviceAdmin", "src\LagoVista.IoT.Web.DeviceAdmin\LagoVista.IoT.Web.DeviceAdmin.csproj", "{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Rest", "src\LagoVista.IoT.DeviceAdmin.Rest\LagoVista.IoT.DeviceAdmin.Rest.csproj", "{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{AD2AF9F0-D136-40B3-806F-629C17FA56F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD2AF9F0-D136-40B3-806F-629C17FA56F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD2AF9F0-D136-40B3-806F-629C17FA56F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +53,6 @@ Global
 		{B7956272-06B8-448A-A566-E15EF7009F3C} = {789A2940-98A7-4A45-B302-0FEE3151886E}
 		{356687BE-A437-4D2C-95C2-334187B2BA34} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{AD2AF9F0-D136-40B3-806F-629C17FA56F5} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
-		{B7FE9B93-D05A-43E4-AA55-A0EC0DCCDF45} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
+		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 	EndGlobalSection
 EndGlobal

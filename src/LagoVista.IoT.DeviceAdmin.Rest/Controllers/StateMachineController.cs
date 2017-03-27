@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using LagoVista.IoT.DeviceAdmin.Resources;
 
-namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
+namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
     [Authorize]
     [Route("api/statemachines")]

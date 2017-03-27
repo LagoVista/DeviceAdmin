@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using LagoVista.Core.Validation;
 using Newtonsoft.Json;
 
-namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
+namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
 
     [Authorize]

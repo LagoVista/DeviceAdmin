@@ -4,7 +4,7 @@ using LagoVista.IoT.DeviceAdmin.CloudRepos;
 using LagoVista.Core.Models;
 using System;
 
-namespace LagoVista.IoT.Web.DeviceAdmin
+namespace LagoVista.IoT.DeviceAdmin.Rest
 {
     public class DeviceRepoSettings : IDeviceRepoSettings
     {
