@@ -56,7 +56,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         [HttpPost("unitset")]
         public Task<InvokeResult> AddUnitSet([FromBody] UnitSet unitSet)
         {
-            return _attrManager.AddUnitSetAsync(unitSet, UserEntityHeader, OrgEntityHeader);
+            return _attrManager.AddUnitSetAsync(unitSet, OrgEntityHeader, UserEntityHeader);
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         [HttpPost("sharedattribute")]
         public Task<InvokeResult> AddSharedAttributeAsync([FromBody] SharedAttribute sharedAttribute)
         {
-            return _attrManager.AddSharedAttributeAsync(sharedAttribute, UserEntityHeader, OrgEntityHeader);
+            return _attrManager.AddSharedAttributeAsync(sharedAttribute, OrgEntityHeader, UserEntityHeader);
         }
 
         /// <summary>
@@ -233,7 +233,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         [HttpPost("deviceworkflow")]
         public Task<InvokeResult> AddDeviceWorkflowAsync([FromBody] DeviceWorkflow deviceWorkflow)
         {
-            return _attrManager.AddDeviceWorkflowAsync(deviceWorkflow, UserEntityHeader, OrgEntityHeader);
+            return _attrManager.AddDeviceWorkflowAsync(deviceWorkflow, OrgEntityHeader, UserEntityHeader);
         }
 
         /// <summary>

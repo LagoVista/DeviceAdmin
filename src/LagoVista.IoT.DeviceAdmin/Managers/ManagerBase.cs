@@ -31,5 +31,20 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 
             });
         }
+
+        protected Task<AuthorizeResult> AuthorizeOrgAccess(string userId, string orgId, Type entityType = null)
+        {
+            return Task.FromResult(AuthorizeResult.Authorized);
+        }
+
+        protected Task<AuthorizeResult> AuthorizeOrgAccess(EntityHeader user, string orgId, Type entityType = null)
+        {
+            return Task.FromResult(AuthorizeResult.Authorized);
+        }
+
+        protected Task<AuthorizeResult> AuthorizeOrgAccess(EntityHeader user, EntityHeader org, Type entityType = null)
+        {
+            return Task.FromResult(AuthorizeResult.Authorized);
+        }
     }
 }
