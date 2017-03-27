@@ -82,24 +82,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 IsPublic = IsPublic,
                 Key = Key,
                 Name = Name,
+                Description = Description
             };
         }
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Title, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Help, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Description, EntityDescriptionAttribute.EntityTypes.Summary, typeof(DeviceLibraryResources))]
-    public class DeviceWorkflowSummary
+    public class DeviceWorkflowSummary : SummaryData, ISummaryData
     {
-        [ListColumn(Visible: false)]
-        public String Id { get; set; }
-
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, ResourceType: typeof(DeviceLibraryResources))]
-        public bool IsPublic { get; set; }
-
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources))]
-        public String Name { get; set; }
-
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_Key, ResourceType: typeof(DeviceLibraryResources))]
-        public String Key { get; set; }
+       
     }
 
 }

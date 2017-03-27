@@ -41,19 +41,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Id = Id,
                 IsPublic = IsPublic,
                 Key = Key,
-                Name = Name
+                Name = Name,
+                Description = Description
             };
         }
     }
 
-    public class StateSetSummary : IIDEntity, IKeyedEntity, INamedEntity
+    public class StateSetSummary : SummaryData, ISummaryData
     {
-        public string Id { get; set; }
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources))]
-        public String Name { get; set; }
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResources: Resources.DeviceLibraryResources.Names.Common_Key_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public String Key { get; set; }
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, ResourceType: typeof(DeviceLibraryResources))]
-        public bool IsPublic { get; set; }
     }
 }
