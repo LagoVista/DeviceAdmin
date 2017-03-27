@@ -221,69 +221,7 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
             var response = DetailResponse<SharedAction>.Create(sharedAttribute);
 
             return response;
-        }
-
-        /// <summary>
-        /// Device Config - Add New
-        /// </summary>
-        /// <param name="deviceConfiguration"></param>
-        /// <returns></returns>
-        [HttpPost("deviceconfiguration")]
-        public Task<InvokeResult> AddDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
-        {
-            return _attrManager.AddDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader, OrgEntityHeader);
-        }
-
-        /// <summary>
-        /// Device Config - Update Config
-        /// </summary>
-        /// <param name="deviceConfiguration"></param>
-        /// <returns></returns>
-        [HttpPut("deviceconfiguration")]
-        public Task<InvokeResult> UpdateDeviceConfigurationAsync([FromBody] DeviceConfiguration deviceConfiguration)
-        {
-            return _attrManager.UpdateDeviceConfigurationAsync(deviceConfiguration, UserEntityHeader);
-        }
-
-        /// <summary>
-        /// Device Config - Get Configs for Org
-        /// </summary>
-        /// <param name="orgId">Organization Id</param>
-        /// <returns></returns>
-        [HttpGet("deviceconfigurations/{orgid}")]
-        public async Task<ListResponse<DeviceConfigurationSummary>> GetDeviceConfigurationsForOrgAsync(String orgId)
-        {
-            var deviceConfigurations = await _attrManager.GetDeviceConfigurationsForOrgsAsync(orgId);
-            var response = ListResponse<DeviceConfigurationSummary>.Create(deviceConfigurations);
-
-            return response;
-        }
-
-        /// <summary>
-        /// Device Config - Get A Configuration
-        /// </summary>
-        /// <param name="deviceconfigurationid"></param>
-        /// <returns></returns>
-        [HttpGet("deviceconfiguration/{deviceconfigurationid}")]
-        public async Task<DetailResponse<DeviceConfiguration>> GetDeviceConfigurationAsync(String deviceconfigurationid)
-        {
-            var deviceConfiguration = await _attrManager.GetDeviceConfigurationAsync(deviceconfigurationid, OrgEntityHeader);
-
-            var response = DetailResponse<DeviceConfiguration>.Create(deviceConfiguration);
-
-            return response;
-        }
-
-        /// <summary>
-        /// Device Config - Key In Use
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("deviceconfiguration/keyinuse/{key}")]
-        public Task<bool> DeviceConfigKeyInUse(String key)
-        {
-            return _attrManager.QueryDeviceConfigurationKeyInUseAsync(key, CurrentOrgId);
-        }
-
+        }    
 
         /********** Device Workflows *****/
 

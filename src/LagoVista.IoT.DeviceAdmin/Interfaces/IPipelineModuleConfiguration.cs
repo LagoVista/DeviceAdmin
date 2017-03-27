@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LagoVista.IoT.DeviceAdmin.Interfaces
 {
-    public interface IPipelineModuleConfiguration : INamedEntity, IKeyedEntity, IIDEntity
+    public interface IPipelineModuleConfiguration : INamedEntity, IKeyedEntity, IIDEntity, IOwnedEntity
     {
     }
 }

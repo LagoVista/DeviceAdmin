@@ -13,7 +13,6 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
 {
     public class DeviceAdminManager : IDeviceAdminManager
     {
-        IDeviceConfigurationRepo _deviceConfigRepo;
         IDeviceWorkflowRepo _deviceWorkflowRepo;
         ISharedActionRepo _sharedActionRepo;
         ISharedAtributeRepo _sharedAttributeRepo;
@@ -22,11 +21,10 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         IStateSetRepo _stateSetRepo;
         IEventSetRepo _eventSetRepo;
 
-        public DeviceAdminManager(IDeviceConfigurationRepo deviceConfigRepo, ISharedActionRepo sharedActionRepo, IDeviceWorkflowRepo deviceWorkflowRepo, ISharedAtributeRepo sharedAttributeRepo,
+        public DeviceAdminManager( ISharedActionRepo sharedActionRepo, IDeviceWorkflowRepo deviceWorkflowRepo, ISharedAtributeRepo sharedAttributeRepo,
             IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo, IStateSetRepo stateSetRepo, IEventSetRepo eventSetRepo)
         {
             _deviceWorkflowRepo = deviceWorkflowRepo;
-            _deviceConfigRepo = deviceConfigRepo;
             _sharedActionRepo = sharedActionRepo;
             _sharedAttributeRepo = sharedAttributeRepo;
             _unitSetRepo = unitSetRepo;
@@ -103,20 +101,6 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return result.ToActionResult();
         }
 
-
-
-        public async Task<InvokeResult> AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration, EntityHeader org, EntityHeader user)
-        {
-            var result = Validator.Validate(deviceConfiguration, Actions.Create);
-
-            if (result.IsValid)
-            {
-                await _deviceConfigRepo.AddDeviceConfigurationAsync(deviceConfiguration);
-            }
-
-            return result.ToActionResult();
-        }
-
         public async Task<InvokeResult> AddDeviceWorkflowAsync(DeviceWorkflow deviceWorkflow, EntityHeader org, EntityHeader user)
         {
             var result = Validator.Validate(deviceWorkflow, Actions.Create);
@@ -187,21 +171,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             }
 
             return result.ToActionResult();
-        }
-
-        public async Task<InvokeResult> UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfig, EntityHeader user)
-        {
-            var result = Validator.Validate(deviceConfig, Actions.Create);
-
-            if (result.IsValid)
-            {
-                deviceConfig.LastUpdatedBy = user;
-                deviceConfig.LastUpdatedDate = DateTime.Now.ToJSONString();
-                await _deviceConfigRepo.UpdateDeviceConfigurationAsync(deviceConfig);
-            }
-
-            return result.ToActionResult();
-        }
+        }    
 
         public async Task<InvokeResult> UpdateDeviceWorkflowAsync(DeviceWorkflow deviceWorkflow, EntityHeader user)
         {
@@ -290,17 +260,6 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return unitSet;
         }
 
-        public async Task<DeviceConfiguration> GetDeviceConfigurationAsync(String id, EntityHeader org)
-        {
-            var deviceConfig = await _deviceConfigRepo.GetDeviceConfigurationAsync(id);
-            if (!deviceConfig.IsPublic && deviceConfig.OwnerOrganization.Id != org.Id)
-            {
-                throw new Exception();
-            }
-
-            return deviceConfig;
-        }
-
         public async Task<DeviceWorkflow> GetDeviceWorkflowAsync(String id, EntityHeader org)
         {
             var deviceWorkflow = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(id);
@@ -354,11 +313,6 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return _sharedActionRepo.GetSharedActionsForOrgAsync(orgId);
         }
 
-        public Task<IEnumerable<DeviceConfigurationSummary>> GetDeviceConfigurationsForOrgsAsync(String orgId)
-        {
-            return _deviceConfigRepo.GetDeviceConfigurationsForOrgAsync(orgId);
-        }
-
         public Task<IEnumerable<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgsAsync(String orgId)
         {
             return _deviceWorkflowRepo.GetDeviceWorkflowsForOrgAsync(orgId);
@@ -373,11 +327,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         {
             return _eventSetRepo.GetEventSetsForOrgAsync(orgId);
         }
-
-        public Task<bool> QueryDeviceConfigurationKeyInUseAsync(String key, String orgId)
-        {
-            return _deviceConfigRepo.QueryKeyInUseAsync(key, orgId);
-        }
+      
 
         public Task<bool> QueryDeviceWorkflowKeyInUseAsync(String key, String orgId)
         {

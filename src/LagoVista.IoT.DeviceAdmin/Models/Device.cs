@@ -24,7 +24,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String EntityType { get; set; }
 
 
-        public EntityHeader<DeviceConfiguration> DeviceConfiguration { get; set; }
 
 
         public string AttributeJSON { get; set; }

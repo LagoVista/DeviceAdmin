@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿/*3/27/2017 12:55:32*/
+using System.Globalization;
 using System.Reflection;
 
 //Resources:DeviceLibraryResources:Action_AssociatedAttribute
@@ -6,7 +7,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 {
 	public class DeviceLibraryResources
 	{
-        private static global::System.Resources.ResourceManager resourceMan;
+        private static global::System.Resources.ResourceManager _resourceManager;
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
@@ -16,12 +17,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 		{
             get 
 			{
-                if (object.ReferenceEquals(resourceMan, null)) 
+                if (object.ReferenceEquals(_resourceManager, null)) 
 				{
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LagoVista.IoT.DeviceAdmin.Resources.DeviceLibraryResources", typeof(DeviceLibraryResources).GetTypeInfo().Assembly);
-                    resourceMan = temp;
+                    _resourceManager = temp;
                 }
-                return resourceMan;
+                return _resourceManager;
             }
         }
         
@@ -1515,3 +1516,4 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 		}
 	}
 }
+

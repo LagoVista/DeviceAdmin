@@ -11,7 +11,6 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
 {
     public interface IDeviceAdminManager
     {
-        Task<InvokeResult> AddDeviceConfigurationAsync(DeviceConfiguration deviceConfiguration, EntityHeader org, EntityHeader user);
         Task<InvokeResult> AddDeviceWorkflowAsync(DeviceWorkflow deviceWorkflow, EntityHeader org, EntityHeader user);
         Task<InvokeResult> AddSharedActionAsync(SharedAction sharedAction, EntityHeader org, EntityHeader user);
         Task<InvokeResult> AddSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader org, EntityHeader user);
@@ -20,7 +19,6 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<InvokeResult> AddStateSetAsync(StateSet stateSet, EntityHeader org, EntityHeader user);
         Task<InvokeResult> AddEventSetAsync(EventSet eventSet, EntityHeader org, EntityHeader user);
 
-        Task<IEnumerable<DeviceConfigurationSummary>> GetDeviceConfigurationsForOrgsAsync(string orgId);
         Task<IEnumerable<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgsAsync(string orgId);
         Task<IEnumerable<SharedActionSummary>> GetSharedActionsForOrgAsync(string orgId);
         Task<IEnumerable<SharedAttributeSummary>> GetSharedAttributesForOrgAsync(string orgId);
@@ -33,7 +31,6 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<bool> QueryAttributeUnitSetKeyInUseAsync(string key, string orgId);
         Task<bool> QuerySharedAttributeKeyInUseAsync(string key, string orgId);
         Task<bool> QueryStateMachineKeyInUseAsync(string key, string orgId);
-        Task<bool> QueryDeviceConfigurationKeyInUseAsync(String key, String orgId);
         Task<bool> QueryDeviceWorkflowKeyInUseAsync(String key, String orgId);
         Task<bool> QueryStateSetKeyInUseAsync(String key, String orgId);
         Task<bool> QueryEventSetKeyInUseAsync(String key, String orgId);
@@ -42,12 +39,10 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<SharedAction> GetSharedActionAsync(string id, EntityHeader org);
         Task<SharedAttribute> GetSharedAttributeAsync(string id, EntityHeader org);
         Task<UnitSet> GetAttributeUnitSetAsync(string id, EntityHeader org);
-        Task<DeviceConfiguration> GetDeviceConfigurationAsync(string id, EntityHeader org);
         Task<DeviceWorkflow> GetDeviceWorkflowAsync(string id, EntityHeader org);
         Task<StateSet> GetStateSetAsync(string id, EntityHeader org);
         Task<EventSet> GetEventSetAsync(string id, EntityHeader org);
 
-        Task<InvokeResult> UpdateDeviceConfigurationAsync(DeviceConfiguration deviceConfig, EntityHeader user);
         Task<InvokeResult> UpdateDeviceWorkflowAsync(DeviceWorkflow deviceConfig, EntityHeader user);
         Task<InvokeResult> UpdateSharedActionAsync(SharedAction sharedAction, EntityHeader user);
         Task<InvokeResult> UpdateSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader user);

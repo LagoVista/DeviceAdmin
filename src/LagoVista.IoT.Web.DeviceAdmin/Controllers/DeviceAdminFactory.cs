@@ -160,23 +160,6 @@ namespace LagoVista.IoT.Web.DeviceAdmin.Controllers
         }
 
         /// <summary>
-        ///  Device Config - Create New
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("deviceconfiguration")]
-        public DetailResponse<DeviceConfiguration> CreateDeviceConfigurartion()
-        {
-            var response = DetailResponse<DeviceConfiguration>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();            
-            response.Model.ConfigurationVersion = 0.1;
-
-            SetAuditProperties(response.Model);
-            SetOwnedProperties(response.Model);
-
-            return response;
-        }
-
-        /// <summary>
         ///  Action - Create New
         /// </summary>
         /// <returns></returns>

@@ -74,19 +74,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             get; set;
         }
 
-        public static DeviceConfiguration Create(Organization org, AppUser appUser)
-        {
-            return new DeviceConfiguration()
-            {
-                Id = Guid.NewGuid().ToId(),
-                CreatedBy = appUser.ToEntityHeader(),
-                CreationDate = DateTime.Now.ToJSONString(),
-                LastUpdatedBy = appUser.ToEntityHeader(),
-                LastUpdatedDate = DateTime.Now.ToJSONString(),
-                OwnerOrganization = org.ToEntityHeader(),
-            };
-        }
-
         public DeviceWorkflowSummary CreateSummary()
         {
             return new DeviceWorkflowSummary()
