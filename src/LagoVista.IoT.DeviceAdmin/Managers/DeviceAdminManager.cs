@@ -260,12 +260,41 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return unitSet;
         }
 
-        public async Task<DeviceWorkflow> GetDeviceWorkflowAsync(String id, EntityHeader org)
+        public async Task<DeviceWorkflow> GetDeviceWorkflowAsync(String id, EntityHeader org, bool populateChildren = false)
         {
             var deviceWorkflow = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(id);
             if (!deviceWorkflow.IsPublic && deviceWorkflow.OwnerOrganization.Id != org.Id)
             {
                 throw new Exception();
+            }
+
+            if(populateChildren)
+            {
+                foreach(var attribute in deviceWorkflow.Attributes)
+                {
+                    if(attribute.UnitSet.HasValue)
+                    {
+                        attribute.UnitSet.Value = await GetAttributeUnitSetAsync(attribute.UnitSet.Id, org);
+                    }
+
+                    if (attribute.StateSet.HasValue)
+                    {
+                        attribute.StateSet.Value = await GetStateSetAsync(attribute.StateSet.Id, org);
+                    }
+                }
+
+                foreach (var input in deviceWorkflow.Inputs)
+                {
+                    if(input.UnitSet.HasValue)
+                    {
+                        input.UnitSet.Value = await GetAttributeUnitSetAsync(input.UnitSet.Id, org);
+                    }
+
+                    if(input.StateSet.HasValue)
+                    {
+                        input.StateSet.Value = await GetStateSetAsync(input.StateSet.Id, org);
+                    }
+                }
             }
 
             return deviceWorkflow;
