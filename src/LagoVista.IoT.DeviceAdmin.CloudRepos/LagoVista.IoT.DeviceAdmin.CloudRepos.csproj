@@ -8,10 +8,10 @@
     <ProjectReference Include="..\LagoVista.IoT.DeviceAdmin\LagoVista.IoT.DeviceAdmin.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
     <PackageReference Include="LagoVista.CloudStorage" Version="0.8.112-alpha01238" />
     <PackageReference Include="LagoVista.Core" Version="0.8.112-alpha00944" />
-    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.1.2" />    
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.2.1" />    
     <PackageReference Include="WindowsAzure.Storage" Version="8.1.1" />
   </ItemGroup>
 </Project>
