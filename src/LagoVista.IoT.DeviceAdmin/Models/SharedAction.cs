@@ -9,7 +9,7 @@ using System;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.SharedAction_Title, Resources.DeviceLibraryResources.Names.SharedAction_Help, Resources.DeviceLibraryResources.Names.SharedAction_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class SharedAction : DeviceModelBase, IOwnedEntity, IValidateable, INoSQLEntity
+    public class SharedAction : IoTModelBase, IOwnedEntity, IValidateable, INoSQLEntity
     {
         public String DatabaseName { get; set; }
 

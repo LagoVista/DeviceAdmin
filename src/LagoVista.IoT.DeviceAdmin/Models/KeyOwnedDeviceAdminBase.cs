@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    public abstract class KeyOwnedDeviceAdminBase : DeviceModelBase, IKeyedEntity, INamedEntity, IIDEntity, IOwnedEntity
+    public abstract class KeyOwnedDeviceAdminBase : IoTModelBase, IKeyedEntity, INamedEntity, IIDEntity, IOwnedEntity
     {
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]

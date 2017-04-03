@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    public class Device : DeviceModelBase, INoSQLEntity
+    public class Device : IoTModelBase, INoSQLEntity
     {
         private String _deviceId;
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Device_DeviceId, IsRequired:true,

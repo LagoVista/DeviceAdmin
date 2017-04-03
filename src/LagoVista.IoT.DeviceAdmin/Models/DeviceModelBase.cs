@@ -9,9 +9,9 @@ using System.Collections.ObjectModel;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    public class DeviceModelBase : ModelBase, INamedEntity, IIDEntity, IAuditableEntity
+    public class IoTModelBase : ModelBase, INamedEntity, IIDEntity, IAuditableEntity
     {
-        public DeviceModelBase()
+        public IoTModelBase()
         {
             Notes = new ObservableCollection<AdminNote>();
             ValidationErrors = new ObservableCollection<ValidationMessage>();

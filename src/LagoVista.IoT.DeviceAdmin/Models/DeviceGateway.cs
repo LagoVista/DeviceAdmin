@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    public class DeviceGateway :  DeviceModelBase
+    public class DeviceGateway :  IoTModelBase
     {
 
     }
