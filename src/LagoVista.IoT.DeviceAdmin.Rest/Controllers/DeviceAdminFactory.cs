@@ -3,17 +3,14 @@ using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.PlatformSupport;
 using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.Web.Common.Controllers;
-using LagoVista.UserManagement.Models.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using LagoVista.Core;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
 using LagoVista.IoT.DeviceAdmin.Resources;
+using LagoVista.UserAdmin.Models.Account;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
@@ -143,13 +140,14 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             response.Model.StateMachines = new List<StateMachine>();
             response.Model.Inputs = new List<WorkflowInput>();
             response.Model.OutputCommands = new List<OutputCommand>();
-            response.Model.Pages = new List<Page>();
-            response.Model.Pages.Add(new Page()
+            response.Model.Pages = new List<Page>
             {
-                PageNumber = 1,
-                Name = DeviceLibraryResources.Common_PageNumberOne
-            });
-
+                new Page()
+                {
+                    PageNumber = 1,
+                    Name = DeviceLibraryResources.Common_PageNumberOne
+                }
+            };
             response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             response.Model.ConfigurationVersion = 0.1;
 

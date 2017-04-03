@@ -1,6 +1,5 @@
 ﻿using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.PlatformSupport;
-using LagoVista.UserManagement.Models.Account;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
 using LagoVista.IoT.DeviceAdmin.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +11,7 @@ using LagoVista.IoT.Web.Common.Controllers;
 using System.Collections.Generic;
 using LagoVista.Core.Validation;
 using Newtonsoft.Json;
+using LagoVista.UserAdmin.Models.Account;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {

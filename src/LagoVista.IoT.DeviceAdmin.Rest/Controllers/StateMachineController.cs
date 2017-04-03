@@ -4,17 +4,15 @@ using LagoVista.Core.PlatformSupport;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
 using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.Web.Common.Controllers;
-using LagoVista.UserManagement.Models.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using LagoVista.Core;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Collections.ObjectModel;
 using LagoVista.IoT.DeviceAdmin.Resources;
+using LagoVista.UserAdmin.Models.Account;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
