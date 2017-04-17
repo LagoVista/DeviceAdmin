@@ -11,6 +11,7 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
+    /*
     public class Device : IoTModelBase, INoSQLEntity
     {
         private String _deviceId;
@@ -159,4 +160,5 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
     }
+    */
 }
