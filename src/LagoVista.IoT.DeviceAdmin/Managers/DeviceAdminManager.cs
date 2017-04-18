@@ -260,40 +260,49 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return unitSet;
         }
 
-        public async Task<DeviceWorkflow> GetDeviceWorkflowAsync(String id, EntityHeader org, bool populateChildren = false)
+        public Task<UnitSet> LoadAttributeUnitSetAsync(String id)
+        {
+            return _unitSetRepo.GetUnitSetAsync(id);
+        }
+
+        public async Task<DeviceWorkflow> GetDeviceWorkflowAsync(String id, EntityHeader org)
         {
             var deviceWorkflow = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(id);
             if (!deviceWorkflow.IsPublic && deviceWorkflow.OwnerOrganization.Id != org.Id)
             {
                 throw new Exception();
-            }
+            }            
 
-            if(populateChildren)
+            return deviceWorkflow;
+        }
+
+        public async Task<DeviceWorkflow> LoadFullDeviceWorkflowAsync(string id)
+        {
+            var deviceWorkflow = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(id);
+
+            foreach (var attribute in deviceWorkflow.Attributes)
             {
-                foreach(var attribute in deviceWorkflow.Attributes)
+                if (attribute.UnitSet.HasValue)
                 {
-                    if(attribute.UnitSet.HasValue)
-                    {
-                        attribute.UnitSet.Value = await GetAttributeUnitSetAsync(attribute.UnitSet.Id, org);
-                    }
-
-                    if (attribute.StateSet.HasValue)
-                    {
-                        attribute.StateSet.Value = await GetStateSetAsync(attribute.StateSet.Id, org);
-                    }
+                    attribute.UnitSet.Value = await LoadAttributeUnitSetAsync(attribute.UnitSet.Id);
                 }
 
-                foreach (var input in deviceWorkflow.Inputs)
+                if (attribute.StateSet.HasValue)
                 {
-                    if(input.UnitSet.HasValue)
-                    {
-                        input.UnitSet.Value = await GetAttributeUnitSetAsync(input.UnitSet.Id, org);
-                    }
+                    attribute.StateSet.Value = await LoadStateSetAsync(attribute.StateSet.Id);
+                }
+            }
 
-                    if(input.StateSet.HasValue)
-                    {
-                        input.StateSet.Value = await GetStateSetAsync(input.StateSet.Id, org);
-                    }
+            foreach (var input in deviceWorkflow.Inputs)
+            {
+                if (input.UnitSet.HasValue)
+                {
+                    input.UnitSet.Value = await LoadAttributeUnitSetAsync(input.UnitSet.Id);
+                }
+
+                if (input.StateSet.HasValue)
+                {
+                    input.StateSet.Value = await LoadStateSetAsync(input.StateSet.Id);
                 }
             }
 
@@ -311,6 +320,11 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return stateSet;
         }
 
+        public Task<StateSet> LoadStateSetAsync(String id)
+        {
+            return _stateSetRepo.GetStateSetAsync(id);
+        }
+
         public async Task<EventSet> GetEventSetAsync(String id, EntityHeader org)
         {
             var eventSet = await _eventSetRepo.GetEventSetAsync(id);
@@ -320,6 +334,11 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             }
 
             return eventSet;
+        }
+
+        public Task<EventSet> LoadEventSetAsync(String id)
+        {
+            return _eventSetRepo.GetEventSetAsync(id);
         }
 
         public Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId)

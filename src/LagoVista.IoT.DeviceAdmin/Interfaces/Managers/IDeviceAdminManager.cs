@@ -39,9 +39,15 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<SharedAction> GetSharedActionAsync(string id, EntityHeader org);
         Task<SharedAttribute> GetSharedAttributeAsync(string id, EntityHeader org);
         Task<UnitSet> GetAttributeUnitSetAsync(string id, EntityHeader org);
-        Task<DeviceWorkflow> GetDeviceWorkflowAsync(string id, EntityHeader org, bool populateChildren = false);
+        Task<UnitSet> LoadAttributeUnitSetAsync(string id);
+
+        Task<DeviceWorkflow> GetDeviceWorkflowAsync(string id, EntityHeader org);
+        Task<DeviceWorkflow> LoadFullDeviceWorkflowAsync(string id);
+
         Task<StateSet> GetStateSetAsync(string id, EntityHeader org);
+        Task<StateSet> LoadStateSetAsync(String id);
         Task<EventSet> GetEventSetAsync(string id, EntityHeader org);
+        Task<EventSet> LoadEventSetAsync(string id);
 
         Task<InvokeResult> UpdateDeviceWorkflowAsync(DeviceWorkflow deviceConfig, EntityHeader user);
         Task<InvokeResult> UpdateSharedActionAsync(SharedAction sharedAction, EntityHeader user);
