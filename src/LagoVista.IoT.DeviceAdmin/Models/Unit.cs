@@ -11,6 +11,18 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Unit_Title, Resources.DeviceLibraryResources.Names.Unit_Help, DeviceLibraryResources.Names.Unit_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class Unit : IKeyedEntity, INamedEntity, IValidateable
     {
+        public Unit()
+        {
+            ConversionType = new Core.Models.EntityHeader()
+            {
+                Text = "Factor",
+                Id = "factor"
+            };
+
+            IsDefault = true;
+            ConversionFactor = 1.0;
+        }
+
         public enum ConversionTypes
         {
             [EnumLabel("factor", DeviceLibraryResources.Names.Unit_Conversion_Type_Factor, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Unit_Conversion_Type_Factor_Help)]

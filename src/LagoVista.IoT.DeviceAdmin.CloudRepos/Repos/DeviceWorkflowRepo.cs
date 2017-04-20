@@ -53,5 +53,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             var items = await base.QueryAsync(attr => (attr.OwnerOrganization.Id == orgId || attr.IsPublic == true) && attr.Key == key);
             return items.Any();
         }
+
+        public Task DeleteDeviceWorkflowAsync(string id)
+        {
+            return DeleteDocumentAsync(id);
+        }
     }
 }

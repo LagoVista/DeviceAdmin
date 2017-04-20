@@ -13,6 +13,7 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
         Task UpdateStateSetAsync(StateSet stateSet);
         Task<IEnumerable<StateSetSummary>> GetStateSetsForOrgAsync(string orgId);
         Task<bool> QueryKeyInUseAsync(String key, String orgId);
+        Task DeleteStateSetAsync(string stateSetId);
     }
 
 }

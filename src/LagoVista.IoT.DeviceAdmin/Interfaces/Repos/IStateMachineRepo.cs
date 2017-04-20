@@ -13,5 +13,6 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
         Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(string orgId);
         Task<bool> QueryKeyInUseAsync(string key, string orgId);
         Task UpdateStateMachineAsync(StateMachine sharedAttribute);
+        Task DeleteStateMachineAsync(string stateMachineId);
     }
 }

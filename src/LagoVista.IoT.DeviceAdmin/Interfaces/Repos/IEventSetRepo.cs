@@ -12,5 +12,6 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
         Task UpdateEventSetAsync(EventSet eventSet);
         Task<IEnumerable<EventSetSummary>> GetEventSetsForOrgAsync(string orgId);
         Task<bool> QueryKeyInUseAsync(String key, String orgId);
+        Task DeleteEventSetAsync(string eventSetId);
     }
 }

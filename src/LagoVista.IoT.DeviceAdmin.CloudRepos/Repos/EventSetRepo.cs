@@ -17,7 +17,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
         {
             _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
         }
-        protected override bool ShouldConsolidateCollections { get { return _shouldConsolidateCollections; } }
+        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public Task AddEventSetAsync(EventSet eventSet)
         {
@@ -46,6 +46,11 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 
             return from item in items
                    select item.CreateEventSetSummary();
+        }
+
+        public Task DeleteEventSetAsync(string eventSetId)
+        {
+            return DeleteDocumentAsync(eventSetId);
         }
     }
 }

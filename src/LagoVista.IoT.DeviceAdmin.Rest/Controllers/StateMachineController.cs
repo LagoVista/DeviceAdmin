@@ -13,62 +13,247 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using LagoVista.UserAdmin.Models.Account;
+using LagoVista.Core.Validation;
+using LagoVista.Core.Models;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
     [Authorize]
-    [Route("api/statemachines")]
     public class StateMachineController : LagoVistaBaseController
     {
         IDeviceAdminManager _deviceAdminManager;
-
-        private void SetAuditProperties(IAuditableEntity entity)
-        {
-            var createDate = DateTime.Now.ToJSONString();
-
-            entity.CreationDate = createDate;
-            entity.LastUpdatedDate = createDate;
-            entity.CreatedBy = UserEntityHeader;
-            entity.LastUpdatedBy = UserEntityHeader;
-        }
-
-        private void SetOwnedProperties(IOwnedEntity entity)
-        {
-            entity.OwnerOrganization = OrgEntityHeader;
-        }
-
 
         public StateMachineController(UserManager<AppUser> userManager, ILogger logger, IDeviceAdminManager deviceAdminManager) : base(userManager, logger)
         {
             _deviceAdminManager = deviceAdminManager;
         }
 
+        #region Add New
         /// <summary>
-        /// State Machine - Create New
+        /// State Machine - Add New
         /// </summary>
+        /// <param name="stateMachine"></param>
         /// <returns></returns>
-        [HttpGet("factory")]
-        public DetailResponse<StateMachine> NewStateMachine()
+        [HttpPost("/api/statemachine")]
+        public Task AddStateMachine([FromBody] StateMachine stateMachine)
         {
-            var stateMachine = DetailResponse<StateMachine>.Create();
-            stateMachine.Model.Id = Guid.NewGuid().ToId();
-            stateMachine.Model.Pages.Add(new Page()
-            {
-                PageNumber = 1,
-                Name = DeviceLibraryResources.Common_PageNumberOne
-            });
-
-            SetOwnedProperties(stateMachine.Model);
-            SetAuditProperties(stateMachine.Model);
-
-            return stateMachine;
+            return _deviceAdminManager.AddStateMachineAsync(stateMachine, OrgEntityHeader, UserEntityHeader);
         }
 
+
+        /// <summary>
+        /// Event Set - Add
+        /// </summary>
+        /// <param name="eventSet"></param>
+        /// <returns></returns>
+        [HttpPost("/api/statemachine/eventset")]
+        public Task AddEventSet([FromBody] EventSet eventSet)
+        {
+            return _deviceAdminManager.AddEventSetAsync(eventSet, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
+        /// State Set - Add
+        /// </summary>
+        /// <param name="stateSet"></param>
+        /// <returns></returns>
+        [HttpPost("/api/statemachine/stateset")]
+        public Task AddStateSet([FromBody] StateSet stateSet)
+        {
+            return _deviceAdminManager.AddStateSetAsync(stateSet, OrgEntityHeader, UserEntityHeader);
+        }
+        #endregion
+
+        #region Update
+        /// <summary>
+        /// State Machine - Update
+        /// </summary>
+        /// <param name="stateMachine"></param>
+        /// <returns></returns>
+        [HttpPut("/api/statemachine")]
+        public Task UpdateStateMachine([FromBody] StateMachine stateMachine)
+        {
+            SetUpdatedProperties(stateMachine);
+            return _deviceAdminManager.UpdateStateMachineAsync(stateMachine, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
+        ///  State Set - Update
+        /// </summary>
+        /// <param name="stateSet"></param>
+        /// <returns></returns>
+        [HttpPut("/api/statemachine/stateset")]
+        public Task UpdateStateSet([FromBody] StateSet stateSet)
+        {
+            SetUpdatedProperties(stateSet);
+            return _deviceAdminManager.UpdateStateSetAsync(stateSet, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
+        /// Event Set - Update
+        /// </summary>
+        /// <param name="eventSet"></param>
+        /// <returns></returns>
+        [HttpPut("/api/statemachine/eventset")]
+        public Task UpdateEventSet([FromBody] EventSet eventSet)
+        {
+            SetUpdatedProperties(eventSet);
+            return _deviceAdminManager.UpdateEventSetAsync(eventSet, OrgEntityHeader, UserEntityHeader);
+        }
+        #endregion
+
+        #region Read
+        /// <summary>
+        /// State Machine - Get Detail
+        /// </summary>
+        /// <param name="statemachineid"></param>
+        /// <returns></returns>
+        [HttpGet("/api/statemachine/{statemachineid}")]
+        public async Task<DetailResponse<StateMachine>> GetStateMachineAsync(String statemachineid)
+        {
+            var stateMachine = await _deviceAdminManager.GetStateMachineAsync(statemachineid, OrgEntityHeader, UserEntityHeader);
+            return DetailResponse<StateMachine>.Create(stateMachine);
+        }
+
+        /// <summary>
+        /// Event Set - Get Detail
+        /// </summary>
+        /// <param name="eventSetId"></param>
+        /// <returns></returns>
+        [HttpGet("/api/statemachine/eventset/{eventSetId}")]
+        public async Task<DetailResponse<EventSet>> GetEventSet(String eventSetId)
+        {
+            var eventSet = await _deviceAdminManager.GetEventSetAsync(eventSetId, OrgEntityHeader, UserEntityHeader);
+            return DetailResponse<EventSet>.Create(eventSet);
+        }
+
+        /// <summary>
+        /// State Machine - Get Detail
+        /// </summary>
+        /// <param name="stateSetId"></param>
+        /// <returns></returns>
+        [HttpGet("/api/statemachine/stateset/{stateSetId}")]
+        public async Task<DetailResponse<StateSet>> GetStateSet(String stateSetId)
+        {
+            var stateMachine = await _deviceAdminManager.GetStateSetAsync(stateSetId, OrgEntityHeader, UserEntityHeader);
+            return DetailResponse<StateSet>.Create(stateMachine);
+        }
+        #endregion
+
+        #region Get For Org
+        /// <summary>
+        /// State Machines - Get for org
+        /// </summary>
+        /// <param name="orgId">Organization Id</param>
+        /// <returns></returns>
+        [HttpGet("/api/orgs/{orgid}/statemachines")]
+        public async Task<ListResponse<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId)
+        {
+            var stateMachines = await _deviceAdminManager.GetStateMachinesForOrgAsync(orgId, UserEntityHeader);
+            return ListResponse<StateMachineSummary>.Create(stateMachines);
+        }
+
+        /// <summary>
+        /// Event Sets - Get for org
+        /// </summary>
+        /// <param name="orgId">Organization Id</param>
+        /// <returns></returns>
+        [HttpGet("/api/orgs/{orgid}/statemachine/eventsets")]
+        public async Task<ListResponse<EventSetSummary>> GetEventSetsForOrgAsync(String orgId)
+        {
+            var eventSets = await _deviceAdminManager.GetEventSetsForOrgAsync(orgId, UserEntityHeader);
+            return ListResponse<EventSetSummary>.Create(eventSets);
+        }
+
+        /// <summary>
+        /// State Set - Get for org
+        /// </summary>
+        /// <param name="orgId">Organization Id</param>
+        /// <returns></returns>
+        [HttpGet("/api/orgs/{orgid}/statemachine/statesets")]
+        public async Task<ListResponse<StateSetSummary>> GetStateSetsForOrgAsync(String orgId)
+        {
+            var stateSets = await _deviceAdminManager.GetStateSetsForOrgAsync(orgId, UserEntityHeader);
+            return ListResponse<StateSetSummary>.Create(stateSets);
+        }
+        #endregion
+
+        #region Delete 
+        /// <summary>
+        /// Event Set - Delete
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("/api/statemachine/eventset/{id}")]
+        public Task<InvokeResult> DeleteEventSetAsync(string id)
+        {
+            return _deviceAdminManager.DeleteEventSetAsync(id, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
+        /// State Set - Delete
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("/api/statemachine/stateset/{id}")]
+        public Task<InvokeResult> DeleteStateSetAsync(string id)
+        {
+            return _deviceAdminManager.DeleteStateSetAsync(id, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
+        /// State Machine - Delete
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("/api/statemachine/{id}")]
+        public Task<InvokeResult> DeleteStateMachineAsync(string id)
+        {
+            return _deviceAdminManager.DeleteStateMachineAsync(id, OrgEntityHeader, UserEntityHeader);
+        }
+        #endregion
+
+        #region Check In Use
+        /// <summary>
+        /// Event Set - Check In Use
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("/api/statemachine/eventset/{id}/inuse")]
+        public Task<DependentObjectCheckResult> CheckEventSetInUseAsync(string id)
+        {
+            return _deviceAdminManager.CheckInUseEventSetAsync(id, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
+        /// State Set - Check In Use
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("/api/statemachine/stateset/{id}/inuse")]
+        public Task<DependentObjectCheckResult> CheckStateSetInUseAsync(string id)
+        {
+            return _deviceAdminManager.CheckInUseStateSetAsync(id, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
+        /// State Machine - Check In Use
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("/api/statemachine/{id}/inuse")]
+        public Task<DependentObjectCheckResult> CheckStateMachineInUseAsync(string id)
+        {
+            return _deviceAdminManager.CheckInUseStateMachineAsync(id, OrgEntityHeader, UserEntityHeader);
+        }
+        #endregion
+
+        #region Query Key In Use
         /// <summary>
         /// State Machine - Key in use
         /// </summary>
         /// <returns>Instance of Unit Set that can be populated.</returns>
-        [HttpGet("keyinuse/{key}")]
+        [HttpGet("/api/statemachine/{key}/keyinuse")]
         public async Task<bool> StateMachineKeyInUse(String key)
         {
             return await _deviceAdminManager.QueryStateMachineKeyInUseAsync(key, CurrentOrgId);
@@ -78,7 +263,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// State Machine - Key in use
         /// </summary>
         /// <returns>Instance of Unit Set that can be populated.</returns>
-        [HttpGet("stateset/keyinuse/{key}")]
+        [HttpGet("/api/statemachine/stateset/{key}/keyinuse")]
         public async Task<bool> StateSetKeyInUse(String key)
         {
             return await _deviceAdminManager.QueryStateSetKeyInUseAsync(key, CurrentOrgId);
@@ -88,197 +273,58 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// State Machine - Key in use
         /// </summary>
         /// <returns>Instance of Unit Set that can be populated.</returns>
-        [HttpGet("eventset/keyinuse/{key}")]
+        [HttpGet("/api/statemachine/eventset/{key}/keyinuse")]
         public async Task<bool> EventSetKeyInUse(String key)
         {
             return await _deviceAdminManager.QueryEventSetKeyInUseAsync(key, CurrentOrgId);
         }
+        #endregion
 
+        #region Factories
         /// <summary>
-        /// State Machine - Add New
+        /// State Machine - Create New
         /// </summary>
-        /// <param name="stateMachine"></param>
         /// <returns></returns>
-        [HttpPost()]
-        public Task AddStateMachine([FromBody] StateMachine stateMachine)
+        [HttpGet("/api/statemachine/factory")]
+        public DetailResponse<StateMachine> NewStateMachine()
         {
-            return _deviceAdminManager.AddStateMachineAsync(stateMachine, UserEntityHeader, OrgEntityHeader);
-        }
+            var stateMachine = DetailResponse<StateMachine>.Create();
+            stateMachine.Model.Id = Guid.NewGuid().ToId();
+            SetOwnedProperties(stateMachine.Model);
+            SetAuditProperties(stateMachine.Model);
 
-        /// <summary>
-        /// State Machine - Update
-        /// </summary>
-        /// <param name="stateMachine"></param>
-        /// <returns></returns>
-        [HttpPut()]
-        public Task UpdateStateMachine([FromBody] StateMachine stateMachine)
-        {
-            return _deviceAdminManager.UpdateStateMachineAsync(stateMachine, UserEntityHeader);
-        }
-
-        /// <summary>
-        /// State Machines - Get for org
-        /// </summary>
-        /// <param name="orgId">Organization Id</param>
-        /// <returns></returns>
-        [HttpGet("statemachines/{orgid}")]
-        public async Task<ListResponse<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId)
-        {
-            var stateMachines = await _deviceAdminManager.GetStateMachinesForOrgAsync(orgId);
-            var response = ListResponse<StateMachineSummary>.Create(stateMachines);
-
-            return response;
-        }
-
-        /// <summary>
-        /// State Machine - Get Detail
-        /// </summary>
-        /// <param name="statemachineid"></param>
-        /// <returns></returns>
-        [HttpGet("{statemachineid}")]
-        public async Task<DetailResponse<StateMachine>> GetStateMachineAsync(String statemachineid)
-        {
-            var stateMachine = await _deviceAdminManager.GetStateMachineAsync(statemachineid, OrgEntityHeader);
-
-            var response = DetailResponse<StateMachine>.Create(stateMachine);
-
-            return response;
-        }
-
-
-        /// <summary>
-        /// State Machine - Get Detail
-        /// </summary>
-        /// <param name="stateSetId"></param>
-        /// <returns></returns>
-        [HttpGet("stateset/{stateSetId}")]
-        public async Task<DetailResponse<StateSet>> GetStateSet(String stateSetId)
-        {
-            var stateMachine = await _deviceAdminManager.GetStateSetAsync(stateSetId, OrgEntityHeader);
-
-            var response = DetailResponse<StateSet>.Create(stateMachine);
-
-            return response;
-        }
-
-        /// <summary>
-        /// Event Machine - Get Detail
-        /// </summary>
-        /// <param name="eventSetId"></param>
-        /// <returns></returns>
-        [HttpGet("eventset/{eventSetId}")]
-        public async Task<DetailResponse<EventSet>> GetEventSet(String eventSetId)
-        {
-            var eventSet = await _deviceAdminManager.GetEventSetAsync(eventSetId, OrgEntityHeader);
-
-            var response = DetailResponse<EventSet>.Create(eventSet);
-            return response;
-        }
-
-
-
-        /// <summary>
-        /// Event Sets - Get for org
-        /// </summary>
-        /// <param name="orgId">Organization Id</param>
-        /// <returns></returns>
-        [HttpGet("eventsets/{orgid}")]
-        public async Task<ListResponse<EventSetSummary>> GetEventSetsForOrgAsync(String orgId)
-        {
-            var eventSets = await _deviceAdminManager.GetEventSetsForOrgAsync(orgId);
-            return ListResponse<EventSetSummary>.Create(eventSets);
-        }
-
-
-        /// <summary>
-        /// State Set - Get for org
-        /// </summary>
-        /// <param name="orgId">Organization Id</param>
-        /// <returns></returns>
-        [HttpGet("statesets/{orgid}")]
-        public async Task<ListResponse<StateSetSummary>> GetStateSetsForOrgAsync(String orgId)
-        {
-            var stateSets = await _deviceAdminManager.GetStateSetsForOrgAsync(orgId);
-            return ListResponse<StateSetSummary>.Create(stateSets);
-        }
-
-
-        /// <summary>
-        /// State Set - Add
-        /// </summary>
-        /// <param name="stateSet"></param>
-        /// <returns></returns>
-        [HttpPost("stateset")]
-        public Task AddStateSet([FromBody] StateSet stateSet)
-        {
-            return _deviceAdminManager.AddStateSetAsync(stateSet, UserEntityHeader, OrgEntityHeader);
-        }
-
-        /// <summary>
-        /// Event Set - Add
-        /// </summary>
-        /// <param name="eventSet"></param>
-        /// <returns></returns>
-        [HttpPost("eventset")]
-        public Task AddEventSet([FromBody] EventSet eventSet)
-        {
-            return _deviceAdminManager.AddEventSetAsync(eventSet, UserEntityHeader, OrgEntityHeader);
-        }
-
-        /// <summary>
-        ///  State Set - Update
-        /// </summary>
-        /// <param name="stateSet"></param>
-        /// <returns></returns>
-        [HttpPut("stateset")]
-        public Task UpdateStateSet([FromBody] StateSet stateSet)
-        {
-            return _deviceAdminManager.UpdateStateSetAsync(stateSet, UserEntityHeader);
-        }
-
-        /// <summary>
-        /// Update Event - Set
-        /// </summary>
-        /// <param name="eventSet"></param>
-        /// <returns></returns>
-        [HttpPut("eventset")]
-        public Task UpdateEventSet([FromBody] EventSet eventSet)
-        {
-            return _deviceAdminManager.UpdateEventSetAsync(eventSet, UserEntityHeader);
+            return stateMachine;
         }
 
         /// <summary>
         /// State Set - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("factory/stateset")]
+        [HttpGet("/api/statemachine/stateset/factory")]
         public DetailResponse<StateSet> CreateStateSet()
         {
             var response = DetailResponse<StateSet>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
-            response.Model.States = new List<State>();
+            response.Model.Id = Guid.NewGuid().ToId();            
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
             return response;
         }
 
-
         /// <summary>
         ///  State - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("factory/state")]
+        [HttpGet("/api/statemachine/state/factory")]
         public DetailResponse<State> CreatState()
         {
-            var response = DetailResponse<State>.Create();
-            return response;
+            return DetailResponse<State>.Create();
         }
 
         /// <summary>
-        /// State Set - Create New
+        /// Event Set - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("factory/eventset")]
+        [HttpGet("/api/statemachine/eventset/factory")]
         public DetailResponse<EventSet> CreateEventSet()
         {
             var response = DetailResponse<EventSet>.Create();
@@ -288,27 +334,25 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             return response;
         }
 
-
         /// <summary>
-        ///  State Event - Create New
+        ///  Event - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("factory/event")]
+        [HttpGet("/api/statemachine/event/factory")]
         public DetailResponse<Event> CreateEvent()
         {
-            var response = DetailResponse<Event>.Create();
-            return response;
+            return DetailResponse<Event>.Create();
         }
 
         /// <summary>
-        ///  State - Create New
+        ///  Transition - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("factory/transition")]
+        [HttpGet("/api/statemachine/transition/factory")]
         public DetailResponse<StateTransition> CreateTransition()
         {
-            var response = DetailResponse<StateTransition>.Create();
-            return response;
+            return DetailResponse<StateTransition>.Create();
         }
+        #endregion
     }
 }

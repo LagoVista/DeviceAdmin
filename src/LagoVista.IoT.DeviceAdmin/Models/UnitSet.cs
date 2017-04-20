@@ -11,7 +11,7 @@ using System.Collections.ObjectModel;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.UnitSet_Title, Resources.DeviceLibraryResources.Names.UnitSet_Help, Resources.DeviceLibraryResources.Names.UnitSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
-    public class UnitSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity
+    public class UnitSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity
     {
         public String DatabaseName { get; set; }
 

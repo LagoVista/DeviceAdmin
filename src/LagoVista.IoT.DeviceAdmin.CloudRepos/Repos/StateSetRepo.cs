@@ -48,5 +48,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return from item in items
                    select item.CreateStateSetSummary();
         }
+
+        public Task DeleteStateSetAsync(string stateSetId)
+        {
+            return DeleteDocumentAsync(stateSetId);
+        }
     }
 }

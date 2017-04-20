@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.StateSet_Title, Resources.DeviceLibraryResources.Names.StateSet_Help, Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
-    public class StateSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity
+    public class StateSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity
     {
         public StateSet()
         {
-            States = new List<State>();
+            States = new List<State>();            
         }
 
         public String DatabaseName { get; set; }

@@ -15,27 +15,12 @@ using LagoVista.UserAdmin.Models.Account;
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
     [Authorize]
-    [Route("api/deviceadmin/factory")]
+    [Route("/api/deviceadmin/factory")]
     public class DeviceAdminFactory : LagoVistaBaseController
     {
         public DeviceAdminFactory(UserManager<AppUser> userManager, ILogger logger) : base(userManager, logger)
         {
 
-        }
-
-        private void SetAuditProperties(IAuditableEntity entity)
-        {
-            var createDate = DateTime.Now.ToJSONString();
-
-            entity.CreationDate = createDate;
-            entity.LastUpdatedDate = createDate;
-            entity.CreatedBy = UserEntityHeader;
-            entity.LastUpdatedBy = UserEntityHeader;
-        }
-
-        private void SetOwnedProperties(IOwnedEntity entity)
-        {
-            entity.OwnerOrganization = OrgEntityHeader;
         }
 
         /// <summary>
@@ -46,35 +31,6 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         public DetailResponse<UnitSet> CreateUnitSet()
         {
             var response = DetailResponse<UnitSet>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
-            SetAuditProperties(response.Model);
-            SetOwnedProperties(response.Model);
-            return response;
-        }
-
-        /// <summary>
-        /// Shared Attribute - Create New
-        /// </summary>
-        /// <returns>Instance of Unit Set that can be populated.</returns>
-        [HttpGet("sharedattribute")]
-        public DetailResponse<SharedAttribute> CreateSharedAttribute()
-        {
-            var response = DetailResponse<SharedAttribute>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
-            SetAuditProperties(response.Model);
-            SetOwnedProperties(response.Model);
-            return response;
-        }
-
-
-        /// <summary>
-        /// Shared Action - Create New
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("sharedaction")]
-        public DetailResponse<SharedAction> CreateSharedAction()
-        {
-            var response = DetailResponse<SharedAction>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
@@ -110,7 +66,6 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             return response;
         }
 
-
         /// <summary>
         /// Input Command - Create New
         /// </summary>
@@ -125,7 +80,6 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             return response;
         }
 
-
         /// <summary>
         ///  Device Workflow - Create New
         /// </summary>
@@ -135,25 +89,8 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         {
             var response = DetailResponse<DeviceWorkflow>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
-            response.Model.InputCommands = new List<IoT.DeviceAdmin.Models.InputCommand>();
-            response.Model.Attributes = new List<IoT.DeviceAdmin.Models.Attribute>();
-            response.Model.StateMachines = new List<StateMachine>();
-            response.Model.Inputs = new List<WorkflowInput>();
-            response.Model.OutputCommands = new List<OutputCommand>();
-            response.Model.Pages = new List<Page>
-            {
-                new Page()
-                {
-                    PageNumber = 1,
-                    Name = DeviceLibraryResources.Common_PageNumberOne
-                }
-            };
-            response.Model.Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
-            response.Model.ConfigurationVersion = 0.1;
-
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
-
             return response;
         }
 
@@ -178,8 +115,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         [HttpGet("parameter")]
         public DetailResponse<IoT.DeviceAdmin.Models.Parameter> CreateInputParameter()
         {
-            var parameter = DetailResponse<IoT.DeviceAdmin.Models.Parameter>.Create();
-            return parameter;
+            return  DetailResponse<IoT.DeviceAdmin.Models.Parameter>.Create();
         }
 
         /// <summary>
@@ -191,7 +127,6 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         {
             var response = DetailResponse<ActionParameter>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
-
             return response;
         }
 
@@ -207,7 +142,6 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             return response;
         }
 
-
         /// <summary>
         ///  Attribute - Create New
         /// </summary>
@@ -216,14 +150,11 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         public DetailResponse<IoT.DeviceAdmin.Models.Attribute> CreateAttribute()
         {
             var response = DetailResponse<IoT.DeviceAdmin.Models.Attribute>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
-            response.Model.AttributeType = new Core.Models.EntityHeader() { Id = "-1" };
-    
+            response.Model.Id = Guid.NewGuid().ToId();        
             SetOwnedProperties(response.Model);
             SetAuditProperties(response.Model);
             return response;
         }
-
 
         /// <summary>
         ///  Unit - Create New
@@ -232,16 +163,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         [HttpGet("unit")]
         public DetailResponse<Unit> CreatUnit()
         {
-            var response = DetailResponse<Unit>.Create();
-            response.Model.IsDefault = true;
-            response.Model.ConversionType = new Core.Models.EntityHeader()
-            {
-                Text = "Factor",
-                Id = "factor"
-            };
-            response.Model.ConversionFactor = 1.0;
-
-            return response;
+            return DetailResponse<Unit>.Create();
         }
 
         /// <summary>

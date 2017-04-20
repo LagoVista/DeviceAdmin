@@ -12,6 +12,25 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class DeviceWorkflow : IoTModelBase, IOwnedEntity, IValidateable, IKeyedEntity, INoSQLEntity, IPipelineModuleConfiguration
     {
+        public DeviceWorkflow()
+        {
+            InputCommands = new List<InputCommand>();
+            Attributes = new List<Attribute>();
+            StateMachines = new List<StateMachine>();
+            Inputs = new List<WorkflowInput>();
+            OutputCommands = new List<OutputCommand>();
+            Pages = new List<Page>
+            {
+                new Page()
+                {
+                    PageNumber = 1,
+                    Name = DeviceLibraryResources.Common_PageNumberOne
+                }
+            };
+            Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
+            ConfigurationVersion = 0.1;
+        }
+
         public String DatabaseName { get; set; }
 
         public String EntityType { get; set; }

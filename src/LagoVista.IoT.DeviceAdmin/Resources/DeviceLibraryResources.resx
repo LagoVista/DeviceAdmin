@@ -552,9 +552,6 @@
   <data name="StateMachine_Variables_Help" xml:space="preserve">
     <value>A set of simple variables can be defined that will be availble through out the life time of your state machine.  These variables will be available to custom scripts or a REST Get action.   These variables should be considered Public Read and and Private Write.  That is to say that they can only be modified via actions triggered within the state machine or state machine initialization.</value>
   </data>
-  <data name="SharedAttribute_Title" xml:space="preserve">
-    <value>Shared Attribute</value>
-  </data>
   <data name="StateMachine_Title" xml:space="preserve">
     <value>State Machine</value>
   </data>
@@ -641,21 +638,6 @@
   </data>
   <data name="NodeRedFlow_Title" xml:space="preserve">
     <value>Node Red Flow</value>
-  </data>
-  <data name="SharedAction_Description" xml:space="preserve">
-    <value>A stanard action is template or an action that can be added to many device configurations.  What makes this powerful is that the devices can be queried for any devices that implement the action and can be used in common scripts.  From a programming standpoint a Standard Action is analogous to a method description on an interface.</value>
-  </data>
-  <data name="SharedAction_Help" xml:space="preserve">
-    <value>A stanard action is template or an action that can be added to many device configurations.  What makes this powerful is that the devices can be queried for any devices that implement the action and can be used in common scripts.  From a programming standpoint a Standard Action is analogous to a method description on an interface.</value>
-  </data>
-  <data name="SharedAction_Title" xml:space="preserve">
-    <value>Shared Action</value>
-  </data>
-  <data name="SharedAttribute_Description" xml:space="preserve">
-    <value>A Standard Attribute is an Attribute that is common to many Device Configurations and can be used to include devices that implement a set of Standard Attributes into a device group.</value>
-  </data>
-  <data name="SharedAttribute_Help" xml:space="preserve">
-    <value>A Standard Attribute is an Attribute that is common to many Device Configurations and can be used to include devices that implement a set of Standard Attributes into a device group.</value>
   </data>
   <data name="StateMachineEvent_Description" xml:space="preserve">
     <value>An Event is something that can be applied to a StateMachine as the event is applied it will determine the current state and then optionally perform an action and transition to a new state if the current state is configured to handle this event.</value>

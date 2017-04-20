@@ -13,5 +13,6 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
         Task<IEnumerable<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync(string orgId);
         Task UpdateDeviceWorkflowAsync(DeviceWorkflow workflow);
         Task<bool> QueryKeyInUseAsync(string key, string orgId);
+        Task DeleteDeviceWorkflowAsync(string id);
     }
 }

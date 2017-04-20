@@ -5,22 +5,19 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Generic;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
+using System;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class UnitSetRepo : DocumentDBRepoBase<UnitSet>, IUnitSetRepo
     {
+        private bool _shouldConsolidateCollections;
+
         public UnitSetRepo(IDeviceRepoSettings settings, ILogger logger) : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, logger)
         {
-
+            _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
         }
-        protected override bool ShouldConsolidateCollections
-        {
-            get
-            {
-                return true;
-            }
-        }
+        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public Task AddUnitSetAsync(UnitSet unitSet)
         {
@@ -49,6 +46,11 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 
             return from item in items
                    select item.CreateUnitSetSummary();
+        }
+
+        public Task DeleteUnitSetAsync(string unitSetId)
+        {
+            return DeleteDocumentAsync(unitSetId);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.StateMachine_Title, Resources.DeviceLibraryResources.Names.StateMachine_UserHelp, Resources.DeviceLibraryResources.Names.StateMachine_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class StateMachine : NodeBase, IValidateable, INoSQLEntity
-    {
+    {        
         public String DatabaseName { get; set; }
 
         public String EntityType { get; set; }
@@ -22,6 +22,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Variables = new ObservableCollection<CustomField>();
             InitialActions = new ObservableCollection<EntityHeader>();
             Pages = new ObservableCollection<Page>();
+
+            Pages.Add(new Page()
+            {
+                PageNumber = 1,
+                Name = DeviceLibraryResources.Common_PageNumberOne
+            });
         }
     
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_InitialState, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]

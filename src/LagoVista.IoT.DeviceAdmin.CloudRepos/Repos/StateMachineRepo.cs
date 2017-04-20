@@ -18,14 +18,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }
 
-        protected override bool ShouldConsolidateCollections
-        {
-            get
-            {
-                return _shouldConsolidateCollections;
-            }
-        }
-
+        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public Task AddStateMachineAsync(StateMachine stateMachine)
         {
@@ -54,6 +47,11 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 
             return from item in items
                    select item.CreateSummary();
+        }
+
+        public Task DeleteStateMachineAsync(string stateMachineId)
+        {
+            return DeleteDocumentAsync(stateMachineId);
         }
     }
 }

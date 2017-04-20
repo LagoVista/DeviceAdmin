@@ -16,9 +16,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Parameters = new List<ActionParameter>();
         }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Action_Shared, HelpResource: Resources.DeviceLibraryResources.Names.Action_Standard_Help, FieldType: FieldTypes.ChildItem, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
-        public SharedAction SharedAction { get; set; }
-
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Action_Script, HelpResource: Resources.DeviceLibraryResources.Names.Action_ExecuteFromScript_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
         public String Script { get; set; }
 

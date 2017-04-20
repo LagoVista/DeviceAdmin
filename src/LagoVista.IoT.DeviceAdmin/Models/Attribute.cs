@@ -14,7 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public Attribute()
         {
-
+            AttributeType = new Core.Models.EntityHeader() { Id = "-1" };
         }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType, EnumType:(typeof(ParameterTypes)), HelpResource: Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), WaterMark:Resources.DeviceLibraryResources.Names.Attribute_AttributeType_Select, IsRequired: true, IsUserEditable: true)]

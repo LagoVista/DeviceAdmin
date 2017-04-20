@@ -8,25 +8,25 @@ using System.Threading.Tasks;
 using LagoVista.Core.Models;
 using LagoVista.Core;
 using LagoVista.Core.Validation;
+using LagoVista.Core.Managers;
+using LagoVista.Core.PlatformSupport;
+using LagoVista.Core.Interfaces;
 
 namespace LagoVista.IoT.DeviceAdmin.Managers
 {
-    public class DeviceAdminManager : IDeviceAdminManager
+    public class DeviceAdminManager : ManagerBase, IDeviceAdminManager
     {
         IDeviceWorkflowRepo _deviceWorkflowRepo;
-        ISharedActionRepo _sharedActionRepo;
-        ISharedAtributeRepo _sharedAttributeRepo;
         IUnitSetRepo _unitSetRepo;
         IStateMachineRepo _stateMachineRepo;
         IStateSetRepo _stateSetRepo;
         IEventSetRepo _eventSetRepo;
 
-        public DeviceAdminManager( ISharedActionRepo sharedActionRepo, IDeviceWorkflowRepo deviceWorkflowRepo, ISharedAtributeRepo sharedAttributeRepo,
-            IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo, IStateSetRepo stateSetRepo, IEventSetRepo eventSetRepo)
+        public DeviceAdminManager(IDeviceWorkflowRepo deviceWorkflowRepo, IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo, IStateSetRepo stateSetRepo, IEventSetRepo eventSetRepo,
+            ILogger logger, IAppConfig appConfig) :
+            base(logger, appConfig)
         {
             _deviceWorkflowRepo = deviceWorkflowRepo;
-            _sharedActionRepo = sharedActionRepo;
-            _sharedAttributeRepo = sharedAttributeRepo;
             _unitSetRepo = unitSetRepo;
             _stateMachineRepo = stateMachineRepo;
             _stateSetRepo = stateSetRepo;
@@ -35,228 +35,107 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
 
         public async Task<InvokeResult> AddStateMachineAsync(StateMachine stateMachine, EntityHeader org, EntityHeader user)
         {
-            var result = Validator.Validate(stateMachine, Actions.Create);
-            if (result.IsValid)
-            {
-                await _stateMachineRepo.AddStateMachineAsync(stateMachine);
-            }
+            await AuthorizeAsync(stateMachine, AuthorizeResult.AuthorizeActions.Create, user, org);
+            ValidationCheck(stateMachine, Actions.Create);
+            await _stateMachineRepo.AddStateMachineAsync(stateMachine);
+            return InvokeResult.Success;
 
-            return result.ToActionResult();
-
-        }
-
-        public async Task<InvokeResult> AddSharedActionAsync(SharedAction sharedAction, EntityHeader org, EntityHeader user)
-        {
-            var result = Validator.Validate(sharedAction, Actions.Create);
-            if (result.IsValid)
-            {
-                await _sharedActionRepo.AddSharedActionAsync(sharedAction);
-            }
-
-            return result.ToActionResult();
-        }
-
-        public async Task<InvokeResult> AddSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader org, EntityHeader user)
-        {
-            var result = Validator.Validate(sharedAttribute, Actions.Create);
-            if (result.IsValid)
-            {
-                await _sharedAttributeRepo.AddSharedAttributeAsync(sharedAttribute);
-            }
-
-            return result.ToActionResult();
         }
 
         public async Task<InvokeResult> AddUnitSetAsync(UnitSet unitSet, EntityHeader org, EntityHeader user)
         {
-            var result = Validator.Validate(unitSet, Actions.Create);
-            if (result.IsValid)
-            {
-
-                await _unitSetRepo.AddUnitSetAsync(unitSet);
-            }
-
-            return result.ToActionResult();
+            await AuthorizeAsync(unitSet, AuthorizeResult.AuthorizeActions.Create, user, org);
+            ValidationCheck(unitSet, Actions.Create);
+            await _unitSetRepo.AddUnitSetAsync(unitSet);
+            return InvokeResult.Success;
         }
 
         public async Task<InvokeResult> AddStateSetAsync(StateSet stateSet, EntityHeader org, EntityHeader user)
         {
-            var result = Validator.Validate(stateSet, Actions.Create);
-            if (result.IsValid)
-            {
-                await _stateSetRepo.AddStateSetAsync(stateSet);
-            }
-
-            return result.ToActionResult();
+            await AuthorizeAsync(stateSet, AuthorizeResult.AuthorizeActions.Create, user, org);
+            ValidationCheck(stateSet, Actions.Create);
+            await _stateSetRepo.AddStateSetAsync(stateSet);
+            return InvokeResult.Success;
         }
 
         public async Task<InvokeResult> AddEventSetAsync(EventSet eventSet, EntityHeader org, EntityHeader user)
         {
-            var result = Validator.Validate(eventSet, Actions.Create);
-            if (result.IsValid)
-            {
-                await _eventSetRepo.AddEventSetAsync(eventSet);
-            }
-
-            return result.ToActionResult();
+            await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Create, user, org);
+            ValidationCheck(eventSet, Actions.Create);
+            await _eventSetRepo.AddEventSetAsync(eventSet);
+            return InvokeResult.Success;
         }
 
         public async Task<InvokeResult> AddDeviceWorkflowAsync(DeviceWorkflow deviceWorkflow, EntityHeader org, EntityHeader user)
         {
-            var result = Validator.Validate(deviceWorkflow, Actions.Create);
+            await AuthorizeAsync(deviceWorkflow, AuthorizeResult.AuthorizeActions.Create, user, org);
+            ValidationCheck(deviceWorkflow, Actions.Create);
+            await _deviceWorkflowRepo.AddDeviceWorkflowAsync(deviceWorkflow);
+            return InvokeResult.Success;
+        }
 
-            if (result.IsValid)
-            {
-                await _deviceWorkflowRepo.AddDeviceWorkflowAsync(deviceWorkflow);
-            }
+        public async Task<InvokeResult> UpdateStateMachineAsync(StateMachine stateMachine, EntityHeader org, EntityHeader user)
+        {
+            await AuthorizeAsync(stateMachine, AuthorizeResult.AuthorizeActions.Update, user, org);
+            ValidationCheck(stateMachine, Actions.Update);
+            stateMachine.LastUpdatedBy = user;
+            stateMachine.LastUpdatedDate = DateTime.Now.ToJSONString();
+            await _stateMachineRepo.UpdateStateMachineAsync(stateMachine);
+            return InvokeResult.Success;
+        }
 
-            return result.ToActionResult();
+        public async Task<InvokeResult> UpdateUnitSetAsync(UnitSet unitSet, EntityHeader org, EntityHeader user)
+        {
+            await AuthorizeAsync(unitSet, AuthorizeResult.AuthorizeActions.Update, user, org);
+            ValidationCheck(unitSet, Actions.Update);
+            unitSet.LastUpdatedBy = user;
+            unitSet.LastUpdatedDate = DateTime.Now.ToJSONString();
+            await _unitSetRepo.UpdateUnitSetAsync(unitSet);
+            return InvokeResult.Success;
+        }
+
+        public async Task<InvokeResult> UpdateDeviceWorkflowAsync(DeviceWorkflow deviceWorkflow, EntityHeader org, EntityHeader user)
+        {
+            await AuthorizeAsync(deviceWorkflow, AuthorizeResult.AuthorizeActions.Update, user, org);
+            ValidationCheck(deviceWorkflow, Actions.Update);
+            deviceWorkflow.LastUpdatedBy = user;
+            deviceWorkflow.LastUpdatedDate = DateTime.Now.ToJSONString();
+            await _deviceWorkflowRepo.UpdateDeviceWorkflowAsync(deviceWorkflow);
+            return InvokeResult.Success;
         }
 
 
-        public async Task<InvokeResult> UpdateStateMachineAsync(StateMachine stateMachine, EntityHeader user)
+        public async Task<InvokeResult> UpdateStateSetAsync(StateSet stateSet, EntityHeader org, EntityHeader user)
         {
-            var result = Validator.Validate(stateMachine, Actions.Create);
-
-            if (result.IsValid)
-            {
-                stateMachine.LastUpdatedBy = user;
-                stateMachine.LastUpdatedDate = DateTime.Now.ToJSONString();
-
-                await _stateMachineRepo.UpdateStateMachineAsync(stateMachine);
-            }
-
-            return result.ToActionResult();
+            await AuthorizeAsync(stateSet, AuthorizeResult.AuthorizeActions.Update, user, org);
+            ValidationCheck(stateSet, Actions.Update);
+            stateSet.LastUpdatedBy = user;
+            stateSet.LastUpdatedDate = DateTime.Now.ToJSONString();
+            await _stateSetRepo.UpdateStateSetAsync(stateSet);
+            return InvokeResult.Success;
         }
 
-        public async Task<InvokeResult> UpdateSharedActionAsync(SharedAction sharedAction, EntityHeader user)
+        public async Task<InvokeResult> UpdateEventSetAsync(EventSet eventSet, EntityHeader org, EntityHeader user)
         {
-            var result = Validator.Validate(sharedAction, Actions.Create);
-
-            if (result.IsValid)
-            {
-                sharedAction.LastUpdatedBy = user;
-                sharedAction.LastUpdatedDate = DateTime.Now.ToJSONString();
-                await _sharedActionRepo.UpdateSharedActionAsync(sharedAction);
-            }
-
-            return result.ToActionResult();
-
+            await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Update, user, org);
+            ValidationCheck(eventSet, Actions.Update);
+            eventSet.LastUpdatedBy = user;
+            eventSet.LastUpdatedDate = DateTime.Now.ToJSONString();
+            await _eventSetRepo.UpdateEventSetAsync(eventSet);
+            return InvokeResult.Success;
         }
 
-        public async Task<InvokeResult> UpdateSharedAttributeAsync(SharedAttribute sharedAttribute, EntityHeader user)
-        {
-            var result = Validator.Validate(sharedAttribute, Actions.Create);
-
-            if (result.IsValid)
-            {
-                sharedAttribute.LastUpdatedBy = user;
-                sharedAttribute.LastUpdatedDate = DateTime.Now.ToJSONString();
-
-                await _sharedAttributeRepo.UpdateSharedAttributeAsync(sharedAttribute);
-            }
-
-            return result.ToActionResult();
-        }
-
-        public async Task<InvokeResult> UpdateUnitSetAsync(UnitSet unitSet, EntityHeader user)
-        {
-            var result = Validator.Validate(unitSet, Actions.Create);
-
-            if (result.IsValid)
-            {
-                unitSet.LastUpdatedBy = user;
-                unitSet.LastUpdatedDate = DateTime.Now.ToJSONString();
-                await _unitSetRepo.UpdateUnitSetAsync(unitSet);
-            }
-
-            return result.ToActionResult();
-        }    
-
-        public async Task<InvokeResult> UpdateDeviceWorkflowAsync(DeviceWorkflow deviceWorkflow, EntityHeader user)
-        {
-            var result = Validator.Validate(deviceWorkflow, Actions.Create);
-
-            if (result.IsValid)
-            {
-                deviceWorkflow.LastUpdatedBy = user;
-                deviceWorkflow.LastUpdatedDate = DateTime.Now.ToJSONString();
-                await _deviceWorkflowRepo.UpdateDeviceWorkflowAsync(deviceWorkflow);
-            }
-
-            return result.ToActionResult();
-        }
-
-
-        public async Task<InvokeResult> UpdateStateSetAsync(StateSet stateSet, EntityHeader user)
-        {
-            var result = Validator.Validate(stateSet, Actions.Create);
-
-            if (result.IsValid)
-            {
-                stateSet.LastUpdatedBy = user;
-                stateSet.LastUpdatedDate = DateTime.Now.ToJSONString();
-                await _stateSetRepo.UpdateStateSetAsync(stateSet);
-            }
-
-            return result.ToActionResult();
-        }
-
-        public async Task<InvokeResult> UpdateEventSetAsync(EventSet eventSet, EntityHeader user)
-        {
-            var result = Validator.Validate(eventSet, Actions.Create);
-
-            if (result.IsValid)
-            {
-                eventSet.LastUpdatedBy = user;
-                eventSet.LastUpdatedDate = DateTime.Now.ToJSONString();
-                await _eventSetRepo.UpdateEventSetAsync(eventSet);
-            }
-
-            return result.ToActionResult();
-        }
-
-        public async Task<StateMachine> GetStateMachineAsync(String id, EntityHeader org)
+        public async Task<StateMachine> GetStateMachineAsync(String id, EntityHeader org, EntityHeader user)
         {
             var stateMachine = await _stateMachineRepo.GetStateMachineAsync(id);
-            if (!stateMachine.IsPublic && stateMachine.OwnerOrganization != org)
-            {
-                throw new Exception();
-            }
-
+            await AuthorizeAsync(stateMachine, AuthorizeResult.AuthorizeActions.Read, user, org);
             return stateMachine;
         }
 
-        public async Task<SharedAction> GetSharedActionAsync(String id, EntityHeader org)
-        {
-            var sharedAction = await _sharedActionRepo.GetSharedActionAsync(id);
-            if (!sharedAction.IsPublic && sharedAction.OwnerOrganization != org)
-            {
-                throw new Exception();
-            }
-
-            return  sharedAction ;
-        }
-
-        public async Task<SharedAttribute> GetSharedAttributeAsync(String id, EntityHeader org)
-        {
-            var sharedAttribute = await _sharedAttributeRepo.GetSharedAttributeAsync(id);
-            if (!sharedAttribute.IsPublic && sharedAttribute.OwnerOrganization.Id != org.Id)
-            {
-                throw new Exception();
-            }
-
-            return  sharedAttribute ;
-        }
-
-        public async Task<UnitSet> GetAttributeUnitSetAsync(String id, EntityHeader org)
+        public async Task<UnitSet> GetUnitSetAsync(String id, EntityHeader org, EntityHeader user)
         {
             var unitSet = await _unitSetRepo.GetUnitSetAsync(id);
-            if (!unitSet.IsPublic && (unitSet.OwnerOrganization.Id != org.Id))
-            {
-                throw new Exception();
-            }
-
+            await AuthorizeAsync(unitSet, AuthorizeResult.AuthorizeActions.Read, user, org);
             return unitSet;
         }
 
@@ -265,14 +144,10 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return _unitSetRepo.GetUnitSetAsync(id);
         }
 
-        public async Task<DeviceWorkflow> GetDeviceWorkflowAsync(String id, EntityHeader org)
+        public async Task<DeviceWorkflow> GetDeviceWorkflowAsync(String id, EntityHeader org, EntityHeader user)
         {
             var deviceWorkflow = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(id);
-            if (!deviceWorkflow.IsPublic && deviceWorkflow.OwnerOrganization.Id != org.Id)
-            {
-                throw new Exception();
-            }            
-
+            await AuthorizeAsync(deviceWorkflow, AuthorizeResult.AuthorizeActions.Read, user, org);
             return deviceWorkflow;
         }
 
@@ -309,14 +184,10 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return deviceWorkflow;
         }
 
-        public async Task<StateSet> GetStateSetAsync(String id, EntityHeader org)
+        public async Task<StateSet> GetStateSetAsync(String id, EntityHeader org, EntityHeader user)
         {
             var stateSet = await _stateSetRepo.GetStateSetAsync(id);
-            if (!stateSet.IsPublic && (stateSet.OwnerOrganization.Id != org.Id))
-            {
-                throw new Exception();
-            }
-
+            await AuthorizeAsync(stateSet, AuthorizeResult.AuthorizeActions.Read, user, org);
             return stateSet;
         }
 
@@ -325,57 +196,48 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return _stateSetRepo.GetStateSetAsync(id);
         }
 
-        public async Task<EventSet> GetEventSetAsync(String id, EntityHeader org)
+        public async Task<EventSet> GetEventSetAsync(String id, EntityHeader org, EntityHeader user)
         {
             var eventSet = await _eventSetRepo.GetEventSetAsync(id);
-            if (!eventSet.IsPublic && (eventSet.OwnerOrganization.Id != org.Id))
-            {
-                throw new Exception();
-            }
-
+            await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Read, user, org);
             return eventSet;
         }
 
         public Task<EventSet> LoadEventSetAsync(String id)
-        {
+        {            
             return _eventSetRepo.GetEventSetAsync(id);
         }
 
-        public Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId)
+        public async Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId, EntityHeader user)
         {
-            return _stateMachineRepo.GetStateMachinesForOrgAsync(orgId);
+            await AuthorizeOrgAccess(user, orgId, typeof(StateMachine));
+            return await _stateMachineRepo.GetStateMachinesForOrgAsync(orgId);
         }
 
-        public Task<IEnumerable<UnitSetSummary>> GetUnitSetsForOrgAsync(String orgId)
+        public async Task<IEnumerable<UnitSetSummary>> GetUnitSetsForOrgAsync(String orgId, EntityHeader user)
         {
-            return _unitSetRepo.GetUnitSetsForOrgAsync(orgId);
+            await AuthorizeOrgAccess(user, orgId, typeof(UnitSet));
+            return await _unitSetRepo.GetUnitSetsForOrgAsync(orgId);
         }
 
-        public Task<IEnumerable<SharedAttributeSummary>> GetSharedAttributesForOrgAsync(String orgId)
+        public async Task<IEnumerable<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgsAsync(String orgId, EntityHeader user)
         {
-            return _sharedAttributeRepo.GetSharedAttributesForOrgAsync(orgId);
+            await AuthorizeOrgAccess(user, orgId, typeof(DeviceWorkflow));
+            return await _deviceWorkflowRepo.GetDeviceWorkflowsForOrgAsync(orgId);
         }
 
-        public Task<IEnumerable<SharedActionSummary>> GetSharedActionsForOrgAsync(String orgId)
+        public async Task<IEnumerable<StateSetSummary>> GetStateSetsForOrgAsync(String orgId, EntityHeader user)
         {
-            return _sharedActionRepo.GetSharedActionsForOrgAsync(orgId);
+            await AuthorizeOrgAccess(user, orgId, typeof(StateSet));
+            return await _stateSetRepo.GetStateSetsForOrgAsync(orgId);
         }
 
-        public Task<IEnumerable<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgsAsync(String orgId)
+        public async Task<IEnumerable<EventSetSummary>> GetEventSetsForOrgAsync(String orgId, EntityHeader user)
         {
-            return _deviceWorkflowRepo.GetDeviceWorkflowsForOrgAsync(orgId);
+            await AuthorizeOrgAccess(user, orgId, typeof(EventSet));
+            return await _eventSetRepo.GetEventSetsForOrgAsync(orgId);
         }
 
-        public Task<IEnumerable<StateSetSummary>> GetStateSetsForOrgAsync(String orgId)
-        {
-            return _stateSetRepo.GetStateSetsForOrgAsync(orgId);
-        }
-
-        public Task<IEnumerable<EventSetSummary>> GetEventSetsForOrgAsync(String orgId)
-        {
-            return _eventSetRepo.GetEventSetsForOrgAsync(orgId);
-        }
-      
 
         public Task<bool> QueryDeviceWorkflowKeyInUseAsync(String key, String orgId)
         {
@@ -392,15 +254,6 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return _unitSetRepo.QueryKeyInUseAsync(key, orgId);
         }
 
-        public Task<bool> QuerySharedActionKeyInUseAsync(String key, String orgId)
-        {
-            return _sharedActionRepo.QueryKeyInUseAsync(key, orgId);
-        }
-
-        public Task<bool> QuerySharedAttributeKeyInUseAsync(String key, String orgId)
-        {
-            return _sharedAttributeRepo.QueryKeyInUseAsync(key, orgId);
-        }
 
         public Task<bool> QueryStateSetKeyInUseAsync(String key, String orgId)
         {
@@ -412,5 +265,86 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return _eventSetRepo.QueryKeyInUseAsync(key, orgId);
         }
 
+        public async Task<InvokeResult> DeleteDeviceWorkflowAsync(string workflowId, EntityHeader org, EntityHeader user)
+        {
+            var deviceWorkflow = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(workflowId);
+            await AuthorizeAsync(deviceWorkflow, AuthorizeResult.AuthorizeActions.Delete, user, org);
+            await ConfirmNoDepenenciesAsync(deviceWorkflow);
+            await _deviceWorkflowRepo.DeleteDeviceWorkflowAsync(deviceWorkflow.Id);
+
+            return InvokeResult.Success;
+        }
+
+        public async Task<InvokeResult> DeleteStateMachineAsync(string stateMachineId, EntityHeader org, EntityHeader user)
+        {
+            var stateMachine = await _stateMachineRepo.GetStateMachineAsync(stateMachineId);
+            await AuthorizeAsync(stateMachine, AuthorizeResult.AuthorizeActions.Delete, user, org);
+            await ConfirmNoDepenenciesAsync(stateMachine);
+            await _stateMachineRepo.DeleteStateMachineAsync(stateMachineId);
+
+            return InvokeResult.Success;
+        }
+
+        public async Task<InvokeResult> DeleteUnitSetAsync(string unitSetId, EntityHeader org, EntityHeader user)
+        {
+            var unitSet = await _unitSetRepo.GetUnitSetAsync(unitSetId);
+            await AuthorizeAsync(unitSet, AuthorizeResult.AuthorizeActions.Delete, user, org);
+            await ConfirmNoDepenenciesAsync(unitSet);
+            await _unitSetRepo.DeleteUnitSetAsync(unitSetId);
+            return InvokeResult.Success;
+        }
+
+        public async Task<InvokeResult> DeleteStateSetAsync(string stateSetId, EntityHeader org, EntityHeader user)
+        {
+            var stateSet = await _stateSetRepo.GetStateSetAsync(stateSetId);
+            await AuthorizeAsync(stateSet, AuthorizeResult.AuthorizeActions.Delete, user, org);
+            await ConfirmNoDepenenciesAsync(stateSet);
+            await _stateSetRepo.DeleteStateSetAsync(stateSetId);
+            return InvokeResult.Success;
+        }
+
+        public async Task<InvokeResult> DeleteEventSetAsync(string eventSetId, EntityHeader org, EntityHeader user)
+        {
+            var eventSet = await _eventSetRepo.GetEventSetAsync(eventSetId);
+            await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Delete, user, org);
+            await ConfirmNoDepenenciesAsync(eventSet);
+            await _eventSetRepo.DeleteEventSetAsync(eventSetId);
+            return InvokeResult.Success;
+        }
+
+        public async Task<DependentObjectCheckResult> CheckInUseDeviceWorkflowAsync(string workflowId, EntityHeader org, EntityHeader user)
+        {
+            var eventSet = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(workflowId);
+            await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Read, user, org);
+            return await CheckDepenenciesAsync(eventSet);
+        }
+
+        public async Task<DependentObjectCheckResult> CheckInUseStateMachineAsync(string stateMachineId, EntityHeader org, EntityHeader user)
+        {
+            var stateMachine = await _stateMachineRepo.GetStateMachineAsync(stateMachineId);
+            await AuthorizeAsync(stateMachine, AuthorizeResult.AuthorizeActions.Read, user, org);
+            return await CheckDepenenciesAsync(stateMachine);
+        }
+
+        public async Task<DependentObjectCheckResult> CheckInUseUnitSetAsync(string unitSetId, EntityHeader org, EntityHeader user)
+        {
+            var unitSet = await _unitSetRepo.GetUnitSetAsync(unitSetId);
+            await AuthorizeAsync(unitSet, AuthorizeResult.AuthorizeActions.Read, user, org);
+            return await CheckDepenenciesAsync(unitSet);
+        }
+
+        public async Task<DependentObjectCheckResult> CheckInUseStateSetAsync(string stateSetId, EntityHeader org, EntityHeader user)
+        {
+            var stateSet = await _stateSetRepo.GetStateSetAsync(stateSetId);
+            await AuthorizeAsync(stateSet, AuthorizeResult.AuthorizeActions.Read, user, org);
+            return await CheckDepenenciesAsync(stateSet);
+        }
+
+        public async  Task<DependentObjectCheckResult> CheckInUseEventSetAsync(string eventSetId, EntityHeader org, EntityHeader user)
+        {
+            var eventSet = await _eventSetRepo.GetEventSetAsync(eventSetId);
+            await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Read, user, org);
+            return await CheckDepenenciesAsync(eventSet);
+        }
     }
 }

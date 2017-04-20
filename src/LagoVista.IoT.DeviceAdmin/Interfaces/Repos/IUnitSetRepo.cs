@@ -13,5 +13,6 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
         Task UpdateUnitSetAsync(UnitSet unitSet);
         Task<IEnumerable<UnitSetSummary>> GetUnitSetsForOrgAsync(string orgId);
         Task<bool> QueryKeyInUseAsync(String key, String orgId);
+        Task DeleteUnitSetAsync(string unitSetId);
     }
 }

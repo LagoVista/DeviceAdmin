@@ -8,44 +8,32 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using LagoVista.IoT.Web.Common.Controllers;
-using System.Collections.Generic;
 using LagoVista.Core.Validation;
-using Newtonsoft.Json;
 using LagoVista.UserAdmin.Models.Account;
+using LagoVista.Core.Models;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
 
     [Authorize]
-    [Route("api/deviceadmin")]
     public class DeviceAdminController : LagoVistaBaseController
     {
-        IDeviceAdminManager _attrManager;
+        IDeviceAdminManager _deviceAdminManager;
 
         public DeviceAdminController(UserManager<AppUser> userManager, ILogger logger, IDeviceAdminManager attrManager) : base(userManager, logger)
         {
-            _attrManager = attrManager;
+            _deviceAdminManager = attrManager;
         }
 
+        #region Unit Set
         /// <summary>
         /// Unit Set - Key in Use
         /// </summary>
         /// <returns></returns>
-        [HttpGet("attributeunitset/keyinuse/{key}")]
+        [HttpGet("/api/deviceadmin/unitset/keyinuse/{key}")]
         public Task<bool> UnitSetKeyInUse(String key)
         {
-            return _attrManager.QueryAttributeUnitSetKeyInUseAsync(key, CurrentOrgId);
-        }
-
-        /// <summary>
-        /// Environment - Get List of Hosting Environments
-        /// </summary>
-        /// <returns>List of current environments for org</returns>
-        [HttpGet("environments")]
-        public InvokeResult<List<LagoVista.IoT.DeviceAdmin.Models.Environment>> GetEnvironmentList()
-        {
-            //TODO: Eventually we will add to this, for now we have dev/test/prod
-            return new InvokeResult<List<IoT.DeviceAdmin.Models.Environment>>() { Result = LagoVista.IoT.DeviceAdmin.Models.Environment.GetStandardList() };
+            return _deviceAdminManager.QueryAttributeUnitSetKeyInUseAsync(key, CurrentOrgId);
         }
 
         /// <summary>
@@ -53,10 +41,10 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="unitSet"></param>
         /// <returns></returns>
-        [HttpPost("unitset")]
+        [HttpPost("/api/deviceadmin/unitset")]
         public Task<InvokeResult> AddUnitSet([FromBody] UnitSet unitSet)
         {
-            return _attrManager.AddUnitSetAsync(unitSet, OrgEntityHeader, UserEntityHeader);
+            return _deviceAdminManager.AddUnitSetAsync(unitSet, OrgEntityHeader, UserEntityHeader);
         }
 
         /// <summary>
@@ -64,10 +52,22 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="unitSet"></param>
         /// <returns></returns>
-        [HttpPut("unitset")]
+        [HttpPut("/api/deviceadmin/unitset")]
         public Task<InvokeResult> UpdateUnitSet([FromBody] UnitSet unitSet)
         {
-            return _attrManager.UpdateUnitSetAsync(unitSet, UserEntityHeader);
+            SetUpdatedProperties(unitSet);
+            return _deviceAdminManager.UpdateUnitSetAsync(unitSet, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
+        /// UnitSet - Check In Use
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("/api/deviceadmin/unitset/{id}/inuse")]
+        public Task<DependentObjectCheckResult> CheckUnitSetInUseAsync(string id)
+        {
+            return _deviceAdminManager.CheckInUseUnitSetAsync(id, OrgEntityHeader, UserEntityHeader);
         }
 
         /// <summary>
@@ -75,10 +75,10 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("unitsets/{orgid}")]
-        public async Task<ListResponse<UnitSetSummary>> GetAttributeUnitSets(String orgId)
+        [HttpGet("/api/orgs/{orgid}/deviceadmin/unitsets")]
+        public async Task<ListResponse<UnitSetSummary>> GetUnitSetsForOrgAsync(String orgId)
         {
-            var unitSets = await _attrManager.GetUnitSetsForOrgAsync(orgId);
+            var unitSets = await _deviceAdminManager.GetUnitSetsForOrgAsync(orgId, UserEntityHeader);
             var response = ListResponse<UnitSetSummary>.Create(unitSets);
 
             return response;
@@ -89,151 +89,38 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="unitsetid"></param>
         /// <returns></returns>
-        [HttpGet("unitset/{unitsetid}")]
-        public async Task<DetailResponse<UnitSet>> GetAttributeSet(String unitsetid)
+        [HttpGet("/api/deviceadmin/unitset/{unitsetid}")]
+        public async Task<DetailResponse<UnitSet>> GetUnitSetAsync(String unitsetid)
         {
-            var unitSet = await _attrManager.GetAttributeUnitSetAsync(unitsetid, OrgEntityHeader);
+            var unitSet = await _deviceAdminManager.GetUnitSetAsync(unitsetid, OrgEntityHeader, UserEntityHeader);
 
             var response = DetailResponse<UnitSet>.Create(unitSet);
 
             return response;
         }
 
-
         /// <summary>
-        /// Shared Attribute - Key in use 
+        /// Unit Set - Delete
         /// </summary>
-        /// <returns>.</returns>
-        [HttpGet("sharedattribute/keyinuse/{key}")]
-        public Task<bool> SharedAttributeKeyInUse(String key)
-        {
-            return _attrManager.QuerySharedAttributeKeyInUseAsync(key, CurrentOrgId);
-        }
-
-        /// <summary>
-        /// Shared Attribute - Add New
-        /// </summary>
-        /// <param name="sharedAttribute"></param>
+        /// <param name="unitsetid"></param>
         /// <returns></returns>
-        [HttpPost("sharedattribute")]
-        public Task<InvokeResult> AddSharedAttributeAsync([FromBody] SharedAttribute sharedAttribute)
+        [HttpDelete("/api/deviceadmin/unitset/{unitsetid}")]
+        public Task<InvokeResult> DeleteUnitSetAsync(String unitsetid)
         {
-            return _attrManager.AddSharedAttributeAsync(sharedAttribute, OrgEntityHeader, UserEntityHeader);
+            return _deviceAdminManager.DeleteUnitSetAsync(unitsetid, OrgEntityHeader, UserEntityHeader);
         }
+        #endregion
 
-        /// <summary>
-        /// Shared Attribute - Update
-        /// </summary>
-        /// <param name="sharedAttribute"></param>
-        /// <returns></returns>
-        [HttpPut("sharedattribute")]
-        public Task<InvokeResult> UpdateSharedAttribute([FromBody] SharedAttribute sharedAttribute)
-        {
-            return _attrManager.UpdateSharedAttributeAsync(sharedAttribute, UserEntityHeader);
-        }
-
-        /// <summary>
-        /// Shared Attributes - Get for Org
-        /// </summary>
-        /// <param name="orgId">Organization Id</param>
-        /// <returns></returns>
-        [HttpGet("sharedattributes/{orgid}")]
-        public async Task<ListResponse<SharedAttributeSummary>> GetSharedAttributesForOrg(String orgId)
-        {
-            var sharedAttributes = await _attrManager.GetSharedAttributesForOrgAsync(orgId);
-            var response = ListResponse<SharedAttributeSummary>.Create(sharedAttributes);
-
-            return response;
-        }
-
-        /// <summary>
-        /// Shared Attribute - Get Details
-        /// </summary>
-        /// <param name="sharedattributeid"></param>
-        /// <returns></returns>
-        [HttpGet("sharedattribute/{sharedattributeid}")]
-        public async Task<DetailResponse<SharedAttribute>> GetSharedAttributeAsync(String sharedattributeid)
-        {
-            var sharedAttribute = await _attrManager.GetSharedAttributeAsync(sharedattributeid, OrgEntityHeader);
-
-            var response = DetailResponse<SharedAttribute>.Create(sharedAttribute);
-
-            return response;
-        }
-
-
-        /// <summary>
-        /// Shared Action - Key In Use
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("sharedaction/keyinuse/{key}")]
-        public async Task<bool> SharedActionKeyInUse(String key)
-        {
-            return await _attrManager.QuerySharedActionKeyInUseAsync(key, CurrentOrgId);
-        }
-
-        /// <summary>
-        /// Shared Action - Add New
-        /// </summary>
-        /// <param name="sharedAction"></param>
-        /// <returns></returns>
-        [HttpPost("sharedaction")]
-        public Task<InvokeResult> AddSharedActionAsync([FromBody] SharedAction sharedAction)
-        {
-            return _attrManager.AddSharedActionAsync(sharedAction, UserEntityHeader, OrgEntityHeader);
-        }
-
-        /// <summary>
-        /// Shared Action - Update
-        /// </summary>
-        /// <param name="sharedAction"></param>
-        /// <returns></returns>
-        [HttpPut("sharedaction")]
-        public Task<InvokeResult> UpdateSharedAction([FromBody] SharedAction sharedAction)
-        {
-            return _attrManager.UpdateSharedActionAsync(sharedAction, UserEntityHeader);
-        }
-
-        /// <summary>
-        /// Shared Action - Get for Org
-        /// </summary>
-        /// <param name="orgId">Organization Id</param>
-        /// <returns></returns>
-        [HttpGet("sharedactions/{orgid}")]
-        public async Task<ListResponse<SharedActionSummary>> GetSharedActionsForOrg(String orgId)
-        {
-            var sharedAttributes = await _attrManager.GetSharedActionsForOrgAsync(orgId);
-            var response = ListResponse<SharedActionSummary>.Create(sharedAttributes);
-
-            return response;
-        }
-
-        /// <summary>
-        /// Shared Action - Get
-        /// </summary>
-        /// <param name="sharedactionid"></param>
-        /// <returns></returns>
-        [HttpGet("sharedaction/{sharedactionid}")]
-        public async Task<DetailResponse<SharedAction>> GetSharedActionAsync(String sharedactionid)
-        {
-            var sharedAttribute = await _attrManager.GetSharedActionAsync(sharedactionid, OrgEntityHeader);
-
-            var response = DetailResponse<SharedAction>.Create(sharedAttribute);
-
-            return response;
-        }    
-
-        /********** Device Workflows *****/
-
+        #region Device Workflow
         /// <summary>
         /// Device Workflow - Add New
         /// </summary>
         /// <param name="deviceWorkflow"></param>
         /// <returns></returns>
-        [HttpPost("deviceworkflow")]
+        [HttpPost("/api/deviceadmin/deviceworkflow")]
         public Task<InvokeResult> AddDeviceWorkflowAsync([FromBody] DeviceWorkflow deviceWorkflow)
         {
-            return _attrManager.AddDeviceWorkflowAsync(deviceWorkflow, OrgEntityHeader, UserEntityHeader);
+            return _deviceAdminManager.AddDeviceWorkflowAsync(deviceWorkflow, OrgEntityHeader, UserEntityHeader);
         }
 
         /// <summary>
@@ -241,10 +128,11 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="workflow"></param>
         /// <returns></returns>
-        [HttpPut("deviceworkflow")]
+        [HttpPut("/api/deviceadmin/deviceworkflow")]
         public Task<InvokeResult> UpdateDeviceWorkflowAsync([FromBody] DeviceWorkflow workflow)
         {
-            return _attrManager.UpdateDeviceWorkflowAsync(workflow, UserEntityHeader);
+            SetUpdatedProperties(workflow);
+            return _deviceAdminManager.UpdateDeviceWorkflowAsync(workflow, OrgEntityHeader, UserEntityHeader);
         }
 
         /// <summary>
@@ -252,12 +140,11 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("deviceworkflows/{orgid}")]
+        [HttpGet("/api/orgs/{orgid}/deviceadmin/deviceworkflows")]
         public async Task<ListResponse<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync(String orgId)
         {
-            var deviceWorkflows = await _attrManager.GetDeviceWorkflowsForOrgsAsync(orgId);
-            var response = ListResponse<DeviceWorkflowSummary>.Create(deviceWorkflows);
-            return response;
+            var deviceWorkflows = await _deviceAdminManager.GetDeviceWorkflowsForOrgsAsync(orgId, UserEntityHeader);
+            return ListResponse<DeviceWorkflowSummary>.Create(deviceWorkflows);
         }
 
         /// <summary>
@@ -265,26 +152,45 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="deviceWorkflowId"></param>
         /// <returns></returns>
-        [HttpGet("deviceworkflow/{deviceWorkflowId}")]
+        [HttpGet("/api/deviceadmin/deviceworkflow/{deviceWorkflowId}")]
         public async Task<DetailResponse<DeviceWorkflow>> GetDeviceWorkflowAsync(String deviceWorkflowId)
         {
-            var deviceWorkflow = await _attrManager.GetDeviceWorkflowAsync(deviceWorkflowId, OrgEntityHeader);
-
-            var response = DetailResponse<DeviceWorkflow>.Create(deviceWorkflow);
-
-            return response;
+            var deviceWorkflow = await _deviceAdminManager.GetDeviceWorkflowAsync(deviceWorkflowId, OrgEntityHeader, UserEntityHeader);
+            return DetailResponse<DeviceWorkflow>.Create(deviceWorkflow);
         }
 
         /// <summary>
-        /// Device Config - Key In Use
+        /// Device Workflow - Key In Use
         /// </summary>
         /// <returns></returns>
-        [HttpGet("deviceworkflows/keyinuse/{key}")]
+        [HttpGet("/api/deviceadmin/deviceworkflows/keyinuse/{key}")]
         public Task<bool> DeviceWorkflowsKeyInUse(String key)
         {
-            return _attrManager.QueryDeviceWorkflowKeyInUseAsync(key, CurrentOrgId);
+            return _deviceAdminManager.QueryDeviceWorkflowKeyInUseAsync(key, CurrentOrgId);
         }
 
 
+        /// <summary>
+        /// UnitSet - Check In Use
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("/api/deviceadmin/deviceworkflows/{id}/inuse")]
+        public Task<DependentObjectCheckResult> CheckDeviceWorkflowInUseAsync(string id)
+        {
+            return _deviceAdminManager.CheckInUseDeviceWorkflowAsync(id, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
+        /// Device Workflow - Delete
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete("/api/deviceadmin/deviceworkflows/{id}")]
+        public Task<InvokeResult> DeleteDeviceWorkflowAsync(String id)
+        {
+            return _deviceAdminManager.DeleteDeviceWorkflowAsync(id, OrgEntityHeader, UserEntityHeader);
+        }
+        #endregion
     }
 }
