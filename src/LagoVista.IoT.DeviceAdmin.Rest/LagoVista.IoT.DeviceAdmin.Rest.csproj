@@ -22,8 +22,8 @@
  
   <ItemGroup>
     <PackageReference Include="LagoVista.Core" Version="0.8.123-alpha01157" />
-    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.123-alpha01201" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="0.8.123-alpha01189" />
+    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.139-alpha01353" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="0.8.140-alpha00923" />
         
     <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.1" />
@@ -31,7 +31,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
     
     
-    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.2.1" />
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.2.2" />
     <PackageReference Include="WindowsAzure.Storage" Version="8.1.1" />
   </ItemGroup>
 
