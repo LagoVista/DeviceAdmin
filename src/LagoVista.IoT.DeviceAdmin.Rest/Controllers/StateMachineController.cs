@@ -146,7 +146,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("/api/orgs/{orgid}/statemachines")]
+        [HttpGet("/api/org/{orgid}/statemachines")]
         public async Task<ListResponse<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId)
         {
             var stateMachines = await _deviceAdminManager.GetStateMachinesForOrgAsync(orgId, UserEntityHeader);
@@ -158,7 +158,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("/api/orgs/{orgid}/statemachine/eventsets")]
+        [HttpGet("/api/org/{orgid}/statemachine/eventsets")]
         public async Task<ListResponse<EventSetSummary>> GetEventSetsForOrgAsync(String orgId)
         {
             var eventSets = await _deviceAdminManager.GetEventSetsForOrgAsync(orgId, UserEntityHeader);
@@ -170,7 +170,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("/api/orgs/{orgid}/statemachine/statesets")]
+        [HttpGet("/api/org/{orgid}/statemachine/statesets")]
         public async Task<ListResponse<StateSetSummary>> GetStateSetsForOrgAsync(String orgId)
         {
             var stateSets = await _deviceAdminManager.GetStateSetsForOrgAsync(orgId, UserEntityHeader);
