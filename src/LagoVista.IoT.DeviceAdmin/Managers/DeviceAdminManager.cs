@@ -22,9 +22,9 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         IStateSetRepo _stateSetRepo;
         IEventSetRepo _eventSetRepo;
 
-        public DeviceAdminManager(IDeviceWorkflowRepo deviceWorkflowRepo, IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo, IStateSetRepo stateSetRepo, IEventSetRepo eventSetRepo,
-            ILogger logger, IAppConfig appConfig) :
-            base(logger, appConfig)
+        public DeviceAdminManager(IDeviceWorkflowRepo deviceWorkflowRepo, IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo, 
+            IStateSetRepo stateSetRepo, IEventSetRepo eventSetRepo, IDependencyManager depManager, ISecurity securityManager, ILogger logger, IAppConfig appConfig) :
+            base(logger, appConfig, depManager, securityManager)
         {
             _deviceWorkflowRepo = deviceWorkflowRepo;
             _unitSetRepo = unitSetRepo;
@@ -204,7 +204,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         }
 
         public Task<EventSet> LoadEventSetAsync(String id)
-        {            
+        {
             return _eventSetRepo.GetEventSetAsync(id);
         }
 
@@ -316,35 +316,35 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         {
             var eventSet = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(workflowId);
             await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Read, user, org);
-            return await CheckDepenenciesAsync(eventSet);
+            return await CheckForDepenenciesAsync(eventSet);
         }
 
         public async Task<DependentObjectCheckResult> CheckInUseStateMachineAsync(string stateMachineId, EntityHeader org, EntityHeader user)
         {
             var stateMachine = await _stateMachineRepo.GetStateMachineAsync(stateMachineId);
             await AuthorizeAsync(stateMachine, AuthorizeResult.AuthorizeActions.Read, user, org);
-            return await CheckDepenenciesAsync(stateMachine);
+            return await CheckForDepenenciesAsync(stateMachine);
         }
 
         public async Task<DependentObjectCheckResult> CheckInUseUnitSetAsync(string unitSetId, EntityHeader org, EntityHeader user)
         {
             var unitSet = await _unitSetRepo.GetUnitSetAsync(unitSetId);
             await AuthorizeAsync(unitSet, AuthorizeResult.AuthorizeActions.Read, user, org);
-            return await CheckDepenenciesAsync(unitSet);
+            return await CheckForDepenenciesAsync(unitSet);
         }
 
         public async Task<DependentObjectCheckResult> CheckInUseStateSetAsync(string stateSetId, EntityHeader org, EntityHeader user)
         {
             var stateSet = await _stateSetRepo.GetStateSetAsync(stateSetId);
             await AuthorizeAsync(stateSet, AuthorizeResult.AuthorizeActions.Read, user, org);
-            return await CheckDepenenciesAsync(stateSet);
+            return await CheckForDepenenciesAsync(stateSet);
         }
 
-        public async  Task<DependentObjectCheckResult> CheckInUseEventSetAsync(string eventSetId, EntityHeader org, EntityHeader user)
+        public async Task<DependentObjectCheckResult> CheckInUseEventSetAsync(string eventSetId, EntityHeader org, EntityHeader user)
         {
             var eventSet = await _eventSetRepo.GetEventSetAsync(eventSetId);
             await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Read, user, org);
-            return await CheckDepenenciesAsync(eventSet);
+            return await CheckForDepenenciesAsync(eventSet);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// <param name="stateMachine"></param>
         /// <returns></returns>
         [HttpPost("/api/statemachine")]
-        public Task AddStateMachine([FromBody] StateMachine stateMachine)
+        public Task<InvokeResult> AddStateMachine([FromBody] StateMachine stateMachine)
         {
             return _deviceAdminManager.AddStateMachineAsync(stateMachine, OrgEntityHeader, UserEntityHeader);
         }
@@ -47,7 +47,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// <param name="eventSet"></param>
         /// <returns></returns>
         [HttpPost("/api/statemachine/eventset")]
-        public Task AddEventSet([FromBody] EventSet eventSet)
+        public Task<InvokeResult> AddEventSet([FromBody] EventSet eventSet)
         {
             return _deviceAdminManager.AddEventSetAsync(eventSet, OrgEntityHeader, UserEntityHeader);
         }
@@ -58,7 +58,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// <param name="stateSet"></param>
         /// <returns></returns>
         [HttpPost("/api/statemachine/stateset")]
-        public Task AddStateSet([FromBody] StateSet stateSet)
+        public Task<InvokeResult> AddStateSet([FromBody] StateSet stateSet)
         {
             return _deviceAdminManager.AddStateSetAsync(stateSet, OrgEntityHeader, UserEntityHeader);
         }
@@ -71,7 +71,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// <param name="stateMachine"></param>
         /// <returns></returns>
         [HttpPut("/api/statemachine")]
-        public Task UpdateStateMachine([FromBody] StateMachine stateMachine)
+        public Task<InvokeResult> UpdateStateMachine([FromBody] StateMachine stateMachine)
         {
             SetUpdatedProperties(stateMachine);
             return _deviceAdminManager.UpdateStateMachineAsync(stateMachine, OrgEntityHeader, UserEntityHeader);
@@ -83,7 +83,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// <param name="stateSet"></param>
         /// <returns></returns>
         [HttpPut("/api/statemachine/stateset")]
-        public Task UpdateStateSet([FromBody] StateSet stateSet)
+        public Task<InvokeResult> UpdateStateSet([FromBody] StateSet stateSet)
         {
             SetUpdatedProperties(stateSet);
             return _deviceAdminManager.UpdateStateSetAsync(stateSet, OrgEntityHeader, UserEntityHeader);
@@ -95,7 +95,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// <param name="eventSet"></param>
         /// <returns></returns>
         [HttpPut("/api/statemachine/eventset")]
-        public Task UpdateEventSet([FromBody] EventSet eventSet)
+        public Task<InvokeResult> UpdateEventSet([FromBody] EventSet eventSet)
         {
             SetUpdatedProperties(eventSet);
             return _deviceAdminManager.UpdateEventSetAsync(eventSet, OrgEntityHeader, UserEntityHeader);
