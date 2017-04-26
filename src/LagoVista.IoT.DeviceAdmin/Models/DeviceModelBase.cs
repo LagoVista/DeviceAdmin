@@ -14,7 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public IoTModelBase()
         {
             Notes = new ObservableCollection<AdminNote>();
-            ValidationErrors = new ObservableCollection<ValidationMessage>();
+            ValidationErrors = new ObservableCollection<ErrorMessage>();
             IsValid = true;
         }
 
@@ -57,7 +57,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public bool IsValid { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_ValidationErrors, FieldType: FieldTypes.ChildList, IsUserEditable: false, ResourceType:typeof(DeviceLibraryResources))]
-        public ObservableCollection<ValidationMessage> ValidationErrors { get; set; }
+        public ObservableCollection<ErrorMessage> ValidationErrors { get; set; }
 
     }
 }
