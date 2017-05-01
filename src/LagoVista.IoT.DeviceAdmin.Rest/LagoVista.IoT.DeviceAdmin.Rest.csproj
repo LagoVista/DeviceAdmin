@@ -1,46 +1,30 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.6|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard1.6\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.6|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard1.6\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
   </PropertyGroup>
-
-
   <ItemGroup>
     <ProjectReference Include="..\LagoVista.IoT.DeviceAdmin.CloudRepos\LagoVista.IoT.DeviceAdmin.CloudRepos.csproj" />
   </ItemGroup>
-
- 
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="0.8.146-alpha01178" />
-    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.144-alpha00967" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="0.8.146-alpha01244" />
-        
+    <PackageReference Include="LagoVista.Core" Version="0.8.151-alpha1547" />
+    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.151-alpha1547" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="0.8.151-alpha1547" />
     <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
-    
-    
     <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.2.2" />
     <PackageReference Include="WindowsAzure.Storage" Version="8.1.1" />
   </ItemGroup>
-
- 
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
-
-  
-
-
 </Project>

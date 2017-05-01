@@ -1,5 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <VersionPrefix>0.8</VersionPrefix>
     <TargetFramework>netstandard1.6</TargetFramework>
@@ -9,9 +8,9 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
-    <PackageReference Include="LagoVista.CloudStorage" Version="0.8.146-alpha01216" />
-    <PackageReference Include="LagoVista.Core" Version="0.8.146-alpha01178" />
-    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.2.2" />    
+    <PackageReference Include="LagoVista.CloudStorage" Version="0.8.151-alpha1547" />
+    <PackageReference Include="LagoVista.Core" Version="0.8.151-alpha1547" />
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="1.2.2" />
     <PackageReference Include="WindowsAzure.Storage" Version="8.1.1" />
   </ItemGroup>
 </Project>
