@@ -9,21 +9,34 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     public enum ParameterTypes
     {
-        [EnumLabel("string", DeviceLibraryResources.Names.Parameter_Types_String, typeof(DeviceLibraryResources))]
+        [EnumLabel(TypeSystem.String, DeviceLibraryResources.Names.Parameter_Types_String, typeof(DeviceLibraryResources))]
         String,
-        [EnumLabel("integer", DeviceLibraryResources.Names.Parameter_Types_Integer, typeof(DeviceLibraryResources))]
+        [EnumLabel(TypeSystem.Integer, DeviceLibraryResources.Names.Parameter_Types_Integer, typeof(DeviceLibraryResources))]
         Integer,
-        [EnumLabel("decimal", DeviceLibraryResources.Names.Parameter_Types_Decimal, typeof(DeviceLibraryResources))]
+        [EnumLabel(TypeSystem.Decimal, DeviceLibraryResources.Names.Parameter_Types_Decimal, typeof(DeviceLibraryResources))]
         Decimal,
-        [EnumLabel("true-false", DeviceLibraryResources.Names.Parameter_Types_TrueFalse, typeof(DeviceLibraryResources))]
+        [EnumLabel(TypeSystem.TrueFalse, DeviceLibraryResources.Names.Parameter_Types_TrueFalse, typeof(DeviceLibraryResources))]
         TrueFalse,
-        [EnumLabel("geolocation", DeviceLibraryResources.Names.Parameter_Types_GeoLocation, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.WorkflowInput_Type_GeoLocation_Help)]
+        [EnumLabel(TypeSystem.Geolocation, DeviceLibraryResources.Names.Parameter_Types_GeoLocation, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.WorkflowInput_Type_GeoLocation_Help)]
         GeoLocation,
-        [EnumLabel("datetime", DeviceLibraryResources.Names.Parameter_Types_DateTime, typeof(DeviceLibraryResources))]
+        [EnumLabel(TypeSystem.DateTime, DeviceLibraryResources.Names.Parameter_Types_DateTime, typeof(DeviceLibraryResources))]
         DateTime,
-        [EnumLabel("states", DeviceLibraryResources.Names.Parameter_Types_States, typeof(DeviceLibraryResources))]
-        States,
-        [EnumLabel("valuewithunit", DeviceLibraryResources.Names.Parameter_Types_ValueWithUnit, typeof(DeviceLibraryResources))]
+        [EnumLabel(TypeSystem.State, DeviceLibraryResources.Names.Parameter_Types_States, typeof(DeviceLibraryResources))]
+        State,
+        [EnumLabel(TypeSystem.ValueWithUnit, DeviceLibraryResources.Names.Parameter_Types_ValueWithUnit, typeof(DeviceLibraryResources))]
         ValueWithUnit,
+    }
+
+    public class TypeSystem
+    {
+        public const string String = "string";
+        public const string Integer = "integer";
+        public const string Decimal = "decimal";
+        public const string TrueFalse = "true-false";
+        public const string Geolocation = "geolocation";
+        public const string DateTime = "datetime";
+        public const string State = "state";
+        public const string ValueWithUnit = "valuewithunit";
+
     }
 }
