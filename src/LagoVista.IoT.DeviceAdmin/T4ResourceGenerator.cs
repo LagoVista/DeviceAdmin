@@ -1,4 +1,4 @@
-﻿/*3/27/2017 12:55:32*/
+﻿/*5/23/2017 11:15:04*/
 using System.Globalization;
 using System.Reflection;
 
@@ -414,12 +414,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Device_Location
 
 		public static string Device_Location { get { return GetResourceString("Device_Location"); } }
-//Resources:DeviceLibraryResources:Device_Manufacturer
-
-		public static string Device_Manufacturer { get { return GetResourceString("Device_Manufacturer"); } }
-//Resources:DeviceLibraryResources:Device_ModelNumber
-
-		public static string Device_ModelNumber { get { return GetResourceString("Device_ModelNumber"); } }
 //Resources:DeviceLibraryResources:Device_Online
 
 		public static string Device_Online { get { return GetResourceString("Device_Online"); } }
@@ -441,6 +435,21 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:DeviceConfiguration_Version
 
 		public static string DeviceConfiguration_Version { get { return GetResourceString("DeviceConfiguration_Version"); } }
+//Resources:DeviceLibraryResources:DeviceType_Description
+
+		public static string DeviceType_Description { get { return GetResourceString("DeviceType_Description"); } }
+//Resources:DeviceLibraryResources:DeviceType_Help
+
+		public static string DeviceType_Help { get { return GetResourceString("DeviceType_Help"); } }
+//Resources:DeviceLibraryResources:DeviceType_Manufacturer
+
+		public static string DeviceType_Manufacturer { get { return GetResourceString("DeviceType_Manufacturer"); } }
+//Resources:DeviceLibraryResources:DeviceType_ModelNumber
+
+		public static string DeviceType_ModelNumber { get { return GetResourceString("DeviceType_ModelNumber"); } }
+//Resources:DeviceLibraryResources:DeviceType_Title
+
+		public static string DeviceType_Title { get { return GetResourceString("DeviceType_Title"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_Attributes
 
 		public static string DeviceWorkflow_Attributes { get { return GetResourceString("DeviceWorkflow_Attributes"); } }
@@ -743,24 +752,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Parameters
 
 		public static string Parameters { get { return GetResourceString("Parameters"); } }
-//Resources:DeviceLibraryResources:SharedAction_Description
-
-		public static string SharedAction_Description { get { return GetResourceString("SharedAction_Description"); } }
-//Resources:DeviceLibraryResources:SharedAction_Help
-
-		public static string SharedAction_Help { get { return GetResourceString("SharedAction_Help"); } }
-//Resources:DeviceLibraryResources:SharedAction_Title
-
-		public static string SharedAction_Title { get { return GetResourceString("SharedAction_Title"); } }
-//Resources:DeviceLibraryResources:SharedAttribute_Description
-
-		public static string SharedAttribute_Description { get { return GetResourceString("SharedAttribute_Description"); } }
-//Resources:DeviceLibraryResources:SharedAttribute_Help
-
-		public static string SharedAttribute_Help { get { return GetResourceString("SharedAttribute_Help"); } }
-//Resources:DeviceLibraryResources:SharedAttribute_Title
-
-		public static string SharedAttribute_Title { get { return GetResourceString("SharedAttribute_Title"); } }
 //Resources:DeviceLibraryResources:State_Description
 
 		public static string State_Description { get { return GetResourceString("State_Description"); } }
@@ -1271,8 +1262,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Device_IsBatteryPowered = "Device_IsBatteryPowered";
 			public const string Device_LastContact = "Device_LastContact";
 			public const string Device_Location = "Device_Location";
-			public const string Device_Manufacturer = "Device_Manufacturer";
-			public const string Device_ModelNumber = "Device_ModelNumber";
 			public const string Device_Online = "Device_Online";
 			public const string Device_SerialNumber = "Device_SerialNumber";
 			public const string Device_Status = "Device_Status";
@@ -1280,6 +1269,11 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string DeviceConfiguration_Help = "DeviceConfiguration_Help";
 			public const string DeviceConfiguration_Title = "DeviceConfiguration_Title";
 			public const string DeviceConfiguration_Version = "DeviceConfiguration_Version";
+			public const string DeviceType_Description = "DeviceType_Description";
+			public const string DeviceType_Help = "DeviceType_Help";
+			public const string DeviceType_Manufacturer = "DeviceType_Manufacturer";
+			public const string DeviceType_ModelNumber = "DeviceType_ModelNumber";
+			public const string DeviceType_Title = "DeviceType_Title";
 			public const string DeviceWorkflow_Attributes = "DeviceWorkflow_Attributes";
 			public const string DeviceWorkflow_Attributes_Help = "DeviceWorkflow_Attributes_Help";
 			public const string DeviceWorkflow_ConfigVersion = "DeviceWorkflow_ConfigVersion";
@@ -1378,12 +1372,6 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Parameter_Types_TrueFalse = "Parameter_Types_TrueFalse";
 			public const string Parameter_Types_ValueWithUnit = "Parameter_Types_ValueWithUnit";
 			public const string Parameters = "Parameters";
-			public const string SharedAction_Description = "SharedAction_Description";
-			public const string SharedAction_Help = "SharedAction_Help";
-			public const string SharedAction_Title = "SharedAction_Title";
-			public const string SharedAttribute_Description = "SharedAttribute_Description";
-			public const string SharedAttribute_Help = "SharedAttribute_Help";
-			public const string SharedAttribute_Title = "SharedAttribute_Title";
 			public const string State_Description = "State_Description";
 			public const string State_Title = "State_Title";
 			public const string State_UserHelp = "State_UserHelp";
