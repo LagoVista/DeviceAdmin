@@ -15,11 +15,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String EntityType { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_Manufacturer, HelpResource: DeviceLibraryResources.Names.DeviceType_Title, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
-        public string Manufacture { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_Manufacturer, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        public string Manufacturer { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_ModelNumber, HelpResource: DeviceLibraryResources.Names.StateSet_IsLocked_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_ModelNumber, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string ModelNumber { get; set; }
 
         public DeviceTypeSummary CreateSummary()
@@ -28,7 +28,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                  Description = Description,
                  Name = Name,
-                 Id = Name,
+                 Id = Id,
                  Key = Key
             };
         }

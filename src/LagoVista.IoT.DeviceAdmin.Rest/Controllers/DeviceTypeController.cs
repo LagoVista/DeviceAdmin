@@ -52,7 +52,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("/api/org/{orgid}/devicetype")]
+        [HttpGet("/api/org/{orgid}/devicetypes")]
         public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForOrg(String orgId)
         {
             var hostSummaries = await _deviceTypeManager.GetDeviceTypesForOrgsAsync(orgId, UserEntityHeader);
