@@ -14,9 +14,9 @@
     <ProjectReference Include="..\LagoVista.IoT.DeviceAdmin.CloudRepos\LagoVista.IoT.DeviceAdmin.CloudRepos.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="0.8.175-alpha1546" />
-    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.175-alpha1546" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="0.8.175-alpha1546" />
+    <PackageReference Include="LagoVista.Core" Version="0.8.175-alpha1817" />
+    <PackageReference Include="LagoVista.IoT.Web.Common" Version="0.8.175-alpha1817" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="0.8.175-alpha1817" />
     <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="1.1.2" />
