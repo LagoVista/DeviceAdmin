@@ -11,6 +11,7 @@ using LagoVista.Core.Validation;
 using LagoVista.Core.Managers;
 using LagoVista.Core.PlatformSupport;
 using LagoVista.Core.Interfaces;
+using LagoVista.IoT.Logging.Loggers;
 
 namespace LagoVista.IoT.DeviceAdmin.Managers
 {
@@ -23,7 +24,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         IEventSetRepo _eventSetRepo;
 
         public DeviceAdminManager(IDeviceWorkflowRepo deviceWorkflowRepo, IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo, 
-            IStateSetRepo stateSetRepo, IEventSetRepo eventSetRepo, IDependencyManager depManager, ISecurity securityManager, ILogger logger, IAppConfig appConfig) :
+            IStateSetRepo stateSetRepo, IEventSetRepo eventSetRepo, IDependencyManager depManager, ISecurity securityManager, IAdminLogger logger, IAppConfig appConfig) :
             base(logger, appConfig, depManager, securityManager)
         {
             _deviceWorkflowRepo = deviceWorkflowRepo;

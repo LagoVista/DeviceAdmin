@@ -6,13 +6,14 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
+using LagoVista.IoT.Logging.Loggers;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class DeviceWorkflowRepo : DocumentDBRepoBase<DeviceWorkflow>, IDeviceWorkflowRepo
     {
         private bool _shouldConsolidateCollections;
-        public DeviceWorkflowRepo(IDeviceRepoSettings repoSettings, ILogger logger) : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, logger)
+        public DeviceWorkflowRepo(IDeviceRepoSettings repoSettings, IAdminLogger logger) : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, logger)
         {
             _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }

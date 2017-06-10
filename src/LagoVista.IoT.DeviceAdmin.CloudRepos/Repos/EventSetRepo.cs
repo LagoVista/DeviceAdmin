@@ -2,6 +2,7 @@
 using LagoVista.Core.PlatformSupport;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 using LagoVista.IoT.DeviceAdmin.Models;
+using LagoVista.IoT.Logging.Loggers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
     {
         private bool _shouldConsolidateCollections;
 
-        public EventSetRepo(IDeviceRepoSettings settings, ILogger logger) : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, logger)
+        public EventSetRepo(IDeviceRepoSettings settings, IAdminLogger logger) : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, logger)
         {
             _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
         }

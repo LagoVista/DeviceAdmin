@@ -11,6 +11,7 @@ using LagoVista.IoT.Web.Common.Controllers;
 using LagoVista.Core.Validation;
 using LagoVista.UserAdmin.Models.Account;
 using LagoVista.Core.Models;
+using LagoVista.IoT.Logging.Loggers;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
@@ -20,7 +21,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
     {
         IDeviceAdminManager _deviceAdminManager;
 
-        public DeviceAdminController(UserManager<AppUser> userManager, ILogger logger, IDeviceAdminManager attrManager) : base(userManager, logger)
+        public DeviceAdminController(UserManager<AppUser> userManager, IAdminLogger logger, IDeviceAdminManager attrManager) : base(userManager, logger)
         {
             _deviceAdminManager = attrManager;
         }

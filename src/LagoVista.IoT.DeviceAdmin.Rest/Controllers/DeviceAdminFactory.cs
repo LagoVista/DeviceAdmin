@@ -11,6 +11,7 @@ using LagoVista.Core;
 using System.Collections.Generic;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using LagoVista.UserAdmin.Models.Account;
+using LagoVista.IoT.Logging.Loggers;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
@@ -18,7 +19,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
     [Route("/api/deviceadmin/factory")]
     public class DeviceAdminFactory : LagoVistaBaseController
     {
-        public DeviceAdminFactory(UserManager<AppUser> userManager, ILogger logger) : base(userManager, logger)
+        public DeviceAdminFactory(UserManager<AppUser> userManager, IAdminLogger logger) : base(userManager, logger)
         {
 
         }

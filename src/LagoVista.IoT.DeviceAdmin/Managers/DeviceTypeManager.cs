@@ -9,6 +9,7 @@ using LagoVista.Core.Managers;
 using LagoVista.Core.PlatformSupport;
 using LagoVista.Core.Interfaces;
 using static LagoVista.Core.Models.AuthorizeResult;
+using LagoVista.IoT.Logging.Loggers;
 
 namespace LagoVista.IoT.DeviceAdmin.Managers
 {
@@ -16,7 +17,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
     {
         IDeviceTypeRepo _deviceTypeRepo;
 
-        public DeviceTypeManager(IDeviceTypeRepo deviceTypeRepo, IDeviceAdminManager deviceAdminManager, ILogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security) :
+        public DeviceTypeManager(IDeviceTypeRepo deviceTypeRepo, IDeviceAdminManager deviceAdminManager, IAdminLogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security) :
             base(logger, appConfig, depmanager, security)
         {
             _deviceTypeRepo = deviceTypeRepo;

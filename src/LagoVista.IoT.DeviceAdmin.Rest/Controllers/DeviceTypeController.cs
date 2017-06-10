@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using LagoVista.Core;
 using System.Threading.Tasks;
+using LagoVista.IoT.Logging.Loggers;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
@@ -20,7 +21,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
     {
         IDeviceTypeManager _deviceTypeManager;
 
-        public DeviceTypeController(UserManager<AppUser> userManager, ILogger logger, IDeviceTypeManager deviceTypeManager) : base(userManager, logger)
+        public DeviceTypeController(UserManager<AppUser> userManager, IAdminLogger logger, IDeviceTypeManager deviceTypeManager) : base(userManager, logger)
         {
             _deviceTypeManager = deviceTypeManager;
         }
