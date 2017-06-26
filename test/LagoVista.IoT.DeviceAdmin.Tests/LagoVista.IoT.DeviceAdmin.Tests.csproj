@@ -15,7 +15,7 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.0-beta1-build1309" />
     <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
-    <PackageReference Include="LagoVista.Core" Version="1.2.40-alpha1240" />
+    <PackageReference Include="LagoVista.Core" Version="1.2.40-alpha1321" />
     <PackageReference Include="xunit" Version="2.3.0-beta1-build3642" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
