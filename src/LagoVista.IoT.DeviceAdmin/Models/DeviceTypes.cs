@@ -22,21 +22,34 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_ModelNumber, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string ModelNumber { get; set; }
 
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration, HelpResource: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Help, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader DefaultDeviceConfiguration { get; set; }
+
         public DeviceTypeSummary CreateSummary()
         {
-            return new DeviceTypeSummary()
+            var summary = new DeviceTypeSummary()
             {
                  Description = Description,
                  Name = Name,
                  Id = Id,
-                 Key = Key
+                 Key = Key,
             };
+
+            if(DefaultDeviceConfiguration != null && !DefaultDeviceConfiguration.IsEmpty())
+            {
+                summary.DefaultDeviceConfigId = DefaultDeviceConfiguration.Id;
+                summary.DefaultDeviceConfigName = DefaultDeviceConfiguration.Text;
+            }
+
+            return summary;
         }
     }
 
     public class DeviceTypeSummary : SummaryData
     {
-
+        public String DefaultDeviceConfigId { get; set; }
+        public String DefaultDeviceConfigName { get; set; }
     }
 
 }

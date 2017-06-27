@@ -1198,4 +1198,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_Title" xml:space="preserve">
     <value>Device Type</value>
   </data>
+  <data name="DeviceType_DefaultConfiguration" xml:space="preserve">
+    <value>Default Device Configuration</value>
+  </data>
+  <data name="DeviceType_DefaultConfiguration_Help" xml:space="preserve">
+    <value>The Device Configuration will determine how messages from your device are handled.  You can specify a default device configuration for this device type.</value>
+  </data>
 </root>
