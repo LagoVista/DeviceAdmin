@@ -23,7 +23,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public string ModelNumber { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration, HelpResource: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Help, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration, HelpResource: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Help,  WaterMark: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader DefaultDeviceConfiguration { get; set; }
 
         public DeviceTypeSummary CreateSummary()

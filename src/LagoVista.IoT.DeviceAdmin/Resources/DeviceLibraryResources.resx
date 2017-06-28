@@ -1204,4 +1204,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_DefaultConfiguration_Help" xml:space="preserve">
     <value>The Device Configuration will determine how messages from your device are handled.  You can specify a default device configuration for this device type.</value>
   </data>
+  <data name="DeviceType_DefaultConfiguration_Select" xml:space="preserve">
+    <value>-select default configuration-</value>
+  </data>
 </root>
