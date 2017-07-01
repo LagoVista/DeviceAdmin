@@ -30,17 +30,14 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<bool> QueryEventSetKeyInUseAsync(String key, String orgId);
 
         Task<StateMachine> GetStateMachineAsync(string id, EntityHeader org, EntityHeader user);
-        Task<UnitSet> GetUnitSetAsync(string id, EntityHeader org, EntityHeader user);
-        Task<UnitSet> LoadAttributeUnitSetAsync(string id);
-
+        Task<UnitSet> GetAttributeUnitSetAsync(string id, EntityHeader org, EntityHeader user);
+        
         Task<DeviceWorkflow> GetDeviceWorkflowAsync(string id, EntityHeader org, EntityHeader user);
-        Task<DeviceWorkflow> LoadFullDeviceWorkflowAsync(string id);
+        Task<DeviceWorkflow> LoadFullDeviceWorkflowAsync(string id, EntityHeader org, EntityHeader user);
 
         Task<StateSet> GetStateSetAsync(string id, EntityHeader org, EntityHeader user);
-        Task<StateSet> LoadStateSetAsync(String id);
         Task<EventSet> GetEventSetAsync(string id, EntityHeader org, EntityHeader user);
-        Task<EventSet> LoadEventSetAsync(string id);
-
+        
         Task<InvokeResult> UpdateDeviceWorkflowAsync(DeviceWorkflow deviceConfig, EntityHeader org, EntityHeader user);
         Task<InvokeResult> UpdateStateMachineAsync(StateMachine attribute, EntityHeader org, EntityHeader user);
         Task<InvokeResult> UpdateUnitSetAsync(UnitSet unitSet, EntityHeader org, EntityHeader user);

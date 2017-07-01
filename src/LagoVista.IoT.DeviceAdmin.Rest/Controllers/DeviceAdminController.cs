@@ -93,7 +93,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         [HttpGet("/api/deviceadmin/unitset/{unitsetid}")]
         public async Task<DetailResponse<UnitSet>> GetUnitSetAsync(String unitsetid)
         {
-            var unitSet = await _deviceAdminManager.GetUnitSetAsync(unitsetid, OrgEntityHeader, UserEntityHeader);
+            var unitSet = await _deviceAdminManager.GetAttributeUnitSetAsync(unitsetid, OrgEntityHeader, UserEntityHeader);
 
             var response = DetailResponse<UnitSet>.Create(unitSet);
 

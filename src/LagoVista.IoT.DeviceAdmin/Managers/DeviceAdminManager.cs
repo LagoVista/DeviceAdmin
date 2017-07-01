@@ -133,16 +133,11 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return stateMachine;
         }
 
-        public async Task<UnitSet> GetUnitSetAsync(String id, EntityHeader org, EntityHeader user)
+        public async Task<UnitSet> GetAttributeUnitSetAsync(String id, EntityHeader org, EntityHeader user)
         {
             var unitSet = await _unitSetRepo.GetUnitSetAsync(id);
             await AuthorizeAsync(unitSet, AuthorizeResult.AuthorizeActions.Read, user, org);
             return unitSet;
-        }
-
-        public Task<UnitSet> LoadAttributeUnitSetAsync(String id)
-        {
-            return _unitSetRepo.GetUnitSetAsync(id);
         }
 
         public async Task<DeviceWorkflow> GetDeviceWorkflowAsync(String id, EntityHeader org, EntityHeader user)
@@ -152,33 +147,44 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return deviceWorkflow;
         }
 
-        public async Task<DeviceWorkflow> LoadFullDeviceWorkflowAsync(string id)
+        public async Task<DeviceWorkflow> LoadFullDeviceWorkflowAsync(string id, EntityHeader org, EntityHeader user)
         {
             var deviceWorkflow = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(id);
 
+            if (deviceWorkflow.Attributes == null)
+            {
+                deviceWorkflow.Attributes = new List<Models.Attribute>();
+            }
+            
             foreach (var attribute in deviceWorkflow.Attributes)
             {
-                if (attribute.UnitSet.HasValue)
+                if (!EntityHeader.IsNullOrEmpty(attribute.UnitSet))
                 {
-                    attribute.UnitSet.Value = await LoadAttributeUnitSetAsync(attribute.UnitSet.Id);
+                    attribute.UnitSet.Value = await GetAttributeUnitSetAsync(attribute.UnitSet.Id, org, user);
                 }
 
-                if (attribute.StateSet.HasValue)
+                
+                if (!EntityHeader.IsNullOrEmpty(attribute.StateSet))
                 {
-                    attribute.StateSet.Value = await LoadStateSetAsync(attribute.StateSet.Id);
+                    attribute.StateSet.Value = await GetStateSetAsync(attribute.StateSet.Id, org, user);
                 }
+            }
+
+            if(deviceWorkflow.Inputs == null)
+            {
+                deviceWorkflow.Inputs = new List<WorkflowInput>();
             }
 
             foreach (var input in deviceWorkflow.Inputs)
             {
-                if (input.UnitSet.HasValue)
+                if (!EntityHeader.IsNullOrEmpty(input.UnitSet))
                 {
-                    input.UnitSet.Value = await LoadAttributeUnitSetAsync(input.UnitSet.Id);
+                    input.UnitSet.Value = await GetAttributeUnitSetAsync(input.UnitSet.Id, org, user);                    
                 }
 
-                if (input.StateSet.HasValue)
+                if (!EntityHeader.IsNullOrEmpty(input.StateSet))
                 {
-                    input.StateSet.Value = await LoadStateSetAsync(input.StateSet.Id);
+                    input.StateSet.Value = await GetStateSetAsync(input.StateSet.Id, org, user);
                 }
             }
 
@@ -192,23 +198,13 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return stateSet;
         }
 
-        public Task<StateSet> LoadStateSetAsync(String id)
-        {
-            return _stateSetRepo.GetStateSetAsync(id);
-        }
-
         public async Task<EventSet> GetEventSetAsync(String id, EntityHeader org, EntityHeader user)
         {
             var eventSet = await _eventSetRepo.GetEventSetAsync(id);
             await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Read, user, org);
             return eventSet;
         }
-
-        public Task<EventSet> LoadEventSetAsync(String id)
-        {
-            return _eventSetRepo.GetEventSetAsync(id);
-        }
-
+        
         public async Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId, EntityHeader user)
         {
             await AuthorizeOrgAccess(user, orgId, typeof(StateMachine));
