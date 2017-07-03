@@ -207,31 +207,31 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         
         public async Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId, EntityHeader user)
         {
-            await AuthorizeOrgAccess(user, orgId, typeof(StateMachine));
+            await AuthorizeOrgAccessAsync(user, orgId, typeof(StateMachine));
             return await _stateMachineRepo.GetStateMachinesForOrgAsync(orgId);
         }
 
         public async Task<IEnumerable<UnitSetSummary>> GetUnitSetsForOrgAsync(String orgId, EntityHeader user)
         {
-            await AuthorizeOrgAccess(user, orgId, typeof(UnitSet));
+            await AuthorizeOrgAccessAsync(user, orgId, typeof(UnitSet));
             return await _unitSetRepo.GetUnitSetsForOrgAsync(orgId);
         }
 
         public async Task<IEnumerable<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgsAsync(String orgId, EntityHeader user)
         {
-            await AuthorizeOrgAccess(user, orgId, typeof(DeviceWorkflow));
+            await AuthorizeOrgAccessAsync(user, orgId, typeof(DeviceWorkflow));
             return await _deviceWorkflowRepo.GetDeviceWorkflowsForOrgAsync(orgId);
         }
 
         public async Task<IEnumerable<StateSetSummary>> GetStateSetsForOrgAsync(String orgId, EntityHeader user)
         {
-            await AuthorizeOrgAccess(user, orgId, typeof(StateSet));
+            await AuthorizeOrgAccessAsync(user, orgId, typeof(StateSet));
             return await _stateSetRepo.GetStateSetsForOrgAsync(orgId);
         }
 
         public async Task<IEnumerable<EventSetSummary>> GetEventSetsForOrgAsync(String orgId, EntityHeader user)
         {
-            await AuthorizeOrgAccess(user, orgId, typeof(EventSet));
+            await AuthorizeOrgAccessAsync(user, orgId, typeof(EventSet));
             return await _eventSetRepo.GetEventSetsForOrgAsync(orgId);
         }
 

@@ -56,7 +56,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
 
         public async Task<IEnumerable<DeviceTypeSummary>> GetDeviceTypesForOrgsAsync(string orgId, EntityHeader user)
         {
-            await AuthorizeOrgAccess(user, orgId, typeof(DeviceType));
+            await AuthorizeOrgAccessAsync(user, orgId, typeof(DeviceType));
             return await _deviceTypeRepo.GetDeviceTypesForOrgAsync(orgId);
         }
 
