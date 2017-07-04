@@ -9,9 +9,9 @@ using System;
 using System.Threading.Tasks;
 using LagoVista.IoT.Web.Common.Controllers;
 using LagoVista.Core.Validation;
-using LagoVista.UserAdmin.Models.Account;
 using LagoVista.Core.Models;
 using LagoVista.IoT.Logging.Loggers;
+using LagoVista.UserAdmin.Models.Users;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {

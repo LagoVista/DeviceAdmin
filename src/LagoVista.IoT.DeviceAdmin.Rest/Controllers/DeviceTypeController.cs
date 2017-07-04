@@ -5,7 +5,6 @@ using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
 using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.Web.Common.Controllers;
-using LagoVista.UserAdmin.Models.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +12,7 @@ using System;
 using LagoVista.Core;
 using System.Threading.Tasks;
 using LagoVista.IoT.Logging.Loggers;
+using LagoVista.UserAdmin.Models.Users;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {

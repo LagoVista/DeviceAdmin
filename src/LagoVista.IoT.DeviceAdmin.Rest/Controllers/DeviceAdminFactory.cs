@@ -8,10 +8,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using LagoVista.Core;
-using System.Collections.Generic;
-using LagoVista.IoT.DeviceAdmin.Resources;
-using LagoVista.UserAdmin.Models.Account;
 using LagoVista.IoT.Logging.Loggers;
+using LagoVista.UserAdmin.Models.Users;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
