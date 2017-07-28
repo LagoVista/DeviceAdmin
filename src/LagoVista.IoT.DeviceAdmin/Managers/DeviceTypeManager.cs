@@ -50,7 +50,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         public async Task<DeviceType> GetDeviceTypeAsync(string id, EntityHeader org, EntityHeader user)
         {
             var deviceType = await _deviceTypeRepo.GetDeviceTypeAsync(id);
-            await AuthorizeAsync(deviceType, AuthorizeActions.Read, org, user);
+            await AuthorizeAsync(deviceType, AuthorizeActions.Read, user, org);
             return deviceType;
         }
 
