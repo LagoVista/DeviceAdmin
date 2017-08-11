@@ -14,7 +14,6 @@ using LagoVista.UserAdmin.Models.Users;
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
     [Authorize]
-    [Route("/api/deviceadmin/factory")]
     public class DeviceAdminFactory : LagoVistaBaseController
     {
         public DeviceAdminFactory(UserManager<AppUser> userManager, IAdminLogger logger) : base(userManager, logger)
@@ -26,7 +25,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// Unit Set - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("unitset")]
+        [HttpGet("/api/deviceadmin/factory/unitset")]
         public DetailResponse<UnitSet> CreateUnitSet()
         {
             var response = DetailResponse<UnitSet>.Create();
@@ -41,7 +40,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// Output Command - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("outputcommand")]
+        [HttpGet("/api/deviceadmin/factory/outputcommand")]
         public DetailResponse<OutputCommand> CreateOutputCommand()
         {
             var response = DetailResponse<OutputCommand>.Create();
@@ -55,7 +54,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// Input - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("input")]
+        [HttpGet("/api/deviceadmin/factory/input")]
         public DetailResponse<WorkflowInput> CreateSensor()
         {
             var response = DetailResponse<WorkflowInput>.Create();
@@ -69,7 +68,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// Input Command - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("inputcommand")]
+        [HttpGet("/api/deviceadmin/factory/inputcommand")]
         public DetailResponse<InputCommand> CreateInputCommand()
         {
             var response = DetailResponse<InputCommand>.Create();
@@ -83,7 +82,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Device Workflow - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("deviceworkflow")]
+        [HttpGet("/api/deviceadmin/factory/deviceworkflow")]
         public DetailResponse<DeviceWorkflow> CreateDeviceWorkflow()
         {
             var response = DetailResponse<DeviceWorkflow>.Create();
@@ -97,7 +96,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Action - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("action")]
+        [HttpGet("/api/deviceadmin/factory/action")]
         public DetailResponse<IoT.DeviceAdmin.Models.Action> CreateAction()
         {
             var response = DetailResponse<IoT.DeviceAdmin.Models.Action>.Create();
@@ -111,7 +110,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Create New Parameter
         /// </summary>
         /// <returns></returns>
-        [HttpGet("parameter")]
+        [HttpGet("/api/deviceadmin/factory/parameter")]
         public DetailResponse<IoT.DeviceAdmin.Models.Parameter> CreateInputParameter()
         {
             return  DetailResponse<IoT.DeviceAdmin.Models.Parameter>.Create();
@@ -121,7 +120,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Action Parameter- Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("actionparameter/{id}")]
+        [HttpGet("/api/deviceadmin/factory/actionparameter/{id}")]
         public DetailResponse<ActionParameter> CreateActionParameter(String id)
         {
             var response = DetailResponse<ActionParameter>.Create();
@@ -133,7 +132,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Admin Note - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("adminnote")]
+        [HttpGet("/api/deviceadmin/factory/adminnote")]
         public DetailResponse<AdminNote> CreateAdminNote()
         {
             var response = DetailResponse<AdminNote>.Create();
@@ -159,7 +158,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Unit - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("unit")]
+        [HttpGet("/api/deviceadmin/factory/unit")]
         public DetailResponse<Unit> CreatUnit()
         {
             return DetailResponse<Unit>.Create();
@@ -169,7 +168,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Custom Field - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("customfield")]
+        [HttpGet("/api/deviceadmin/factory/customfield")]
         public DetailResponse<CustomField> CreateCustomField()
         {
             var response = DetailResponse<CustomField>.Create();
@@ -181,7 +180,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Custom Field Collection - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("customfieldcollection")]
+        [HttpGet("/api/deviceadmin/factory/customfieldcollection")]
         public DetailResponse<CustomFieldCollection> CreateCustomFieldCollection()
         {
             var response = DetailResponse<CustomFieldCollection>.Create();
