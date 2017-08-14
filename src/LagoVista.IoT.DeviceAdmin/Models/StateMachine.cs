@@ -30,7 +30,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             });
         }
     
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_InitialState, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_InitialState, FieldType: FieldTypes.Text, IsUserEditable:false, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader InitialState { get; set; }
 
         [FormField(LabelResource: DeviceLibraryResources.Names.StateMachine_Initialization_Actions, HelpResource: DeviceLibraryResources.Names.StateMachine_Initialization_Actions_Help, FieldType:FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
