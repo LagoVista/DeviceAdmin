@@ -33,7 +33,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         [HttpPost("/api/devicetype")]
         public Task<InvokeResult> AddHostAsync([FromBody] DeviceType deviceType)
         { 
-            return _deviceTypeManager.AddDeviceTypeAsync(deviceType, UserEntityHeader, OrgEntityHeader);
+            return _deviceTypeManager.AddDeviceTypeAsync(deviceType, OrgEntityHeader, UserEntityHeader);
         }
 
         /// <summary>
