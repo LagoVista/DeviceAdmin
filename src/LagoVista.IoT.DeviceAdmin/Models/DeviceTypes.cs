@@ -4,11 +4,12 @@ using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
+using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceType_Title, Resources.DeviceLibraryResources.Names.DeviceType_Help, Resources.DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
-    public class DeviceType : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity
+    public class DeviceType : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity, IFormDescriptor
     {
         public String DatabaseName { get; set; }
 
@@ -43,6 +44,19 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             }
 
             return summary;
+        }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(DeviceType.Name),
+                nameof(DeviceType.Key),
+                nameof(DeviceType.ModelNumber),
+                nameof(DeviceType.DefaultDeviceConfiguration),
+                nameof(DeviceType.Manufacturer),
+                nameof(DeviceType.Description),
+            };
         }
     }
 

@@ -14,7 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EventSet()
         {
             Events = new List<Event>();
-        }            
+        }
 
         public String DatabaseName { get; set; }
 
@@ -42,6 +42,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Name = Name
             };
         }
+        
     }
 
     public class EventSetSummary : IIDEntity, IKeyedEntity, INamedEntity
