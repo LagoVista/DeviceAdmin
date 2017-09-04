@@ -5,11 +5,12 @@ using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Unit_Title, Resources.DeviceLibraryResources.Names.Unit_Help, DeviceLibraryResources.Names.Unit_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class Unit : IKeyedEntity, INamedEntity, IValidateable
+    public class Unit : IKeyedEntity, INamedEntity, IValidateable, IFormDescriptor
     {
         public Unit()
         {
@@ -69,6 +70,24 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_IsDefault, FieldType: FieldTypes.CheckBox, HelpResource: Resources.DeviceLibraryResources.Names.Unit_IsDefault, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsDefault { get; set; }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(Unit.Name),
+                nameof(Unit.Key),
+                nameof(Unit.Description),
+                nameof(Unit.Abbreviation),
+                nameof(Unit.Key),
+                nameof(Unit.NumberDecimalPoints),
+                nameof(Unit.IsDefault),
+                nameof(Unit.ConversionType),
+                nameof(Unit.ConversionFactor),
+                nameof(Unit.ConversionToScript),
+                nameof(Unit.ConversionFromScript)
+            };
+        }
     }
 
 }

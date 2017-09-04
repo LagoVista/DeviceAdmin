@@ -1207,4 +1207,16 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_DefaultConfiguration_Select" xml:space="preserve">
     <value>-select default configuration-</value>
   </data>
+  <data name="CusotmField_HelpText_Help" xml:space="preserve">
+    <value>You can add a help message that will be displayed when the user is editing the device.</value>
+  </data>
+  <data name="CustomField_HelpText" xml:space="preserve">
+    <value>Help Text</value>
+  </data>
+  <data name="CustomField_IsReadOnly" xml:space="preserve">
+    <value>Is Read Only</value>
+  </data>
+  <data name="CustomField_IsReadOnly_Help" xml:space="preserve">
+    <value>If you set this custom field to be read only, the field will only be editable when provisioning the device.</value>
+  </data>
 </root>

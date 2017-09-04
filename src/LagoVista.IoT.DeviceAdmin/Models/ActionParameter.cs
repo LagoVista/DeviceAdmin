@@ -4,11 +4,12 @@ using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.ActionParameter_Title, DeviceLibraryResources.Names.ActionParameter_Description, DeviceLibraryResources.Names.ActionParameter_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class ActionParameter : INamedEntity, IKeyedEntity
+    public class ActionParameter : INamedEntity, IKeyedEntity, IFormDescriptor
     {
         [JsonProperty("id")]
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
@@ -42,5 +43,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameter_Type, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false, WaterMark: DeviceLibraryResources.Names.Parameter_Type_Watermark)]
         public EntityHeader ParameterType { get; set; }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(ActionParameter.Name),
+                nameof(ActionParameter.Key),
+                nameof(ActionParameter.IsRequired),
+                nameof(ActionParameter.ParameterType),
+            };
+        }
     }
 }

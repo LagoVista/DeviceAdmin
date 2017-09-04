@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.StateSet_Title, Resources.DeviceLibraryResources.Names.StateSet_Help, Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
-    public class StateSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity
+    public class StateSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity, IFormDescriptor
     {
         public StateSet()
         {
-            States = new List<State>();            
+            States = new List<State>();
         }
 
         public String DatabaseName { get; set; }
@@ -43,6 +43,18 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Key = Key,
                 Name = Name,
                 Description = Description
+            };
+        }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(StateSet.Name),
+                nameof(StateSet.Key),
+                nameof(StateSet.Description),
+                nameof(StateSet.IsLocked),
+                nameof(StateSet.States),
             };
         }
     }

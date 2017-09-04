@@ -11,7 +11,7 @@ using System.Collections.ObjectModel;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.UnitSet_Title, Resources.DeviceLibraryResources.Names.UnitSet_Help, Resources.DeviceLibraryResources.Names.UnitSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
-    public class UnitSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity
+    public class UnitSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity, IFormDescriptor
     {
         public String DatabaseName { get; set; }
 
@@ -31,7 +31,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Units = new List<Unit>();
         }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, FieldType:FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<Unit> Units { get; set; }
 
         public UnitSetSummary CreateUnitSetSummary()
@@ -42,6 +42,18 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 IsPublic = IsPublic,
                 Key = Key,
                 Name = Name
+            };
+        }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(UnitSet.Name),
+                nameof(UnitSet.Key),
+                nameof(UnitSet.Description),
+                nameof(UnitSet.IsLocked),
+                nameof(UnitSet.Units),
             };
         }
     }

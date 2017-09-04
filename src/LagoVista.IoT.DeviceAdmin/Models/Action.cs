@@ -1,6 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
-using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
@@ -9,7 +8,7 @@ using System.Collections.Generic;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Action_Title, DeviceLibraryResources.Names.Action_Help,  DeviceLibraryResources.Names.Action_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources) )]
-    public class Action : NodeBase, IValidateable
+    public class Action : NodeBase, IValidateable, IFormDescriptor
     {
         public Action()
         {
@@ -31,8 +30,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameters, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
         public List<ActionParameter> Parameters { get; set; }
-        
-              
-        
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(Action.Name),
+                nameof(Action.Key),
+                nameof(Action.Description),
+                nameof(Action.ExecuteFromScript),
+                nameof(Action.ExecuteFromGet),
+                nameof(Action.ExecuteFromPost),
+                nameof(Action.ExecuteFromStateMachine),
+                nameof(Action.Script),
+                nameof(Action.Parameters),
+            };
+        }
     }
 }

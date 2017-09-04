@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.State_Title,  Resources.DeviceLibraryResources.Names.State_UserHelp, Resources.DeviceLibraryResources.Names.State_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel,  typeof(DeviceLibraryResources))]
-    public class State : IKeyedEntity
+    public class State : IKeyedEntity, IFormDescriptor
     {
         public State()
         {
@@ -36,5 +36,17 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String Description { get; set; }
 
         public ObservableCollection<DiagramLocation> DiagramLocations { get; set; }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(State.Name),
+                nameof(State.Key),
+                nameof(State.IsInitialState),
+                nameof(State.Description),
+                nameof(State.TransitionInAction),
+            };
+        }
     }
 }

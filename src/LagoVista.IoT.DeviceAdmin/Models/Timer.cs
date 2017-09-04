@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
+using LagoVista.Core.Interfaces;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
@@ -9,8 +10,10 @@ using System.Threading.Tasks;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Timer_Title, DeviceLibraryResources.Names.Timer_Description, DeviceLibraryResources.Names.Timer_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class Timer : NodeBase, IValidateable
+    public class Timer : NodeBase, IValidateable, IFormDescriptor
     {
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_Days, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
         public int Days { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_Hours, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
@@ -33,7 +36,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_Monday, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool Monday { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_Tuesday, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
-        public bool Tusday { get; set; }
+        public bool Tuesday { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_Wednesday, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool Wednesday { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_Thursday, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
@@ -44,10 +47,35 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public bool Saturday { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_DailyStartTime, HelpResource:Resources.DeviceLibraryResources.Names.Timer_DailyStartTime_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_DailyStartTime, HelpResource:Resources.DeviceLibraryResources.Names.Timer_DailyStartTime_Help, FieldType: FieldTypes.Time, ResourceType: typeof(DeviceLibraryResources))]
         public string DailyStartTime{ get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_DailyEndTime, HelpResource: Resources.DeviceLibraryResources.Names.Timer_DailyEndTime_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_DailyEndTime, HelpResource: Resources.DeviceLibraryResources.Names.Timer_DailyEndTime_Help, FieldType: FieldTypes.Time, ResourceType: typeof(DeviceLibraryResources))]
         public string DailyEndTime { get; set; }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(Timer.Name),
+                nameof(Timer.Key),
+                nameof(Timer.Description),
+                nameof(Timer.Days),
+                nameof(Timer.Hours),
+                nameof(Timer.Minutes),
+                nameof(Timer.Seconds),
+                nameof(Timer.HourOfDay),
+                nameof(Timer.MinuteOfDay),
+                nameof(Timer.Sunday),
+                nameof(Timer.Monday),
+                nameof(Timer.Tuesday),
+                nameof(Timer.Wednesday),
+                nameof(Timer.Thursday),
+                nameof(Timer.Friday),
+                nameof(Timer.Saturday),
+                nameof(Timer.DailyStartTime),
+                nameof(Timer.DailyEndTime)
+            };
+        }
     }
 }

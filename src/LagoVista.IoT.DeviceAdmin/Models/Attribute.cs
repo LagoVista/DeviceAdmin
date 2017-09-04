@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
+using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
@@ -10,7 +11,7 @@ using System.Collections.ObjectModel;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Attribute_Title, DeviceLibraryResources.Names.Attribute_Description, DeviceLibraryResources.Names.Attribute_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class Attribute : NodeBase, IValidateable
+    public class Attribute : NodeBase, IValidateable, IFormDescriptor
     {
         public Attribute()
         {
@@ -31,5 +32,20 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: Resources.DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(Attribute.Name),
+                nameof(Attribute.Key),
+                nameof(Attribute.Description),
+                nameof(Attribute.AttributeType),
+                nameof(Attribute.ReadOnly),
+                nameof(Attribute.UnitSet),
+                nameof(Attribute.StateSet),
+                nameof(Attribute.OnSetScript),
+            };
+        }
     }
 }
