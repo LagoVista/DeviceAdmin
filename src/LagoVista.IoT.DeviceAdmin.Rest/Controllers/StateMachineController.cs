@@ -141,36 +141,33 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// <summary>
         /// State Machines - Get for org
         /// </summary>
-        /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("/api/org/{orgid}/statemachines")]
-        public async Task<ListResponse<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId)
+        [HttpGet("/api/statemachines")]
+        public async Task<ListResponse<StateMachineSummary>> GetStateMachinesForOrgAsync()
         {
-            var stateMachines = await _deviceAdminManager.GetStateMachinesForOrgAsync(orgId, UserEntityHeader);
+            var stateMachines = await _deviceAdminManager.GetStateMachinesForOrgAsync(OrgEntityHeader.Id, UserEntityHeader);
             return ListResponse<StateMachineSummary>.Create(stateMachines);
         }
 
         /// <summary>
         /// Event Sets - Get for org
         /// </summary>
-        /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("/api/org/{orgid}/statemachine/eventsets")]
-        public async Task<ListResponse<EventSetSummary>> GetEventSetsForOrgAsync(String orgId)
+        [HttpGet("/api/statemachine/eventsets")]
+        public async Task<ListResponse<EventSetSummary>> GetEventSetsForOrgAsync()
         {
-            var eventSets = await _deviceAdminManager.GetEventSetsForOrgAsync(orgId, UserEntityHeader);
+            var eventSets = await _deviceAdminManager.GetEventSetsForOrgAsync(OrgEntityHeader.Id, UserEntityHeader);
             return ListResponse<EventSetSummary>.Create(eventSets);
         }
 
         /// <summary>
         /// State Set - Get for org
         /// </summary>
-        /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("/api/org/{orgid}/statemachine/statesets")]
-        public async Task<ListResponse<StateSetSummary>> GetStateSetsForOrgAsync(String orgId)
+        [HttpGet("/api/statemachine/statesets")]
+        public async Task<ListResponse<StateSetSummary>> GetStateSetsForOrgAsync()
         {
-            var stateSets = await _deviceAdminManager.GetStateSetsForOrgAsync(orgId, UserEntityHeader);
+            var stateSets = await _deviceAdminManager.GetStateSetsForOrgAsync(OrgEntityHeader.Id, UserEntityHeader);
             return ListResponse<StateSetSummary>.Create(stateSets);
         }
         #endregion

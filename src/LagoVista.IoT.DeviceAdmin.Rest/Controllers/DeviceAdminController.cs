@@ -72,14 +72,13 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         }
 
         /// <summary>
-        /// Unit Set - Get for Org
+        /// Unit Set - Get for current Org
         /// </summary>
-        /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("/api/org/{orgid}/deviceadmin/unitsets")]
-        public async Task<ListResponse<UnitSetSummary>> GetUnitSetsForOrgAsync(String orgId)
+        [HttpGet("/api/deviceadmin/unitsets")]
+        public async Task<ListResponse<UnitSetSummary>> GetUnitSetsForOrgAsync()
         {
-            var unitSets = await _deviceAdminManager.GetUnitSetsForOrgAsync(orgId, UserEntityHeader);
+            var unitSets = await _deviceAdminManager.GetUnitSetsForOrgAsync(OrgEntityHeader.Id, UserEntityHeader);
             var response = ListResponse<UnitSetSummary>.Create(unitSets);
 
             return response;
@@ -137,14 +136,13 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         }
 
         /// <summary>
-        /// Device Workflow - Get Device Workflows for Org
+        /// Device Workflow - Get Device Workflows for Current
         /// </summary>
-        /// <param name="orgId">Organization Id</param>
         /// <returns></returns>
-        [HttpGet("/api/org/{orgid}/deviceadmin/deviceworkflows")]
-        public async Task<ListResponse<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync(String orgId)
+        [HttpGet("/api/deviceadmin/deviceworkflows")]
+        public async Task<ListResponse<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync()
         {
-            var deviceWorkflows = await _deviceAdminManager.GetDeviceWorkflowsForOrgsAsync(orgId, UserEntityHeader);
+            var deviceWorkflows = await _deviceAdminManager.GetDeviceWorkflowsForOrgsAsync(OrgEntityHeader.Id, UserEntityHeader);
             return ListResponse<DeviceWorkflowSummary>.Create(deviceWorkflows);
         }
 
