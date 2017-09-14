@@ -12,6 +12,7 @@ using LagoVista.Core.Validation;
 using LagoVista.Core.Models;
 using LagoVista.IoT.Logging.Loggers;
 using LagoVista.UserAdmin.Models.Users;
+using LagoVista.IoT.DeviceAdmin.Resources;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
@@ -283,6 +284,12 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         public DetailResponse<StateMachine> NewStateMachine()
         {
             var stateMachine = DetailResponse<StateMachine>.Create();
+            stateMachine.Model.Pages.Add(
+                new Page()
+                {
+                    PageNumber = 1,
+                    Name = DeviceLibraryResources.Common_PageNumberOne
+                });
             stateMachine.Model.Id = Guid.NewGuid().ToId();
             SetOwnedProperties(stateMachine.Model);
             SetAuditProperties(stateMachine.Model);
@@ -294,7 +301,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// State Set - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("/api/statemachine/stateset/factory")]
+        [HttpGet("/api/statemachine/factory/stateset")]
         public DetailResponse<StateSet> CreateStateSet()
         {
             var response = DetailResponse<StateSet>.Create();
@@ -308,7 +315,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  State - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("/api/statemachine/state/factory")]
+        [HttpGet("/api/statemachine/factory/state")]
         public DetailResponse<State> CreatState()
         {
             return DetailResponse<State>.Create();
@@ -318,7 +325,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// Event Set - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("/api/statemachine/eventset/factory")]
+        [HttpGet("/api/statemachine/factory/eventset")]
         public DetailResponse<EventSet> CreateEventSet()
         {
             var response = DetailResponse<EventSet>.Create();
@@ -332,7 +339,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Event - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("/api/statemachine/event/factory")]
+        [HttpGet("/api/statemachine/factory/event")]
         public DetailResponse<Event> CreateEvent()
         {
             return DetailResponse<Event>.Create();
@@ -342,7 +349,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Transition - Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("/api/statemachine/transition/factory")]
+        [HttpGet("/api/statemachine/factory/transition")]
         public DetailResponse<StateTransition> CreateTransition()
         {
             return DetailResponse<StateTransition>.Create();

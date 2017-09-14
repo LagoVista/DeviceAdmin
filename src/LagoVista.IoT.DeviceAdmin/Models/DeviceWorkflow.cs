@@ -19,14 +19,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             StateMachines = new List<StateMachine>();
             Inputs = new List<WorkflowInput>();
             OutputCommands = new List<OutputCommand>();
-            Pages = new List<Page>
-            {
-                new Page()
-                {
-                    PageNumber = 1,
-                    Name = DeviceLibraryResources.Common_PageNumberOne
-                }
-            };
+            Pages = new List<Page>();
             Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             ConfigurationVersion = 0.1;
         }

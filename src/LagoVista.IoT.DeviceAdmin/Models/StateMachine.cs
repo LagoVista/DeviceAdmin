@@ -23,12 +23,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Variables = new ObservableCollection<CustomField>();
             InitialActions = new ObservableCollection<EntityHeader>();
             Pages = new ObservableCollection<Page>();
-
-            Pages.Add(new Page()
-            {
-                PageNumber = 1,
-                Name = DeviceLibraryResources.Common_PageNumberOne
-            });
         }
     
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_InitialState, FieldType: FieldTypes.Text, IsUserEditable:false, ResourceType: typeof(DeviceLibraryResources))]
