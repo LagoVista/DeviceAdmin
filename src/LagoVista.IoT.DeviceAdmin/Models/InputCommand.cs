@@ -57,5 +57,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Help, WaterMark: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Watermark, FieldType: FieldTypes.Picker, EnumType:typeof(PayloadTypes), ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader EndpointPayloadType { get; set; }
+
+        public override string NodeType => NodeType_InputCommand;
     }
 }

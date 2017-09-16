@@ -46,6 +46,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Pages, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_Pages_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
         public ObservableCollection<Page> Pages { get; set; }
 
+        public override string NodeType => NodeType_StateMachine;
+
         public StateMachineSummary CreateSummary()
         {
             return new StateMachineSummary()

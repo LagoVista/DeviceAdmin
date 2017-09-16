@@ -53,6 +53,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_DailyEndTime, HelpResource: Resources.DeviceLibraryResources.Names.Timer_DailyEndTime_Help, FieldType: FieldTypes.Time, ResourceType: typeof(DeviceLibraryResources))]
         public string DailyEndTime { get; set; }
 
+        public override string NodeType => NodeType_Timer;
+
         public List<string> GetFormFields()
         {
             return new List<string>()

@@ -25,5 +25,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States, WaterMark:Resources.DeviceLibraryResources.Names.WorkflowInput_StateSet_Watermark, FieldType: FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
+
+        public override string NodeType => NodeType_Input;
     }
 }

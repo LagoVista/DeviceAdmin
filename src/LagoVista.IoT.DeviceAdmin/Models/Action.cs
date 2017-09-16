@@ -31,6 +31,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameters, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
         public List<ActionParameter> Parameters { get; set; }
 
+        public override string NodeType => NodeType_Attribute;
+
         public List<string> GetFormFields()
         {
             return new List<string>()

@@ -2,6 +2,7 @@
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System.Collections.ObjectModel;
+using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -19,5 +20,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Parameter_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<Parameter> Parameters { get; set; }
+
+        public override string NodeType => NodeType_OutputCommand;
     }
 }
