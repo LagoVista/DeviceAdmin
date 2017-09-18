@@ -1,4 +1,4 @@
-﻿/*9/4/2017 09:15:54*/
+﻿/*9/18/2017 14:43:44*/
 using System.Globalization;
 using System.Reflection;
 
@@ -827,6 +827,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateMachine_Pages_Help
 
 		public static string StateMachine_Pages_Help { get { return GetResourceString("StateMachine_Pages_Help"); } }
+//Resources:DeviceLibraryResources:StateMachine_RequireEnum
+
+		public static string StateMachine_RequireEnum { get { return GetResourceString("StateMachine_RequireEnum"); } }
+//Resources:DeviceLibraryResources:StateMachine_RequireEnum_Help
+
+		public static string StateMachine_RequireEnum_Help { get { return GetResourceString("StateMachine_RequireEnum_Help"); } }
 //Resources:DeviceLibraryResources:StateMachine_State
 
 		public static string StateMachine_State { get { return GetResourceString("StateMachine_State"); } }
@@ -839,6 +845,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateMachine_State_DiagramY
 
 		public static string StateMachine_State_DiagramY { get { return GetResourceString("StateMachine_State_DiagramY"); } }
+//Resources:DeviceLibraryResources:StateMachine_State_Enum
+
+		public static string StateMachine_State_Enum { get { return GetResourceString("StateMachine_State_Enum"); } }
+//Resources:DeviceLibraryResources:StateMachine_State_Enum_Help
+
+		public static string StateMachine_State_Enum_Help { get { return GetResourceString("StateMachine_State_Enum_Help"); } }
 //Resources:DeviceLibraryResources:StateMachine_State_IsInitialState
 
 		public static string StateMachine_State_IsInitialState { get { return GetResourceString("StateMachine_State_IsInitialState"); } }
@@ -1418,10 +1430,14 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateMachine_NewState_Help = "StateMachine_NewState_Help";
 			public const string StateMachine_Pages = "StateMachine_Pages";
 			public const string StateMachine_Pages_Help = "StateMachine_Pages_Help";
+			public const string StateMachine_RequireEnum = "StateMachine_RequireEnum";
+			public const string StateMachine_RequireEnum_Help = "StateMachine_RequireEnum_Help";
 			public const string StateMachine_State = "StateMachine_State";
 			public const string StateMachine_State_Action = "StateMachine_State_Action";
 			public const string StateMachine_State_DiagramX = "StateMachine_State_DiagramX";
 			public const string StateMachine_State_DiagramY = "StateMachine_State_DiagramY";
+			public const string StateMachine_State_Enum = "StateMachine_State_Enum";
+			public const string StateMachine_State_Enum_Help = "StateMachine_State_Enum_Help";
 			public const string StateMachine_State_IsInitialState = "StateMachine_State_IsInitialState";
 			public const string StateMachine_State_IsInitialState_Help = "StateMachine_State_IsInitialState_Help";
 			public const string StateMachine_State_TransitionInAction = "StateMachine_State_TransitionInAction";

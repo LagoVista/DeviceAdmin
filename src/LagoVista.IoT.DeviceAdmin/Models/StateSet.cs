@@ -34,6 +34,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateSet_States, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<State> States { get; set; }
 
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_RequireEnum, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_RequireEnum_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
+        public bool RequireEnum { get; set; }
+
         public StateSetSummary CreateStateSetSummary()
         {
             return new StateSetSummary()
@@ -53,6 +57,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(StateSet.Name),
                 nameof(StateSet.Key),
                 nameof(StateSet.Description),
+                nameof(StateSet.RequireEnum),
                 nameof(StateSet.IsLocked),
                 nameof(StateSet.States),
             };

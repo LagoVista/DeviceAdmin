@@ -1219,4 +1219,16 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="CustomField_IsReadOnly_Help" xml:space="preserve">
     <value>If you set this custom field to be read only, the field will only be editable when provisioning the device.</value>
   </data>
+  <data name="StateMachine_RequireEnum" xml:space="preserve">
+    <value>Require Integer Enums</value>
+  </data>
+  <data name="StateMachine_RequireEnum_Help" xml:space="preserve">
+    <value>When entering your states each state is required to contain a unique integer value that will act as a numeric enumeration value for mapping external values.</value>
+  </data>
+  <data name="StateMachine_State_Enum" xml:space="preserve">
+    <value>Enum Value</value>
+  </data>
+  <data name="StateMachine_State_Enum_Help" xml:space="preserve">
+    <value>In addition to providing a user provided key value that can be used to uniquely identify your state, you can also provide an integer value that can be used to map to external numeric values in a message or some other source.  </value>
+  </data>
 </root>
