@@ -23,7 +23,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             ConfigurationVersion = 0.1;
         }
-
         public String DatabaseName { get; set; }
 
         public String EntityType { get; set; }
@@ -31,7 +30,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_ConfigVersion, FieldType: FieldTypes.Decimal, IsRequired: true, ResourceType: typeof(DeviceLibraryResources))]
         public double ConfigurationVersion { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation,ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Key { get; set; }
 
 
@@ -54,10 +53,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_InputCommands, HelpResource: DeviceLibraryResources.Names.DeviceWorkflow_InputCommands_Help, ResourceType: typeof(DeviceLibraryResources))]
         public List<Models.InputCommand> InputCommands { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_OutputCommands,  ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_OutputCommands, ResourceType: typeof(DeviceLibraryResources))]
         public List<OutputCommand> OutputCommands { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Inputs,  ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Inputs, ResourceType: typeof(DeviceLibraryResources))]
         public List<WorkflowInput> Inputs { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Timer, ResourceType: typeof(DeviceLibraryResources))]
@@ -92,12 +91,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Description = Description
             };
         }
+
+        [CustomValidator]
+        public void Validate(ValidationResult result)
+        {
+            foreach (var input in Inputs) result.Concat(input.Validate(this));
+            foreach (var attribute in Attributes) result.Concat(attribute.Validate(this));
+            foreach (var inputCommand in InputCommands) result.Concat(inputCommand.Validate(this));
+            foreach (var stateMachine in StateMachines) result.Concat(stateMachine.Validate(this));
+            foreach (var outputCommand in OutputCommands) result.Concat(outputCommand.Validate(this));
+        }
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Title, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Help, Resources.DeviceLibraryResources.Names.DeviceConfiguration_Description, EntityDescriptionAttribute.EntityTypes.Summary, typeof(DeviceLibraryResources))]
     public class DeviceWorkflowSummary : SummaryData, ISummaryData
     {
-       
-    }
 
+    }
 }

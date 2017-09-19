@@ -79,5 +79,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(Timer.DailyEndTime)
             };
         }
+
+        public ValidationResult Validate(DeviceWorkflow workflow)
+        {
+            var result = Validator.Validate(this);
+            result.Concat(ValidateNodeBase(workflow));
+            
+            return result;
+        }
     }
 }

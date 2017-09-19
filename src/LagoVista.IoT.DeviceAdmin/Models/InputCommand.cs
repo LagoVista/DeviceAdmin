@@ -53,11 +53,88 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String OnArriveScript { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Help, WaterMark:Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Watermark, FieldType: FieldTypes.Picker, EnumType:typeof(EndpointTypes), ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
-        public EntityHeader EndpointType { get; set; }
+        public EntityHeader<EndpointTypes> EndpointType { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Help, WaterMark: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Watermark, FieldType: FieldTypes.Picker, EnumType:typeof(PayloadTypes), ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader EndpointPayloadType { get; set; }
+        public EntityHeader<PayloadTypes> EndpointPayloadType { get; set; }
 
         public override string NodeType => NodeType_InputCommand;
+
+
+        public ValidationResult Validate(DeviceWorkflow workflow)
+        {
+            var result = Validator.Validate(this);
+            result.Concat(ValidateNodeBase(workflow));
+            if (result.Successful)
+            {
+                foreach (var parameter in Parameters)
+                {
+                    if (parameter.ParameterType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(parameter.UnitSet))
+                    {
+                        result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Parameter {parameter.Name} Value with Unit is data type, but no unit type was provided.", true));
+                        return result;
+                    }
+
+                    if (parameter.ParameterType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(parameter.StateSet))
+                    {
+                        result.Errors.Add(new ErrorMessage($"On Input Command {Name}, Parameter {parameter.Name} is a state set, but no state set was provided.", true));
+                        return result;
+                    }
+                }
+
+                foreach (var connection in OutgoingConnections)
+                {
+                    switch (connection.NodeType)
+                    {
+                        case NodeType_Input:
+                        case NodeType_InputCommand:
+                            result.Errors.Add(new ErrorMessage($"Mapping from an Input Command to a node of type {NodeType} is not supported", true));
+                            break;
+                        case NodeType_Attribute:
+                            if (connection.InputCommandKey == null)
+                            {
+                                result.Errors.Add(new ErrorMessage($"When Mapping from in Input Command to an Attribute, you must specify which parameter will be mapped", false));
+                            }
+                            else
+                            {
+                                var parameter = Parameters.Where(prm => prm.Key == connection.InputCommandKey).FirstOrDefault();
+                                if (parameter == null)
+                                {
+                                    result.Errors.Add(new ErrorMessage($"Specified Mapping Key {connection.InputCommandKey} not found on inputs from {Name}", false));
+                                }
+                                else
+                                {
+                                    var attribute = workflow.Attributes.Where(attr => attr.Key == connection.NodeKey).First();
+                                    if (attribute.AttributeType.Value != parameter.ParameterType.Value)
+                                    {
+                                        result.Errors.Add(new ErrorMessage($"On input command {Name}, type mismatch on mapping to {connection.NodeName} from input command {parameter.Name} to attribute of type {parameter.ParameterType.Text}.", false));
+                                    }
+                                    else
+                                    {
+                                        if (attribute.AttributeType.Value == ParameterTypes.State &&
+                                       attribute.StateSet.Id != parameter.StateSet.Id)
+                                        {
+                                            result.Errors.Add(new ErrorMessage($"Invalid Mapping between {Name} and {connection.NodeName} - State Sets to do not match."));
+                                        }
+                                        else if (attribute.AttributeType.Value == ParameterTypes.ValueWithUnit &&
+                                             attribute.UnitSet.Id != parameter.UnitSet.Id)
+                                        {
+                                            result.Errors.Add(new ErrorMessage($"Invalid Mapping between {Name} and {connection.NodeName} - Unit Sets to do not match."));
+                                        }
+                                    }
+                                }
+                            }
+
+                            break;
+                        case NodeType_StateMachine:
+                            ValidateStateMachine(result, workflow, connection);
+                            break;
+                    }
+                }
+            }
+
+            return result;
+
+        }
     }
 }

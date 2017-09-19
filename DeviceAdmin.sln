@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CEC21295-346D-4369-9511-FBB4BFFE1863}"
 EndProject
@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Rest", "src\LagoVista.IoT.DeviceAdmin.Rest\LagoVista.IoT.DeviceAdmin.Rest.csproj", "{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Tests", "test\LagoVista.IoT.DeviceAdmin.Tests\LagoVista.IoT.DeviceAdmin.Tests.csproj", "{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,5 +53,6 @@ Global
 		{356687BE-A437-4D2C-95C2-334187B2BA34} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{AD2AF9F0-D136-40B3-806F-629C17FA56F5} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
+		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC} = {789A2940-98A7-4A45-B302-0FEE3151886E}
 	EndGlobalSection
 EndGlobal

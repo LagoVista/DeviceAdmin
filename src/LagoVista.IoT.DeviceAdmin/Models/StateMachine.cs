@@ -59,6 +59,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Description = Description
             };
         }
+
+        public ValidationResult Validate(DeviceWorkflow workflow)
+        {
+            var result = Validator.Validate(this);
+            result.Concat(ValidateNodeBase(workflow));
+            foreach (var connection in OutgoingConnections)
+            {
+                if (connection.NodeType == NodeType_Input || connection.NodeType == NodeType_InputCommand)
+                {
+                    result.Errors.Add(new ErrorMessage($"Mapping from an Input to a node of type: {NodeType} is not supported", true));
+                }
+            }
+
+            return result;
+        }
     }
 
     [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.StateMachine_Title, Resources.DeviceLibraryResources.Names.StateMachine_UserHelp, Resources.DeviceLibraryResources.Names.StateMachine_Description, EntityDescriptionAttribute.EntityTypes.Summary, typeof(DeviceLibraryResources))]

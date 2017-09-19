@@ -3,6 +3,7 @@ using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System.Collections.ObjectModel;
 using System;
+using LagoVista.Core.Models;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -14,7 +15,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Parameters = new ObservableCollection<Parameter>();
         }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.OutputCommand_Script, HelpResource: Resources.DeviceLibraryResources.Names.OutputCommand_Script_Help, IsRequired:true, FieldType:FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.OutputCommand_Script, HelpResource: Resources.DeviceLibraryResources.Names.OutputCommand_Script_Help, FieldType:FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public string OnExecuteScript { get; set; }
 
 
@@ -22,5 +23,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public ObservableCollection<Parameter> Parameters { get; set; }
 
         public override string NodeType => NodeType_OutputCommand;
+
+        public ValidationResult Validate(DeviceWorkflow workflow)
+        {
+            var result = Validator.Validate(this);
+            result.Concat(ValidateNodeBase(workflow));
+
+            return result;
+        }
     }
 }
