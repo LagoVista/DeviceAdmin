@@ -6,9 +6,9 @@
     <FileVersion>0.8.1.1</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="1.2.110-alpha1000" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="1.2.110-alpha1000" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="1.2.110-alpha1000" />
+    <PackageReference Include="LagoVista.Core" Version="1.2.128-alpha1140" />
+    <PackageReference Include="LagoVista.IoT.Logging" Version="1.2.128-alpha1140" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="1.2.128-alpha1140" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.1" />
   </ItemGroup>

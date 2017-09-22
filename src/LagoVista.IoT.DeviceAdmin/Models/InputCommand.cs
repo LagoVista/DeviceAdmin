@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
+using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
@@ -11,25 +12,11 @@ using System.Threading.Tasks;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.InputCommand_Title, DeviceLibraryResources.Names.InputCommand_Parameters, DeviceLibraryResources.Names.InputCommand_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class InputCommand : NodeBase, IValidateable
+    public class InputCommand : NodeBase, IValidateable, IFormDescriptor
     {
         public InputCommand()
         {
             Parameters = new ObservableCollection<Parameter>();
-        }
-
-        public enum PayloadTypes
-        {
-            [EnumLabel("json", Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_JSON, typeof(Resources.DeviceLibraryResources))]
-            Json,
-            [EnumLabel("xml", Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_XML, typeof(Resources.DeviceLibraryResources))]
-            Xml,
-            [EnumLabel("form", Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Form, typeof(Resources.DeviceLibraryResources))]
-            Form,
-            [EnumLabel("querystring", Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_QueryString, typeof(Resources.DeviceLibraryResources))]
-            QueryString,
-            [EnumLabel("none", Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_None, typeof(Resources.DeviceLibraryResources))]
-            None
         }
 
         public enum EndpointTypes
@@ -42,8 +29,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             RestPut,
             [EnumLabel("delete", Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_REST_Delete, typeof(Resources.DeviceLibraryResources))]
             RestDelete,
-            [EnumLabel("internal", Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_REST_Get, typeof(Resources.DeviceLibraryResources), Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Internal_Help)]
-            Internal
         }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Parameter_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
@@ -52,14 +37,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Script, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_Script_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public String OnArriveScript { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Help, WaterMark:Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Watermark, FieldType: FieldTypes.Picker, EnumType:typeof(EndpointTypes), ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Help, WaterMark: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Watermark, FieldType: FieldTypes.Picker, EnumType: typeof(EndpointTypes), ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public EntityHeader<EndpointTypes> EndpointType { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Help, WaterMark: Resources.DeviceLibraryResources.Names.InputCommand_EndpointPayload_Watermark, FieldType: FieldTypes.Picker, EnumType:typeof(PayloadTypes), ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader<PayloadTypes> EndpointPayloadType { get; set; }
-
         public override string NodeType => NodeType_InputCommand;
-
 
         public ValidationResult Validate(DeviceWorkflow workflow)
         {
@@ -67,18 +48,34 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             result.Concat(ValidateNodeBase(workflow));
             if (result.Successful)
             {
+                if (Parameters.Select(param => param.Key).Count() != Parameters.Count())
+                {
+                    result.Errors.Add(new ErrorMessage($"Keys on Parameters must be unique.", true));
+                    return result;
+                }
+
                 foreach (var parameter in Parameters)
                 {
-                    if (parameter.ParameterType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(parameter.UnitSet))
+                    if (EntityHeader.IsNullOrEmpty(parameter.ParameterLocation))
                     {
-                        result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Parameter {parameter.Name} Value with Unit is data type, but no unit type was provided.", true));
+                        result.Errors.Add(new ErrorMessage($"On Input Command {Name}, Parameter Location is not provided.", true));
+                        return result;
+                    }
+                    else if (parameter.ParameterType != null && parameter.ParameterType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(parameter.UnitSet))
+                    {
+                        result.Errors.Add(new ErrorMessage($"On Input Command {Name}, Parameter {parameter.Name} Value with Unit is data type, but no unit type was provided.", true));
                         return result;
                     }
 
-                    if (parameter.ParameterType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(parameter.StateSet))
+                    if (parameter.ParameterType != null && parameter.ParameterType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(parameter.StateSet))
                     {
                         result.Errors.Add(new ErrorMessage($"On Input Command {Name}, Parameter {parameter.Name} is a state set, but no state set was provided.", true));
                         return result;
+                    }
+
+                    if (parameter.ParameterLocation != null && parameter.ParameterLocation.Value == PayloadTypes.Json && (EndpointType.Value == EndpointTypes.RestGet || EndpointType.Value == EndpointTypes.RestDelete))
+                    {
+                        result.AddSystemError("End point type of GET or DELETE was specified, however at least one of the parameters has JSON specified for the parameter location.");
                     }
                 }
 
@@ -135,6 +132,18 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
             return result;
 
+        }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(InputCommand.Name),
+                nameof(InputCommand.Key),
+                nameof(InputCommand.EndpointType),
+                nameof(InputCommand.OnArriveScript),
+                nameof(InputCommand.Description),
+            };
         }
     }
 }

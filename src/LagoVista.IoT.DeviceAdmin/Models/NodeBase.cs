@@ -149,9 +149,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 result.Errors.Add(new ErrorMessage($"Transition Event is empty from {Name} to State Machine {connection.NodeName} does not exist on that state machine."));
             }
             else
-            {
-                var outputStateMachine = workflow.StateMachines.Where(stm => stm.Key == connection.NodeKey).First();
-                if (!outputStateMachine.Events.Where(evt => evt.Key == connection.StateMachineEvent.Id).Any()) result.Errors.Add(new ErrorMessage($"Transition Event {connection.StateMachineEvent.Text} from {Name} to {outputStateMachine.Name} does not exist on that state machine."));
+            {                
+                var outputStateMachine = workflow.StateMachines.Where(stm => stm.Key == connection.NodeKey).FirstOrDefault();
+                if (outputStateMachine != null)
+                {
+                    if (!outputStateMachine.Events.Where(evt => evt.Key == connection.StateMachineEvent.Id).Any()) result.Errors.Add(new ErrorMessage($"Transition Event {connection.StateMachineEvent.Text} from {Name} to {outputStateMachine.Name} does not exist on that state machine."));
+                }
+                else
+                {
+                    throw new InvalidOperationException($"Could not find state machine with key {connection.NodeKey}.");
+                }
             }
         }
     }
