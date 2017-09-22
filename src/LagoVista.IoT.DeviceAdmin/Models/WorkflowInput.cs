@@ -53,15 +53,36 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
             if (result.Successful)
             {
-                if (InputType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(UnitSet))
+                if (EntityHeader.IsNullOrEmpty(InputType))
                 {
-                    result.Errors.Add(new ErrorMessage($"On Workflow Input {Name}, data type is Value with Unit, but no unit type was provided.", true));
-                    return result;
+                    result.Errors.Add(new ErrorMessage($"On Workflow Input {Name}, Input Type is missing.", true));
+                }
+                else if (InputType.Value == ParameterTypes.ValueWithUnit)
+                {
+                    StateSet = null;
+                    if (EntityHeader.IsNullOrEmpty(UnitSet))
+                    {
+                        result.Errors.Add(new ErrorMessage($"On Workflow Input {Name}, data type is Value with Unit, but no unit type was provided.", true));
+                        return result;
+                    }
+                }
+                else if (InputType.Value == ParameterTypes.State)
+                {
+                    UnitSet = null;
+                    if (EntityHeader.IsNullOrEmpty(StateSet))
+                    {
+                        result.Errors.Add(new ErrorMessage($"On Workflow Input {Name}, data type is a State Set, but no state set was provided.", true));
+                        return result;
+                    }
+                }
+                else
+                {
+                    UnitSet = null;
+                    StateSet = null;
                 }
 
-                if (InputType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet))
+                if(!result.Successful)
                 {
-                    result.Errors.Add(new ErrorMessage($"On Workflow Input {Name}, data type is a State Set, but no state set was provided.", true));
                     return result;
                 }
 

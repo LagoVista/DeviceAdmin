@@ -5,6 +5,7 @@ using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 using System.Collections.Generic;
 using LagoVista.Core.Models;
+using System.Linq;
 using LagoVista.IoT.DeviceAdmin.Interfaces;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
@@ -30,7 +31,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_ConfigVersion, FieldType: FieldTypes.Decimal, IsRequired: true, ResourceType: typeof(DeviceLibraryResources))]
         public double ConfigurationVersion { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation,ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Key { get; set; }
 
 
@@ -95,6 +96,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [CustomValidator]
         public void Validate(ValidationResult result)
         {
+            if (Inputs.Select(param => param.Key).Count() != Inputs.Count()) result.AddUserError("Duplicate Keys found on Inputs.");
+            if (Attributes.Select(param => param.Key).Count() != Attributes.Count()) result.AddUserError("Duplicate Keys found on Inputs.");
+            if (InputCommands.Select(param => param.Key).Count() != InputCommands.Count()) result.AddUserError("Duplicate Keys found on Inputs.");
+            if (StateMachines.Select(param => param.Key).Count() != StateMachines.Count()) result.AddUserError("Duplicate Keys found on Inputs.");            
+            if (OutputCommands.Select(param => param.Key).Count() != OutputCommands.Count()) result.AddUserError("Duplicate Keys found on Output Commands.");
+
             foreach (var input in Inputs) result.Concat(input.Validate(this));
             foreach (var attribute in Attributes) result.Concat(attribute.Validate(this));
             foreach (var inputCommand in InputCommands) result.Concat(inputCommand.Validate(this));

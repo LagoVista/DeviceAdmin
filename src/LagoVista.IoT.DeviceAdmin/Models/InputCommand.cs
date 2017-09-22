@@ -61,22 +61,44 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                         result.Errors.Add(new ErrorMessage($"On Input Command {Name}, Parameter Location is not provided.", true));
                         return result;
                     }
-                    else if (parameter.ParameterType != null && parameter.ParameterType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(parameter.UnitSet))
+
+                    if (parameter.ParameterType == null)
                     {
-                        result.Errors.Add(new ErrorMessage($"On Input Command {Name}, Parameter {parameter.Name} Value with Unit is data type, but no unit type was provided.", true));
-                        return result;
+                        result.Errors.Add(new ErrorMessage($"On Input Command {Name}, Parameter {parameter.Name} parameter type is missing.", true));
+                    }
+                    else if (parameter.ParameterType.Value == ParameterTypes.ValueWithUnit)
+                    {
+                        parameter.StateSet = null;
+                        if (EntityHeader.IsNullOrEmpty(parameter.UnitSet))
+                        {
+                            result.Errors.Add(new ErrorMessage($"On Input Command {Name}, Parameter {parameter.Name} Value with Unit is data type, but no unit type was provided.", true));
+                            return result;
+                        }
+                    }
+                    else if (parameter.ParameterType.Value == ParameterTypes.State)
+                    {
+                        parameter.UnitSet = null;
+                        if (EntityHeader.IsNullOrEmpty(parameter.StateSet))
+                        {
+                            result.Errors.Add(new ErrorMessage($"On Input Command {Name}, Parameter {parameter.Name} is a state set, but no state set was provided.", true));
+                            return result;
+                        }
+                    }
+                    else
+                    {
+                        parameter.UnitSet = null;
+                        parameter.StateSet = null;
                     }
 
-                    if (parameter.ParameterType != null && parameter.ParameterType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(parameter.StateSet))
-                    {
-                        result.Errors.Add(new ErrorMessage($"On Input Command {Name}, Parameter {parameter.Name} is a state set, but no state set was provided.", true));
-                        return result;
-                    }
-
-                    if (parameter.ParameterLocation != null && parameter.ParameterLocation.Value == PayloadTypes.Json && (EndpointType.Value == EndpointTypes.RestGet || EndpointType.Value == EndpointTypes.RestDelete))
+                    if (parameter.ParameterLocation.Value == PayloadTypes.Json && (EndpointType.Value == EndpointTypes.RestGet || EndpointType.Value == EndpointTypes.RestDelete))
                     {
                         result.AddSystemError("End point type of GET or DELETE was specified, however at least one of the parameters has JSON specified for the parameter location.");
                     }
+                }
+
+                if(!result.Successful)
+                {
+                    return result;
                 }
 
                 foreach (var connection in OutgoingConnections)

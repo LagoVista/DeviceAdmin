@@ -4,6 +4,7 @@ using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
+using System.Linq;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 
@@ -13,14 +14,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     public class StateMachine : NodeBase, IValidateable, INoSQLEntity
     {        
         public String DatabaseName { get; set; }
-
         public String EntityType { get; set; }
 
         public StateMachine()
         {
             States = new ObservableCollection<State>();
             Events = new ObservableCollection<Event>();
-            Variables = new ObservableCollection<CustomField>();
+            Variables = new ObservableCollection<Parameter>();
             InitialActions = new ObservableCollection<EntityHeader>();
             Pages = new ObservableCollection<Page>();
         }
@@ -35,7 +35,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public ObservableCollection<State> States { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Variables, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_Variables_Help, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
-        public ObservableCollection<CustomField> Variables { get; set; }
+        public ObservableCollection<Parameter> Variables { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Events, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_Events_Help, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<Event> Events { get; set; }
@@ -63,6 +63,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public ValidationResult Validate(DeviceWorkflow workflow)
         {
             var result = Validator.Validate(this);
+
+            if (States.Select(param => param.Key).Count() != States.Count()) result.AddUserError($"Duplicate Keys found in States on State Machine: {Name}.");
+            if (Events.Select(param => param.Key).Count() != Events.Count()) result.AddUserError($"Duplicate Keys found in Events on State Machine: {Name}.");
+            if (Variables.Select(param => param.Key).Count() != Variables.Count()) result.AddUserError($"Duplicate Keys found in Variables on State Machine: {Name}.");
+
             result.Concat(ValidateNodeBase(workflow));
             foreach (var connection in OutgoingConnections)
             {

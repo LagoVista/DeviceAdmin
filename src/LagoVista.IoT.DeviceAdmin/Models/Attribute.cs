@@ -4,7 +4,6 @@ using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
@@ -55,16 +54,37 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             result.Concat(ValidateNodeBase(workflow));
 
             if (result.Successful)
-            {
-                if (AttributeType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(UnitSet))
+            {                
+                if(EntityHeader.IsNullOrEmpty(AttributeType))
                 {
-                    result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Value with Unit is data type, but no unit type was provided.", true));
-                    return result;
+                    result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Attribute Type is missing.", true));
+                }
+                else if (AttributeType.Value == ParameterTypes.ValueWithUnit)
+                {
+                    StateSet = null;
+                    if (EntityHeader.IsNullOrEmpty(UnitSet))
+                    {
+                        result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Value with Unit is data type, but no unit type was provided.", true));
+                        return result;
+                    }
+                }
+                else if (AttributeType.Value == ParameterTypes.State)
+                {
+                    UnitSet = null;
+                    if (EntityHeader.IsNullOrEmpty(StateSet))
+                    {
+                        result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Value with Unit is data type, but no unit type was provided.", true));
+                        return result;
+                    }
+                }
+                else
+                {
+                    StateSet = null;
+                    UnitSet = null;
                 }
 
-                if (AttributeType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet))
+                if (!result.Successful)
                 {
-                    result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Value with Unit is data type, but no unit type was provided.", true));
                     return result;
                 }
 
@@ -74,12 +94,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     {
                         case NodeType_Input:
                         case NodeType_InputCommand:
-                        case NodeType_Attribute:
                             result.Errors.Add(new ErrorMessage($"Mapping from an Input to a node of type: {NodeType} is not supported", true));
                             break;
                         case NodeType_StateMachine: ValidateStateMachine(result, workflow, connection); break;
+                        case NodeType_Attribute:
                         case NodeType_OutputCommand:
-
                             break;
                     }
                 }
