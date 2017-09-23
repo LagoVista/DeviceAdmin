@@ -55,6 +55,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public override string NodeType => NodeType_Timer;
 
+
+
         public List<string> GetFormFields()
         {
             return new List<string>()
@@ -80,12 +82,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             };
         }
 
-        public ValidationResult Validate(DeviceWorkflow workflow)
+        public void Validate(DeviceWorkflow workflow, ValidationResult resutl)
         {
-            var result = Validator.Validate(this);
-            result.Concat(ValidateNodeBase(workflow));
-            
-            return result;
+            if(Validator.Validate(this).Successful)
+            {
+
+            }
         }
     }
 }

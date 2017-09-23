@@ -30,6 +30,28 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
             };
         }
 
+        protected Parameter GetValidParameter(ParameterTypes parameterTypes = ParameterTypes.String, string key="myparameter")
+        {
+            var parameter = new Parameter()
+            {
+                Name = "parameter",
+                Key = key,
+                Id = "abc123",
+                ParameterType = EntityHeader<ParameterTypes>.Create(parameterTypes),
+            };
+
+            if(parameterTypes == ParameterTypes.State)
+            {
+                parameter.StateSet = new EntityHeader<StateSet>() { Id = "abc123", Text = "dontcare" };
+            }
+            else if(parameterTypes == ParameterTypes.ValueWithUnit)
+            {
+                parameter.UnitSet = new EntityHeader<UnitSet>() { Id = "abc123", Text = "dontcare" };
+            }
+
+            return parameter;
+        }
+
         protected LagoVista.IoT.DeviceAdmin.Models.Attribute GetAttribute(ParameterTypes parameterType = ParameterTypes.String)
         {
             return new LagoVista.IoT.DeviceAdmin.Models.Attribute()
@@ -59,13 +81,23 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
             };
 
             stm.Events.Add(new Event() { Key = "event1", Name = "name", });
+            stm.Events.Add(new Event() { Key = "event2", Name = "name", });
+            stm.Events.Add(new Event() { Key = "event3", Name = "name", });
+
+            stm.States.Add(new State() { Key = "state1", Name = "name", });
+            stm.States.Add(new State() { Key = "state2", Name = "name", });
+            stm.States.Add(new State() { Key = "state3", Name = "name", });
+
+            stm.Variables.Add(GetValidParameter(key:"one"));
+            stm.Variables.Add(GetValidParameter(key: "tw0"));
+            stm.Variables.Add(GetValidParameter(key: "three"));
 
             return stm;
         }
 
         protected OutputCommand GetOutputCommand()
         {
-            return new OutputCommand()
+            var outputCommand = new OutputCommand()
             {
                 Id = Guid.NewGuid().ToId(),
                 Key = "outputone",
@@ -75,6 +107,10 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
                 CreationDate = DateTime.UtcNow.ToJSONString(),
                 LastUpdatedDate = DateTime.UtcNow.ToJSONString(),
             };
+
+            outputCommand.Parameters.Add(GetValidParameter());
+
+            return outputCommand;
         }
 
         protected InputCommand GetInputCommand()
@@ -91,12 +127,9 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
                 LastUpdatedDate = DateTime.UtcNow.ToJSONString(),
             };
 
-            inputCommand.Parameters.Add(new Parameter()
-            {
-                ParameterType = EntityHeader<ParameterTypes>.Create(ParameterTypes.State),
-                Key = "strparm",
-                Name = "String Parameter"
-            });
+            var parameter = GetValidParameter();
+            parameter.ParameterLocation = EntityHeader<PayloadTypes>.Create(PayloadTypes.QueryString);
+            inputCommand.Parameters.Add(parameter);
 
             return inputCommand;
         }
@@ -163,18 +196,37 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
             }
         }
 
-        protected void AssertIsValid(DeviceWorkflow workflow)
+        protected void AssertIsValid(ValidationResult result)
         {
-            var result = Validator.Validate(workflow);
             WriteResults(result);
             Assert.IsTrue(result.Successful);
         }
 
-        protected void AssertIsInValid(DeviceWorkflow workflow)
+        protected void AssertIsInValid(ValidationResult result, int errorCount = 1, int warningCount = 0)
         {
-            var result = Validator.Validate(workflow);
             WriteResults(result);
             Assert.IsFalse(result.Successful);
+            //TODO: Right now we are just checking for valid/invalid, to do thig 100% right we should make sure the error message is the one expected for the condition, our error messages needs to be put into resources and use formatting for parameters to ensure this works right, right now we just assume that there is one error...short cut, probalby burn us, but need to ship!
+            Assert.AreEqual(errorCount, result.Errors.Count);
+            Assert.AreEqual(warningCount, result.Warnings.Count);
+        }
+
+        protected void AssertIsValid(DeviceWorkflow workflow)
+        {
+            var result = Validator.Validate(workflow);
+            AssertIsValid(result);
+        }
+
+        /// <summary>
+        /// Assert the record is invalid.
+        /// </summary>
+        /// <param name="workflow"></param>
+        /// <param name="errorCount">Expected number of errors</param>
+        /// <param name="warningCount">Expected number of warnings</param>
+        protected void AssertIsInValid(DeviceWorkflow workflow, int errorCount = 1, int warningCount = 0)
+        {
+            var result = Validator.Validate(workflow);
+            AssertIsInValid(result, errorCount, warningCount);            
         }
     }
 }

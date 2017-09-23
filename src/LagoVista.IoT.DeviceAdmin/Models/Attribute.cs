@@ -48,14 +48,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             };
         }
 
-        public ValidationResult Validate(DeviceWorkflow workflow)
+        public void Validate(DeviceWorkflow workflow, ValidationResult result)
         {
-            var result = Validator.Validate(this);
-            result.Concat(ValidateNodeBase(workflow));
-
-            if (result.Successful)
-            {                
-                if(EntityHeader.IsNullOrEmpty(AttributeType))
+            /* If core attributes (validated at parent level) are not valid, don't bother validating */
+            if (Validator.Validate(this).Successful)
+            {
+                result.Concat(ValidateNodeBase(workflow));
+                if (EntityHeader.IsNullOrEmpty(AttributeType))
                 {
                     result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Attribute Type is missing.", true));
                 }
@@ -64,8 +63,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     StateSet = null;
                     if (EntityHeader.IsNullOrEmpty(UnitSet))
                     {
-                        result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Value with Unit is data type, but no unit type was provided.", true));
-                        return result;
+                        result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Value with Unit is data type, but no Unit Set was provided.", true));
+                        return;
                     }
                 }
                 else if (AttributeType.Value == ParameterTypes.State)
@@ -73,8 +72,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     UnitSet = null;
                     if (EntityHeader.IsNullOrEmpty(StateSet))
                     {
-                        result.Errors.Add(new ErrorMessage($"On Attribute {Name}, Value with Unit is data type, but no unit type was provided.", true));
-                        return result;
+                        result.Errors.Add(new ErrorMessage($"On Attribute {Name}, State Set is data type, but no State Set was provided.", true));
+                        return;
                     }
                 }
                 else
@@ -85,7 +84,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
                 if (!result.Successful)
                 {
-                    return result;
+                    return;
                 }
 
                 foreach (var connection in OutgoingConnections)
@@ -103,8 +102,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     }
                 }
             }
-
-            return result;
         }
     }
 }

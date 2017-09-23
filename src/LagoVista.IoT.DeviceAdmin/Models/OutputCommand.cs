@@ -25,16 +25,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public override string NodeType => NodeType_OutputCommand;
 
-        public ValidationResult Validate(DeviceWorkflow workflow)
+        public void Validate(DeviceWorkflow workflow, ValidationResult result)
         {
-            var result = Validator.Validate(this);
-            result.Concat(ValidateNodeBase(workflow));
             if (result.Successful)
             {
-                if (Parameters.Select(param => param.Key).Count() != Parameters.Count())
+                result.Concat(ValidateNodeBase(workflow));
+
+                if (Parameters.Select(param => param.Key).Distinct().Count() != Parameters.Count())
                 {
-                    result.Errors.Add(new ErrorMessage($"Keys on Parameters for Output Commands must be unique.", true));
-                    return result;
+                    result.Errors.Add(new ErrorMessage($"On Output Command {Name}, keys on Parameters must be unique.", true));
+                    return;
                 }
 
                 foreach (var parameter in Parameters)
@@ -50,7 +50,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                         if (EntityHeader.IsNullOrEmpty(parameter.UnitSet))
                         {
                             result.Errors.Add(new ErrorMessage($"On Output Command {Name}, Parameter {parameter.Name} Value with Unit is data type, but no unit type was provided.", true));
-                            return result;
+                            return;
                         }
                     }
                     else if (parameter.ParameterType.Value == ParameterTypes.State)
@@ -59,7 +59,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                         if (EntityHeader.IsNullOrEmpty(parameter.StateSet))
                         {
                             result.Errors.Add(new ErrorMessage($"On Output Command {Name}, Parameter {parameter.Name} is a state set, but no state set was provided.", true));
-                            return result;
+                            return;
                         }
                     }
                     else
@@ -69,13 +69,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     }
                 }
 
-                if(OutgoingConnections.Count > 0)
+                if (OutgoingConnections.Count > 0)
                 {
                     result.Errors.Add(new ErrorMessage($"Mapping from an Output Command to an other node types is not supported", true));
                 }
             }
-
-            return result;
         }
     }
 }

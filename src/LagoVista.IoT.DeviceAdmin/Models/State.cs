@@ -1,5 +1,6 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
+using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(State.Description),
                 nameof(State.TransitionInAction),
             };
+        }
+
+        public void Validate(ValidationResult result)
+        {
+
         }
     }
 }

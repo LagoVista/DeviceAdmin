@@ -20,6 +20,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             StateMachines = new List<StateMachine>();
             Inputs = new List<WorkflowInput>();
             OutputCommands = new List<OutputCommand>();
+            Timers = new List<Timer>();
             Pages = new List<Page>();
             Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             ConfigurationVersion = 0.1;
@@ -96,17 +97,19 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [CustomValidator]
         public void Validate(ValidationResult result)
         {
-            if (Inputs.Select(param => param.Key).Count() != Inputs.Count()) result.AddUserError("Duplicate Keys found on Inputs.");
-            if (Attributes.Select(param => param.Key).Count() != Attributes.Count()) result.AddUserError("Duplicate Keys found on Inputs.");
-            if (InputCommands.Select(param => param.Key).Count() != InputCommands.Count()) result.AddUserError("Duplicate Keys found on Inputs.");
-            if (StateMachines.Select(param => param.Key).Count() != StateMachines.Count()) result.AddUserError("Duplicate Keys found on Inputs.");            
-            if (OutputCommands.Select(param => param.Key).Count() != OutputCommands.Count()) result.AddUserError("Duplicate Keys found on Output Commands.");
+            if (Inputs.Select(param => param.Key).Distinct().Count() != Inputs.Count()) result.AddUserError("Duplicate Keys found on Inputs.");
+            if (Attributes.Select(param => param.Key).Distinct().Count() != Attributes.Count()) result.AddUserError("Duplicate Keys found on Attributes.");
+            if (InputCommands.Select(param => param.Key).Distinct().Count() != InputCommands.Count()) result.AddUserError("Duplicate Keys found on Input Commands.");
+            if (StateMachines.Select(param => param.Key).Distinct().Count() != StateMachines.Count()) result.AddUserError("Duplicate Keys found on State Machines.");            
+            if (OutputCommands.Select(param => param.Key).Distinct().Count() != OutputCommands.Count()) result.AddUserError("Duplicate Keys found on Output Commands.");
+            if (Timers.Select(param => param.Key).Distinct().Count() != Timers.Count()) result.AddUserError("Duplicate Keys found on Timers.");
 
-            foreach (var input in Inputs) result.Concat(input.Validate(this));
-            foreach (var attribute in Attributes) result.Concat(attribute.Validate(this));
-            foreach (var inputCommand in InputCommands) result.Concat(inputCommand.Validate(this));
-            foreach (var stateMachine in StateMachines) result.Concat(stateMachine.Validate(this));
-            foreach (var outputCommand in OutputCommands) result.Concat(outputCommand.Validate(this));
+            foreach (var input in Inputs) input.Validate(this, result);
+            foreach (var attribute in Attributes) attribute.Validate(this, result);
+            foreach (var inputCommand in InputCommands) inputCommand.Validate(this, result);
+            foreach (var stateMachine in StateMachines) stateMachine.Validate(this, result);
+            foreach (var outputCommand in OutputCommands) outputCommand.Validate(this, result);
+            foreach (var timer in Timers) timer.Validate(this, result);
         }
     }
 

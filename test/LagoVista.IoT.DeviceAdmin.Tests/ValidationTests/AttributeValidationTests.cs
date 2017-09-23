@@ -1,11 +1,6 @@
 ﻿using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
 {
@@ -19,10 +14,68 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
 
             var attr = GetAttribute();
             workflow.Attributes.Add(attr);
+            AssertIsValid(workflow);
+        }
+
+
+        [TestMethod]
+        public void Attribute_AttributeTypeMissing_Invalid()
+        {
+            var workflow = GetDeviceWorkflow();
+
+            var attr = GetAttribute();
+            attr.AttributeType = null;
+            workflow.Attributes.Add(attr);
+
+            AssertIsInValid(workflow);
+        }
+
+
+        [TestMethod]
+        public void Attribute_MissingStateSet_Invalid()
+        {
+            var workflow = GetDeviceWorkflow();
+
+            var attr = GetAttribute(ParameterTypes.State);
+            workflow.Attributes.Add(attr);
+
+            AssertIsInValid(workflow);
+        }
+
+        [TestMethod]
+        public void Attribute_MissingUnitSet_Invalid()
+        {
+            var workflow = GetDeviceWorkflow();
+
+            var attr = GetAttribute(ParameterTypes.ValueWithUnit);
+            workflow.Attributes.Add(attr);
+
+            AssertIsInValid(workflow);
+        }
+
+        [TestMethod]
+        public void Attribute_HasStateSet_Valid()
+        {
+            var workflow = GetDeviceWorkflow();
+
+            var attr = GetAttribute(ParameterTypes.State);
+            attr.StateSet =new EntityHeader<StateSet>() { Id = "1234", Text = "dontcare" };
+            workflow.Attributes.Add(attr);
 
             AssertIsValid(workflow);
         }
 
+        [TestMethod]
+        public void Attribute_HasUnitSet_Valid()
+        {
+            var workflow = GetDeviceWorkflow();
+
+            var attr = GetAttribute(ParameterTypes.ValueWithUnit);
+            attr.UnitSet = new EntityHeader<UnitSet>() { Id = "1234", Text = "dontcare" };
+            workflow.Attributes.Add(attr);
+
+            AssertIsValid(workflow);
+        }
 
         #region Invalid Connection Tests
         [TestMethod]
@@ -54,11 +107,13 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
         {
             var workflow = GetDeviceWorkflow();
             workflow.Attributes.Add(GetAttribute());
-            workflow.Attributes.Add(GetAttribute());
+            var attr = GetAttribute();
+            attr.Key = "key2";
+            workflow.Attributes.Add(attr);
 
             Connect(workflow.Attributes[0], workflow.Attributes[0]);
 
-            AssertIsInValid(workflow);
+            AssertIsValid(workflow);
         }
         #endregion
 

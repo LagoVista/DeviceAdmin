@@ -46,13 +46,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             };
         }
 
-        public ValidationResult Validate(DeviceWorkflow workflow)
+        public void Validate(DeviceWorkflow workflow, ValidationResult result)
         {
-            var result = Validator.Validate(this);
-            result.Concat(ValidateNodeBase(workflow));
-
-            if (result.Successful)
+            /* If core attributes (validated at parent level) are not valid, don't bother validating */
+            if (Validator.Validate(this).Successful)
             {
+                result.Concat(ValidateNodeBase(workflow));
                 if (EntityHeader.IsNullOrEmpty(InputType))
                 {
                     result.Errors.Add(new ErrorMessage($"On Workflow Input {Name}, Input Type is missing.", true));
@@ -63,7 +62,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     if (EntityHeader.IsNullOrEmpty(UnitSet))
                     {
                         result.Errors.Add(new ErrorMessage($"On Workflow Input {Name}, data type is Value with Unit, but no unit type was provided.", true));
-                        return result;
+                        return;
                     }
                 }
                 else if (InputType.Value == ParameterTypes.State)
@@ -72,7 +71,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     if (EntityHeader.IsNullOrEmpty(StateSet))
                     {
                         result.Errors.Add(new ErrorMessage($"On Workflow Input {Name}, data type is a State Set, but no state set was provided.", true));
-                        return result;
+                        return ;
                     }
                 }
                 else
@@ -83,7 +82,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
                 if(!result.Successful)
                 {
-                    return result;
+                    return ;
                 }
 
                 /* If we made it here, we can assume that all nodes have been validated that they exist and they are part of the workflow */
@@ -121,7 +120,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                         case NodeType_StateMachine:
                             if (EntityHeader.IsNullOrEmpty(connection.StateMachineEvent))
                             {
-                                result.Errors.Add(new ErrorMessage($"Transition Event is empty from {Name} to State Machine {connection.NodeName} does not exist on that state machine."));
+                                result.Errors.Add(new ErrorMessage($"Transition Event is empty from {Name} to State Machine {connection.NodeName}."));
                             }
                             else
                             {
@@ -132,8 +131,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     }
                 }
             }
-
-            return result;
         }
     }
 }

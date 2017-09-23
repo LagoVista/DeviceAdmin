@@ -66,8 +66,24 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(Parameter.ParameterLocation),
                 nameof(Parameter.ParameterType),
                 nameof(Parameter.Description),
-
             };
+        }
+
+        public void Validate(ValidationResult result)
+        {
+            if(EntityHeader.IsNullOrEmpty(ParameterType))
+            {
+                result.AddUserError($"Parameter Type on Parameter {Name} is a required field.");
+            }
+            else if(ParameterType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet))
+            {
+                result.AddUserError($"Parameter Type on Parameter {Name} is a Value with Unit but no State Set has been provided.");
+
+            }
+            else if (ParameterType.Value == ParameterTypes.ValueWithUnit && EntityHeader.IsNullOrEmpty(UnitSet))
+            {
+                result.AddUserError($"Parameter Type on Parameter {Name} is a Value with Unit but no Unit Set has been provided.");
+            }
         }
     }
 }

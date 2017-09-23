@@ -42,15 +42,14 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public override string NodeType => NodeType_InputCommand;
 
-        public ValidationResult Validate(DeviceWorkflow workflow)
+        public ValidationResult Validate(DeviceWorkflow workflow, ValidationResult result)
         {
-            var result = Validator.Validate(this);
-            result.Concat(ValidateNodeBase(workflow));
-            if (result.Successful)
+            if (Validator.Validate(this).Successful)
             {
-                if (Parameters.Select(param => param.Key).Count() != Parameters.Count())
+                result.Concat(ValidateNodeBase(workflow));
+                if (Parameters.Select(param => param.Key).Distinct().Count() != Parameters.Count())
                 {
-                    result.Errors.Add(new ErrorMessage($"Keys on Parameters must be unique.", true));
+                    result.Errors.Add(new ErrorMessage($"On Input Command, {Name} keys on Parameters must be unique.", true));
                     return result;
                 }
 
@@ -107,12 +106,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     {
                         case NodeType_Input:
                         case NodeType_InputCommand:
-                            result.Errors.Add(new ErrorMessage($"Mapping from an Input Command to a node of type {NodeType} is not supported", true));
+                            result.Errors.Add(new ErrorMessage($"Mapping from an Input Command on node {Name} to a node of type {connection.NodeType} is not supported", true));
                             break;
                         case NodeType_Attribute:
                             if (connection.InputCommandKey == null)
                             {
-                                result.Errors.Add(new ErrorMessage($"When Mapping from in Input Command to an Attribute, you must specify which parameter will be mapped", false));
+                                result.Errors.Add(new ErrorMessage($"When Mapping from in Input Command on node {Name} to an Attribute, you must specify which parameter will be mapped", false));
                             }
                             else
                             {

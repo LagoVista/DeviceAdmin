@@ -60,24 +60,33 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             };
         }
 
-        public ValidationResult Validate(DeviceWorkflow workflow)
+        public void Validate(DeviceWorkflow workflow, ValidationResult result)
         {
-            var result = Validator.Validate(this);
-
-            if (States.Select(param => param.Key).Count() != States.Count()) result.AddUserError($"Duplicate Keys found in States on State Machine: {Name}.");
-            if (Events.Select(param => param.Key).Count() != Events.Count()) result.AddUserError($"Duplicate Keys found in Events on State Machine: {Name}.");
-            if (Variables.Select(param => param.Key).Count() != Variables.Count()) result.AddUserError($"Duplicate Keys found in Variables on State Machine: {Name}.");
-
-            result.Concat(ValidateNodeBase(workflow));
-            foreach (var connection in OutgoingConnections)
+            if (Validator.Validate(this).Successful)
             {
-                if (connection.NodeType == NodeType_Input || connection.NodeType == NodeType_InputCommand)
+                if (States.Select(param => param.Key).Distinct().Count() != States.Count()) result.AddUserError($"Duplicate Keys found in States on State Machine: {Name}.");
+                if (Events.Select(param => param.Key).Distinct().Count() != Events.Count()) result.AddUserError($"Duplicate Keys found in Events on State Machine: {Name}.");
+                if (Variables.Select(param => param.Key).Distinct().Count() != Variables.Count()) result.AddUserError($"Duplicate Keys found in Variables on State Machine: {Name}.");
+
+                result.Concat(ValidateNodeBase(workflow));
+                foreach (var connection in OutgoingConnections)
                 {
-                    result.Errors.Add(new ErrorMessage($"Mapping from an Input to a node of type: {NodeType} is not supported", true));
+                    if (connection.NodeType == NodeType_Input || connection.NodeType == NodeType_InputCommand)
+                    {
+                        result.Errors.Add(new ErrorMessage($"Mapping from an Input to a node of type: {NodeType} is not supported", true));
+                    }
+                }
+
+                foreach (var variable in Variables)
+                {
+                    variable.Validate(result);
+                }
+
+                foreach (var state in States)
+                {
+                    state.Validate(result);
                 }
             }
-
-            return result;
         }
     }
 
