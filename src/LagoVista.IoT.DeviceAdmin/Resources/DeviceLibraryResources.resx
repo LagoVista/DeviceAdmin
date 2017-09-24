@@ -270,17 +270,17 @@
   <data name="Unit_Abbreviation" xml:space="preserve">
     <value>Abbreviation</value>
   </data>
-  <data name="Unit_ConversionScript" xml:space="preserve">
-    <value>Conversion Script</value>
+  <data name="Unit_ConversionTo_Script" xml:space="preserve">
+    <value>Script - Convert to Default to this Unit</value>
   </data>
-  <data name="Unit_ConversionScript_Help" xml:space="preserve">
-    <value>Provide a formula that will convert from the default units to this unit.  </value>
+  <data name="Unit_ConversionTo_Script_Help" xml:space="preserve">
+    <value>Provide a script with a formulat  that will convert a default unit value to this unit.</value>
   </data>
   <data name="Unit_IsDefault" xml:space="preserve">
     <value>Default Units</value>
   </data>
   <data name="Unit_NumberDecimal" xml:space="preserve">
-    <value>NumberDecimal</value>
+    <value>Number Decimal Points</value>
   </data>
   <data name="Common_IsPublic" xml:space="preserve">
     <value>Is Public</value>
@@ -843,7 +843,7 @@
     <value>Conversion Type</value>
   </data>
   <data name="Unit_Conversion_Type_Factor" xml:space="preserve">
-    <value>Factor</value>
+    <value>Conversion Factor</value>
   </data>
   <data name="Unit_Conversion_Type_Script" xml:space="preserve">
     <value>Script</value>
@@ -1221,5 +1221,14 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="StateMachine_State_Enum_Help" xml:space="preserve">
     <value>In addition to providing a user provided key value that can be used to uniquely identify your state, you can also provide an integer value that can be used to map to external numeric values in a message or some other source.  </value>
+  </data>
+  <data name="Unit_ConversionFrom_Script" xml:space="preserve">
+    <value>Script - Convert from this Unit to Default Unit</value>
+  </data>
+  <data name="Unit_ConversionFrom_Script_Help" xml:space="preserve">
+    <value>Provide a script that will take a value in this unit and convert it to a value of the unit that is specified as the default unit.</value>
+  </data>
+  <data name="Unit_NumberDecimal_Help" xml:space="preserve">
+    <value>Specify the number of decimal points to store and display this value.</value>
   </data>
 </root>

@@ -14,24 +14,19 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public Unit()
         {
-            ConversionType = new Core.Models.EntityHeader()
-            {
-                Text = "Factor",
-                Id = "factor"
-            };
-
             IsDefault = true;
-            ConversionFactor = 1.0;
         }
-
         public enum ConversionTypes
         {
-            [EnumLabel("factor", DeviceLibraryResources.Names.Unit_Conversion_Type_Factor, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Unit_Conversion_Type_Factor_Help)]
+            [EnumLabel(Unit.ConversionTypes_Factor, DeviceLibraryResources.Names.Unit_Conversion_Type_Factor, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Unit_Conversion_Type_Factor_Help)]
             Factor,
 
-            [EnumLabel("formula", DeviceLibraryResources.Names.Unit_Conversion_Type_Script, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Unit_Conversion_Type_Script_Help)]
+            [EnumLabel(Unit.ConversionTypes_Script, DeviceLibraryResources.Names.Unit_Conversion_Type_Script, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Unit_Conversion_Type_Script_Help)]
             Script,
         }
+
+        public const string ConversionTypes_Factor = "factor";
+        public const string ConversionTypes_Script = "script";
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Name { get; set; }
@@ -40,29 +35,26 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String Key { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type, EnumType: typeof(ConversionTypes), HelpResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
-        public EntityHeader ConversionType { get; set; }
-
-
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_Abbreviation, IsRequired: true, MaxLength: 6, ResourceType: typeof(DeviceLibraryResources))]
         public String Abbreviation { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_NumberDecimal, IsRequired: true, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_NumberDecimal, IsRequired: true, FieldType: FieldTypes.Integer, HelpResource:Resources.DeviceLibraryResources.Names.Unit_NumberDecimal_Help, ResourceType: typeof(DeviceLibraryResources))]
         public int NumberDecimalPoints { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type_Factor, FieldType: FieldTypes.Decimal, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public double? ConversionFactor { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type, EnumType: typeof(ConversionTypes), HelpResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader<ConversionTypes> ConversionType { get; set; }
 
-        // Look at for running the scripts https://github.com/sebastienros/jint
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript, WaterMark: Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type_Factor, FieldType: FieldTypes.Decimal, HelpResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type_Factor_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public double? ConversionFactor { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionTo_Script, WaterMark: Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionTo_Script_Help, ResourceType: typeof(DeviceLibraryResources))]
         public String ConversionToScript { get; set; }
 
-        // Look at for running the scripts https://github.com/sebastienros/jint
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript, WaterMark: Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionScript_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionFrom_Script, WaterMark: Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionFrom_Script_Help, ResourceType: typeof(DeviceLibraryResources))]
         public String ConversionFromScript { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_DisplayFormat, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_DisplayFormat_Help, ResourceType: typeof(DeviceLibraryResources))]
@@ -87,6 +79,44 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(Unit.ConversionToScript),
                 nameof(Unit.ConversionFromScript)
             };
+        }
+
+        [CustomValidator]
+        public void Validate(ValidationResult result)
+        {
+            if (IsDefault)
+            {
+                ConversionType = null;
+                ConversionFactor = null;
+                ConversionToScript = null;
+                ConversionFromScript = null;
+            }
+            else
+            {
+                if (EntityHeader.IsNullOrEmpty(ConversionType))
+                {
+                    result.AddUserError($"For non-default Units, on unit {Name} you must provide a conversion type.");
+                }
+                else
+                {
+                    switch (ConversionType.Value)
+                    {
+                        case ConversionTypes.Factor:
+                            if (!ConversionFactor.HasValue) result.AddUserError($"For Units that specify a Conversion Type of a Conversion Factor, a Conversion Factor must be Provided on unit {Name}");
+                            break;
+                        case ConversionTypes.Script:
+                            if (String.IsNullOrEmpty(ConversionToScript)) result.AddUserError($"Since you are using a conversion script on unit {Name}, you must provide the Conversion To Script");
+                            if (String.IsNullOrEmpty(ConversionFromScript)) result.AddUserError($"Since you are using a conversion script on unit {Name}, you must provide the Conversion From Script");
+
+                            //TODO: Should probably provide some sort of validation on the scripts, JInt, requires dotnetstandard 1.3 and need to think it through first, for now, just ensure it's not empty and contains the name of the method
+                            /* For now, just make sure the script contains the name of the function, that will be called, the run time engine will handle and report invalid scripts */
+                            if (!String.IsNullOrEmpty(ConversionToScript) && !ConversionToScript.Contains("convertToDefaultUnit")) result.AddUserError($"Convertion From Script on unit {Name} must contain an implementation of the function [convertToDefaultUnit]");
+                            if (!String.IsNullOrEmpty(ConversionFromScript) && !ConversionFromScript.Contains("convertFromDefaultUnit")) result.AddUserError($"Convertion From Script on unit {Name} must contain an implementation of the function [convertFromDefaultUnit]");
+
+                            break;
+                    }
+                }
+            }
         }
     }
 

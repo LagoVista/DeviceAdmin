@@ -1,4 +1,4 @@
-﻿/*9/22/2017 12:04:57*/
+﻿/*9/24/2017 15:09:36*/
 using System.Globalization;
 using System.Reflection;
 
@@ -1025,12 +1025,18 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Unit_Conversion_Type_Script_Help
 
 		public static string Unit_Conversion_Type_Script_Help { get { return GetResourceString("Unit_Conversion_Type_Script_Help"); } }
-//Resources:DeviceLibraryResources:Unit_ConversionScript
+//Resources:DeviceLibraryResources:Unit_ConversionFrom_Script
 
-		public static string Unit_ConversionScript { get { return GetResourceString("Unit_ConversionScript"); } }
-//Resources:DeviceLibraryResources:Unit_ConversionScript_Help
+		public static string Unit_ConversionFrom_Script { get { return GetResourceString("Unit_ConversionFrom_Script"); } }
+//Resources:DeviceLibraryResources:Unit_ConversionFrom_Script_Help
 
-		public static string Unit_ConversionScript_Help { get { return GetResourceString("Unit_ConversionScript_Help"); } }
+		public static string Unit_ConversionFrom_Script_Help { get { return GetResourceString("Unit_ConversionFrom_Script_Help"); } }
+//Resources:DeviceLibraryResources:Unit_ConversionTo_Script
+
+		public static string Unit_ConversionTo_Script { get { return GetResourceString("Unit_ConversionTo_Script"); } }
+//Resources:DeviceLibraryResources:Unit_ConversionTo_Script_Help
+
+		public static string Unit_ConversionTo_Script_Help { get { return GetResourceString("Unit_ConversionTo_Script_Help"); } }
 //Resources:DeviceLibraryResources:Unit_Definitions
 
 		public static string Unit_Definitions { get { return GetResourceString("Unit_Definitions"); } }
@@ -1055,6 +1061,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Unit_NumberDecimal
 
 		public static string Unit_NumberDecimal { get { return GetResourceString("Unit_NumberDecimal"); } }
+//Resources:DeviceLibraryResources:Unit_NumberDecimal_Help
+
+		public static string Unit_NumberDecimal_Help { get { return GetResourceString("Unit_NumberDecimal_Help"); } }
 //Resources:DeviceLibraryResources:Unit_Title
 
 		public static string Unit_Title { get { return GetResourceString("Unit_Title"); } }
@@ -1487,8 +1496,10 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Unit_Conversion_Type_Help = "Unit_Conversion_Type_Help";
 			public const string Unit_Conversion_Type_Script = "Unit_Conversion_Type_Script";
 			public const string Unit_Conversion_Type_Script_Help = "Unit_Conversion_Type_Script_Help";
-			public const string Unit_ConversionScript = "Unit_ConversionScript";
-			public const string Unit_ConversionScript_Help = "Unit_ConversionScript_Help";
+			public const string Unit_ConversionFrom_Script = "Unit_ConversionFrom_Script";
+			public const string Unit_ConversionFrom_Script_Help = "Unit_ConversionFrom_Script_Help";
+			public const string Unit_ConversionTo_Script = "Unit_ConversionTo_Script";
+			public const string Unit_ConversionTo_Script_Help = "Unit_ConversionTo_Script_Help";
 			public const string Unit_Definitions = "Unit_Definitions";
 			public const string Unit_Description = "Unit_Description";
 			public const string Unit_DisplayFormat = "Unit_DisplayFormat";
@@ -1497,6 +1508,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Unit_IsDefault = "Unit_IsDefault";
 			public const string Unit_IsDefault_Help = "Unit_IsDefault_Help";
 			public const string Unit_NumberDecimal = "Unit_NumberDecimal";
+			public const string Unit_NumberDecimal_Help = "Unit_NumberDecimal_Help";
 			public const string Unit_Title = "Unit_Title";
 			public const string UnitSet_DefaultUnit = "UnitSet_DefaultUnit";
 			public const string UnitSet_Description = "UnitSet_Description";
