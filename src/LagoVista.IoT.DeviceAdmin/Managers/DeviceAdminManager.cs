@@ -12,6 +12,8 @@ using LagoVista.Core.Managers;
 using LagoVista.Core.PlatformSupport;
 using LagoVista.Core.Interfaces;
 using LagoVista.IoT.Logging.Loggers;
+using LagoVista.Core.Exceptions;
+using LagoVista.IoT.DeviceAdmin.Resources;
 
 namespace LagoVista.IoT.DeviceAdmin.Managers
 {
@@ -23,7 +25,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         IStateSetRepo _stateSetRepo;
         IEventSetRepo _eventSetRepo;
 
-        public DeviceAdminManager(IDeviceWorkflowRepo deviceWorkflowRepo, IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo, 
+        public DeviceAdminManager(IDeviceWorkflowRepo deviceWorkflowRepo, IUnitSetRepo unitSetRepo, IStateMachineRepo stateMachineRepo,
             IStateSetRepo stateSetRepo, IEventSetRepo eventSetRepo, IDependencyManager depManager, ISecurity securityManager, IAdminLogger logger, IAppConfig appConfig) :
             base(logger, appConfig, depManager, securityManager)
         {
@@ -147,48 +149,86 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return deviceWorkflow;
         }
 
-        public async Task<DeviceWorkflow> LoadFullDeviceWorkflowAsync(string id, EntityHeader org, EntityHeader user)
+        public async Task<InvokeResult<DeviceWorkflow>> LoadFullDeviceWorkflowAsync(string id, EntityHeader org, EntityHeader user)
         {
-            var deviceWorkflow = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(id);
-
-            if (deviceWorkflow.Attributes == null)
+            DeviceWorkflow deviceWorkflow = null;
+            try
             {
-                deviceWorkflow.Attributes = new List<Models.Attribute>();
+                deviceWorkflow = await _deviceWorkflowRepo.GetDeviceWorkflowAsync(id);
             }
-            
+            catch(RecordNotFoundException)
+            {
+                return InvokeResult<DeviceWorkflow>.FromErrors(ErrorCodes.CouldNotLoadDeviceWorkflow.ToErrorMessage($"WorkflowId={id}"));
+            }
+
+            if (deviceWorkflow.Attributes == null) deviceWorkflow.Attributes = new List<Models.Attribute>();
+            if (deviceWorkflow.Inputs == null) deviceWorkflow.Inputs = new List<WorkflowInput>();
+
+            var result = new InvokeResult<DeviceWorkflow>();
             foreach (var attribute in deviceWorkflow.Attributes)
             {
-                if (!EntityHeader.IsNullOrEmpty(attribute.UnitSet))
+                if (attribute.AttributeType != null && attribute.AttributeType.Value == ParameterTypes.ValueWithUnit)
                 {
-                    attribute.UnitSet.Value = await GetAttributeUnitSetAsync(attribute.UnitSet.Id, org, user);
+                    /* Will catch validation errors later, so just try to load */
+                    if (!EntityHeader.IsNullOrEmpty(attribute.UnitSet))
+                    {
+                        try
+                        {
+                            attribute.UnitSet.Value = await GetAttributeUnitSetAsync(attribute.UnitSet.Id, org, user);
+                        }
+                        catch (RecordNotFoundException)
+                        {
+                            result.Errors.Add(ErrorCodes.CouldNotLoadUnitSet.ToErrorMessage($"AttributeId={attribute.Id},UnitSetId={attribute.UnitSet.Id}"));
+                        }
+                    }
                 }
 
-                
                 if (!EntityHeader.IsNullOrEmpty(attribute.StateSet))
                 {
-                    attribute.StateSet.Value = await GetStateSetAsync(attribute.StateSet.Id, org, user);
+                    try
+                    {
+                        attribute.StateSet.Value = await GetStateSetAsync(attribute.StateSet.Id, org, user);
+                    }
+                    catch (RecordNotFoundException)
+                    {
+                        result.Errors.Add(ErrorCodes.CouldNotLoadStateSet.ToErrorMessage($"AttributeId={attribute.Id},StateSetId={attribute.StateSet.Id}"));
+                    }
                 }
-            }
-
-            if(deviceWorkflow.Inputs == null)
-            {
-                deviceWorkflow.Inputs = new List<WorkflowInput>();
             }
 
             foreach (var input in deviceWorkflow.Inputs)
             {
                 if (!EntityHeader.IsNullOrEmpty(input.UnitSet))
                 {
-                    input.UnitSet.Value = await GetAttributeUnitSetAsync(input.UnitSet.Id, org, user);                    
+                    try
+                    {
+                        input.UnitSet.Value = await GetAttributeUnitSetAsync(input.UnitSet.Id, org, user);
+                    }
+                    catch (RecordNotFoundException)
+                    {
+                        result.Errors.Add(ErrorCodes.CouldNotLoadUnitSet.ToErrorMessage($"InputId={input.Id},UnitSetId={input.UnitSet.Id}"));
+                    }
                 }
 
                 if (!EntityHeader.IsNullOrEmpty(input.StateSet))
                 {
-                    input.StateSet.Value = await GetStateSetAsync(input.StateSet.Id, org, user);
+                    try
+                    {
+                        input.StateSet.Value = await GetStateSetAsync(input.StateSet.Id, org, user);
+                    }
+                    catch (RecordNotFoundException)
+                    {
+                        result.Errors.Add(ErrorCodes.CouldNotLoadStateSet.ToErrorMessage($"InputId={input.Id},StateSetId={input.StateSet.Id}"));
+                    }
                 }
             }
 
-            return deviceWorkflow;
+            if (result.Successful)
+            {
+                return InvokeResult<DeviceWorkflow>.Create(deviceWorkflow);
+            }
+
+            return result;
         }
 
         public async Task<StateSet> GetStateSetAsync(String id, EntityHeader org, EntityHeader user)
@@ -204,7 +244,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Read, user, org);
             return eventSet;
         }
-        
+
         public async Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(String orgId, EntityHeader user)
         {
             await AuthorizeOrgAccessAsync(user, orgId, typeof(StateMachine));

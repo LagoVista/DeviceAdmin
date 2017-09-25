@@ -1,4 +1,4 @@
-﻿/*9/24/2017 15:09:36*/
+﻿/*9/25/2017 18:36:51*/
 using System.Globalization;
 using System.Reflection;
 
@@ -560,6 +560,15 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 		///You can configure different environments so you can test your configurations prior to putting them into production
 		///</summary>
 		public static string Environments { get { return GetResourceString("Environments"); } }
+//Resources:DeviceLibraryResources:Err_CouldNotLoadDeviceWorkflow
+
+		public static string Err_CouldNotLoadDeviceWorkflow { get { return GetResourceString("Err_CouldNotLoadDeviceWorkflow"); } }
+//Resources:DeviceLibraryResources:Err_CouldNotLoadStateSet
+
+		public static string Err_CouldNotLoadStateSet { get { return GetResourceString("Err_CouldNotLoadStateSet"); } }
+//Resources:DeviceLibraryResources:Err_CouldNotLoadUnitSet
+
+		public static string Err_CouldNotLoadUnitSet { get { return GetResourceString("Err_CouldNotLoadUnitSet"); } }
 //Resources:DeviceLibraryResources:EventSet_Description
 
 		public static string EventSet_Description { get { return GetResourceString("EventSet_Description"); } }
@@ -1341,6 +1350,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Environment_Production = "Environment_Production";
 			public const string Environment_Test = "Environment_Test";
 			public const string Environments = "Environments";
+			public const string Err_CouldNotLoadDeviceWorkflow = "Err_CouldNotLoadDeviceWorkflow";
+			public const string Err_CouldNotLoadStateSet = "Err_CouldNotLoadStateSet";
+			public const string Err_CouldNotLoadUnitSet = "Err_CouldNotLoadUnitSet";
 			public const string EventSet_Description = "EventSet_Description";
 			public const string EventSet_Events = "EventSet_Events";
 			public const string EventSet_Help = "EventSet_Help";

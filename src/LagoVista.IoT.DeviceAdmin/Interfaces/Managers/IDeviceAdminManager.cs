@@ -33,7 +33,7 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<UnitSet> GetAttributeUnitSetAsync(string id, EntityHeader org, EntityHeader user);
         
         Task<DeviceWorkflow> GetDeviceWorkflowAsync(string id, EntityHeader org, EntityHeader user);
-        Task<DeviceWorkflow> LoadFullDeviceWorkflowAsync(string id, EntityHeader org, EntityHeader user);
+        Task<InvokeResult<DeviceWorkflow>> LoadFullDeviceWorkflowAsync(string id, EntityHeader org, EntityHeader user);
 
         Task<StateSet> GetStateSetAsync(string id, EntityHeader org, EntityHeader user);
         Task<EventSet> GetEventSetAsync(string id, EntityHeader org, EntityHeader user);

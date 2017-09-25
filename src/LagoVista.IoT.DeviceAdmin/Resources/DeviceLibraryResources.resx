@@ -1231,4 +1231,13 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Unit_NumberDecimal_Help" xml:space="preserve">
     <value>Specify the number of decimal points to store and display this value.</value>
   </data>
+  <data name="Err_CouldNotLoadDeviceWorkflow" xml:space="preserve">
+    <value>Could Not Load Device Workflow</value>
+  </data>
+  <data name="Err_CouldNotLoadStateSet" xml:space="preserve">
+    <value>Could Not Load State Set</value>
+  </data>
+  <data name="Err_CouldNotLoadUnitSet" xml:space="preserve">
+    <value>Could Not Load Unit Set</value>
+  </data>
 </root>
