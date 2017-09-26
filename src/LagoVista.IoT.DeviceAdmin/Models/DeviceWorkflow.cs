@@ -97,6 +97,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [CustomValidator]
         public void Validate(ValidationResult result)
         {
+            if (Timers == null) Timers = new List<Timer>();
+
+
             if (Inputs.Select(param => param.Key).Distinct().Count() != Inputs.Count()) result.AddUserError("Duplicate Keys found on Inputs.");
             if (Attributes.Select(param => param.Key).Distinct().Count() != Attributes.Count()) result.AddUserError("Duplicate Keys found on Attributes.");
             if (InputCommands.Select(param => param.Key).Distinct().Count() != InputCommands.Count()) result.AddUserError("Duplicate Keys found on Input Commands.");
