@@ -1240,4 +1240,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Err_CouldNotLoadUnitSet" xml:space="preserve">
     <value>Could Not Load Unit Set</value>
   </data>
+  <data name="Attribute_DefaultValue" xml:space="preserve">
+    <value>Default Value</value>
+  </data>
 </root>

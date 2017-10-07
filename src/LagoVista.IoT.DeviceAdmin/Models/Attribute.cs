@@ -31,6 +31,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: Resources.DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_DefaultValue, FieldType: FieldTypes.Text,  ResourceType: typeof(DeviceLibraryResources))]
+        public string DefaultValue { get; set; }
+
         public override string NodeType => NodeType_Attribute;
 
         public List<string> GetFormFields()

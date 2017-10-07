@@ -1,4 +1,4 @@
-﻿/*9/25/2017 18:36:51*/
+﻿/*10/6/2017 21:11:56*/
 using System.Globalization;
 using System.Reflection;
 
@@ -138,6 +138,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:Attribute_AttributeType_Select
 
 		public static string Attribute_AttributeType_Select { get { return GetResourceString("Attribute_AttributeType_Select"); } }
+//Resources:DeviceLibraryResources:Attribute_DefaultValue
+
+		public static string Attribute_DefaultValue { get { return GetResourceString("Attribute_DefaultValue"); } }
 //Resources:DeviceLibraryResources:Attribute_Description
 
 		public static string Attribute_Description { get { return GetResourceString("Attribute_Description"); } }
@@ -1212,6 +1215,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string Attribute_AttributeType = "Attribute_AttributeType";
 			public const string Attribute_AttributeType_Help = "Attribute_AttributeType_Help";
 			public const string Attribute_AttributeType_Select = "Attribute_AttributeType_Select";
+			public const string Attribute_DefaultValue = "Attribute_DefaultValue";
 			public const string Attribute_Description = "Attribute_Description";
 			public const string Attribute_Direction = "Attribute_Direction";
 			public const string Attribute_Direction_Help = "Attribute_Direction_Help";
