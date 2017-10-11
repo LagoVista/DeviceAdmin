@@ -1,4 +1,4 @@
-﻿/*10/6/2017 21:11:56*/
+﻿/*10/11/2017 15:57:01*/
 using System.Globalization;
 using System.Reflection;
 
@@ -333,6 +333,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:CustomField_FieldType_Time
 
 		public static string CustomField_FieldType_Time { get { return GetResourceString("CustomField_FieldType_Time"); } }
+//Resources:DeviceLibraryResources:CustomField_FieldType_Watermark
+
+		public static string CustomField_FieldType_Watermark { get { return GetResourceString("CustomField_FieldType_Watermark"); } }
 //Resources:DeviceLibraryResources:CustomField_FieldType_WebSite
 
 		public static string CustomField_FieldType_WebSite { get { return GetResourceString("CustomField_FieldType_WebSite"); } }
@@ -354,15 +357,24 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:CustomField_Label
 
 		public static string CustomField_Label { get { return GetResourceString("CustomField_Label"); } }
+//Resources:DeviceLibraryResources:CustomField_Label_Help
+
+		public static string CustomField_Label_Help { get { return GetResourceString("CustomField_Label_Help"); } }
 //Resources:DeviceLibraryResources:CustomField_RegEx
 
 		public static string CustomField_RegEx { get { return GetResourceString("CustomField_RegEx"); } }
 //Resources:DeviceLibraryResources:CustomField_RegEx_Help
 
 		public static string CustomField_RegEx_Help { get { return GetResourceString("CustomField_RegEx_Help"); } }
+//Resources:DeviceLibraryResources:CustomField_StateSet
+
+		public static string CustomField_StateSet { get { return GetResourceString("CustomField_StateSet"); } }
 //Resources:DeviceLibraryResources:CustomField_Title
 
 		public static string CustomField_Title { get { return GetResourceString("CustomField_Title"); } }
+//Resources:DeviceLibraryResources:CustomField_UnitSet
+
+		public static string CustomField_UnitSet { get { return GetResourceString("CustomField_UnitSet"); } }
 //Resources:DeviceLibraryResources:CustomFieldCollection_Description
 
 		public static string CustomFieldCollection_Description { get { return GetResourceString("CustomFieldCollection_Description"); } }
@@ -1280,6 +1292,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string CustomField_FieldType_Password = "CustomField_FieldType_Password";
 			public const string CustomField_FieldType_String = "CustomField_FieldType_String";
 			public const string CustomField_FieldType_Time = "CustomField_FieldType_Time";
+			public const string CustomField_FieldType_Watermark = "CustomField_FieldType_Watermark";
 			public const string CustomField_FieldType_WebSite = "CustomField_FieldType_WebSite";
 			public const string CustomFIeld_Help = "CustomFIeld_Help";
 			public const string CustomField_HelpText = "CustomField_HelpText";
@@ -1287,9 +1300,12 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string CustomField_IsReadOnly_Help = "CustomField_IsReadOnly_Help";
 			public const string CustomField_IsRequired = "CustomField_IsRequired";
 			public const string CustomField_Label = "CustomField_Label";
+			public const string CustomField_Label_Help = "CustomField_Label_Help";
 			public const string CustomField_RegEx = "CustomField_RegEx";
 			public const string CustomField_RegEx_Help = "CustomField_RegEx_Help";
+			public const string CustomField_StateSet = "CustomField_StateSet";
 			public const string CustomField_Title = "CustomField_Title";
+			public const string CustomField_UnitSet = "CustomField_UnitSet";
 			public const string CustomFieldCollection_Description = "CustomFieldCollection_Description";
 			public const string CustomFieldCollection_Help = "CustomFieldCollection_Help";
 			public const string CustomFieldCollection_Title = "CustomFieldCollection_Title";

@@ -1243,4 +1243,16 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Attribute_DefaultValue" xml:space="preserve">
     <value>Default Value</value>
   </data>
+  <data name="CustomField_FieldType_Watermark" xml:space="preserve">
+    <value>-field type-</value>
+  </data>
+  <data name="CustomField_Label_Help" xml:space="preserve">
+    <value>Provide a label that will serve as a caption for the custom field.</value>
+  </data>
+  <data name="CustomField_StateSet" xml:space="preserve">
+    <value>State Set</value>
+  </data>
+  <data name="CustomField_UnitSet" xml:space="preserve">
+    <value>Unit Set</value>
+  </data>
 </root>
