@@ -1,6 +1,7 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
+using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using Newtonsoft.Json;
 using System;
@@ -31,12 +32,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public EntityHeader<ParameterTypes> FieldType { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_StateSet, EnumType: (typeof(ParameterTypes)), FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), WaterMark: Resources.DeviceLibraryResources.Names.CustomField_FieldType_Watermark, IsRequired: true, IsUserEditable: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_UnitSet, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources), WaterMark: Resources.DeviceLibraryResources.Names.CustomField_UnitSet_Select)]
         public EntityHeader<UnitSet> UnitSet { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_FieldType, EnumType: (typeof(ParameterTypes)), FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), WaterMark: Resources.DeviceLibraryResources.Names.CustomField_FieldType_Watermark, IsRequired: true, IsUserEditable: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_StateSet, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources), WaterMark: Resources.DeviceLibraryResources.Names.CustomField_StateSet_Select)]
         public EntityHeader<StateSet> StateSet { get; set; }
-
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, ValidationRegEx: Constants.KeyRegEx, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
         public String Key { get; set; }
@@ -69,6 +69,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(CustomField.RegEx),
                 nameof(CustomField.HelpText),
             };
+        }
+
+        public void Validate(ValidationResult result)
+        {
+            if (EntityHeader.IsNullOrEmpty(FieldType)) result.AddUserError("Field Type is Required.");
+
+            if(FieldType.Value == ParameterTypes.ValueWithUnit)
+            {
+                if (EntityHeader.IsNullOrEmpty(UnitSet)) result.AddUserError("If Value with Unit is selected for the Field Type, you must specify a Unit Set.");
+            }
+            else if(FieldType.Value == ParameterTypes.State)
+            {
+                if (EntityHeader.IsNullOrEmpty(StateSet)) result.AddUserError("If State Set is selected for the Field Type, you must specify a State Set.");
+            }
+            
         }
     }
 }

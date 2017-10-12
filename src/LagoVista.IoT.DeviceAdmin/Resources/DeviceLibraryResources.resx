@@ -1255,4 +1255,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="CustomField_UnitSet" xml:space="preserve">
     <value>Unit Set</value>
   </data>
+  <data name="CustomField_StateSet_Select" xml:space="preserve">
+    <value>-select state set-</value>
+  </data>
+  <data name="CustomField_UnitSet_Select" xml:space="preserve">
+    <value>-select units-</value>
+  </data>
 </root>

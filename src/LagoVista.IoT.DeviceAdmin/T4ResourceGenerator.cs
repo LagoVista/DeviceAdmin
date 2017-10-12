@@ -1,4 +1,4 @@
-﻿/*10/11/2017 15:57:01*/
+﻿/*10/12/2017 12:06:07*/
 using System.Globalization;
 using System.Reflection;
 
@@ -369,12 +369,18 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:CustomField_StateSet
 
 		public static string CustomField_StateSet { get { return GetResourceString("CustomField_StateSet"); } }
+//Resources:DeviceLibraryResources:CustomField_StateSet_Select
+
+		public static string CustomField_StateSet_Select { get { return GetResourceString("CustomField_StateSet_Select"); } }
 //Resources:DeviceLibraryResources:CustomField_Title
 
 		public static string CustomField_Title { get { return GetResourceString("CustomField_Title"); } }
 //Resources:DeviceLibraryResources:CustomField_UnitSet
 
 		public static string CustomField_UnitSet { get { return GetResourceString("CustomField_UnitSet"); } }
+//Resources:DeviceLibraryResources:CustomField_UnitSet_Select
+
+		public static string CustomField_UnitSet_Select { get { return GetResourceString("CustomField_UnitSet_Select"); } }
 //Resources:DeviceLibraryResources:CustomFieldCollection_Description
 
 		public static string CustomFieldCollection_Description { get { return GetResourceString("CustomFieldCollection_Description"); } }
@@ -1304,8 +1310,10 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string CustomField_RegEx = "CustomField_RegEx";
 			public const string CustomField_RegEx_Help = "CustomField_RegEx_Help";
 			public const string CustomField_StateSet = "CustomField_StateSet";
+			public const string CustomField_StateSet_Select = "CustomField_StateSet_Select";
 			public const string CustomField_Title = "CustomField_Title";
 			public const string CustomField_UnitSet = "CustomField_UnitSet";
+			public const string CustomField_UnitSet_Select = "CustomField_UnitSet_Select";
 			public const string CustomFieldCollection_Description = "CustomFieldCollection_Description";
 			public const string CustomFieldCollection_Help = "CustomFieldCollection_Help";
 			public const string CustomFieldCollection_Title = "CustomFieldCollection_Title";
