@@ -1,27 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <NoWarn>$(NoWarn);1591</NoWarn>
+    <NetStandardImplicitPackageVersion>2.0.1</NetStandardImplicitPackageVersion>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.6|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard1.6\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.6|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard1.6\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LagoVista.IoT.DeviceAdmin.CloudRepos\LagoVista.IoT.DeviceAdmin.CloudRepos.csproj" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="LagoVista.Core" Version="1.2.163-alpha0901" />
     <PackageReference Include="LagoVista.IoT.Logging" Version="1.2.163-alpha0901" />
     <PackageReference Include="LagoVista.IoT.Web.Common" Version="1.2.163-alpha0901" />
     <PackageReference Include="LagoVista.UserAdmin" Version="1.2.163-alpha0901" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="1.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LagoVista.IoT.DeviceAdmin\LagoVista.IoT.DeviceAdmin.csproj" />
   </ItemGroup>
 </Project>

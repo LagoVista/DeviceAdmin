@@ -21,7 +21,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
     {
         IDeviceAdminManager _deviceAdminManager;
 
-        public StateMachineController(UserManager<AppUser> userManager, IAdminLogger logger, IDeviceAdminManager deviceAdminManager) : base(userManager, logger)
+        public StateMachineController(Microsoft.AspNetCore.Identity.UserManager<AppUser> userManager, IAdminLogger logger, IDeviceAdminManager deviceAdminManager) : base(userManager, logger)
         {
             _deviceAdminManager = deviceAdminManager;
         }
