@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Models;
+using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,7 +12,6 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
         public void Attribute_Valid()
         {
             var workflow = GetDeviceWorkflow();
-
             var attr = GetAttribute();
             workflow.Attributes.Add(attr);
             AssertIsValid(workflow);

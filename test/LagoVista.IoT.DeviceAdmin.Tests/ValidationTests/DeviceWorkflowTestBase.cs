@@ -135,7 +135,7 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
             var workflow = new DeviceWorkflow()
             {
                 Id = Guid.NewGuid().ToId(),
-                Key = "Workflow123",
+                Key = "workflow123",
                 Name = "My First Workflow",
                 CreatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "NAME"),
                 CreationDate = DateTime.UtcNow.ToJSONString()

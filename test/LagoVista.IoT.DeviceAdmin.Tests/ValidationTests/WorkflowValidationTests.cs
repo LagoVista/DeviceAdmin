@@ -140,7 +140,7 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
             var workflow = GetDeviceWorkflow();
             workflow.Inputs.Add(GetWorkflowInput());
             var wfi = GetWorkflowInput();
-            wfi.Key = "VALUE1";
+            wfi.Key = "value1";
             workflow.Inputs.Add(wfi);
             Connect(workflow.Inputs[0], workflow.Inputs[1]);
             AssertIsInValid(workflow);
