@@ -1,4 +1,4 @@
-﻿/*10/12/2017 12:06:07*/
+﻿/*11/5/2017 15:10:01*/
 using System.Globalization;
 using System.Reflection;
 
@@ -878,6 +878,9 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 //Resources:DeviceLibraryResources:StateMachine_State_IsInitialState_Help
 
 		public static string StateMachine_State_IsInitialState_Help { get { return GetResourceString("StateMachine_State_IsInitialState_Help"); } }
+//Resources:DeviceLibraryResources:StateMachine_State_Key_RegEx
+
+		public static string StateMachine_State_Key_RegEx { get { return GetResourceString("StateMachine_State_Key_RegEx"); } }
 //Resources:DeviceLibraryResources:StateMachine_State_TransitionInAction
 
 		public static string StateMachine_State_TransitionInAction { get { return GetResourceString("StateMachine_State_TransitionInAction"); } }
@@ -1477,6 +1480,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			public const string StateMachine_State_Enum_Help = "StateMachine_State_Enum_Help";
 			public const string StateMachine_State_IsInitialState = "StateMachine_State_IsInitialState";
 			public const string StateMachine_State_IsInitialState_Help = "StateMachine_State_IsInitialState_Help";
+			public const string StateMachine_State_Key_RegEx = "StateMachine_State_Key_RegEx";
 			public const string StateMachine_State_TransitionInAction = "StateMachine_State_TransitionInAction";
 			public const string StateMachine_State_TransitionInAction_Help = "StateMachine_State_TransitionInAction_Help";
 			public const string StateMachine_State_Transitions = "StateMachine_State_Transitions";

@@ -1261,4 +1261,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="CustomField_UnitSet_Select" xml:space="preserve">
     <value>-select units-</value>
   </data>
+  <data name="StateMachine_State_Key_RegEx" xml:space="preserve">
+    <value>Keys for states must be a minimum of 2 character and a maximum of 20 characters, they may only contain lowercase letters and numbers.</value>
+  </data>
 </root>

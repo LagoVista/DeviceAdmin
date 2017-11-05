@@ -23,7 +23,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources), IsRequired:true)]
         public String Name { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources), IsRequired:true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Text, ValidationRegEx:"^[a-z0-9]{2,20}$", RegExValidationMessageResource:Resources.DeviceLibraryResources.Names.StateMachine_State_Key_RegEx, ResourceType: typeof(DeviceLibraryResources), IsRequired:true)]
         public String Key { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Enum, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Enum_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
