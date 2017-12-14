@@ -3,9 +3,7 @@ using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using models = LagoVista.IoT.DeviceAdmin.Models;
 
 namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
 {

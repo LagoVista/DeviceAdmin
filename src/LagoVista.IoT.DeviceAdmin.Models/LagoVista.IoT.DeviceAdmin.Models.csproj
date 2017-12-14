@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>1.2</VersionPrefix>
+    <TargetFramework>netstandard1.2</TargetFramework>
+    <AssemblyVersion>0.8.1.1</AssemblyVersion>
+    <FileVersion>0.8.1.1</FileVersion>
+    <NetStandardImplicitPackageVersion>2.0.1</NetStandardImplicitPackageVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="LagoVista.Core" Version="1.2.211-alpha0847" />
+    <PackageReference Include="LagoVista.IoT.Logging" Version="1.2.211-alpha0847" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" Version="1.2.211-alpha0847" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1-beta1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="T4ResourceGenerator.cs">
+      <DependentUpon>T4ResourceGenerator.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="T4ResourceGenerator.tt">
+      <LastGenOutput>T4ResourceGenerator.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+</Project>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CEC21295-346D-4369-9511-FBB4BFFE1863}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Rest", "src\LagoVista.IoT.DeviceAdmin.Rest\LagoVista.IoT.DeviceAdmin.Rest.csproj", "{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Tests", "test\LagoVista.IoT.DeviceAdmin.Tests\LagoVista.IoT.DeviceAdmin.Tests.csproj", "{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LagoVista.IoT.DeviceAdmin.Models", "src\LagoVista.IoT.DeviceAdmin.Models\LagoVista.IoT.DeviceAdmin.Models.csproj", "{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,5 +60,8 @@ Global
 		{AD2AF9F0-D136-40B3-806F-629C17FA56F5} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC} = {789A2940-98A7-4A45-B302-0FEE3151886E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9EDEC371-B7A0-48CF-91D1-5EB0174BCF6E}
 	EndGlobalSection
 EndGlobal
