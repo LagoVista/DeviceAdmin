@@ -2,7 +2,7 @@
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
-using LagoVista.IoT.DeviceAdmin.Resources;
+using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;

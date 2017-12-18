@@ -1,7 +1,7 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Validation;
-using LagoVista.IoT.DeviceAdmin.Resources;
+using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using System;
 using System.Collections.Generic;
 

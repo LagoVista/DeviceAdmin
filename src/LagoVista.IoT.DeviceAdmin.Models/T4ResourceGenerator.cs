@@ -1,9 +1,9 @@
-﻿/*11/5/2017 15:10:01*/
+﻿/*12/14/2017 10:00:09*/
 using System.Globalization;
 using System.Reflection;
 
 //Resources:DeviceLibraryResources:Action_AssociatedAttribute
-namespace LagoVista.IoT.DeviceAdmin.Resources
+namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 {
 	public class DeviceLibraryResources
 	{
@@ -19,7 +19,7 @@ namespace LagoVista.IoT.DeviceAdmin.Resources
 			{
                 if (object.ReferenceEquals(_resourceManager, null)) 
 				{
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LagoVista.IoT.DeviceAdmin.Resources.DeviceLibraryResources", typeof(DeviceLibraryResources).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LagoVista.IoT.DeviceAdmin.Models.Resources.DeviceLibraryResources", typeof(DeviceLibraryResources).GetTypeInfo().Assembly);
                     _resourceManager = temp;
                 }
                 return _resourceManager;

@@ -1,10 +1,10 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Validation;
-using LagoVista.IoT.DeviceAdmin.Resources;
 using System.Collections.ObjectModel;
 using System;
 using System.Linq;
 using LagoVista.Core.Models;
+using LagoVista.IoT.DeviceAdmin.Models.Resources;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {

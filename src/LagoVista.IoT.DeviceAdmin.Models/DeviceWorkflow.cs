@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using LagoVista.Core.Models;
 using System.Linq;
 using LagoVista.IoT.DeviceAdmin.Interfaces;
+using LagoVista.IoT.DeviceAdmin.Models.Resources;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {

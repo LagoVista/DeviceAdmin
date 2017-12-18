@@ -1,5 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
-using LagoVista.IoT.DeviceAdmin.Resources;
+using LagoVista.IoT.DeviceAdmin.Models.Resources;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
