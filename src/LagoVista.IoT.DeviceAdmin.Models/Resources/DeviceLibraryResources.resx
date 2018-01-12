@@ -1264,4 +1264,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="StateMachine_State_Key_RegEx" xml:space="preserve">
     <value>Keys for states must be a minimum of 2 character and a maximum of 20 characters, they may only contain lowercase letters and numbers.</value>
   </data>
+  <data name="DeviceWorkflow_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="DeviceWorkflow_Settings_Help" xml:space="preserve">
+    <value>Settings are used to create values that can be configured within your application and used within your scripts.</value>
+  </data>
 </root>

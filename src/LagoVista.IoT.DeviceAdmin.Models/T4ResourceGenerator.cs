@@ -1,4 +1,4 @@
-﻿/*12/14/2017 10:00:09*/
+﻿/*1/11/2018 18:34:10*/
 using System.Globalization;
 using System.Reflection;
 
@@ -549,6 +549,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_Pages_Help
 
 		public static string DeviceWorkflow_Pages_Help { get { return GetResourceString("DeviceWorkflow_Pages_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Settings
+
+		public static string DeviceWorkflow_Settings { get { return GetResourceString("DeviceWorkflow_Settings"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_Settings_Help
+
+		public static string DeviceWorkflow_Settings_Help { get { return GetResourceString("DeviceWorkflow_Settings_Help"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_Timer
 
 		public static string DeviceWorkflow_Timer { get { return GetResourceString("DeviceWorkflow_Timer"); } }
@@ -1373,6 +1379,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceWorkflow_OutputCommands = "DeviceWorkflow_OutputCommands";
 			public const string DeviceWorkflow_Pages = "DeviceWorkflow_Pages";
 			public const string DeviceWorkflow_Pages_Help = "DeviceWorkflow_Pages_Help";
+			public const string DeviceWorkflow_Settings = "DeviceWorkflow_Settings";
+			public const string DeviceWorkflow_Settings_Help = "DeviceWorkflow_Settings_Help";
 			public const string DeviceWorkflow_Timer = "DeviceWorkflow_Timer";
 			public const string DeviceWorkflow_Title = "DeviceWorkflow_Title";
 			public const string Environment = "Environment";

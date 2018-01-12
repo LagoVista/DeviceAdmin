@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Tests", "test\LagoVista.IoT.DeviceAdmin.Tests\LagoVista.IoT.DeviceAdmin.Tests.csproj", "{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LagoVista.IoT.DeviceAdmin.Models", "src\LagoVista.IoT.DeviceAdmin.Models\LagoVista.IoT.DeviceAdmin.Models.csproj", "{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Models", "src\LagoVista.IoT.DeviceAdmin.Models\LagoVista.IoT.DeviceAdmin.Models.csproj", "{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +60,7 @@ Global
 		{AD2AF9F0-D136-40B3-806F-629C17FA56F5} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC} = {789A2940-98A7-4A45-B302-0FEE3151886E}
+		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9EDEC371-B7A0-48CF-91D1-5EB0174BCF6E}

@@ -50,6 +50,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader OwnerUser { get; set; }
 
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Settings, HelpResource: DeviceLibraryResources.Names.DeviceWorkflow_Settings_Help, ResourceType: typeof(DeviceLibraryResources))]
+        public List<Models.Parameter> Settings { get; set; }
+
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Attributes, HelpResource: DeviceLibraryResources.Names.DeviceWorkflow_Attributes_Help, ResourceType: typeof(DeviceLibraryResources))]
         public List<Models.Attribute> Attributes { get; set; }
 
