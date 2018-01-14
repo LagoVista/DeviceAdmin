@@ -51,7 +51,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Settings, HelpResource: DeviceLibraryResources.Names.DeviceWorkflow_Settings_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public List<Models.Parameter> Settings { get; set; }
+        public List<Models.CustomField> Settings { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Attributes, HelpResource: DeviceLibraryResources.Names.DeviceWorkflow_Attributes_Help, ResourceType: typeof(DeviceLibraryResources))]
