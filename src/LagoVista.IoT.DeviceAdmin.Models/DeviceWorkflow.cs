@@ -49,6 +49,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader OwnerOrganization { get; set; }
         public EntityHeader OwnerUser { get; set; }
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PrehandlerScript, WaterMark: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PrehandlerScript_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PrehandlerScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
+        public string PreHandlerScript { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PosthandlerScript, WaterMark: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PosthandlerScript_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PosthandlerScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
+        public string PostHandlerScript { get; set; }
+
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Settings, HelpResource: DeviceLibraryResources.Names.DeviceWorkflow_Settings_Help, ResourceType: typeof(DeviceLibraryResources))]
         public List<Models.CustomField> Settings { get; set; }

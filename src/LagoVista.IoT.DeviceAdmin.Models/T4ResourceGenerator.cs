@@ -1,4 +1,4 @@
-﻿/*1/11/2018 18:34:10*/
+﻿/*1/18/2018 14:28:43*/
 using System.Globalization;
 using System.Reflection;
 
@@ -549,6 +549,24 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_Pages_Help
 
 		public static string DeviceWorkflow_Pages_Help { get { return GetResourceString("DeviceWorkflow_Pages_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_PosthandlerScript
+
+		public static string DeviceWorkflow_PosthandlerScript { get { return GetResourceString("DeviceWorkflow_PosthandlerScript"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_PosthandlerScript_Help
+
+		public static string DeviceWorkflow_PosthandlerScript_Help { get { return GetResourceString("DeviceWorkflow_PosthandlerScript_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_PosthandlerScript_Watermark
+
+		public static string DeviceWorkflow_PosthandlerScript_Watermark { get { return GetResourceString("DeviceWorkflow_PosthandlerScript_Watermark"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_PrehandlerScript
+
+		public static string DeviceWorkflow_PrehandlerScript { get { return GetResourceString("DeviceWorkflow_PrehandlerScript"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_PrehandlerScript_Help
+
+		public static string DeviceWorkflow_PrehandlerScript_Help { get { return GetResourceString("DeviceWorkflow_PrehandlerScript_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_PrehandlerScript_Watermark
+
+		public static string DeviceWorkflow_PrehandlerScript_Watermark { get { return GetResourceString("DeviceWorkflow_PrehandlerScript_Watermark"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_Settings
 
 		public static string DeviceWorkflow_Settings { get { return GetResourceString("DeviceWorkflow_Settings"); } }
@@ -1379,6 +1397,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceWorkflow_OutputCommands = "DeviceWorkflow_OutputCommands";
 			public const string DeviceWorkflow_Pages = "DeviceWorkflow_Pages";
 			public const string DeviceWorkflow_Pages_Help = "DeviceWorkflow_Pages_Help";
+			public const string DeviceWorkflow_PosthandlerScript = "DeviceWorkflow_PosthandlerScript";
+			public const string DeviceWorkflow_PosthandlerScript_Help = "DeviceWorkflow_PosthandlerScript_Help";
+			public const string DeviceWorkflow_PosthandlerScript_Watermark = "DeviceWorkflow_PosthandlerScript_Watermark";
+			public const string DeviceWorkflow_PrehandlerScript = "DeviceWorkflow_PrehandlerScript";
+			public const string DeviceWorkflow_PrehandlerScript_Help = "DeviceWorkflow_PrehandlerScript_Help";
+			public const string DeviceWorkflow_PrehandlerScript_Watermark = "DeviceWorkflow_PrehandlerScript_Watermark";
 			public const string DeviceWorkflow_Settings = "DeviceWorkflow_Settings";
 			public const string DeviceWorkflow_Settings_Help = "DeviceWorkflow_Settings_Help";
 			public const string DeviceWorkflow_Timer = "DeviceWorkflow_Timer";

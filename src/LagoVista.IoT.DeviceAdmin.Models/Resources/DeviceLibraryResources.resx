@@ -1270,4 +1270,22 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceWorkflow_Settings_Help" xml:space="preserve">
     <value>Settings are used to create values that can be configured within your application and used within your scripts.</value>
   </data>
+  <data name="DeviceWorkflow_PosthandlerScript" xml:space="preserve">
+    <value>Post-Handler Script</value>
+  </data>
+  <data name="DeviceWorkflow_PosthandlerScript_Help" xml:space="preserve">
+    <value>Add a script that will be executed after all the inputs have been set and the device has been updated.</value>
+  </data>
+  <data name="DeviceWorkflow_PosthandlerScript_Watermark" xml:space="preserve">
+    <value>-add posthandler script-</value>
+  </data>
+  <data name="DeviceWorkflow_PrehandlerScript" xml:space="preserve">
+    <value>Pre-Handler Script</value>
+  </data>
+  <data name="DeviceWorkflow_PrehandlerScript_Help" xml:space="preserve">
+    <value>Add a script that will be executed prior to any inputs being set</value>
+  </data>
+  <data name="DeviceWorkflow_PrehandlerScript_Watermark" xml:space="preserve">
+    <value>-add prehandler script-</value>
+  </data>
 </root>
