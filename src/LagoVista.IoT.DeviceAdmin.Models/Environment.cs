@@ -34,27 +34,29 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public static List<Environment> GetStandardList()
         {
-            var environments = new List<Environment>();
-            environments.Add(new Environment()
+            var environments = new List<Environment>
             {
-                Id = "7A84A4B9289544D0BA28C9BAD9223ACD",
-                IsPublic = true, 
-                Name = Resources.DeviceLibraryResources.Environment_Dev
-            });
+                new Environment()
+                {
+                    Id = "7A84A4B9289544D0BA28C9BAD9223ACD",
+                    IsPublic = true,
+                    Name = Resources.DeviceLibraryResources.Environment_Dev
+                },
 
-            environments.Add(new Environment()
-            {
-                Id = "18BCDEA988184F4485467550581F6836",
-                IsPublic = true,
-                Name = Resources.DeviceLibraryResources.Environment_Test
-            });
+                new Environment()
+                {
+                    Id = "18BCDEA988184F4485467550581F6836",
+                    IsPublic = true,
+                    Name = Resources.DeviceLibraryResources.Environment_Test
+                },
 
-            environments.Add(new Environment()
-            {
-                Id = "87EB2BBD3A6041CFB3B7E737220249FE",
-                IsPublic = true,
-                Name = Resources.DeviceLibraryResources.Environment_Production
-            });
+                new Environment()
+                {
+                    Id = "87EB2BBD3A6041CFB3B7E737220249FE",
+                    IsPublic = true,
+                    Name = Resources.DeviceLibraryResources.Environment_Production
+                }
+            };
 
 
             return environments;
