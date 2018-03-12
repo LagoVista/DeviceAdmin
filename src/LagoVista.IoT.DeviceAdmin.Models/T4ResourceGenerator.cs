@@ -1,4 +1,4 @@
-﻿/*1/18/2018 14:28:43*/
+﻿/*3/12/2018 17:14:36*/
 using System.Globalization;
 using System.Reflection;
 
@@ -360,6 +360,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:CustomField_Label_Help
 
 		public static string CustomField_Label_Help { get { return GetResourceString("CustomField_Label_Help"); } }
+//Resources:DeviceLibraryResources:CustomField_MaxValue
+
+		public static string CustomField_MaxValue { get { return GetResourceString("CustomField_MaxValue"); } }
+//Resources:DeviceLibraryResources:CustomField_MinValue
+
+		public static string CustomField_MinValue { get { return GetResourceString("CustomField_MinValue"); } }
 //Resources:DeviceLibraryResources:CustomField_RegEx
 
 		public static string CustomField_RegEx { get { return GetResourceString("CustomField_RegEx"); } }
@@ -1334,6 +1340,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string CustomField_IsRequired = "CustomField_IsRequired";
 			public const string CustomField_Label = "CustomField_Label";
 			public const string CustomField_Label_Help = "CustomField_Label_Help";
+			public const string CustomField_MaxValue = "CustomField_MaxValue";
+			public const string CustomField_MinValue = "CustomField_MinValue";
 			public const string CustomField_RegEx = "CustomField_RegEx";
 			public const string CustomField_RegEx_Help = "CustomField_RegEx_Help";
 			public const string CustomField_StateSet = "CustomField_StateSet";

@@ -29,6 +29,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_IsReadOnly, HelpResource:Resources.DeviceLibraryResources.Names.CustomField_IsReadOnly_Help, FieldType:FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsReadOnly{ get; set; }
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_MinValue, FieldType: FieldTypes.Decimal, ResourceType: typeof(DeviceLibraryResources))]
+        public double? MinValue { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_MaxValue, FieldType: FieldTypes.Decimal, ResourceType: typeof(DeviceLibraryResources))]
+        public double? MaxValue { get; set; }
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_FieldType, EnumType: (typeof(ParameterTypes)), FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources), WaterMark: Resources.DeviceLibraryResources.Names.CustomField_FieldType_Watermark, IsRequired: true, IsUserEditable: true)]
 
         public EntityHeader<ParameterTypes> FieldType { get; set; }

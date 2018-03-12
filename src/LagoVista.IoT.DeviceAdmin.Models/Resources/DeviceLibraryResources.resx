@@ -1288,4 +1288,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceWorkflow_PrehandlerScript_Watermark" xml:space="preserve">
     <value>-add prehandler script-</value>
   </data>
+  <data name="CustomField_MaxValue" xml:space="preserve">
+    <value>Max Value</value>
+  </data>
+  <data name="CustomField_MinValue" xml:space="preserve">
+    <value>Min Value</value>
+  </data>
 </root>
