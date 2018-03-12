@@ -6,6 +6,8 @@ using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using Newtonsoft.Json;
 using System;
+using System.Linq;
+using LagoVista.Core;
 using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
@@ -78,7 +80,59 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             };
         }
 
-        public void Validate(ValidationResult result)
+        public void Validate(string value, ValidationResult result, Actions action)
+        {
+            if(IsRequired && String.IsNullOrEmpty(value))
+            {
+                result.AddUserError($"{Label} is a required field.");
+                return;
+            }
+
+            if(String.IsNullOrEmpty(value))
+            {
+                return;
+            }
+
+
+            switch(FieldType.Value)
+            {
+                case ParameterTypes.DateTime:
+                    if (!value.SuccessfulJSONDate()) result.AddUserError($"Date must be in ISO 8601 format YYYY-MM-DDTHH:MM:SS.SSSZ for {Name}");
+                    break;
+                case ParameterTypes.Decimal:
+                    if(!double.TryParse(value, out double dbl)) result.AddUserError($"Invalid Double Value for {Name}");
+                    break;
+                case ParameterTypes.GeoLocation:
+                    break;
+                case ParameterTypes.Integer:
+                    if (!int.TryParse(value, out int intValue)) result.AddUserError($"Invalid Integer Value for {Name}");
+                    break;
+                case ParameterTypes.State:
+                    if (StateSet == null)
+                    {
+                        result.AddSystemError($"Data type was State, but no state set provided, invalid configuration on {Name}");
+                    }
+                    else if(StateSet.Value == null)
+                    {
+                        result.AddSystemError($"StateSet was present but value was not, invalid configuration on {Name}");
+                    }
+                    else
+                    {
+                        if(!StateSet.Value.States.Where(stat=>stat.Key == value).Any()) result.AddUserError($"Attempt to set property to invalid date {value}, possible values are [{StateSet.Value.States.Select(st=>st.Key).Aggregate((cur, nxt) => cur + "," + nxt)}] for {Name}");
+                    }
+                    break;
+                case ParameterTypes.TrueFalse:
+                    if (value != "true" && value != "false") result.AddUserError($"Value must be [true] or [false] for {Name}");
+                    break;
+                case ParameterTypes.ValueWithUnit:
+                    if (!double.TryParse(value, out double dblVal)) result.AddUserError($"Invalid Number Value for {Name}");
+                    break;
+                
+            }
+        }
+
+        [CustomValidator]
+        public void Validate(ValidationResult result, Actions action)
         {
             if (EntityHeader.IsNullOrEmpty(FieldType)) result.AddUserError("Field Type is Required.");
 
@@ -89,8 +143,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             else if(FieldType.Value == ParameterTypes.State)
             {
                 if (EntityHeader.IsNullOrEmpty(StateSet)) result.AddUserError("If State Set is selected for the Field Type, you must specify a State Set.");
-            }
-            
+            }            
         }
     }
 }
