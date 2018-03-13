@@ -19,17 +19,17 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Id { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name,  IsRequired:true, FieldType:FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, IsRequired: true, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public String Name { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_Label, IsRequired: true, HelpResource: Resources.DeviceLibraryResources.Names.CustomField_Label_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public String Label { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_IsRequired, FieldType:FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_IsRequired, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsRequired { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_IsReadOnly, HelpResource:Resources.DeviceLibraryResources.Names.CustomField_IsReadOnly_Help, FieldType:FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
-        public bool IsReadOnly{ get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_IsReadOnly, HelpResource: Resources.DeviceLibraryResources.Names.CustomField_IsReadOnly_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
+        public bool IsReadOnly { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_MinValue, FieldType: FieldTypes.Decimal, ResourceType: typeof(DeviceLibraryResources))]
         public double? MinValue { get; set; }
@@ -82,52 +82,67 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public void Validate(string value, ValidationResult result, Actions action)
         {
-            if(IsRequired && String.IsNullOrEmpty(value))
+            if (EntityHeader.IsNullOrEmpty(FieldType)) result.AddSystemError($"Custom field {Label} missing field type, invalid configuration, contact administorator");
+             
+            if (IsRequired && String.IsNullOrEmpty(value))
             {
                 result.AddUserError($"{Label} is a required field.");
                 return;
             }
 
-            if(String.IsNullOrEmpty(value))
+            if (String.IsNullOrEmpty(value))
             {
                 return;
             }
 
 
-            switch(FieldType.Value)
+            switch (FieldType.Value)
             {
                 case ParameterTypes.DateTime:
-                    if (!value.SuccessfulJSONDate()) result.AddUserError($"Date must be in ISO 8601 format YYYY-MM-DDTHH:MM:SS.SSSZ for {Name}");
+                    if (!value.SuccessfulJSONDate()) result.AddUserError($"Date must be in ISO 8601 format YYYY-MM-DDTHH:MM:SS.SSSZ for {Label}");
                     break;
                 case ParameterTypes.Decimal:
-                    if(!double.TryParse(value, out double dbl)) result.AddUserError($"Invalid Double Value for {Name}");
+                    if (!double.TryParse(value, out double dbl)) result.AddUserError($"Invalid Double Value for {Label}");
                     break;
                 case ParameterTypes.GeoLocation:
+                    var geo = value.ToGeoLocation();
+                    if (geo == null) result.AddUserError($"Invalid geo location on {Label}, found [value], expected [-DD.MMMMMM,-DDD.MMMMMM].");
                     break;
                 case ParameterTypes.Integer:
-                    if (!int.TryParse(value, out int intValue)) result.AddUserError($"Invalid Integer Value for {Name}");
+                    if (!int.TryParse(value, out int intValue)) result.AddUserError($"Invalid Integer Value for {Label}");
                     break;
                 case ParameterTypes.State:
                     if (StateSet == null)
                     {
-                        result.AddSystemError($"Data type was State, but no state set provided, invalid configuration on {Name}");
+                        result.AddSystemError($"Data type was State, but no state set provided, invalid configuration on {Label}");
                     }
-                    else if(StateSet.Value == null)
+                    else if (StateSet.Value == null)
                     {
-                        result.AddSystemError($"StateSet was present but value was not, invalid configuration on {Name}");
+                        result.AddSystemError($"StateSet was present but value was not, invalid configuration on {Label}");
                     }
                     else
                     {
-                        if(!StateSet.Value.States.Where(stat=>stat.Key == value).Any()) result.AddUserError($"Attempt to set property to invalid date {value}, possible values are [{StateSet.Value.States.Select(st=>st.Key).Aggregate((cur, nxt) => cur + "," + nxt)}] for {Name}");
+                        if (!StateSet.Value.States.Where(stat => stat.Key == value).Any()) result.AddUserError($"Attempt to set property to invalid date {value}, possible values are [{StateSet.Value.States.Select(st => st.Key).Aggregate((cur, nxt) => cur + "," + nxt)}] for {Label}");
                     }
                     break;
                 case ParameterTypes.TrueFalse:
-                    if (value != "true" && value != "false") result.AddUserError($"Value must be [true] or [false] for {Name}");
+                    if (value != "true" && value != "false") result.AddUserError($"Value must be [true] or [false] for {Label}");
                     break;
                 case ParameterTypes.ValueWithUnit:
-                    if (!double.TryParse(value, out double dblVal)) result.AddUserError($"Invalid Number Value for {Name}");
+                    if (!double.TryParse(value, out double dblVal)) result.AddUserError($"Invalid Number Value for {Label}");
                     break;
-                
+            }
+
+
+            if (FieldType.Value == ParameterTypes.Decimal ||
+                FieldType.Value == ParameterTypes.Integer ||
+                FieldType.Value == ParameterTypes.ValueWithUnit)
+            {
+                if(Double.TryParse(value, out double outValue))
+                {
+                    if (MinValue.HasValue && outValue < MinValue.Value) result.AddUserError($"Supplied Value {outValue} on {Label} is less then minimum allowable value {MinValue.Value}");
+                    if (MaxValue.HasValue && outValue > MaxValue.Value) result.AddUserError($"Supplied Value {outValue} on {Label} is greather then maximum allowable value {MaxValue.Value}");
+                }
             }
         }
 
@@ -136,14 +151,14 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         {
             if (EntityHeader.IsNullOrEmpty(FieldType)) result.AddUserError("Field Type is Required.");
 
-            if(FieldType.Value == ParameterTypes.ValueWithUnit)
+            if (FieldType.Value == ParameterTypes.ValueWithUnit)
             {
                 if (EntityHeader.IsNullOrEmpty(UnitSet)) result.AddUserError("If Value with Unit is selected for the Field Type, you must specify a Unit Set.");
             }
-            else if(FieldType.Value == ParameterTypes.State)
+            else if (FieldType.Value == ParameterTypes.State)
             {
                 if (EntityHeader.IsNullOrEmpty(StateSet)) result.AddUserError("If State Set is selected for the Field Type, you must specify a State Set.");
-            }            
+            }
         }
     }
 }
