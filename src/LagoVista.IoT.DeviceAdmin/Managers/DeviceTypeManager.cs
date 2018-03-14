@@ -42,8 +42,9 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         public async Task<InvokeResult> DeleteDeviceTypeAsync(string id, EntityHeader org, EntityHeader user)
         {
             var deviceType = await _deviceTypeRepo.GetDeviceTypeAsync(id);
-            await AuthorizeAsync(deviceType, AuthorizeActions.Delete, user, org);
             await ConfirmNoDepenenciesAsync(deviceType);
+            await AuthorizeAsync(deviceType, AuthorizeActions.Delete, user, org);
+            await _deviceTypeRepo.DeleteDeviceTypeSetAsync(id);
             return InvokeResult.Success;
         }
 
@@ -72,7 +73,6 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             await _deviceTypeRepo.UpdateDeviceTypeAsync(deviceType);
 
             return InvokeResult.Success;
-
         }
     }
 }
