@@ -31,7 +31,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="deviceType"></param>
         [HttpPost("/api/devicetype")]
-        public Task<InvokeResult> AddHostAsync([FromBody] DeviceType deviceType)
+        public Task<InvokeResult> AddDeviceTypeAsync([FromBody] DeviceType deviceType)
         { 
             return _deviceTypeManager.AddDeviceTypeAsync(deviceType, OrgEntityHeader, UserEntityHeader);
         }
@@ -42,7 +42,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// <param name="deviceType"></param>
         /// <returns></returns>
         [HttpPut("/api/devicetype")]
-        public Task<InvokeResult> UpdateHostAsync([FromBody] DeviceType deviceType)
+        public Task<InvokeResult> UpdateDeviceTypeAsync([FromBody] DeviceType deviceType)
         {
             SetUpdatedProperties(deviceType);
             return _deviceTypeManager.UpdateDeviceTypeAsync(deviceType, OrgEntityHeader, UserEntityHeader);
