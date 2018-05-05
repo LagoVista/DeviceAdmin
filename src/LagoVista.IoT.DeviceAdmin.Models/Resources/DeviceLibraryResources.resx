@@ -1294,4 +1294,13 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="CustomField_MinValue" xml:space="preserve">
     <value>Min Value</value>
   </data>
+  <data name="Parameter_DefaultValue" xml:space="preserve">
+    <value>Default Value</value>
+  </data>
+  <data name="Parameter_MaximumValue" xml:space="preserve">
+    <value>Maximum Value</value>
+  </data>
+  <data name="Parameter_MinimumValue" xml:space="preserve">
+    <value>Minimum Value</value>
+  </data>
 </root>

@@ -1,4 +1,4 @@
-﻿/*3/12/2018 17:14:36*/
+﻿/*5/1/2018 07:11:24*/
 using System.Globalization;
 using System.Reflection;
 
@@ -767,9 +767,18 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Page_Title
 
 		public static string Page_Title { get { return GetResourceString("Page_Title"); } }
+//Resources:DeviceLibraryResources:Parameter_DefaultValue
+
+		public static string Parameter_DefaultValue { get { return GetResourceString("Parameter_DefaultValue"); } }
 //Resources:DeviceLibraryResources:Parameter_Help
 
 		public static string Parameter_Help { get { return GetResourceString("Parameter_Help"); } }
+//Resources:DeviceLibraryResources:Parameter_MaximumValue
+
+		public static string Parameter_MaximumValue { get { return GetResourceString("Parameter_MaximumValue"); } }
+//Resources:DeviceLibraryResources:Parameter_MinimumValue
+
+		public static string Parameter_MinimumValue { get { return GetResourceString("Parameter_MinimumValue"); } }
 //Resources:DeviceLibraryResources:Parameter_Title
 
 		public static string Parameter_Title { get { return GetResourceString("Parameter_Title"); } }
@@ -1473,7 +1482,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Page_Name = "Page_Name";
 			public const string Page_PageNumber = "Page_PageNumber";
 			public const string Page_Title = "Page_Title";
+			public const string Parameter_DefaultValue = "Parameter_DefaultValue";
 			public const string Parameter_Help = "Parameter_Help";
+			public const string Parameter_MaximumValue = "Parameter_MaximumValue";
+			public const string Parameter_MinimumValue = "Parameter_MinimumValue";
 			public const string Parameter_Title = "Parameter_Title";
 			public const string Parameter_Type = "Parameter_Type";
 			public const string Parameter_Type_Watermark = "Parameter_Type_Watermark";

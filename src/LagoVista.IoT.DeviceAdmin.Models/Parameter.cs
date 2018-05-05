@@ -40,6 +40,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Key { get; set; }
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameter_MaximumValue, ResourceType: typeof(DeviceLibraryResources))]
+        public double? MaxValue { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameter_MinimumValue, ResourceType: typeof(DeviceLibraryResources))]
+        public double? MinValue { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameter_DefaultValue, ResourceType: typeof(DeviceLibraryResources))]
+        public object DefaultValue { get; set; }
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.ParameterLocation, HelpResource: Resources.DeviceLibraryResources.Names.ParameterLocation_Help, WaterMark: Resources.DeviceLibraryResources.Names.ParameterLocation_Watermark, FieldType: FieldTypes.Picker, EnumType: typeof(PayloadTypes), ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<PayloadTypes> ParameterLocation { get; set; }
 
