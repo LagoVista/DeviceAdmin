@@ -1,4 +1,4 @@
-﻿/*5/1/2018 07:11:24*/
+﻿/*5/12/2018 07:11:37*/
 using System.Globalization;
 using System.Reflection;
 
@@ -800,6 +800,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Parameter_Types_GeoLocation
 
 		public static string Parameter_Types_GeoLocation { get { return GetResourceString("Parameter_Types_GeoLocation"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_Image
+
+		public static string Parameter_Types_Image { get { return GetResourceString("Parameter_Types_Image"); } }
 //Resources:DeviceLibraryResources:Parameter_Types_Integer
 
 		public static string Parameter_Types_Integer { get { return GetResourceString("Parameter_Types_Integer"); } }
@@ -1493,6 +1496,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Parameter_Types_DateTime = "Parameter_Types_DateTime";
 			public const string Parameter_Types_Decimal = "Parameter_Types_Decimal";
 			public const string Parameter_Types_GeoLocation = "Parameter_Types_GeoLocation";
+			public const string Parameter_Types_Image = "Parameter_Types_Image";
 			public const string Parameter_Types_Integer = "Parameter_Types_Integer";
 			public const string Parameter_Types_States = "Parameter_Types_States";
 			public const string Parameter_Types_String = "Parameter_Types_String";

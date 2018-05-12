@@ -26,6 +26,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         State,
         [EnumLabel(TypeSystem.ValueWithUnit, DeviceLibraryResources.Names.Parameter_Types_ValueWithUnit, typeof(DeviceLibraryResources))]
         ValueWithUnit,
+        [EnumLabel(TypeSystem.Image, DeviceLibraryResources.Names.Parameter_Types_Image, typeof(DeviceLibraryResources))]
+        Image,
     }
 
     public class TypeSystem
@@ -37,6 +39,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public const string Geolocation = "geolocation";
         public const string DateTime = "datetime";
         public const string State = "state";
+        public const string Image = "image";
         public const string ValueWithUnit = "valuewithunit";
 
     }

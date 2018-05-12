@@ -1303,4 +1303,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Parameter_MinimumValue" xml:space="preserve">
     <value>Minimum Value</value>
   </data>
+  <data name="Parameter_Types_Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
 </root>
