@@ -11,5 +11,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public int X { get; set; }
         public int Y { get; set; }
         public int Page { get; set; }
+
+        public DiagramLocation Clone()
+        {
+            return new DiagramLocation()
+            {
+                X = X,
+                Y = Y,
+                Page = Page
+            };
+        }
     }
 }

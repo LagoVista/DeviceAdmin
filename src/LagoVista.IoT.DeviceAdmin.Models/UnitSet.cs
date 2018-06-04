@@ -72,6 +72,47 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(UnitSet.Units),
             };
         }
+
+        public UnitSet Clone(bool newId = false, EntityHeader org = null, EntityHeader user = null)
+        {
+            var unitSet = new UnitSet()
+            {
+                CreatedBy = user == null ? CreatedBy.Clone() : user,
+                OwnerOrganization = org == null ? OwnerOrganization.Clone() : org,
+                LastUpdatedBy =  user == null ? LastUpdatedBy.Clone() : user,
+
+                CreationDate = CreationDate,
+                DatabaseName = DatabaseName,
+                Description = Description,
+                EntityType = EntityType,
+                Id = newId ? Guid.NewGuid().ToId() : Id,
+                IsLocked = IsLocked,
+                IsPublic = IsPublic,
+                IsValid = IsValid,
+                Key = Key,
+                LastUpdatedDate = LastUpdatedDate,
+                LockedDateStamp = LockedDateStamp,
+                Name = Name,
+                Notes = CloneNotes(),
+            };
+
+            if(OwnerUser != null)
+            {
+                unitSet.OwnerUser = user == null ? OwnerUser.Clone() : user;
+            }
+
+            if(IsLocked)
+            {
+                unitSet.LockedBy = user == null ? LockedBy.Clone() : user;
+            }
+
+            foreach (var unit in Units)
+            {
+                unitSet.Units.Add(unit.Clone());
+            }
+
+            return unitSet;
+        }
     }
 
     public class UnitSetSummary : IIDEntity, IKeyedEntity, INamedEntity

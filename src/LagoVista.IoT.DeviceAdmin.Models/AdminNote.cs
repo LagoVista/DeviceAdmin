@@ -7,7 +7,7 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.AdminNote_Title,DeviceLibraryResources.Names.AdminNote_Description, DeviceLibraryResources.Names.AdminNote_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.AdminNote_Title, DeviceLibraryResources.Names.AdminNote_Description, DeviceLibraryResources.Names.AdminNote_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class AdminNote
     {
         [JsonProperty("id")]
@@ -28,5 +28,18 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Note, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
         public String Note { get; set; }
+
+        public AdminNote Clone()
+        {
+            return new AdminNote()
+            {
+                CreatedBy = CreatedBy.Clone(),
+                CreationDate = CreationDate,
+                Id = Id,
+                LastUpdatedBy = LastUpdatedBy,
+                LastUpdatedDate = LastUpdatedDate,
+                Note = Note
+            };
+        }
     }
 }

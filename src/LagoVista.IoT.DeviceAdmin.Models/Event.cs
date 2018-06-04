@@ -18,5 +18,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }
+
+        public Event Clone()
+        {
+            return new Event()
+            {
+                Key = Key,
+                Name = Name,
+                Description = Description
+            };
+        }
     }
 }

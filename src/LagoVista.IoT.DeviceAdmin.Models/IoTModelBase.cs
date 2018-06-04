@@ -59,5 +59,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_ValidationErrors, FieldType: FieldTypes.ChildList, IsUserEditable: false, ResourceType:typeof(DeviceLibraryResources))]
         public ObservableCollection<ErrorMessage> ValidationErrors { get; set; }
 
+        public ObservableCollection<AdminNote> CloneNotes()
+        {
+            var notes = new ObservableCollection<AdminNote>();
+            foreach(var note in notes)
+            {
+                notes.Add(note.Clone());
+            }
+
+            return notes;
+        }
     }
 }

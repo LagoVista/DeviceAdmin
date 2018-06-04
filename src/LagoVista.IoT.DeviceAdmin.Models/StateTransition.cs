@@ -18,5 +18,44 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public string Description { get; set; }
+
+        public StateTransition Clone()
+        {
+            var trns = new StateTransition()
+            {
+                TransitionAction = TransitionAction,
+                Description = Description,
+            };
+
+            if (!EntityHeader.IsNullOrEmpty(Event))
+            {
+                trns.Event = new EntityHeader<Event>()
+                {
+                    Id = Event.Id,
+                    Text = Event.Text,
+                };
+
+                if (Event.Value != null)
+                {
+                    trns.Event.Value = Event.Value.Clone();
+                }
+            }
+        
+            if (!EntityHeader.IsNullOrEmpty(NewState))
+            {
+                trns.NewState = new EntityHeader<State>()
+                {
+                    Id = NewState.Id,
+                    Text = NewState.Text,
+                };
+
+                if(NewState.Value != null)
+                {
+                    trns.NewState.Value = NewState.Value.Clone();
+                }
+            }
+
+            return trns;
+        }
     }
 }

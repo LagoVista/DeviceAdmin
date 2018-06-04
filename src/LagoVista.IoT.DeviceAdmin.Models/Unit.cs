@@ -40,7 +40,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_NumberDecimal, IsRequired: true, FieldType: FieldTypes.Integer, HelpResource:Resources.DeviceLibraryResources.Names.Unit_NumberDecimal_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_NumberDecimal, IsRequired: true, FieldType: FieldTypes.Integer, HelpResource: Resources.DeviceLibraryResources.Names.Unit_NumberDecimal_Help, ResourceType: typeof(DeviceLibraryResources))]
         public int NumberDecimalPoints { get; set; }
 
 
@@ -77,6 +77,24 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(Unit.ConversionFactor),
                 nameof(Unit.ConversionToScript),
                 nameof(Unit.ConversionFromScript)
+            };
+        }
+
+        public Unit Clone()
+        {
+            return new Unit()
+            {
+                Abbreviation = Abbreviation,
+                ConversionFactor = ConversionFactor,
+                ConversionFromScript = ConversionFromScript,
+                ConversionToScript = ConversionToScript,
+                ConversionType = ConversionType.Clone(),
+                Description = Description,
+                DisplayFormat = DisplayFormat,
+                IsDefault = IsDefault,
+                Key = Key,
+                Name = Name,
+                NumberDecimalPoints = NumberDecimalPoints
             };
         }
 

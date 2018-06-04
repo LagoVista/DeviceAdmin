@@ -78,6 +78,50 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             }
         }
 
+        public StateSet Clone(bool newId = false, EntityHeader org = null, EntityHeader user = null)
+        {
+            var stateSet = new StateSet()
+            {
+                CreatedBy = CreatedBy.Clone(),
+                LastUpdatedBy = LastUpdatedBy.Clone(),
+                OwnerOrganization = OwnerOrganization.Clone(),
+
+                CreationDate = CreationDate,
+                DatabaseName = DatabaseName,
+                Description = Description,
+                EntityType = EntityType,
+                Id = newId ? Guid.NewGuid().ToId() : Id,
+                IsLocked = IsLocked,
+                IsPublic = IsPublic,
+                IsValid = IsValid,
+                Key = Key,
+                LastUpdatedDate = LastUpdatedDate,
+                LockedBy = LockedBy.Clone(),
+                LockedDateStamp = LockedDateStamp,
+                Name = Name,
+                OwnerUser = OwnerUser.Clone(),
+                RequireEnum = RequireEnum,
+            };
+
+            if (OwnerUser != null)
+            {
+                stateSet.OwnerUser = user == null ? OwnerUser.Clone() : user;
+            }
+
+            if (IsLocked)
+            {
+                stateSet.LockedBy = user == null ? LockedBy.Clone() : user;
+            }
+
+
+            foreach (var state in States)
+            {
+                stateSet.States.Add(state.Clone());
+            }
+
+            return stateSet;
+        }
+
         public List<string> GetFormFields()
         {
             return new List<string>()
