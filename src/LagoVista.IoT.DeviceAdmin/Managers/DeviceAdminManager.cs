@@ -223,6 +223,20 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 }
             }
 
+            foreach (var inputCommand in deviceWorkflow.InputCommands)
+            {
+                if (inputCommand.Parameters != null)
+                {
+                    foreach (var param in inputCommand.Parameters)
+                    {
+                        if (param.ParameterType.Value == ParameterTypes.State)
+                        {
+                            param.StateSet.Value = await _stateSetRepo.GetStateSetAsync(param.StateSet.Id);
+                        }
+                    }
+                }
+            }
+
             if (result.Successful)
             {
                 return InvokeResult<DeviceWorkflow>.Create(deviceWorkflow);
