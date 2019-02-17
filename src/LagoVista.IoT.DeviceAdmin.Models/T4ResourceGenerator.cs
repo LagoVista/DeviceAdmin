@@ -1,4 +1,4 @@
-﻿/*5/12/2018 07:11:37*/
+﻿/*2/17/2019 10:30:03*/
 using System.Globalization;
 using System.Reflection;
 
@@ -839,6 +839,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:State_Description
 
 		public static string State_Description { get { return GetResourceString("State_Description"); } }
+//Resources:DeviceLibraryResources:State_IsAlarmState
+
+		public static string State_IsAlarmState { get { return GetResourceString("State_IsAlarmState"); } }
+//Resources:DeviceLibraryResources:State_IsAlarmState_Help
+
+		public static string State_IsAlarmState_Help { get { return GetResourceString("State_IsAlarmState_Help"); } }
 //Resources:DeviceLibraryResources:State_Title
 
 		public static string State_Title { get { return GetResourceString("State_Title"); } }
@@ -1509,6 +1515,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string ParameterLocation_Watermark = "ParameterLocation_Watermark";
 			public const string Parameters = "Parameters";
 			public const string State_Description = "State_Description";
+			public const string State_IsAlarmState = "State_IsAlarmState";
+			public const string State_IsAlarmState_Help = "State_IsAlarmState_Help";
 			public const string State_Title = "State_Title";
 			public const string State_UserHelp = "State_UserHelp";
 			public const string StateMachine = "StateMachine";

@@ -32,6 +32,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_IsInitialState, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_State_IsInitialState_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsInitialState { get; set; }
 
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.State_IsAlarmState, HelpResource: Resources.DeviceLibraryResources.Names.State_IsAlarmState_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
+        public bool IsAlarmState { get; set; }
+
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Transitions, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Transitions_Help, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<StateTransition> Transitions { get; set; }
 
@@ -47,6 +52,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(State.Name),
                 nameof(State.Key),
                 nameof(State.IsInitialState),
+                nameof(State.IsAlarmState),
                 nameof(State.EnumValue),
                 nameof(State.Description),
                 nameof(State.TransitionInAction),
@@ -60,6 +66,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Description = Description,
                 EnumValue = EnumValue,
                 IsInitialState = IsInitialState,
+                IsAlarmState = IsAlarmState,
                 Name = Name,
                 Key = Key,
                 TransitionInAction = TransitionInAction,

@@ -1306,4 +1306,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Parameter_Types_Image" xml:space="preserve">
     <value>Image</value>
   </data>
+  <data name="State_IsAlarmState" xml:space="preserve">
+    <value>Is Alarm State</value>
+  </data>
+  <data name="State_IsAlarmState_Help" xml:space="preserve">
+    <value>Should this state be considered an alarm condition.</value>
+  </data>
 </root>
