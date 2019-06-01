@@ -1,4 +1,4 @@
-﻿/*2/17/2019 10:30:03*/
+﻿/*6/1/2019 17:20:29*/
 using System.Globalization;
 using System.Reflection;
 
@@ -462,6 +462,33 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Device_Status
 
 		public static string Device_Status { get { return GetResourceString("Device_Status"); } }
+//Resources:DeviceLibraryResources:DeviceBOMItem_AssemblyNumber
+
+		public static string DeviceBOMItem_AssemblyNumber { get { return GetResourceString("DeviceBOMItem_AssemblyNumber"); } }
+//Resources:DeviceLibraryResources:DeviceBOMItem_Description
+
+		public static string DeviceBOMItem_Description { get { return GetResourceString("DeviceBOMItem_Description"); } }
+//Resources:DeviceLibraryResources:DeviceBOMItem_Help
+
+		public static string DeviceBOMItem_Help { get { return GetResourceString("DeviceBOMItem_Help"); } }
+//Resources:DeviceLibraryResources:DeviceBOMItem_Link
+
+		public static string DeviceBOMItem_Link { get { return GetResourceString("DeviceBOMItem_Link"); } }
+//Resources:DeviceLibraryResources:DeviceBOMItem_Manufacturer
+
+		public static string DeviceBOMItem_Manufacturer { get { return GetResourceString("DeviceBOMItem_Manufacturer"); } }
+//Resources:DeviceLibraryResources:DeviceBOMItem_PartNumber
+
+		public static string DeviceBOMItem_PartNumber { get { return GetResourceString("DeviceBOMItem_PartNumber"); } }
+//Resources:DeviceLibraryResources:DeviceBOMItem_Picture
+
+		public static string DeviceBOMItem_Picture { get { return GetResourceString("DeviceBOMItem_Picture"); } }
+//Resources:DeviceLibraryResources:DeviceBOMItem_Quantity
+
+		public static string DeviceBOMItem_Quantity { get { return GetResourceString("DeviceBOMItem_Quantity"); } }
+//Resources:DeviceLibraryResources:DeviceBOMItem_Title
+
+		public static string DeviceBOMItem_Title { get { return GetResourceString("DeviceBOMItem_Title"); } }
 //Resources:DeviceLibraryResources:DeviceConfiguration_Description
 
 		public static string DeviceConfiguration_Description { get { return GetResourceString("DeviceConfiguration_Description"); } }
@@ -474,6 +501,48 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceConfiguration_Version
 
 		public static string DeviceConfiguration_Version { get { return GetResourceString("DeviceConfiguration_Version"); } }
+//Resources:DeviceLibraryResources:DeviceResources_Description
+
+		public static string DeviceResources_Description { get { return GetResourceString("DeviceResources_Description"); } }
+//Resources:DeviceLibraryResources:DeviceResources_FileName
+
+		public static string DeviceResources_FileName { get { return GetResourceString("DeviceResources_FileName"); } }
+//Resources:DeviceLibraryResources:DeviceResources_Help
+
+		public static string DeviceResources_Help { get { return GetResourceString("DeviceResources_Help"); } }
+//Resources:DeviceLibraryResources:DeviceResources_MimeType
+
+		public static string DeviceResources_MimeType { get { return GetResourceString("DeviceResources_MimeType"); } }
+//Resources:DeviceLibraryResources:DeviceResources_ResourceType
+
+		public static string DeviceResources_ResourceType { get { return GetResourceString("DeviceResources_ResourceType"); } }
+//Resources:DeviceLibraryResources:DeviceResources_Title
+
+		public static string DeviceResources_Title { get { return GetResourceString("DeviceResources_Title"); } }
+//Resources:DeviceLibraryResources:DeviceResourceTypes_Manual
+
+		public static string DeviceResourceTypes_Manual { get { return GetResourceString("DeviceResourceTypes_Manual"); } }
+//Resources:DeviceLibraryResources:DeviceResourceTypes_Other
+
+		public static string DeviceResourceTypes_Other { get { return GetResourceString("DeviceResourceTypes_Other"); } }
+//Resources:DeviceLibraryResources:DeviceResourceTypes_PartsList
+
+		public static string DeviceResourceTypes_PartsList { get { return GetResourceString("DeviceResourceTypes_PartsList"); } }
+//Resources:DeviceLibraryResources:DeviceResourceTypes_Picture
+
+		public static string DeviceResourceTypes_Picture { get { return GetResourceString("DeviceResourceTypes_Picture"); } }
+//Resources:DeviceLibraryResources:DeviceResourceTypes_Specification
+
+		public static string DeviceResourceTypes_Specification { get { return GetResourceString("DeviceResourceTypes_Specification"); } }
+//Resources:DeviceLibraryResources:DeviceResourceTypes_UserGuide
+
+		public static string DeviceResourceTypes_UserGuide { get { return GetResourceString("DeviceResourceTypes_UserGuide"); } }
+//Resources:DeviceLibraryResources:DeviceResourceTypes_Video
+
+		public static string DeviceResourceTypes_Video { get { return GetResourceString("DeviceResourceTypes_Video"); } }
+//Resources:DeviceLibraryResources:DeviceType_BillOfMaterial
+
+		public static string DeviceType_BillOfMaterial { get { return GetResourceString("DeviceType_BillOfMaterial"); } }
 //Resources:DeviceLibraryResources:DeviceType_DefaultConfiguration
 
 		public static string DeviceType_DefaultConfiguration { get { return GetResourceString("DeviceType_DefaultConfiguration"); } }
@@ -495,6 +564,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_ModelNumber
 
 		public static string DeviceType_ModelNumber { get { return GetResourceString("DeviceType_ModelNumber"); } }
+//Resources:DeviceLibraryResources:DeviceType_Resources
+
+		public static string DeviceType_Resources { get { return GetResourceString("DeviceType_Resources"); } }
 //Resources:DeviceLibraryResources:DeviceType_Title
 
 		public static string DeviceType_Title { get { return GetResourceString("DeviceType_Title"); } }
@@ -1392,10 +1464,33 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Device_Online = "Device_Online";
 			public const string Device_SerialNumber = "Device_SerialNumber";
 			public const string Device_Status = "Device_Status";
+			public const string DeviceBOMItem_AssemblyNumber = "DeviceBOMItem_AssemblyNumber";
+			public const string DeviceBOMItem_Description = "DeviceBOMItem_Description";
+			public const string DeviceBOMItem_Help = "DeviceBOMItem_Help";
+			public const string DeviceBOMItem_Link = "DeviceBOMItem_Link";
+			public const string DeviceBOMItem_Manufacturer = "DeviceBOMItem_Manufacturer";
+			public const string DeviceBOMItem_PartNumber = "DeviceBOMItem_PartNumber";
+			public const string DeviceBOMItem_Picture = "DeviceBOMItem_Picture";
+			public const string DeviceBOMItem_Quantity = "DeviceBOMItem_Quantity";
+			public const string DeviceBOMItem_Title = "DeviceBOMItem_Title";
 			public const string DeviceConfiguration_Description = "DeviceConfiguration_Description";
 			public const string DeviceConfiguration_Help = "DeviceConfiguration_Help";
 			public const string DeviceConfiguration_Title = "DeviceConfiguration_Title";
 			public const string DeviceConfiguration_Version = "DeviceConfiguration_Version";
+			public const string DeviceResources_Description = "DeviceResources_Description";
+			public const string DeviceResources_FileName = "DeviceResources_FileName";
+			public const string DeviceResources_Help = "DeviceResources_Help";
+			public const string DeviceResources_MimeType = "DeviceResources_MimeType";
+			public const string DeviceResources_ResourceType = "DeviceResources_ResourceType";
+			public const string DeviceResources_Title = "DeviceResources_Title";
+			public const string DeviceResourceTypes_Manual = "DeviceResourceTypes_Manual";
+			public const string DeviceResourceTypes_Other = "DeviceResourceTypes_Other";
+			public const string DeviceResourceTypes_PartsList = "DeviceResourceTypes_PartsList";
+			public const string DeviceResourceTypes_Picture = "DeviceResourceTypes_Picture";
+			public const string DeviceResourceTypes_Specification = "DeviceResourceTypes_Specification";
+			public const string DeviceResourceTypes_UserGuide = "DeviceResourceTypes_UserGuide";
+			public const string DeviceResourceTypes_Video = "DeviceResourceTypes_Video";
+			public const string DeviceType_BillOfMaterial = "DeviceType_BillOfMaterial";
 			public const string DeviceType_DefaultConfiguration = "DeviceType_DefaultConfiguration";
 			public const string DeviceType_DefaultConfiguration_Help = "DeviceType_DefaultConfiguration_Help";
 			public const string DeviceType_DefaultConfiguration_Select = "DeviceType_DefaultConfiguration_Select";
@@ -1403,6 +1498,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_Help = "DeviceType_Help";
 			public const string DeviceType_Manufacturer = "DeviceType_Manufacturer";
 			public const string DeviceType_ModelNumber = "DeviceType_ModelNumber";
+			public const string DeviceType_Resources = "DeviceType_Resources";
 			public const string DeviceType_Title = "DeviceType_Title";
 			public const string DeviceWorkflow_Attributes = "DeviceWorkflow_Attributes";
 			public const string DeviceWorkflow_Attributes_Help = "DeviceWorkflow_Attributes_Help";

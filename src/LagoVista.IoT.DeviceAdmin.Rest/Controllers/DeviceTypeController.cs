@@ -116,5 +116,29 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             SetOwnedProperties(response.Model);
             return response;
         }
+
+        /// <summary>
+        ///  Device Type BOM Item - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/api/devicetype/bomitem/factory")]
+        public DetailResponse<DeviceBOMItem> CreateBOMItem()
+        {
+            var response = DetailResponse<DeviceBOMItem>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            return response;
+        }
+
+        /// <summary>
+        ///  Device Type Resource - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/api/devicetype/resource/factory")]
+        public DetailResponse<DeviceResource> CreateDeviceResource()
+        {
+            var response = DetailResponse<DeviceResource>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            return response;
+        }
     }
 }
