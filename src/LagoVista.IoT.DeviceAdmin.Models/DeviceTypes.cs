@@ -14,8 +14,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public DeviceType()
         {
-            BillOfMaterial = new List<DeviceBOMItem>();
-            DeviceResources = new List<DeviceResource>();
+            BillOfMaterial = new List<DeviceTypeBOMItem>();
+            DeviceResources = new List<DeviceTypeResource>();
         }
 
         public const string DeviceResourceTypes_Manual = "manual";
@@ -43,10 +43,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader DefaultDeviceConfiguration { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_BillOfMaterial, WaterMark: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
-        public List<DeviceBOMItem> BillOfMaterial { get; set; }
+        public List<DeviceTypeBOMItem> BillOfMaterial { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_Resources, WaterMark: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
-        public List<DeviceResource> DeviceResources { get; set; }
+        public List<DeviceTypeResource> DeviceResources { get; set; }
 
         public DeviceTypeSummary CreateSummary()
         {
@@ -88,11 +88,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceBOMItem_Title, Resources.DeviceLibraryResources.Names.DeviceBOMItem_Help, Resources.DeviceLibraryResources.Names.DeviceBOMItem_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
-    public class DeviceBOMItem
+    public class DeviceTypeBOMItem
     {
-        public DeviceBOMItem()
+        public DeviceTypeBOMItem()
         {
-            BOMItemResources = new List<DeviceResource>();
+            BOMItemResources = new List<DeviceTypeResource>();
         }
 
         public string Id { get; set; }
@@ -111,7 +111,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceBOMItem_Quantity, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string Link { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceBOMItem_Picture, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
-        public List<DeviceResource> BOMItemResources { get; set; }
+        public List<DeviceTypeResource> BOMItemResources { get; set; }
     }
 
     public enum DeviceResourceTypes
@@ -133,21 +133,60 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceResources_Title, Resources.DeviceLibraryResources.Names.DeviceResources_Help, Resources.DeviceLibraryResources.Names.DeviceResources_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
-    public class DeviceResource 
+    public class DeviceTypeResource: IValidateable 
     {
+        public DeviceTypeResource()
+        {
+            IsFileUpload = true;
+        }
+
         public string Id { get; set; }
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceResources_FileName, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceResources_FileName, FieldType: FieldTypes.Text, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources))]
         public string FileName { get; set; }
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, IsRequired:true, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
         public string Key { get; set; }
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceResources_MimeType, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceResource_IsFileUpload, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
+        public bool IsFileUpload { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceResource_Link, HelpResource: Resources.DeviceLibraryResources.Names.DeviceResource_Link_Help,  FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        public string Link { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceResource_ContentLength, FieldType: FieldTypes.Integer,IsUserEditable:false, ResourceType: typeof(DeviceLibraryResources))]
+        public long ContentSize { get; set; }
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceResources_MimeType,  IsUserEditable:false, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string MimeType { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, IsRequired:true, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string Name { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public string Description { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceResources_ResourceType, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceResources_ResourceType, WaterMark: Resources.DeviceLibraryResources.Names.DeviceResource_SelectType, IsRequired:true, EnumType:typeof(DeviceResourceTypes), FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<DeviceResourceTypes> ResourceType { get; set; }
+
+        [CustomValidator]
+        public void Validate(ValidationResult result)
+        {
+            if(IsFileUpload)
+            {
+                Link = String.Empty;
+
+                if(String.IsNullOrEmpty(FileName))
+                {
+                    result.AddUserError("Must provide file.");
+                }
+            }
+            else
+            {
+                ContentSize = 0;
+                MimeType = null;
+                FileName = null;
+
+                if(String.IsNullOrEmpty(Link))
+                {
+                    result.AddUserError("Must provide link.");
+                }
+            }
+
+
+        }
+
     }
 }

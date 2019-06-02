@@ -2,6 +2,7 @@
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
@@ -17,5 +18,9 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<InvokeResult> UpdateDeviceTypeAsync(DeviceType deviceType, EntityHeader org, EntityHeader user);
         Task<InvokeResult> DeleteDeviceTypeAsync(string id, EntityHeader org, EntityHeader user);
         Task<bool> QueryDeviceTypeKeyInUseAsync(string key, string orgId);
+
+        Task<InvokeResult<DeviceTypeResource>> AddResourceMediaAsync(string id, Stream media, string contentType, EntityHeader org, EntityHeader user);
+
+        Task<MediaItemResponse> GetResourceMediaAsync(string deviceTypeId, string id, EntityHeader org, EntityHeader user);
     }
 }

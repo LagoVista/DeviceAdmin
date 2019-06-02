@@ -1384,4 +1384,19 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_Resources" xml:space="preserve">
     <value>Resources</value>
   </data>
+  <data name="DeviceResource_ContentLength" xml:space="preserve">
+    <value>Content Length</value>
+  </data>
+  <data name="DeviceResource_SelectType" xml:space="preserve">
+    <value>-select resource type-</value>
+  </data>
+  <data name="DeviceResource_IsFileUpload" xml:space="preserve">
+    <value>Is File Upload</value>
+  </data>
+  <data name="DeviceResource_Link" xml:space="preserve">
+    <value>Web Link</value>
+  </data>
+  <data name="DeviceResource_Link_Help" xml:space="preserve">
+    <value>Provide a link to an external resource.</value>
+  </data>
 </root>

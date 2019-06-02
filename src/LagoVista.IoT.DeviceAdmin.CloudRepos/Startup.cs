@@ -1,5 +1,6 @@
 ﻿using LagoVista.Core.Interfaces;
 using LagoVista.IoT.DeviceAdmin.CloudRepos.Repos;
+using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos
@@ -12,6 +13,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos
             services.AddTransient<IUnitSetRepo, UnitSetRepo>();
             services.AddTransient<IStateMachineRepo, StateMachineRepo>();
             services.AddTransient<IStateSetRepo, StateSetRepo>();
+            services.AddTransient<IDeviceTypeResourceMediaRepo, DeviceTypeResourceMediaRepo>();
             services.AddTransient<IEventSetRepo, EventSetRepo>();
             services.AddTransient<IDeviceTypeRepo, DeviceTypeRepo>();
         }

@@ -13,6 +13,8 @@ using LagoVista.Core;
 using System.Threading.Tasks;
 using LagoVista.IoT.Logging.Loggers;
 using LagoVista.UserAdmin.Models.Users;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
@@ -122,9 +124,9 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("/api/devicetype/bomitem/factory")]
-        public DetailResponse<DeviceBOMItem> CreateBOMItem()
+        public DetailResponse<DeviceTypeBOMItem> CreateBOMItem()
         {
-            var response = DetailResponse<DeviceBOMItem>.Create();
+            var response = DetailResponse<DeviceTypeBOMItem>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }
@@ -134,11 +136,30 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("/api/devicetype/resource/factory")]
-        public DetailResponse<DeviceResource> CreateDeviceResource()
+        public DetailResponse<DeviceTypeResource> CreateDeviceResource()
         {
-            var response = DetailResponse<DeviceResource>.Create();
+            var response = DetailResponse<DeviceTypeResource>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             return response;
+        }
+
+        [HttpPost("/api/devicetype/resources/{id}")]
+        public async Task<InvokeResult<DeviceTypeResource>> UploadMediaAsync(string id, IFormFile file)
+        {
+            using (var strm = file.OpenReadStream())
+            {
+                return await _deviceTypeManager.AddResourceMediaAsync(id, strm, file.ContentType, OrgEntityHeader, UserEntityHeader);
+            }
+        }
+
+        [HttpGet("/api/devicetype/{devicetypeid}/resources/{id}")]
+        public async Task<IActionResult> DownloadMedia(string deviceTypeId, string id)
+        {
+            var response = await _deviceTypeManager.GetResourceMediaAsync(deviceTypeId, id, OrgEntityHeader, UserEntityHeader);
+
+            using (var ms = new MemoryStream(response.ImageBytes))
+                return new FileStreamResult(ms, response.ContentType);
+
         }
     }
 }

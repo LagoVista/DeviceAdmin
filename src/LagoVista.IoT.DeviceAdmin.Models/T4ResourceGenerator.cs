@@ -1,4 +1,4 @@
-﻿/*6/1/2019 17:20:29*/
+﻿/*6/2/2019 10:42:44*/
 using System.Globalization;
 using System.Reflection;
 
@@ -501,6 +501,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceConfiguration_Version
 
 		public static string DeviceConfiguration_Version { get { return GetResourceString("DeviceConfiguration_Version"); } }
+//Resources:DeviceLibraryResources:DeviceResource_ContentLength
+
+		public static string DeviceResource_ContentLength { get { return GetResourceString("DeviceResource_ContentLength"); } }
+//Resources:DeviceLibraryResources:DeviceResource_IsFileUpload
+
+		public static string DeviceResource_IsFileUpload { get { return GetResourceString("DeviceResource_IsFileUpload"); } }
+//Resources:DeviceLibraryResources:DeviceResource_Link
+
+		public static string DeviceResource_Link { get { return GetResourceString("DeviceResource_Link"); } }
+//Resources:DeviceLibraryResources:DeviceResource_Link_Help
+
+		public static string DeviceResource_Link_Help { get { return GetResourceString("DeviceResource_Link_Help"); } }
+//Resources:DeviceLibraryResources:DeviceResource_SelectType
+
+		public static string DeviceResource_SelectType { get { return GetResourceString("DeviceResource_SelectType"); } }
 //Resources:DeviceLibraryResources:DeviceResources_Description
 
 		public static string DeviceResources_Description { get { return GetResourceString("DeviceResources_Description"); } }
@@ -1477,6 +1492,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceConfiguration_Help = "DeviceConfiguration_Help";
 			public const string DeviceConfiguration_Title = "DeviceConfiguration_Title";
 			public const string DeviceConfiguration_Version = "DeviceConfiguration_Version";
+			public const string DeviceResource_ContentLength = "DeviceResource_ContentLength";
+			public const string DeviceResource_IsFileUpload = "DeviceResource_IsFileUpload";
+			public const string DeviceResource_Link = "DeviceResource_Link";
+			public const string DeviceResource_Link_Help = "DeviceResource_Link_Help";
+			public const string DeviceResource_SelectType = "DeviceResource_SelectType";
 			public const string DeviceResources_Description = "DeviceResources_Description";
 			public const string DeviceResources_FileName = "DeviceResources_FileName";
 			public const string DeviceResources_Help = "DeviceResources_Help";
