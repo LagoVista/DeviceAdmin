@@ -92,7 +92,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public DeviceTypeBOMItem()
         {
-            BOMItemResources = new List<DeviceTypeResource>();
+            BomItemResources = new List<DeviceTypeResource>();
         }
 
         public string Id { get; set; }
@@ -103,7 +103,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceBOMItem_Manufacturer, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string Manufacturer { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
-        public string Desription { get; set; }
+        public string Description { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceBOMItem_AssemblyNumber, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string AssemblyNumber { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceBOMItem_Quantity, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
@@ -111,7 +111,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceBOMItem_Quantity, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string Link { get; set; }
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceBOMItem_Picture, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
-        public List<DeviceTypeResource> BOMItemResources { get; set; }
+        public List<DeviceTypeResource> BomItemResources { get; set; }
     }
 
     public enum DeviceResourceTypes
