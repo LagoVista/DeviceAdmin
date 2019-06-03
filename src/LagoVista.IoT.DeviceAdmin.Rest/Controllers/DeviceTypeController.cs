@@ -1,20 +1,19 @@
-﻿using LagoVista.Core.Models;
+﻿using LagoVista.Core;
+using LagoVista.Core.Models;
 using LagoVista.Core.Models.UIMetaData;
-using LagoVista.Core.PlatformSupport;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
 using LagoVista.IoT.DeviceAdmin.Models;
+using LagoVista.IoT.Logging.Loggers;
 using LagoVista.IoT.Web.Common.Controllers;
+using LagoVista.UserAdmin.Models.Users;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using LagoVista.Core;
-using System.Threading.Tasks;
-using LagoVista.IoT.Logging.Loggers;
-using LagoVista.UserAdmin.Models.Users;
-using Microsoft.AspNetCore.Http;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
@@ -34,7 +33,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// <param name="deviceType"></param>
         [HttpPost("/api/devicetype")]
         public Task<InvokeResult> AddDeviceTypeAsync([FromBody] DeviceType deviceType)
-        { 
+        {
             return _deviceTypeManager.AddDeviceTypeAsync(deviceType, OrgEntityHeader, UserEntityHeader);
         }
 
@@ -157,9 +156,8 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         {
             var response = await _deviceTypeManager.GetResourceMediaAsync(deviceTypeId, id, OrgEntityHeader, UserEntityHeader);
 
-            using (var ms = new MemoryStream(response.ImageBytes))
-                return new FileStreamResult(ms, response.ContentType);
-
+            var ms = new MemoryStream(response.ImageBytes);
+            return new FileStreamResult(ms, response.ContentType);
         }
     }
 }

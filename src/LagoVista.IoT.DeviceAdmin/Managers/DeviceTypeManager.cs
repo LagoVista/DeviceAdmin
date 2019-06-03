@@ -143,8 +143,8 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 throw new RecordNotFoundException(nameof(DeviceTypeResource), id);
             }
 
-            var mediaItems = await _mediaRepo.GetMediaAsync(deviceResource.FileName, org.Text);
-            if (!mediaItems.Successful)
+            var mediaItem = await _mediaRepo.GetMediaAsync(deviceResource.FileName, org.Id);
+            if (!mediaItem.Successful)
             {
                 throw new RecordNotFoundException(nameof(DeviceTypeResource), id);
             }
@@ -153,7 +153,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             {
                 ContentType = deviceResource.MimeType,
                 FileName = deviceResource.FileName,
-                ImageBytes = mediaItems.Result
+                ImageBytes = mediaItem.Result
             };
         }
 
