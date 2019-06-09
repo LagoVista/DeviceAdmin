@@ -1429,4 +1429,16 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_AssociatedTools" xml:space="preserve">
     <value>Associated Tools</value>
   </data>
+  <data name="TroubleshootingSteps_ExpectedOutcome" xml:space="preserve">
+    <value>Expected Outcome</value>
+  </data>
+  <data name="TroubleshootingStep_Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="TroubleshootingStep_Problem" xml:space="preserve">
+    <value>Problem</value>
+  </data>
+  <data name="TroubleshootingStep_StepId" xml:space="preserve">
+    <value>Step Id</value>
+  </data>
 </root>

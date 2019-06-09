@@ -1,4 +1,4 @@
-﻿/*6/9/2019 12:07:15*/
+﻿/*6/9/2019 16:56:26*/
 using System.Globalization;
 using System.Reflection;
 
@@ -1187,12 +1187,24 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:TroubleshootingStep_Instructions
 
 		public static string TroubleshootingStep_Instructions { get { return GetResourceString("TroubleshootingStep_Instructions"); } }
+//Resources:DeviceLibraryResources:TroubleshootingStep_Notes
+
+		public static string TroubleshootingStep_Notes { get { return GetResourceString("TroubleshootingStep_Notes"); } }
+//Resources:DeviceLibraryResources:TroubleshootingStep_Problem
+
+		public static string TroubleshootingStep_Problem { get { return GetResourceString("TroubleshootingStep_Problem"); } }
 //Resources:DeviceLibraryResources:TroubleshootingStep_Resources
 
 		public static string TroubleshootingStep_Resources { get { return GetResourceString("TroubleshootingStep_Resources"); } }
+//Resources:DeviceLibraryResources:TroubleshootingStep_StepId
+
+		public static string TroubleshootingStep_StepId { get { return GetResourceString("TroubleshootingStep_StepId"); } }
 //Resources:DeviceLibraryResources:TroubleShootingStep_Title
 
 		public static string TroubleShootingStep_Title { get { return GetResourceString("TroubleShootingStep_Title"); } }
+//Resources:DeviceLibraryResources:TroubleshootingSteps_ExpectedOutcome
+
+		public static string TroubleshootingSteps_ExpectedOutcome { get { return GetResourceString("TroubleshootingSteps_ExpectedOutcome"); } }
 //Resources:DeviceLibraryResources:Unit_Abbreviation
 
 		public static string Unit_Abbreviation { get { return GetResourceString("Unit_Abbreviation"); } }
@@ -1748,8 +1760,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string TroubleShootingStep_Description = "TroubleShootingStep_Description";
 			public const string TroubleShootingStep_Help = "TroubleShootingStep_Help";
 			public const string TroubleshootingStep_Instructions = "TroubleshootingStep_Instructions";
+			public const string TroubleshootingStep_Notes = "TroubleshootingStep_Notes";
+			public const string TroubleshootingStep_Problem = "TroubleshootingStep_Problem";
 			public const string TroubleshootingStep_Resources = "TroubleshootingStep_Resources";
+			public const string TroubleshootingStep_StepId = "TroubleshootingStep_StepId";
 			public const string TroubleShootingStep_Title = "TroubleShootingStep_Title";
+			public const string TroubleshootingSteps_ExpectedOutcome = "TroubleshootingSteps_ExpectedOutcome";
 			public const string Unit_Abbreviation = "Unit_Abbreviation";
 			public const string Unit_Conversion_EditScriptWatermark = "Unit_Conversion_EditScriptWatermark";
 			public const string Unit_Conversion_Factor = "Unit_Conversion_Factor";

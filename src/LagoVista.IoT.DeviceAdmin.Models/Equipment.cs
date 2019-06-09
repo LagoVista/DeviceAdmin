@@ -8,7 +8,6 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Equipment_Title,
         DeviceLibraryResources.Names.Equipment_Help, DeviceLibraryResources.Names.Equipment_Description,
                   EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
