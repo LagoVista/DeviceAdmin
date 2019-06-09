@@ -1,4 +1,4 @@
-﻿/*6/2/2019 10:42:44*/
+﻿/*6/9/2019 11:17:51*/
 using System.Globalization;
 using System.Reflection;
 
@@ -285,6 +285,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Common_PageNumberOne
 
 		public static string Common_PageNumberOne { get { return GetResourceString("Common_PageNumberOne"); } }
+//Resources:DeviceLibraryResources:Common_Resources
+
+		public static string Common_Resources { get { return GetResourceString("Common_Resources"); } }
 //Resources:DeviceLibraryResources:Common_UniqueId
 
 		public static string Common_UniqueId { get { return GetResourceString("Common_UniqueId"); } }
@@ -698,6 +701,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 		///You can configure different environments so you can test your configurations prior to putting them into production
 		///</summary>
 		public static string Environments { get { return GetResourceString("Environments"); } }
+//Resources:DeviceLibraryResources:Equipment_Description
+
+		public static string Equipment_Description { get { return GetResourceString("Equipment_Description"); } }
+//Resources:DeviceLibraryResources:Equipment_Help
+
+		public static string Equipment_Help { get { return GetResourceString("Equipment_Help"); } }
+//Resources:DeviceLibraryResources:Equipment_Title
+
+		public static string Equipment_Title { get { return GetResourceString("Equipment_Title"); } }
 //Resources:DeviceLibraryResources:Err_CouldNotLoadDeviceWorkflow
 
 		public static string Err_CouldNotLoadDeviceWorkflow { get { return GetResourceString("Err_CouldNotLoadDeviceWorkflow"); } }
@@ -1163,6 +1175,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Timer_Wednesday
 
 		public static string Timer_Wednesday { get { return GetResourceString("Timer_Wednesday"); } }
+//Resources:DeviceLibraryResources:TroubleShootingStep_Description
+
+		public static string TroubleShootingStep_Description { get { return GetResourceString("TroubleShootingStep_Description"); } }
+//Resources:DeviceLibraryResources:TroubleShootingStep_Help
+
+		public static string TroubleShootingStep_Help { get { return GetResourceString("TroubleShootingStep_Help"); } }
+//Resources:DeviceLibraryResources:TroubleshootingStep_Instructions
+
+		public static string TroubleshootingStep_Instructions { get { return GetResourceString("TroubleshootingStep_Instructions"); } }
+//Resources:DeviceLibraryResources:TroubleshootingStep_Resources
+
+		public static string TroubleshootingStep_Resources { get { return GetResourceString("TroubleshootingStep_Resources"); } }
+//Resources:DeviceLibraryResources:TroubleShootingStep_Title
+
+		public static string TroubleShootingStep_Title { get { return GetResourceString("TroubleShootingStep_Title"); } }
 //Resources:DeviceLibraryResources:Unit_Abbreviation
 
 		public static string Unit_Abbreviation { get { return GetResourceString("Unit_Abbreviation"); } }
@@ -1420,6 +1447,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Common_Note = "Common_Note";
 			public const string Common_Notes = "Common_Notes";
 			public const string Common_PageNumberOne = "Common_PageNumberOne";
+			public const string Common_Resources = "Common_Resources";
 			public const string Common_UniqueId = "Common_UniqueId";
 			public const string Common_ValidationErrors = "Common_ValidationErrors";
 			public const string CusotmField_HelpText_Help = "CusotmField_HelpText_Help";
@@ -1555,6 +1583,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Environment_Production = "Environment_Production";
 			public const string Environment_Test = "Environment_Test";
 			public const string Environments = "Environments";
+			public const string Equipment_Description = "Equipment_Description";
+			public const string Equipment_Help = "Equipment_Help";
+			public const string Equipment_Title = "Equipment_Title";
 			public const string Err_CouldNotLoadDeviceWorkflow = "Err_CouldNotLoadDeviceWorkflow";
 			public const string Err_CouldNotLoadStateSet = "Err_CouldNotLoadStateSet";
 			public const string Err_CouldNotLoadUnitSet = "Err_CouldNotLoadUnitSet";
@@ -1710,6 +1741,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Timer_Title = "Timer_Title";
 			public const string Timer_Tuesday = "Timer_Tuesday";
 			public const string Timer_Wednesday = "Timer_Wednesday";
+			public const string TroubleShootingStep_Description = "TroubleShootingStep_Description";
+			public const string TroubleShootingStep_Help = "TroubleShootingStep_Help";
+			public const string TroubleshootingStep_Instructions = "TroubleshootingStep_Instructions";
+			public const string TroubleshootingStep_Resources = "TroubleshootingStep_Resources";
+			public const string TroubleShootingStep_Title = "TroubleShootingStep_Title";
 			public const string Unit_Abbreviation = "Unit_Abbreviation";
 			public const string Unit_Conversion_EditScriptWatermark = "Unit_Conversion_EditScriptWatermark";
 			public const string Unit_Conversion_Factor = "Unit_Conversion_Factor";

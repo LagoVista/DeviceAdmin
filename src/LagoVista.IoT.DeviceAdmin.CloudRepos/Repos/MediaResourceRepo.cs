@@ -14,18 +14,18 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
-    public class DeviceTypeResourceMediaRepo : IDeviceTypeResourceMediaRepo
+    public class MediaResourceRepo : IMediaResourceRepo
     {
         ILogger _logger;
         IConnectionSettings _blobConnectionSettings;
 
-        public DeviceTypeResourceMediaRepo(IAdminLogger adminLogger, IDeviceTypeResourceMediaConnectionSettings settings)
+        public MediaResourceRepo(IAdminLogger adminLogger, IDeviceTypeResourceMediaConnectionSettings settings)
         {
             _logger = adminLogger;
             _blobConnectionSettings = settings.DeviceTypeResourceMediaConnection;
         }
 
-        public DeviceTypeResourceMediaRepo(IInstanceLogger instanceLogger, IDeviceTypeResourceMediaConnectionSettings settings)
+        public MediaResourceRepo(IInstanceLogger instanceLogger, IDeviceTypeResourceMediaConnectionSettings settings)
         {
             _logger = instanceLogger;
             _blobConnectionSettings = settings.DeviceTypeResourceMediaConnection;

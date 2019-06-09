@@ -16,6 +16,7 @@ namespace LagoVista.IoT.DeviceAdmin
 
             services.AddTransient<IDeviceAdminManager, DeviceAdminManager>();
             services.AddTransient<IDeviceTypeManager, DeviceTypeManager>();
+            services.AddTransient<IEquipmentManager, EquipmentManager>();
         }
     }
 }

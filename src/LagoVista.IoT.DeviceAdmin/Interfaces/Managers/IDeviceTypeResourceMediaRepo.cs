@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
 {
-    public interface IDeviceTypeResourceMediaRepo
+    public interface IMediaResourceRepo
     {
         Task<InvokeResult> AddMediaAsync(byte[] data, string org, string fileName, string contentType);
         Task<InvokeResult<byte[]>> GetMediaAsync(string fileName, string org);

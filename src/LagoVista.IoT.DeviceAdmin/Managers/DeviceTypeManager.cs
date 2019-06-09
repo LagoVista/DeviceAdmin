@@ -6,11 +6,9 @@ using LagoVista.IoT.DeviceAdmin.Models;
 using System.Threading.Tasks;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 using LagoVista.Core.Managers;
-using LagoVista.Core.PlatformSupport;
 using LagoVista.Core.Interfaces;
 using static LagoVista.Core.Models.AuthorizeResult;
 using LagoVista.IoT.Logging.Loggers;
-using LagoVista.Core;
 using System.IO;
 using System.Linq;
 using System;
@@ -20,10 +18,10 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
 {
     public class DeviceTypeManager : ManagerBase, IDeviceTypeManager
     {
-        IDeviceTypeResourceMediaRepo _mediaRepo;
+        IMediaResourceRepo _mediaRepo;
         IDeviceTypeRepo _deviceTypeRepo;
 
-        public DeviceTypeManager(IDeviceTypeRepo deviceTypeRepo, IDeviceAdminManager deviceAdminManager, IDeviceTypeResourceMediaRepo mediaRepo,
+        public DeviceTypeManager(IDeviceTypeRepo deviceTypeRepo, IDeviceAdminManager deviceAdminManager, IMediaResourceRepo mediaRepo,
             IAdminLogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security) :
             base(logger, appConfig, depmanager, security)
         {
@@ -40,47 +38,14 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return InvokeResult.Success;
         }
 
-        public async Task<InvokeResult<DeviceTypeResource>> AddResourceMediaAsync(String id, Stream stream, string contentType, EntityHeader org, EntityHeader user)
+        public async Task<InvokeResult<MediaResource>> AddResourceMediaAsync(String id, Stream stream, string contentType, EntityHeader org, EntityHeader user)
         {
-            var deviceTypeResource = new DeviceTypeResource();
+            var deviceTypeResource = new MediaResource();
             deviceTypeResource.Id = id;
             await AuthorizeAsync(user, org, "addDeviceTypeResource", $"{{mediaItemId:'{id}'}}");
 
-            //TODO: This code is cut-and-paste reuse in the file DeviceMediaStorage in the IoT Project, as well as the models for Device Media, probably should refactor, but it's simple enough
-            deviceTypeResource.FileName = $"{deviceTypeResource.Id}.media";
-            deviceTypeResource.MimeType = "application/octet-stream";
-
-            if (contentType.ToLower().Contains("gif"))
-            {
-                deviceTypeResource.FileName = $"{deviceTypeResource.Id}.gif";
-                deviceTypeResource.MimeType = "image/gif";
-            }
-            else if (contentType.ToLower().Contains("png"))
-            {
-                deviceTypeResource.FileName = $"{deviceTypeResource.Id}.png";
-                deviceTypeResource.MimeType = "image/png";
-            }
-            else if (contentType.ToLower().Contains("jpg"))
-            {
-                deviceTypeResource.FileName = $"{deviceTypeResource.Id}.jpg";
-                deviceTypeResource.MimeType = "image/jpeg";
-            }
-            else if (contentType.ToLower().Contains("jpeg"))
-            {
-                deviceTypeResource.FileName = $"{deviceTypeResource.Id}.jpeg";
-                deviceTypeResource.MimeType = "image/jpeg";
-            }
-            else if (contentType.ToLower().Contains("pdf"))
-            {
-                deviceTypeResource.FileName = $"{deviceTypeResource.Id}.pdf";
-                deviceTypeResource.MimeType = "application/pdf";
-            }
-            else if (contentType.ToLower().Contains("csv"))
-            {
-                deviceTypeResource.FileName = $"{deviceTypeResource.Id}.csv";
-                deviceTypeResource.MimeType = "text/plain";
-            }
-
+            deviceTypeResource.SetContentType(contentType);
+         
             var bytes = new byte[stream.Length];
             stream.Position = 0;
             stream.Read(bytes, 0, (int)stream.Length);
@@ -90,11 +55,11 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
            var result = await _mediaRepo.AddMediaAsync(bytes, org.Id, deviceTypeResource.FileName, contentType);
             if(result.Successful)
             {
-                return InvokeResult<DeviceTypeResource>.Create(deviceTypeResource);
+                return InvokeResult<MediaResource>.Create(deviceTypeResource);
             }
             else
             {
-                return InvokeResult<DeviceTypeResource>.FromInvokeResult(result);
+                return InvokeResult<MediaResource>.FromInvokeResult(result);
             }
         }
 
@@ -129,7 +94,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
 
         public async Task<MediaItemResponse> GetResourceMediaAsync(string deviceTypeId, string id, EntityHeader org, EntityHeader user)
         {
-            await AuthorizeOrgAccessAsync(user, org.Id, typeof(DeviceTypeResource));
+            await AuthorizeOrgAccessAsync(user, org.Id, typeof(MediaResource));
 
             var deviceType = await _deviceTypeRepo.GetDeviceTypeAsync(deviceTypeId);
             if (deviceType == null)
@@ -140,19 +105,55 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             var deviceResource = deviceType.DeviceResources.Where(dvc => dvc.Id == id).FirstOrDefault();
             if (deviceResource == null)
             {
-                throw new RecordNotFoundException(nameof(DeviceTypeResource), id);
+                throw new RecordNotFoundException(nameof(MediaResource), id);
             }
 
             var mediaItem = await _mediaRepo.GetMediaAsync(deviceResource.FileName, org.Id);
             if (!mediaItem.Successful)
             {
-                throw new RecordNotFoundException(nameof(DeviceTypeResource), id);
+                throw new RecordNotFoundException(nameof(MediaResource), id);
             }
 
             return new MediaItemResponse()
             {
                 ContentType = deviceResource.MimeType,
                 FileName = deviceResource.FileName,
+                ImageBytes = mediaItem.Result
+            };
+        }
+
+        public async Task<MediaItemResponse> GetBomResourceMediaAsync(string deviceTypeId, string bomItemId, string id, EntityHeader org, EntityHeader user)
+        {
+            await AuthorizeOrgAccessAsync(user, org.Id, typeof(MediaResource));
+
+            var deviceType = await _deviceTypeRepo.GetDeviceTypeAsync(deviceTypeId);
+            if (deviceType == null)
+            {
+                throw new RecordNotFoundException(nameof(DeviceType), id);
+            }
+
+            var bomItem = deviceType.BillOfMaterial.Where(dvc => dvc.Id == id).FirstOrDefault();
+            if (bomItem == null)
+            {
+                throw new RecordNotFoundException(nameof(BOMItem), id);
+            }
+
+            var resource = bomItem.Resources.Where(bom => bom.Id == bomItemId).FirstOrDefault();
+            if(resource == null)
+            {
+                throw new RecordNotFoundException(nameof(MediaResource), id);
+            }
+
+            var mediaItem = await _mediaRepo.GetMediaAsync(resource.FileName, org.Id);
+            if (!mediaItem.Successful)
+            {
+                throw new RecordNotFoundException(nameof(MediaResource), id);
+            }
+
+            return new MediaItemResponse()
+            {
+                ContentType = resource.MimeType,
+                FileName = resource.FileName,
                 ImageBytes = mediaItem.Result
             };
         }
