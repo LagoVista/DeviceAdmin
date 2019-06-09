@@ -27,7 +27,7 @@ namespace LagoVista.IoT.DeviceAdmin.Repos.Tests.Media
             });
 
 
-            var repo = new DeviceTypeResourceMediaRepo(new AdminLogger(new Utils.LogWriter()), _resourceMediaConnections.Object);
+            var repo = new MediaResourceRepo(new AdminLogger(new Utils.LogWriter()), _resourceMediaConnections.Object);
             var rnd = new Random();
             var byteArray = new byte[1024];
             for (var idx = 0; idx < byteArray.Length; ++idx)
@@ -50,7 +50,7 @@ namespace LagoVista.IoT.DeviceAdmin.Repos.Tests.Media
                 AccessKey = Environment.GetEnvironmentVariable("TEST_AZURESTORAGE_ACCESSKEY", EnvironmentVariableTarget.User)
             });
 
-            var repo = new DeviceTypeResourceMediaRepo(new AdminLogger(new Utils.LogWriter()), _resourceMediaConnections.Object);
+            var repo = new MediaResourceRepo(new AdminLogger(new Utils.LogWriter()), _resourceMediaConnections.Object);
             var rnd = new Random();
             var byteArray = new byte[1024];
             for (var idx = 0; idx < byteArray.Length; ++idx)
