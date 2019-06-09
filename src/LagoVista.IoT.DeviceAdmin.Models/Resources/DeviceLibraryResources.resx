@@ -1426,4 +1426,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="TroubleshootingStep_Instructions" xml:space="preserve">
     <value>Instructions</value>
   </data>
+  <data name="DeviceType_AssociatedTools" xml:space="preserve">
+    <value>Associated Tools</value>
+  </data>
 </root>

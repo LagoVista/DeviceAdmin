@@ -9,13 +9,15 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceType_Title, Resources.DeviceLibraryResources.Names.DeviceType_Help, Resources.DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceType_Title, DeviceLibraryResources.Names.DeviceType_Help,
+        DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
     public class DeviceType : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity, IFormDescriptor
     {
         public DeviceType()
         {
             BillOfMaterial = new List<BOMItem>();
-            DeviceResources = new List<MediaResource>();
+            Resources = new List<MediaResource>();
+            AssociatedTools = new List<Equipment>();
         }
 
         public const string DeviceResourceTypes_Manual = "manual";
@@ -31,34 +33,37 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String EntityType { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_Manufacturer, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Manufacturer, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string Manufacturer { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_ModelNumber, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ModelNumber, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string ModelNumber { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration, HelpResource: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Help,  WaterMark: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration, HelpResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Help, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader DefaultDeviceConfiguration { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_BillOfMaterial, WaterMark: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_BillOfMaterial, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<BOMItem> BillOfMaterial { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceType_Resources, WaterMark: Resources.DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
-        public List<MediaResource> DeviceResources { get; set; }
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Resources, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        public List<MediaResource> Resources { get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_AssociatedTools, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        public List<Equipment> AssociatedTools { get; set; }
 
         public DeviceTypeSummary CreateSummary()
         {
             var summary = new DeviceTypeSummary()
             {
-                 Description = Description,
-                 Name = Name,
-                 Id = Id,
-                 Key = Key,
+                Description = Description,
+                Name = Name,
+                Id = Id,
+                Key = Key,
             };
 
-            if(DefaultDeviceConfiguration != null && !DefaultDeviceConfiguration.IsEmpty())
+            if (DefaultDeviceConfiguration != null && !DefaultDeviceConfiguration.IsEmpty())
             {
                 summary.DefaultDeviceConfigId = DefaultDeviceConfiguration.Id;
                 summary.DefaultDeviceConfigName = DefaultDeviceConfiguration.Text;

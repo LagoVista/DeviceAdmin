@@ -102,7 +102,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 throw new RecordNotFoundException(nameof(DeviceType), id);
             }
 
-            var deviceResource = deviceType.DeviceResources.Where(dvc => dvc.Id == id).FirstOrDefault();
+            var deviceResource = deviceType.Resources.Where(dvc => dvc.Id == id).FirstOrDefault();
             if (deviceResource == null)
             {
                 throw new RecordNotFoundException(nameof(MediaResource), id);

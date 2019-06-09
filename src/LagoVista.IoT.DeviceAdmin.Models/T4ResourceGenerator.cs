@@ -1,4 +1,4 @@
-﻿/*6/9/2019 11:17:51*/
+﻿/*6/9/2019 12:07:15*/
 using System.Globalization;
 using System.Reflection;
 
@@ -558,6 +558,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceResourceTypes_Video
 
 		public static string DeviceResourceTypes_Video { get { return GetResourceString("DeviceResourceTypes_Video"); } }
+//Resources:DeviceLibraryResources:DeviceType_AssociatedTools
+
+		public static string DeviceType_AssociatedTools { get { return GetResourceString("DeviceType_AssociatedTools"); } }
 //Resources:DeviceLibraryResources:DeviceType_BillOfMaterial
 
 		public static string DeviceType_BillOfMaterial { get { return GetResourceString("DeviceType_BillOfMaterial"); } }
@@ -1538,6 +1541,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceResourceTypes_Specification = "DeviceResourceTypes_Specification";
 			public const string DeviceResourceTypes_UserGuide = "DeviceResourceTypes_UserGuide";
 			public const string DeviceResourceTypes_Video = "DeviceResourceTypes_Video";
+			public const string DeviceType_AssociatedTools = "DeviceType_AssociatedTools";
 			public const string DeviceType_BillOfMaterial = "DeviceType_BillOfMaterial";
 			public const string DeviceType_DefaultConfiguration = "DeviceType_DefaultConfiguration";
 			public const string DeviceType_DefaultConfiguration_Help = "DeviceType_DefaultConfiguration_Help";
