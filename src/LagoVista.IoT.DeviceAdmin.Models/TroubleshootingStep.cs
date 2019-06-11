@@ -11,6 +11,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models
               EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
     public class TroubleshootingStep
     {
+        public TroubleshootingStep()
+        {
+            Resources = new List<MediaResource>();
+        }
+
+        public string Id { get; set; }
+
         [FormField(LabelResource: DeviceLibraryResources.Names.TroubleshootingStep_StepId, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
         public string StepId { get; set; }
 
