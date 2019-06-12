@@ -17,16 +17,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         {
             BillOfMaterial = new List<BOMItem>();
             Resources = new List<MediaResource>();
-            AssociatedTools = new List<Equipment>();
+            AssociatedEquipment = new List<EntityHeader<Equipment>>();
         }
-
-        public const string DeviceResourceTypes_Manual = "manual";
-        public const string DeviceResourceTypes_UserGuide = "userguide";
-        public const string DeviceResourceTypes_Specification = "specification";
-        public const string DeviceResourceTypes_PartsList = "partslist";
-        public const string DeviceResourceTypes_Picture = "picture";
-        public const string DeviceResourceTypes_Video = "video";
-        public const string DeviceResourceTypes_Other = "other";
 
         public String DatabaseName { get; set; }
 
@@ -51,7 +43,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public List<MediaResource> Resources { get; set; }
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_AssociatedTools, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
-        public List<Equipment> AssociatedTools { get; set; }
+        public List<EntityHeader<Equipment>> AssociatedEquipment { get; set; }
 
         public DeviceTypeSummary CreateSummary()
         {

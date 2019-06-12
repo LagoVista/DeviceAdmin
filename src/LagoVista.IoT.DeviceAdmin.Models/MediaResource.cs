@@ -8,25 +8,34 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     public enum MediaResourceTypes
     {
-        [EnumLabel(DeviceType.DeviceResourceTypes_Manual, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_Manual, typeof(Resources.DeviceLibraryResources))]
+        [EnumLabel(MediaResource.DeviceResourceTypes_Manual, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_Manual, typeof(Resources.DeviceLibraryResources))]
         Manual,
-        [EnumLabel(DeviceType.DeviceResourceTypes_UserGuide, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_UserGuide, typeof(Resources.DeviceLibraryResources))]
+        [EnumLabel(MediaResource.DeviceResourceTypes_UserGuide, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_UserGuide, typeof(Resources.DeviceLibraryResources))]
         UserGuide,
-        [EnumLabel(DeviceType.DeviceResourceTypes_Specification, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_Specification, typeof(Resources.DeviceLibraryResources))]
+        [EnumLabel(MediaResource.DeviceResourceTypes_Specification, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_Specification, typeof(Resources.DeviceLibraryResources))]
         Specification,
-        [EnumLabel(DeviceType.DeviceResourceTypes_PartsList, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_PartsList, typeof(Resources.DeviceLibraryResources))]
+        [EnumLabel(MediaResource.DeviceResourceTypes_PartsList, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_PartsList, typeof(Resources.DeviceLibraryResources))]
         PartList,
-        [EnumLabel(DeviceType.DeviceResourceTypes_Picture, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_Picture, typeof(Resources.DeviceLibraryResources))]
+        [EnumLabel(MediaResource.DeviceResourceTypes_Picture, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_Picture, typeof(Resources.DeviceLibraryResources))]
         Picture,
-        [EnumLabel(DeviceType.DeviceResourceTypes_Video, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_Video, typeof(Resources.DeviceLibraryResources))]
+        [EnumLabel(MediaResource.DeviceResourceTypes_Video, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_Video, typeof(Resources.DeviceLibraryResources))]
         Video,
-        [EnumLabel(DeviceType.DeviceResourceTypes_Other, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_Other, typeof(Resources.DeviceLibraryResources))]
+        [EnumLabel(MediaResource.DeviceResourceTypes_Other, Resources.DeviceLibraryResources.Names.DeviceResourceTypes_Other, typeof(Resources.DeviceLibraryResources))]
         Other,
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceResources_Title, Resources.DeviceLibraryResources.Names.DeviceResources_Help, Resources.DeviceLibraryResources.Names.DeviceResources_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
     public class MediaResource: IValidateable 
     {
+
+        public const string DeviceResourceTypes_Manual = "manual";
+        public const string DeviceResourceTypes_UserGuide = "userguide";
+        public const string DeviceResourceTypes_Specification = "specification";
+        public const string DeviceResourceTypes_PartsList = "partslist";
+        public const string DeviceResourceTypes_Picture = "picture";
+        public const string DeviceResourceTypes_Video = "video";
+        public const string DeviceResourceTypes_Other = "other";
+
         public MediaResource()
         {
             IsFileUpload = true;
