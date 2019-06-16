@@ -21,6 +21,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             StateMachines = new List<StateMachine>();
             Inputs = new List<WorkflowInput>();
             OutputCommands = new List<OutputCommand>();
+            ServiceTicketTemplates = new List<AssociatedServiceTicketTemplate>();
             Timers = new List<Timer>();
             Pages = new List<Page>();
             Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
@@ -77,6 +78,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages, HelpResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
         public List<Page> Pages { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_ServiceTicketTemplates, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
+        public List<AssociatedServiceTicketTemplate> ServiceTicketTemplates { get; set; }
 
         public EntityHeader ToEntityHeader()
         {

@@ -1,4 +1,4 @@
-﻿/*6/9/2019 16:56:26*/
+﻿/*6/14/2019 06:52:35*/
 using System.Globalization;
 using System.Reflection;
 
@@ -666,6 +666,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_PrehandlerScript_Watermark
 
 		public static string DeviceWorkflow_PrehandlerScript_Watermark { get { return GetResourceString("DeviceWorkflow_PrehandlerScript_Watermark"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_ServiceTicketTemplates
+
+		public static string DeviceWorkflow_ServiceTicketTemplates { get { return GetResourceString("DeviceWorkflow_ServiceTicketTemplates"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_Settings
 
 		public static string DeviceWorkflow_Settings { get { return GetResourceString("DeviceWorkflow_Settings"); } }
@@ -1589,6 +1592,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceWorkflow_PrehandlerScript = "DeviceWorkflow_PrehandlerScript";
 			public const string DeviceWorkflow_PrehandlerScript_Help = "DeviceWorkflow_PrehandlerScript_Help";
 			public const string DeviceWorkflow_PrehandlerScript_Watermark = "DeviceWorkflow_PrehandlerScript_Watermark";
+			public const string DeviceWorkflow_ServiceTicketTemplates = "DeviceWorkflow_ServiceTicketTemplates";
 			public const string DeviceWorkflow_Settings = "DeviceWorkflow_Settings";
 			public const string DeviceWorkflow_Settings_Help = "DeviceWorkflow_Settings_Help";
 			public const string DeviceWorkflow_Timer = "DeviceWorkflow_Timer";

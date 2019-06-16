@@ -1441,4 +1441,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="TroubleshootingStep_StepId" xml:space="preserve">
     <value>Step Id</value>
   </data>
+  <data name="DeviceWorkflow_ServiceTicketTemplates" xml:space="preserve">
+    <value>Service Ticket Templates</value>
+  </data>
 </root>
