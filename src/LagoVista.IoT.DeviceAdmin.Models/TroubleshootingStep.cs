@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
+using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public TroubleshootingStep()
         {
-            Resources = new List<MediaResource>();
+            Resources = new List<EntityHeader>();
         }
 
         public string Id { get; set; }
@@ -38,6 +39,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
         [FormField(LabelResource: DeviceLibraryResources.Names.Common_Resources, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
-        public List<MediaResource> Resources { get; set; }
+        public List<EntityHeader> Resources { get; set; }
     }
 }

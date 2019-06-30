@@ -129,44 +129,5 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }
-
-        /// <summary>
-        ///  Device Type Resource - Create New
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet("/api/mediaresource/factory")]
-        public DetailResponse<MediaResource> CreateDeviceResource()
-        {
-            var response = DetailResponse<MediaResource>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
-            return response;
-        }
-
-        [HttpPost("/api/media/resources/{id}")]
-        public async Task<InvokeResult<MediaResource>> UploadMediaAsync(string id, IFormFile file)
-        {
-            using (var strm = file.OpenReadStream())
-            {
-                return await _deviceTypeManager.AddResourceMediaAsync(id, strm, file.ContentType, OrgEntityHeader, UserEntityHeader);
-            }
-        }
-
-        [HttpGet("/api/devicetype/{devicetypeid}/resources/{id}")]
-        public async Task<IActionResult> DownloadMedia(string deviceTypeId, string id)
-        {
-            var response = await _deviceTypeManager.GetResourceMediaAsync(deviceTypeId, id, OrgEntityHeader, UserEntityHeader);
-
-            var ms = new MemoryStream(response.ImageBytes);
-            return new FileStreamResult(ms, response.ContentType);
-        }
-
-        [HttpGet("/api/devicetype/{devicetypeid}/bom/{bomitemid}/resources/{id}")]
-        public async Task<IActionResult> DownloadMedia(string deviceTypeId, string bomitemid, string id)
-        {
-            var response = await _deviceTypeManager.GetBomResourceMediaAsync(deviceTypeId, id, bomitemid, OrgEntityHeader, UserEntityHeader);
-
-            var ms = new MemoryStream(response.ImageBytes);
-            return new FileStreamResult(ms, response.ContentType);
-        }
     }
 }

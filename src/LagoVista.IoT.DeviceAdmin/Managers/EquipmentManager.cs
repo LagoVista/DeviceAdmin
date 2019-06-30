@@ -17,13 +17,11 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
     public class EquipmentManager : ManagerBase, IEquipmentManager
     {
         IEquipmentRepo _repo;
-        IMediaResourceRepo _mediaRepo;
 
-        public EquipmentManager(IEquipmentRepo repo, IDeviceAdminManager deviceAdminManager, IMediaResourceRepo mediaRepo,
+        public EquipmentManager(IEquipmentRepo repo, IDeviceAdminManager deviceAdminManager,
             IAdminLogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security) 
             : base(logger, appConfig, depmanager, security)
         {
-            _mediaRepo = mediaRepo;
             _repo = repo;
         }
 
@@ -77,36 +75,6 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             await _repo.UpdateEquipmentAsync(equipment);
 
             return InvokeResult.Success;
-        }
-
-        public async Task<MediaItemResponse> GetResourceMediaAsync(string equipmentId, string id, EntityHeader org, EntityHeader user)
-        {
-            await AuthorizeOrgAccessAsync(user, org.Id, typeof(MediaResource));
-
-            var deviceType = await _repo.GetEquipmentAsync(equipmentId);
-            if (deviceType == null)
-            {
-                throw new RecordNotFoundException(nameof(Equipment), id);
-            }
-
-            var mediaResource = deviceType.Resources.Where(dvc => dvc.Id == id).FirstOrDefault();
-            if (mediaResource == null)
-            {
-                throw new RecordNotFoundException(nameof(MediaResource), id);
-            }
-
-            var mediaItem = await _mediaRepo.GetMediaAsync(mediaResource.FileName, org.Id);
-            if (!mediaItem.Successful)
-            {
-                throw new RecordNotFoundException(nameof(MediaResource), id);
-            }
-
-            return new MediaItemResponse()
-            {
-                ContentType = mediaResource.MimeType,
-                FileName = mediaResource.FileName,
-                ImageBytes = mediaItem.Result
-            };
         }
     }
 }

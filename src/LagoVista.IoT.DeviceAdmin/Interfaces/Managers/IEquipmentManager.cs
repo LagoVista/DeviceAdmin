@@ -15,6 +15,5 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<Equipment> GetEquipmentAsync(string id, EntityHeader org, EntityHeader user);
         Task<InvokeResult> DeleteEquipmentAsync(string id, EntityHeader org, EntityHeader user);
         Task<bool> QueryKeyInUseAsync(string key, string orgId);
-        Task<MediaItemResponse> GetResourceMediaAsync(string equipmentId, string id, EntityHeader org, EntityHeader user);
     }
 }

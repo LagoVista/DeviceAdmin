@@ -18,10 +18,5 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<InvokeResult> UpdateDeviceTypeAsync(DeviceType deviceType, EntityHeader org, EntityHeader user);
         Task<InvokeResult> DeleteDeviceTypeAsync(string id, EntityHeader org, EntityHeader user);
         Task<bool> QueryDeviceTypeKeyInUseAsync(string key, string orgId);
-
-        Task<InvokeResult<MediaResource>> AddResourceMediaAsync(string id, Stream media, string contentType, EntityHeader org, EntityHeader user);
-
-        Task<MediaItemResponse> GetResourceMediaAsync(string deviceTypeId, string id, EntityHeader org, EntityHeader user);
-        Task<MediaItemResponse> GetBomResourceMediaAsync(string deviceTypeId, string bomItemId, string id, EntityHeader org, EntityHeader user);
     }
 }

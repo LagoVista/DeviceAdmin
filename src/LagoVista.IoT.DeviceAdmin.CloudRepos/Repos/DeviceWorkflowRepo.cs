@@ -13,7 +13,8 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
     public class DeviceWorkflowRepo : DocumentDBRepoBase<DeviceWorkflow>, IDeviceWorkflowRepo
     {
         private bool _shouldConsolidateCollections;
-        public DeviceWorkflowRepo(IDeviceRepoSettings repoSettings, IAdminLogger logger) : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, logger)
+        public DeviceWorkflowRepo(IDeviceRepoSettings repoSettings, IAdminLogger logger)
+            : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, logger)
         {
             _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }

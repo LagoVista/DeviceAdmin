@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
+using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using System.Collections.Generic;
 
@@ -11,7 +12,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public BOMItem()
         {
-            Resources = new List<MediaResource>();
+            Resources = new List<EntityHeader>();
         }
 
         public string Id { get; set; }
@@ -30,6 +31,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Quantity, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string Link { get; set; }
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Picture, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
-        public List<MediaResource> Resources { get; set; }
+        public List<EntityHeader> Resources { get; set; }
     }
 }

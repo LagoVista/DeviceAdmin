@@ -16,7 +16,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public DeviceType()
         {
             BillOfMaterial = new List<BOMItem>();
-            Resources = new List<MediaResource>();
+            Resources = new List<EntityHeader>();
             AssociatedEquipment = new List<EntityHeader<Equipment>>();
         }
 
@@ -40,7 +40,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public List<BOMItem> BillOfMaterial { get; set; }
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Resources, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
-        public List<MediaResource> Resources { get; set; }
+        public List<EntityHeader> Resources { get; set; }
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_AssociatedTools, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<EntityHeader<Equipment>> AssociatedEquipment { get; set; }

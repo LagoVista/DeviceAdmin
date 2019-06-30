@@ -116,21 +116,5 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             SetOwnedProperties(response.Model);
             return response;
         }
-
-
-        /// <summary>
-        /// Equipment - Get Media Item
-        /// </summary>
-        /// <param name="equipmentid"></param>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet("/api/equipment/{equipmentid}/resources/{id}")]
-        public async Task<IActionResult> DownloadMedia(string equipmentid, string id)
-        {
-            var response = await _mgr.GetResourceMediaAsync(equipmentid, id, OrgEntityHeader, UserEntityHeader);
-
-            var ms = new MemoryStream(response.ImageBytes);
-            return new FileStreamResult(ms, response.ContentType);
-        }
     }
 }
