@@ -1444,4 +1444,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceWorkflow_ServiceTicketTemplates" xml:space="preserve">
     <value>Service Ticket Templates</value>
   </data>
+  <data name="DeviceBOMItem_IsPartsKit" xml:space="preserve">
+    <value>Is Parts Kit</value>
+  </data>
 </root>
