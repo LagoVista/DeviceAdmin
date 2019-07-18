@@ -1447,4 +1447,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceBOMItem_IsPartsKit" xml:space="preserve">
     <value>Is Parts Kit</value>
   </data>
+  <data name="TroubleshootingStep_Equipment" xml:space="preserve">
+    <value>Equipment</value>
+  </data>
 </root>

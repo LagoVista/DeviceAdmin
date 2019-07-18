@@ -40,5 +40,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: DeviceLibraryResources.Names.Common_Resources, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
         public List<EntityHeader> Resources { get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.TroubleshootingStep_Equipment, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
+        public List<EntityHeader> Equipment { get; set; }
     }
 }

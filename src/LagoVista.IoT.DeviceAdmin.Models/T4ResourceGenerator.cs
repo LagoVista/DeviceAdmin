@@ -1,4 +1,4 @@
-﻿/*7/8/2019 06:44:55*/
+﻿/*7/17/2019 15:15:05*/
 using System.Globalization;
 using System.Reflection;
 
@@ -1187,6 +1187,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:TroubleShootingStep_Description
 
 		public static string TroubleShootingStep_Description { get { return GetResourceString("TroubleShootingStep_Description"); } }
+//Resources:DeviceLibraryResources:TroubleshootingStep_Equipment
+
+		public static string TroubleshootingStep_Equipment { get { return GetResourceString("TroubleshootingStep_Equipment"); } }
 //Resources:DeviceLibraryResources:TroubleShootingStep_Help
 
 		public static string TroubleShootingStep_Help { get { return GetResourceString("TroubleShootingStep_Help"); } }
@@ -1766,6 +1769,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Timer_Tuesday = "Timer_Tuesday";
 			public const string Timer_Wednesday = "Timer_Wednesday";
 			public const string TroubleShootingStep_Description = "TroubleShootingStep_Description";
+			public const string TroubleshootingStep_Equipment = "TroubleshootingStep_Equipment";
 			public const string TroubleShootingStep_Help = "TroubleShootingStep_Help";
 			public const string TroubleshootingStep_Instructions = "TroubleshootingStep_Instructions";
 			public const string TroubleshootingStep_Notes = "TroubleshootingStep_Notes";
