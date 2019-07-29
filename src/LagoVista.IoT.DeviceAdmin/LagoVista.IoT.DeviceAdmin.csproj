@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <VersionPrefix>1.2</VersionPrefix>
+    <VersionPrefix>2.0</VersionPrefix>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyVersion>1.2.211.1114</AssemblyVersion>
     <FileVersion>1.2.211.1114</FileVersion>
     <NetStandardImplicitPackageVersion>2.0.3</NetStandardImplicitPackageVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="2.1.774-beta0711" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.774-beta0711" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="2.1.774-beta0711" />
+    <PackageReference Include="LagoVista.Core" Version="2.1.804-beta1318" />
+    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.804-beta1318" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="2.1.804-beta1318" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
   <ItemGroup>

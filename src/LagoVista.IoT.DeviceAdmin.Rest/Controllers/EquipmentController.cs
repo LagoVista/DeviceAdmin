@@ -84,6 +84,17 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         }
 
         /// <summary>
+        /// Equipment - Get
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("/api/equipment/{id}/detail")]
+        public Task<Equipment> GetEquipmentDetailAsync(String id)
+        {
+            return _mgr.GetEquipmentAsync(id, OrgEntityHeader, UserEntityHeader);
+        }
+
+        /// <summary>
         /// Equipment - Key In Use
         /// </summary>
         /// <returns></returns>

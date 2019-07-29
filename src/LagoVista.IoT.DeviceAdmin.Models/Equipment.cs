@@ -15,7 +15,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public Equipment()
         {
-            Resources = new List<EntityHeader>();
+            Resources = new List<MediaServices.Models.MediaResourceSummary>();
         }
 
         public String DatabaseName { get; set; }
@@ -24,7 +24,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Picture, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
-        public List<EntityHeader> Resources { get; set; }
+        public List<MediaServices.Models.MediaResourceSummary> Resources { get; set; }
 
         public List<string> GetFormFields()
         {
