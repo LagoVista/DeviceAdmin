@@ -58,7 +58,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
 
         [CloneOptions(true)]
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Notes, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Notes, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<AdminNote> Notes { get; set; }
 
         [CloneOptions(false)]

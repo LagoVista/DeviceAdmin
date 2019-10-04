@@ -1,4 +1,4 @@
-﻿/*7/17/2019 15:15:05*/
+﻿/*9/11/2019 10:28:23*/
 using System.Globalization;
 using System.Reflection;
 
@@ -944,6 +944,24 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Parameters
 
 		public static string Parameters { get { return GetResourceString("Parameters"); } }
+//Resources:DeviceLibraryResources:Part_Description
+
+		public static string Part_Description { get { return GetResourceString("Part_Description"); } }
+//Resources:DeviceLibraryResources:Part_Help
+
+		public static string Part_Help { get { return GetResourceString("Part_Help"); } }
+//Resources:DeviceLibraryResources:Part_Manufacturer
+
+		public static string Part_Manufacturer { get { return GetResourceString("Part_Manufacturer"); } }
+//Resources:DeviceLibraryResources:Part_PartNumber
+
+		public static string Part_PartNumber { get { return GetResourceString("Part_PartNumber"); } }
+//Resources:DeviceLibraryResources:Part_SKU
+
+		public static string Part_SKU { get { return GetResourceString("Part_SKU"); } }
+//Resources:DeviceLibraryResources:Part_Title
+
+		public static string Part_Title { get { return GetResourceString("Part_Title"); } }
 //Resources:DeviceLibraryResources:State_Description
 
 		public static string State_Description { get { return GetResourceString("State_Description"); } }
@@ -1184,36 +1202,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Timer_Wednesday
 
 		public static string Timer_Wednesday { get { return GetResourceString("Timer_Wednesday"); } }
-//Resources:DeviceLibraryResources:TroubleShootingStep_Description
-
-		public static string TroubleShootingStep_Description { get { return GetResourceString("TroubleShootingStep_Description"); } }
-//Resources:DeviceLibraryResources:TroubleshootingStep_Equipment
-
-		public static string TroubleshootingStep_Equipment { get { return GetResourceString("TroubleshootingStep_Equipment"); } }
-//Resources:DeviceLibraryResources:TroubleShootingStep_Help
-
-		public static string TroubleShootingStep_Help { get { return GetResourceString("TroubleShootingStep_Help"); } }
-//Resources:DeviceLibraryResources:TroubleshootingStep_Instructions
-
-		public static string TroubleshootingStep_Instructions { get { return GetResourceString("TroubleshootingStep_Instructions"); } }
-//Resources:DeviceLibraryResources:TroubleshootingStep_Notes
-
-		public static string TroubleshootingStep_Notes { get { return GetResourceString("TroubleshootingStep_Notes"); } }
-//Resources:DeviceLibraryResources:TroubleshootingStep_Problem
-
-		public static string TroubleshootingStep_Problem { get { return GetResourceString("TroubleshootingStep_Problem"); } }
-//Resources:DeviceLibraryResources:TroubleshootingStep_Resources
-
-		public static string TroubleshootingStep_Resources { get { return GetResourceString("TroubleshootingStep_Resources"); } }
-//Resources:DeviceLibraryResources:TroubleshootingStep_StepId
-
-		public static string TroubleshootingStep_StepId { get { return GetResourceString("TroubleshootingStep_StepId"); } }
-//Resources:DeviceLibraryResources:TroubleShootingStep_Title
-
-		public static string TroubleShootingStep_Title { get { return GetResourceString("TroubleShootingStep_Title"); } }
-//Resources:DeviceLibraryResources:TroubleshootingSteps_ExpectedOutcome
-
-		public static string TroubleshootingSteps_ExpectedOutcome { get { return GetResourceString("TroubleshootingSteps_ExpectedOutcome"); } }
 //Resources:DeviceLibraryResources:Unit_Abbreviation
 
 		public static string Unit_Abbreviation { get { return GetResourceString("Unit_Abbreviation"); } }
@@ -1688,6 +1676,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string ParameterLocation_QueryString = "ParameterLocation_QueryString";
 			public const string ParameterLocation_Watermark = "ParameterLocation_Watermark";
 			public const string Parameters = "Parameters";
+			public const string Part_Description = "Part_Description";
+			public const string Part_Help = "Part_Help";
+			public const string Part_Manufacturer = "Part_Manufacturer";
+			public const string Part_PartNumber = "Part_PartNumber";
+			public const string Part_SKU = "Part_SKU";
+			public const string Part_Title = "Part_Title";
 			public const string State_Description = "State_Description";
 			public const string State_IsAlarmState = "State_IsAlarmState";
 			public const string State_IsAlarmState_Help = "State_IsAlarmState_Help";
@@ -1768,16 +1762,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Timer_Title = "Timer_Title";
 			public const string Timer_Tuesday = "Timer_Tuesday";
 			public const string Timer_Wednesday = "Timer_Wednesday";
-			public const string TroubleShootingStep_Description = "TroubleShootingStep_Description";
-			public const string TroubleshootingStep_Equipment = "TroubleshootingStep_Equipment";
-			public const string TroubleShootingStep_Help = "TroubleShootingStep_Help";
-			public const string TroubleshootingStep_Instructions = "TroubleshootingStep_Instructions";
-			public const string TroubleshootingStep_Notes = "TroubleshootingStep_Notes";
-			public const string TroubleshootingStep_Problem = "TroubleshootingStep_Problem";
-			public const string TroubleshootingStep_Resources = "TroubleshootingStep_Resources";
-			public const string TroubleshootingStep_StepId = "TroubleshootingStep_StepId";
-			public const string TroubleShootingStep_Title = "TroubleShootingStep_Title";
-			public const string TroubleshootingSteps_ExpectedOutcome = "TroubleshootingSteps_ExpectedOutcome";
 			public const string Unit_Abbreviation = "Unit_Abbreviation";
 			public const string Unit_Conversion_EditScriptWatermark = "Unit_Conversion_EditScriptWatermark";
 			public const string Unit_Conversion_Factor = "Unit_Conversion_Factor";
