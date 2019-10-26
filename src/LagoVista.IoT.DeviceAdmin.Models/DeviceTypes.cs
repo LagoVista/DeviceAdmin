@@ -53,6 +53,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Name = Name,
                 Id = Id,
                 Key = Key,
+                Manufacturer = Manufacturer,
+                ModelNumber = ModelNumber,
             };
 
             if (DefaultDeviceConfiguration != null && !DefaultDeviceConfiguration.IsEmpty())
@@ -82,5 +84,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public String DefaultDeviceConfigId { get; set; }
         public String DefaultDeviceConfigName { get; set; }
+
+        public string ModelNumber { get; set; }
+        public string Manufacturer { get; set; }
     }
 }
