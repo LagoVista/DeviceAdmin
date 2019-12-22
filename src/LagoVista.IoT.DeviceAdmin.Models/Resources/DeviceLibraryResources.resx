@@ -1438,4 +1438,16 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Part_Title" xml:space="preserve">
     <value>Part</value>
   </data>
+  <data name="Custom_PropertyId" xml:space="preserve">
+    <value>Property Id</value>
+  </data>
+  <data name="Custom_PropertyId_Help" xml:space="preserve">
+    <value>You can optionally add a property id that can be syncronized with values in your remote device.</value>
+  </data>
+  <data name="Custom_RemoteProperty" xml:space="preserve">
+    <value>Remote Property</value>
+  </data>
+  <data name="Custom_RemoteProperty_Help" xml:space="preserve">
+    <value>A remote property is one that will be kept in sync with properties made available on the device.</value>
+  </data>
 </root>

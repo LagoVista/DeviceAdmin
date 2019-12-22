@@ -1,4 +1,4 @@
-﻿/*9/11/2019 10:28:23*/
+﻿/*12/22/2019 10:37:15*/
 using System.Globalization;
 using System.Reflection;
 
@@ -297,6 +297,18 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:CusotmField_HelpText_Help
 
 		public static string CusotmField_HelpText_Help { get { return GetResourceString("CusotmField_HelpText_Help"); } }
+//Resources:DeviceLibraryResources:Custom_PropertyId
+
+		public static string Custom_PropertyId { get { return GetResourceString("Custom_PropertyId"); } }
+//Resources:DeviceLibraryResources:Custom_PropertyId_Help
+
+		public static string Custom_PropertyId_Help { get { return GetResourceString("Custom_PropertyId_Help"); } }
+//Resources:DeviceLibraryResources:Custom_RemoteProperty
+
+		public static string Custom_RemoteProperty { get { return GetResourceString("Custom_RemoteProperty"); } }
+//Resources:DeviceLibraryResources:Custom_RemoteProperty_Help
+
+		public static string Custom_RemoteProperty_Help { get { return GetResourceString("Custom_RemoteProperty_Help"); } }
 //Resources:DeviceLibraryResources:CustomField_Description
 
 		public static string CustomField_Description { get { return GetResourceString("CustomField_Description"); } }
@@ -1463,6 +1475,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Common_UniqueId = "Common_UniqueId";
 			public const string Common_ValidationErrors = "Common_ValidationErrors";
 			public const string CusotmField_HelpText_Help = "CusotmField_HelpText_Help";
+			public const string Custom_PropertyId = "Custom_PropertyId";
+			public const string Custom_PropertyId_Help = "Custom_PropertyId_Help";
+			public const string Custom_RemoteProperty = "Custom_RemoteProperty";
+			public const string Custom_RemoteProperty_Help = "Custom_RemoteProperty_Help";
 			public const string CustomField_Description = "CustomField_Description";
 			public const string CustomField_FieldType = "CustomField_FieldType";
 			public const string CustomField_FieldType_Bool = "CustomField_FieldType_Bool";

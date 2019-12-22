@@ -59,6 +59,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_HelpText, HelpResource: Resources.DeviceLibraryResources.Names.CusotmField_HelpText_Help, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public string HelpText { get; set; }
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Custom_PropertyId, HelpResource: Resources.DeviceLibraryResources.Names.Custom_PropertyId_Help, FieldType: FieldTypes.Integer, IsRequired:false, ResourceType: typeof(DeviceLibraryResources))]
+        public int RemotePropertyId { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Custom_RemoteProperty, HelpResource: Resources.DeviceLibraryResources.Names.Custom_RemoteProperty_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
+        public bool IsRemoteProperty { get; set; }
+
         /// <summary>
         /// This will likely be a good candiate to reorder the list
         /// </summary>
