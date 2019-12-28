@@ -1450,4 +1450,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Custom_RemoteProperty_Help" xml:space="preserve">
     <value>A remote property is one that will be kept in sync with properties made available on the device.</value>
   </data>
+  <data name="DeviceType_Firmware" xml:space="preserve">
+    <value>Firmware</value>
+  </data>
+  <data name="DeviceType_FirmwareSelect" xml:space="preserve">
+    <value>-select firmware-</value>
+  </data>
 </root>
