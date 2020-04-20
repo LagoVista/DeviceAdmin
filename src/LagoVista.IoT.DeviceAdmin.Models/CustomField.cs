@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.CustomField_Title, Resources.DeviceLibraryResources.Names.CustomFIeld_Help, Resources.DeviceLibraryResources.Names.CustomField_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
-    public class CustomField : IKeyedEntity, IFormDescriptor
+    public class CustomField : IKeyedEntity, IFormDescriptor, IValidateable
     {
         [JsonProperty("id")]
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
@@ -101,7 +101,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 return;
             }
 
-
             switch (FieldType.Value)
             {
                 case ParameterTypes.DateTime:
@@ -156,6 +155,43 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public void Validate(ValidationResult result, Actions action)
         {
             if (EntityHeader.IsNullOrEmpty(FieldType)) result.AddUserError("Field Type is Required.");
+
+            Console.WriteLine(Name + " " + FieldType.ToString());
+
+            if(IsRequired && String.IsNullOrEmpty(DefaultValue) )
+            {
+                result.AddUserError($"If a value is required for {Name}, you must provide a default value.");
+            }
+            else if(!String.IsNullOrEmpty(DefaultValue))
+            {                
+                switch (FieldType.Value)
+                {
+                    case ParameterTypes.DateTime:
+                        if (!DateTime.TryParse(DefaultValue, out DateTime dontcareDateTime))
+                            result.AddUserError($"If a default value is provided for {Name}, default value must be a valid date time.");
+                        break;
+                    case ParameterTypes.Decimal:
+                        if (!Double.TryParse(DefaultValue, out double dontcareDouble))
+                            result.AddUserError($"If a default value is provided for {Name}, default value must be a decimal number.");
+                        break;
+                    case ParameterTypes.Integer:
+                        if(!Int32.TryParse(DefaultValue, out int dontcareInteger))
+                            result.AddUserError($"If a default value is provided for {Name}, default value must be an integer number.");
+                        break;
+                    case ParameterTypes.String:
+                        if(String.IsNullOrEmpty(DefaultValue))
+                            result.AddUserError($"If a default value is provided for  {Name}, default value must not be empty.");
+                        break;
+                    case ParameterTypes.TrueFalse:
+                        if (DefaultValue != "true" && DefaultValue != "false")
+                            result.AddUserError($"If a default value is provided for  {Name}, default value must be [true] or [false].");
+                        break;
+                }
+            }
+            else if(!String.IsNullOrEmpty(DefaultValue))
+            {
+
+            }
 
             if (FieldType.Value == ParameterTypes.ValueWithUnit)
             {
