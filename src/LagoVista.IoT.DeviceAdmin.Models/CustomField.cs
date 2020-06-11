@@ -136,6 +136,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     }
                     break;
                 case ParameterTypes.TrueFalse:
+                    if(!String.IsNullOrEmpty(value))
+                    {
+                        value = value.ToLower();
+                    }
                     if (value != "true" && value != "false") result.AddUserError($"Value must be [true] or [false] for {Label}");
                     break;
                 case ParameterTypes.ValueWithUnit:
