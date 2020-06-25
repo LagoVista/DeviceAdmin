@@ -1,4 +1,4 @@
-﻿/*12/28/2019 07:36:19*/
+﻿/*6/22/2020 10:30:37*/
 using System.Globalization;
 using System.Reflection;
 
@@ -369,6 +369,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:CustomField_IsRequired
 
 		public static string CustomField_IsRequired { get { return GetResourceString("CustomField_IsRequired"); } }
+//Resources:DeviceLibraryResources:CustomFIeld_IsUserConfigurable
+
+		public static string CustomFIeld_IsUserConfigurable { get { return GetResourceString("CustomFIeld_IsUserConfigurable"); } }
+//Resources:DeviceLibraryResources:CustomFIeld_IsUserConfigurable_Help
+
+		public static string CustomFIeld_IsUserConfigurable_Help { get { return GetResourceString("CustomFIeld_IsUserConfigurable_Help"); } }
 //Resources:DeviceLibraryResources:CustomField_Label
 
 		public static string CustomField_Label { get { return GetResourceString("CustomField_Label"); } }
@@ -1505,6 +1511,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string CustomField_IsReadOnly = "CustomField_IsReadOnly";
 			public const string CustomField_IsReadOnly_Help = "CustomField_IsReadOnly_Help";
 			public const string CustomField_IsRequired = "CustomField_IsRequired";
+			public const string CustomFIeld_IsUserConfigurable = "CustomFIeld_IsUserConfigurable";
+			public const string CustomFIeld_IsUserConfigurable_Help = "CustomFIeld_IsUserConfigurable_Help";
 			public const string CustomField_Label = "CustomField_Label";
 			public const string CustomField_Label_Help = "CustomField_Label_Help";
 			public const string CustomField_MaxValue = "CustomField_MaxValue";

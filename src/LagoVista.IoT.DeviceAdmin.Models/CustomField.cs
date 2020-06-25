@@ -70,6 +70,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Custom_RemoteProperty, HelpResource: Resources.DeviceLibraryResources.Names.Custom_RemoteProperty_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsRemoteProperty { get; set; }
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomFIeld_IsUserConfigurable, HelpResource: Resources.DeviceLibraryResources.Names.CustomFIeld_IsUserConfigurable_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
+        public bool IsUserConfigurable { get; set; }
+
         /// <summary>
         /// This will likely be a good candiate to reorder the list
         /// </summary>

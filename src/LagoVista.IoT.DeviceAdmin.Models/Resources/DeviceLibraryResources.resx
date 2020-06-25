@@ -1456,4 +1456,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_FirmwareSelect" xml:space="preserve">
     <value>-select firmware-</value>
   </data>
+  <data name="CustomFIeld_IsUserConfigurable" xml:space="preserve">
+    <value>Is User Configurable</value>
+  </data>
+  <data name="CustomFIeld_IsUserConfigurable_Help" xml:space="preserve">
+    <value>If you specify your field as a user configurable field, any user that can modify the device can edit the property.  If you don't select this option, only an admin can update the field.</value>
+  </data>
 </root>
