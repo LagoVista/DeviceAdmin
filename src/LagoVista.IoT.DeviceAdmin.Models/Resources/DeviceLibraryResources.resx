@@ -1462,4 +1462,55 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="CustomFIeld_IsUserConfigurable_Help" xml:space="preserve">
     <value>If you specify your field as a user configurable field, any user that can modify the device can edit the property.  If you don't select this option, only an admin can update the field.</value>
   </data>
+  <data name="BusinessRule_Description" xml:space="preserve">
+    <value>A device business rule is evaluated after all the scripts for the workflow have been ran and can be used to generate error codes or service tickets.</value>
+  </data>
+  <data name="BusinessRule_ErrorCode" xml:space="preserve">
+    <value>Error Code</value>
+  </data>
+  <data name="BusinessRule_ErrorCode_Help" xml:space="preserve">
+    <value>If the script returns false, the error code will be generated for the device if it's enabled or if Is Beta is selected and it's a beta device.</value>
+  </data>
+  <data name="BusinessRule_ErrorCode_Watermark" xml:space="preserve">
+    <value>-select error code-</value>
+  </data>
+  <data name="BusinessRule_Help" xml:space="preserve">
+    <value>A device business rule is evaluated after all the scripts for the workflow have been ran and can be used to generate error codes or service tickets.</value>
+  </data>
+  <data name="BusinessRule_IsBeta" xml:space="preserve">
+    <value>Is Beta</value>
+  </data>
+  <data name="BusinessRule_IsBeta_Help" xml:space="preserve">
+    <value>When Is Beta is selected only devices that have been marked as "Beta Devices" will execute this business rule.</value>
+  </data>
+  <data name="BusinessRule_IsEnabled" xml:space="preserve">
+    <value>Is Enabled</value>
+  </data>
+  <data name="BusinessRule_Script" xml:space="preserve">
+    <value>Script</value>
+  </data>
+  <data name="BusinessRule_Script_Help" xml:space="preserve">
+    <value>Script to be executed for this business rule.  It will be executed upon completion of all the other scripts on this workflow.  The script must return true if the business rule succeeds, and false if there is an error condition.  If there is an error condition any error codes or service tickets will be generated.</value>
+  </data>
+  <data name="BusinessRule_Script_Watermark" xml:space="preserve">
+    <value>-business rule script-</value>
+  </data>
+  <data name="BusinessRule_ServiceTicket" xml:space="preserve">
+    <value>Service Ticket Template</value>
+  </data>
+  <data name="BusinessRule_ServiceTicket_Help" xml:space="preserve">
+    <value>If the script returns false, the service ticket  will be generated for the device if it's enabled or if Is Beta is selected and it's a beta device.</value>
+  </data>
+  <data name="BusinessRule_ServiceTicket_Watermark" xml:space="preserve">
+    <value>-select service ticket template-</value>
+  </data>
+  <data name="BusinessRule_Title" xml:space="preserve">
+    <value>Device Business Rule</value>
+  </data>
+  <data name="DeviceWorkflow_BusinessRules" xml:space="preserve">
+    <value>Business Rules</value>
+  </data>
+  <data name="DeviceWorkflow_BusinessRules_Help" xml:space="preserve">
+    <value>Business rules are smalls scripts that can be executed upon attributes and properties to determine if the device is operating properly.  They can also be used to generate service tickets and error codes.</value>
+  </data>
 </root>

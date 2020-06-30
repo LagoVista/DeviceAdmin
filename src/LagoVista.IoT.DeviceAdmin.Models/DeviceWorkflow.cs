@@ -11,7 +11,8 @@ using LagoVista.IoT.DeviceAdmin.Models.Resources;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help, 
+        Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class DeviceWorkflow : IoTModelBase, IOwnedEntity, IValidateable, IKeyedEntity, INoSQLEntity, IPipelineModuleConfiguration
     {
         public DeviceWorkflow()
@@ -21,7 +22,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             StateMachines = new List<StateMachine>();
             Inputs = new List<WorkflowInput>();
             OutputCommands = new List<OutputCommand>();
-            ServiceTicketTemplates = new List<AssociatedServiceTicketTemplate>();
+            BusinessRules = new List<BusinessRule>();
             Timers = new List<Timer>();
             Pages = new List<Page>();
             Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
@@ -37,13 +38,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Key { get; set; }
 
-
-        //      [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Environment, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader Environment
-        {
-            get;
-            set;
-        }
+        public EntityHeader Environment { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsPublic { get; set; }
@@ -79,8 +74,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages, HelpResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
         public List<Page> Pages { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_ServiceTicketTemplates, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
-        public List<AssociatedServiceTicketTemplate> ServiceTicketTemplates { get; set; }
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules, HelpResource:Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
+        public List<BusinessRule> BusinessRules { get; set; }
 
         public EntityHeader ToEntityHeader()
         {

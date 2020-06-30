@@ -1,4 +1,4 @@
-﻿/*6/22/2020 10:30:37*/
+﻿/*6/29/2020 12:27:53*/
 using System.Globalization;
 using System.Reflection;
 
@@ -240,6 +240,51 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Atttribute_StateSet_Watermark
 
 		public static string Atttribute_StateSet_Watermark { get { return GetResourceString("Atttribute_StateSet_Watermark"); } }
+//Resources:DeviceLibraryResources:BusinessRule_Description
+
+		public static string BusinessRule_Description { get { return GetResourceString("BusinessRule_Description"); } }
+//Resources:DeviceLibraryResources:BusinessRule_ErrorCode
+
+		public static string BusinessRule_ErrorCode { get { return GetResourceString("BusinessRule_ErrorCode"); } }
+//Resources:DeviceLibraryResources:BusinessRule_ErrorCode_Help
+
+		public static string BusinessRule_ErrorCode_Help { get { return GetResourceString("BusinessRule_ErrorCode_Help"); } }
+//Resources:DeviceLibraryResources:BusinessRule_ErrorCode_Watermark
+
+		public static string BusinessRule_ErrorCode_Watermark { get { return GetResourceString("BusinessRule_ErrorCode_Watermark"); } }
+//Resources:DeviceLibraryResources:BusinessRule_Help
+
+		public static string BusinessRule_Help { get { return GetResourceString("BusinessRule_Help"); } }
+//Resources:DeviceLibraryResources:BusinessRule_IsBeta
+
+		public static string BusinessRule_IsBeta { get { return GetResourceString("BusinessRule_IsBeta"); } }
+//Resources:DeviceLibraryResources:BusinessRule_IsBeta_Help
+
+		public static string BusinessRule_IsBeta_Help { get { return GetResourceString("BusinessRule_IsBeta_Help"); } }
+//Resources:DeviceLibraryResources:BusinessRule_IsEnabled
+
+		public static string BusinessRule_IsEnabled { get { return GetResourceString("BusinessRule_IsEnabled"); } }
+//Resources:DeviceLibraryResources:BusinessRule_Script
+
+		public static string BusinessRule_Script { get { return GetResourceString("BusinessRule_Script"); } }
+//Resources:DeviceLibraryResources:BusinessRule_Script_Help
+
+		public static string BusinessRule_Script_Help { get { return GetResourceString("BusinessRule_Script_Help"); } }
+//Resources:DeviceLibraryResources:BusinessRule_Script_Watermark
+
+		public static string BusinessRule_Script_Watermark { get { return GetResourceString("BusinessRule_Script_Watermark"); } }
+//Resources:DeviceLibraryResources:BusinessRule_ServiceTicket
+
+		public static string BusinessRule_ServiceTicket { get { return GetResourceString("BusinessRule_ServiceTicket"); } }
+//Resources:DeviceLibraryResources:BusinessRule_ServiceTicket_Help
+
+		public static string BusinessRule_ServiceTicket_Help { get { return GetResourceString("BusinessRule_ServiceTicket_Help"); } }
+//Resources:DeviceLibraryResources:BusinessRule_ServiceTicket_Watermark
+
+		public static string BusinessRule_ServiceTicket_Watermark { get { return GetResourceString("BusinessRule_ServiceTicket_Watermark"); } }
+//Resources:DeviceLibraryResources:BusinessRule_Title
+
+		public static string BusinessRule_Title { get { return GetResourceString("BusinessRule_Title"); } }
 //Resources:DeviceLibraryResources:Common_CreatedBy
 
 		public static string Common_CreatedBy { get { return GetResourceString("Common_CreatedBy"); } }
@@ -624,6 +669,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_Attributes_Help
 
 		public static string DeviceWorkflow_Attributes_Help { get { return GetResourceString("DeviceWorkflow_Attributes_Help"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_BusinessRules
+
+		public static string DeviceWorkflow_BusinessRules { get { return GetResourceString("DeviceWorkflow_BusinessRules"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflow_BusinessRules_Help
+
+		public static string DeviceWorkflow_BusinessRules_Help { get { return GetResourceString("DeviceWorkflow_BusinessRules_Help"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_ConfigVersion
 
 		public static string DeviceWorkflow_ConfigVersion { get { return GetResourceString("DeviceWorkflow_ConfigVersion"); } }
@@ -1468,6 +1519,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Attribute_UnitSet_Help = "Attribute_UnitSet_Help";
 			public const string Attribute_UnitSet_Watermark = "Attribute_UnitSet_Watermark";
 			public const string Atttribute_StateSet_Watermark = "Atttribute_StateSet_Watermark";
+			public const string BusinessRule_Description = "BusinessRule_Description";
+			public const string BusinessRule_ErrorCode = "BusinessRule_ErrorCode";
+			public const string BusinessRule_ErrorCode_Help = "BusinessRule_ErrorCode_Help";
+			public const string BusinessRule_ErrorCode_Watermark = "BusinessRule_ErrorCode_Watermark";
+			public const string BusinessRule_Help = "BusinessRule_Help";
+			public const string BusinessRule_IsBeta = "BusinessRule_IsBeta";
+			public const string BusinessRule_IsBeta_Help = "BusinessRule_IsBeta_Help";
+			public const string BusinessRule_IsEnabled = "BusinessRule_IsEnabled";
+			public const string BusinessRule_Script = "BusinessRule_Script";
+			public const string BusinessRule_Script_Help = "BusinessRule_Script_Help";
+			public const string BusinessRule_Script_Watermark = "BusinessRule_Script_Watermark";
+			public const string BusinessRule_ServiceTicket = "BusinessRule_ServiceTicket";
+			public const string BusinessRule_ServiceTicket_Help = "BusinessRule_ServiceTicket_Help";
+			public const string BusinessRule_ServiceTicket_Watermark = "BusinessRule_ServiceTicket_Watermark";
+			public const string BusinessRule_Title = "BusinessRule_Title";
 			public const string Common_CreatedBy = "Common_CreatedBy";
 			public const string Common_CreationDate = "Common_CreationDate";
 			public const string Common_Description = "Common_Description";
@@ -1596,6 +1662,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_Title = "DeviceType_Title";
 			public const string DeviceWorkflow_Attributes = "DeviceWorkflow_Attributes";
 			public const string DeviceWorkflow_Attributes_Help = "DeviceWorkflow_Attributes_Help";
+			public const string DeviceWorkflow_BusinessRules = "DeviceWorkflow_BusinessRules";
+			public const string DeviceWorkflow_BusinessRules_Help = "DeviceWorkflow_BusinessRules_Help";
 			public const string DeviceWorkflow_ConfigVersion = "DeviceWorkflow_ConfigVersion";
 			public const string DeviceWorkflow_CustomFields = "DeviceWorkflow_CustomFields";
 			public const string DeviceWorkflow_Description = "DeviceWorkflow_Description";
