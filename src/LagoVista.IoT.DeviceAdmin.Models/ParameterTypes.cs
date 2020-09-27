@@ -28,6 +28,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         ValueWithUnit,
         [EnumLabel(TypeSystem.Image, DeviceLibraryResources.Names.Parameter_Types_Image, typeof(DeviceLibraryResources))]
         Image,
+        [EnumLabel(TypeSystem.DecimalArray, DeviceLibraryResources.Names.Parameter_Types_DecimalArray, typeof(DeviceLibraryResources))]
+        DecimalArray
     }
 
     public class TypeSystem
@@ -40,6 +42,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public const string DateTime = "datetime";
         public const string State = "state";
         public const string Image = "image";
+        public const string DecimalArray = "decimalarray";
         public const string ValueWithUnit = "valuewithunit";
 
     }
