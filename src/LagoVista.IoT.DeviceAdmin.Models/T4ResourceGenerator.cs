@@ -1,4 +1,4 @@
-﻿/*9/26/2020 09:13:56*/
+﻿/*4/8/2021 13:42:07*/
 using System.Globalization;
 using System.Reflection;
 
@@ -992,6 +992,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Parameter_Types_Integer
 
 		public static string Parameter_Types_Integer { get { return GetResourceString("Parameter_Types_Integer"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_MLInference
+
+		public static string Parameter_Types_MLInference { get { return GetResourceString("Parameter_Types_MLInference"); } }
+//Resources:DeviceLibraryResources:Parameter_Types_Object
+
+		public static string Parameter_Types_Object { get { return GetResourceString("Parameter_Types_Object"); } }
 //Resources:DeviceLibraryResources:Parameter_Types_States
 
 		public static string Parameter_Types_States { get { return GetResourceString("Parameter_Types_States"); } }
@@ -1770,6 +1776,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Parameter_Types_GeoLocation = "Parameter_Types_GeoLocation";
 			public const string Parameter_Types_Image = "Parameter_Types_Image";
 			public const string Parameter_Types_Integer = "Parameter_Types_Integer";
+			public const string Parameter_Types_MLInference = "Parameter_Types_MLInference";
+			public const string Parameter_Types_Object = "Parameter_Types_Object";
 			public const string Parameter_Types_States = "Parameter_Types_States";
 			public const string Parameter_Types_String = "Parameter_Types_String";
 			public const string Parameter_Types_TrueFalse = "Parameter_Types_TrueFalse";

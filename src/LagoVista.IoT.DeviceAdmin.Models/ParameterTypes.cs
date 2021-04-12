@@ -1,10 +1,5 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
-using LagoVista.IoT.DeviceAdmin.Resources;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -29,7 +24,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [EnumLabel(TypeSystem.Image, DeviceLibraryResources.Names.Parameter_Types_Image, typeof(DeviceLibraryResources))]
         Image,
         [EnumLabel(TypeSystem.DecimalArray, DeviceLibraryResources.Names.Parameter_Types_DecimalArray, typeof(DeviceLibraryResources))]
-        DecimalArray
+        DecimalArray,
+        [EnumLabel(TypeSystem.MLInference, DeviceLibraryResources.Names.Parameter_Types_MLInference, typeof(DeviceLibraryResources))]
+        MLInference,
+        [EnumLabel(TypeSystem.Object, DeviceLibraryResources.Names.Parameter_Types_Object, typeof(DeviceLibraryResources))]
+        Object
     }
 
     public class TypeSystem
@@ -42,6 +41,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public const string DateTime = "datetime";
         public const string State = "state";
         public const string Image = "image";
+        public const string MLInference = "mlinference";
+        public const string Object = "object";
         public const string DecimalArray = "decimalarray";
         public const string ValueWithUnit = "valuewithunit";
 

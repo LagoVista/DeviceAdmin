@@ -1516,4 +1516,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Parameter_Types_DecimalArray" xml:space="preserve">
     <value>Decimal Array</value>
   </data>
+  <data name="Parameter_Types_MLInference" xml:space="preserve">
+    <value>ML Inference</value>
+  </data>
+  <data name="Parameter_Types_Object" xml:space="preserve">
+    <value>Object</value>
+  </data>
 </root>
