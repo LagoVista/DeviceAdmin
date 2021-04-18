@@ -98,6 +98,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// Part - Get with part number
         /// </summary>
         /// <param name="partnumber"></param>
+        /// <param name="sku"></param>
         /// <returns></returns>
         [HttpGet("/api/part")]
         public async Task<DetailResponse<Part>> GetPartWithPartNumberAsync(string partnumber, string sku)
@@ -121,6 +122,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// Part - Get with part number
         /// </summary>
         /// <param name="partnumber"></param>
+        /// <param name="sku"></param>
         /// <returns></returns>
         [HttpGet("/api/part/detail")]
         public Task<Part> GetPartDetailWithPartNUmberAsync(string partnumber, string sku)
