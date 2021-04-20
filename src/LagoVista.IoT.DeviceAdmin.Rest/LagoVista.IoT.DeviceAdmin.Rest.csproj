@@ -12,11 +12,11 @@
     <DocumentationFile>bin\Release\netstandard2.0\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="2.1.1433-beta1841" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.1433-beta1841" />
-    <PackageReference Include="LagoVista.IoT.Web.Common" Version="2.1.1433-beta1841" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="2.1.1433-beta1841" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="2.1.1433-beta1841" />
+    <PackageReference Include="LagoVista.Core" Version="2.1.1434.0352" />
+    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.1434.0352" />
+    <PackageReference Include="LagoVista.IoT.Web.Common" Version="2.1.1434.0352" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="2.1.1434.0352" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" Version="2.1.1434.0352" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>

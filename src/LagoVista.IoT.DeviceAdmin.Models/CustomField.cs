@@ -168,8 +168,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         {
             if (EntityHeader.IsNullOrEmpty(FieldType)) result.AddUserError("Field Type is Required.");
 
-            Console.WriteLine(Name + " " + FieldType.ToString());
-
             if(IsRequired && String.IsNullOrEmpty(DefaultValue) )
             {
                 result.AddUserError($"If a value is required for {Name}, you must provide a default value.");
