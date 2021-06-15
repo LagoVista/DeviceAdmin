@@ -25,6 +25,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         Image,
         [EnumLabel(TypeSystem.DecimalArray, DeviceLibraryResources.Names.Parameter_Types_DecimalArray, typeof(DeviceLibraryResources))]
         DecimalArray,
+        [EnumLabel(TypeSystem.IntArray, DeviceLibraryResources.Names.Parameter_Types_IntArray, typeof(DeviceLibraryResources))]
+        IntArray,
+        [EnumLabel(TypeSystem.StringArray, DeviceLibraryResources.Names.Parameter_Types_StringArray, typeof(DeviceLibraryResources))]
+        StringArray,
         [EnumLabel(TypeSystem.MLInference, DeviceLibraryResources.Names.Parameter_Types_MLInference, typeof(DeviceLibraryResources))]
         MLInference,
         [EnumLabel(TypeSystem.Object, DeviceLibraryResources.Names.Parameter_Types_Object, typeof(DeviceLibraryResources))]
@@ -45,6 +49,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public const string Object = "object";
         public const string DecimalArray = "decimalarray";
         public const string ValueWithUnit = "valuewithunit";
+        public const string IntArray = "intarray";
+        public const string StringArray = "stringarray";
 
     }
 }

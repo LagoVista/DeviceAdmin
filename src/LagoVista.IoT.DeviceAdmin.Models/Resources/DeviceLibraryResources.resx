@@ -259,7 +259,7 @@
     <value>The key is used to identify this item in scripts and must be unique with respect to it's parent. One a key has been assigned, it can not be changed.</value>
   </data>
   <data name="Common_Key_Validation" xml:space="preserve">
-    <value>The key must use only letters and numbers, and must be lowercase and must be between 3 and 30 characters.</value>
+    <value>The key must 1) begin with a lower case letter, 2) contain only lower case letters and numbers, and 3) must be between 3 and 50 characters.</value>
   </data>
   <data name="Unit_Definitions" xml:space="preserve">
     <value>Unit Definitions</value>
@@ -1521,5 +1521,11 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="Parameter_Types_Object" xml:space="preserve">
     <value>Object</value>
+  </data>
+  <data name="Parameter_Types_IntArray" xml:space="preserve">
+    <value>Integer Array</value>
+  </data>
+  <data name="Parameter_Types_StringArray" xml:space="preserve">
+    <value>String Array</value>
   </data>
 </root>
