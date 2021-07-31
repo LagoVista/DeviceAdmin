@@ -1,4 +1,4 @@
-﻿/*6/9/2021 05:13:37*/
+﻿/*7/31/2021 1:25:02 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -645,6 +645,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_Firmware
 
 		public static string DeviceType_Firmware { get { return GetResourceString("DeviceType_Firmware"); } }
+//Resources:DeviceLibraryResources:DeviceType_Firmware_Revision
+
+		public static string DeviceType_Firmware_Revision { get { return GetResourceString("DeviceType_Firmware_Revision"); } }
+//Resources:DeviceLibraryResources:DeviceType_Firmware_RevisionSelect
+
+		public static string DeviceType_Firmware_RevisionSelect { get { return GetResourceString("DeviceType_Firmware_RevisionSelect"); } }
 //Resources:DeviceLibraryResources:DeviceType_FirmwareSelect
 
 		public static string DeviceType_FirmwareSelect { get { return GetResourceString("DeviceType_FirmwareSelect"); } }
@@ -1669,6 +1675,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_DefaultConfiguration_Select = "DeviceType_DefaultConfiguration_Select";
 			public const string DeviceType_Description = "DeviceType_Description";
 			public const string DeviceType_Firmware = "DeviceType_Firmware";
+			public const string DeviceType_Firmware_Revision = "DeviceType_Firmware_Revision";
+			public const string DeviceType_Firmware_RevisionSelect = "DeviceType_Firmware_RevisionSelect";
 			public const string DeviceType_FirmwareSelect = "DeviceType_FirmwareSelect";
 			public const string DeviceType_Help = "DeviceType_Help";
 			public const string DeviceType_Manufacturer = "DeviceType_Manufacturer";

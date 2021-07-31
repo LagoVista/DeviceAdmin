@@ -8,6 +8,7 @@ using LagoVista.Core.PlatformSupport;
 using LagoVista.CloudStorage.DocumentDB;
 using LagoVista.IoT.Logging.Loggers;
 using LagoVista.CloudStorage;
+using LagoVista.Core.Models.UIMetaData;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
@@ -37,12 +38,17 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return GetDocumentAsync(deviceTypeId);
         }
 
-        public async Task<IEnumerable<DeviceTypeSummary>> GetDeviceTypesForOrgAsync(string orgId)
+        public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForDeviceConfigOrgAsync(string deviceConfigId, string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId);
+            var items = await base.QueryAsync(qry => (qry.IsPublic == true || qry.OwnerOrganization.Id == orgId) 
+            && (qry.DefaultDeviceConfiguration != null && qry.DefaultDeviceConfiguration.Id == deviceConfigId), listRequest);
+            return items.Create(items.Model.Select(mod => mod.CreateSummary()));
+        }
 
-            return from item in items
-                   select item.CreateSummary();
+        public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForOrgAsync(string orgId, ListRequest listRequest)
+        {
+            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, listRequest);
+            return items.Create(items.Model.Select(mod => mod.CreateSummary()));
         }
 
         public async Task<bool> QueryKeyInUseAsync(string key, string orgId)

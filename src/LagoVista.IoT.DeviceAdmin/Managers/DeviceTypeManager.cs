@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System;
 using LagoVista.Core.Exceptions;
+using LagoVista.Core.Models.UIMetaData;
 
 namespace LagoVista.IoT.DeviceAdmin.Managers
 {
@@ -52,6 +53,13 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return InvokeResult.Success;
         }
 
+        public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForDeviceConfigOrgAsync(string deviceConfigId, ListRequest listRequest, EntityHeader org,  EntityHeader user)
+        {
+            await AuthorizeOrgAccessAsync(user, org.Id, typeof(DeviceType));
+
+            return await _deviceTypeRepo.GetDeviceTypesForDeviceConfigOrgAsync(deviceConfigId, org.Id, listRequest);
+        }
+
         public async Task<DeviceType> GetDeviceTypeAsync(string id, EntityHeader org, EntityHeader user)
         {
             var deviceType = await _deviceTypeRepo.GetDeviceTypeAsync(id);
@@ -59,10 +67,10 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             return deviceType;
         }
 
-        public async Task<IEnumerable<DeviceTypeSummary>> GetDeviceTypesForOrgsAsync(string orgId, EntityHeader user)
+        public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForOrgsAsync(ListRequest listRequest, string orgId,  EntityHeader user)
         {
             await AuthorizeOrgAccessAsync(user, orgId, typeof(DeviceType));
-            return await _deviceTypeRepo.GetDeviceTypesForOrgAsync(orgId);
+            return await _deviceTypeRepo.GetDeviceTypesForOrgAsync(orgId, listRequest);
         }
 
         public Task<bool> QueryDeviceTypeKeyInUseAsync(string key, string orgId)

@@ -1528,4 +1528,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Parameter_Types_StringArray" xml:space="preserve">
     <value>String Array</value>
   </data>
+  <data name="DeviceType_Firmware_Revision" xml:space="preserve">
+    <value>Firmware Revision</value>
+  </data>
+  <data name="DeviceType_Firmware_RevisionSelect" xml:space="preserve">
+    <value>-select firmware revision-</value>
+  </data>
 </root>
