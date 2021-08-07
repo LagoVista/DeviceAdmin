@@ -31,6 +31,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public String LockedDateStamp { get; set; }
 
+        public Unit GetDefault()
+        {
+           return Units.FirstOrDefault(def => def.IsDefault);
+        }
+
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<Unit> Units { get; set; }
@@ -77,9 +82,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         {
             var unitSet = new UnitSet()
             {
-                CreatedBy = user == null ? CreatedBy.Clone() : user,
-                OwnerOrganization = org == null ? OwnerOrganization.Clone() : org,
-                LastUpdatedBy =  user == null ? LastUpdatedBy.Clone() : user,
+                CreatedBy = user ?? CreatedBy.Clone(),
+                OwnerOrganization = org ?? OwnerOrganization.Clone(),
+                LastUpdatedBy = user ?? LastUpdatedBy.Clone(),
 
                 CreationDate = CreationDate,
                 DatabaseName = DatabaseName,
@@ -98,12 +103,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
             if(OwnerUser != null)
             {
-                unitSet.OwnerUser = user == null ? OwnerUser.Clone() : user;
+                unitSet.OwnerUser = user ?? OwnerUser.Clone();
             }
 
             if(IsLocked)
             {
-                unitSet.LockedBy = user == null ? LockedBy.Clone() : user;
+                unitSet.LockedBy = user ?? LockedBy.Clone();
             }
 
             foreach (var unit in Units)

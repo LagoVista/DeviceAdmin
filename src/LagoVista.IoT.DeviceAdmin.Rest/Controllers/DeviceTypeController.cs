@@ -62,7 +62,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// <summary>
         /// Device Type- Get device types that have been created for a specific device typeid
         /// </summary>
-        /// <param name="deviceconfigid"
+        /// <param name="deviceconfigid"></param>
         /// <returns></returns>
         [HttpGet("/api/deviceconfig/{deviceconfigid}/devicetypes")]
         public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForDeviceConfig(string deviceconfigid)
