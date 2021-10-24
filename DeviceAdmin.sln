@@ -21,11 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Rest", "src\LagoVista.IoT.DeviceAdmin.Rest\LagoVista.IoT.DeviceAdmin.Rest.csproj", "{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Tests", "test\LagoVista.IoT.DeviceAdmin.Tests\LagoVista.IoT.DeviceAdmin.Tests.csproj", "{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Models", "src\LagoVista.IoT.DeviceAdmin.Models\LagoVista.IoT.DeviceAdmin.Models.csproj", "{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Repos.Tests", "test\LagoVista.IoT.DeviceAdmin.Repos.Tests\LagoVista.IoT.DeviceAdmin.Repos.Tests.csproj", "{A1C7AFA1-030A-4BAF-B3DA-4A89C8C9B72E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Tests", "tests\LagoVista.IoT.DeviceAdmin.Tests\LagoVista.IoT.DeviceAdmin.Tests.csproj", "{14DF2248-632A-429E-9211-58286B3FA134}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,18 +43,14 @@ Global
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1C7AFA1-030A-4BAF-B3DA-4A89C8C9B72E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1C7AFA1-030A-4BAF-B3DA-4A89C8C9B72E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1C7AFA1-030A-4BAF-B3DA-4A89C8C9B72E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1C7AFA1-030A-4BAF-B3DA-4A89C8C9B72E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14DF2248-632A-429E-9211-58286B3FA134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14DF2248-632A-429E-9211-58286B3FA134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14DF2248-632A-429E-9211-58286B3FA134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14DF2248-632A-429E-9211-58286B3FA134}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,9 +59,8 @@ Global
 		{356687BE-A437-4D2C-95C2-334187B2BA34} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{AD2AF9F0-D136-40B3-806F-629C17FA56F5} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
-		{9D45DC9A-0AC0-43DE-9502-0625F7AA8EFC} = {789A2940-98A7-4A45-B302-0FEE3151886E}
 		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
-		{A1C7AFA1-030A-4BAF-B3DA-4A89C8C9B72E} = {789A2940-98A7-4A45-B302-0FEE3151886E}
+		{14DF2248-632A-429E-9211-58286B3FA134} = {789A2940-98A7-4A45-B302-0FEE3151886E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9EDEC371-B7A0-48CF-91D1-5EB0174BCF6E}
