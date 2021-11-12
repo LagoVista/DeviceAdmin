@@ -3,20 +3,20 @@
     <TargetFramework>net5.0</TargetFramework>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  <OutputType>Library</OutputType>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
+    <DocumentationFile>bin\Debug\net5.0\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
+    <DocumentationFile>bin\Release\net5.0\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="2.1.1434.0352" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="2.1.1434.0352" />
-    <PackageReference Include="LagoVista.IoT.Web.Common" Version="2.1.1434.0352" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="2.1.1434.0352" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="2.1.1434.0352" />
+    <PackageReference Include="LagoVista.Core" Version="3.0.1640.0546" />
+    <PackageReference Include="LagoVista.IoT.Logging" Version="3.0.1633.1805" />
+    <PackageReference Include="LagoVista.IoT.Web.Common" Version="3.0.1633.1805" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="3.0.1633.1805" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.1633.1805" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>

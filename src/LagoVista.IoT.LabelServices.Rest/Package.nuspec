@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>LagoVista.IoT.LabelServices.Rest</id>
+    <version>3.0.1640.0546</version>
+    <authors>Software Logistics, LLC</authors>
+    <owners>Software Logistics, LLC</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/LagoVista/IoTEngine</projectUrl>
+    <iconUrl>http://bytemaster.blob.core.windows.net/icons/LagoVistaIcon.png</iconUrl>
+    <description>Provides rest services for creating and attaching labels to objects within NuvIoT.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2021</copyright>
+    <tags>HomeAutomation IoT</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="13.0.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\release\net5.0\LagoVista.IoT.LabelServices.Rest.dll" target="lib\net5.0" />
+  </files>
+</package>

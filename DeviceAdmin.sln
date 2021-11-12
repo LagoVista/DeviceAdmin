@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.DeviceAdmin.Tests", "tests\LagoVista.IoT.DeviceAdmin.Tests\LagoVista.IoT.DeviceAdmin.Tests.csproj", "{14DF2248-632A-429E-9211-58286B3FA134}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LagoVista.IoT.LabelServices", "src\LagoVista.IoT.LabelServices\LagoVista.IoT.LabelServices.csproj", "{57B11266-4890-47C5-B3A1-844A8A668920}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LagoVista.IoT.LabelServices.Rest", "src\LagoVista.IoT.LabelServices.Rest\LagoVista.IoT.LabelServices.Rest.csproj", "{A4891FA1-6A5E-4DB2-977C-DA86048FBF31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{14DF2248-632A-429E-9211-58286B3FA134}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14DF2248-632A-429E-9211-58286B3FA134}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14DF2248-632A-429E-9211-58286B3FA134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B11266-4890-47C5-B3A1-844A8A668920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B11266-4890-47C5-B3A1-844A8A668920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B11266-4890-47C5-B3A1-844A8A668920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B11266-4890-47C5-B3A1-844A8A668920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4891FA1-6A5E-4DB2-977C-DA86048FBF31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4891FA1-6A5E-4DB2-977C-DA86048FBF31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4891FA1-6A5E-4DB2-977C-DA86048FBF31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4891FA1-6A5E-4DB2-977C-DA86048FBF31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +73,8 @@ Global
 		{F3DCFD0A-B7BC-4A49-9A96-CB3EE0BD4E45} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{2EB7304D-E9F6-499D-A457-CAC7E1B6E99E} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 		{14DF2248-632A-429E-9211-58286B3FA134} = {789A2940-98A7-4A45-B302-0FEE3151886E}
+		{57B11266-4890-47C5-B3A1-844A8A668920} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
+		{A4891FA1-6A5E-4DB2-977C-DA86048FBF31} = {CEC21295-346D-4369-9511-FBB4BFFE1863}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9EDEC371-B7A0-48CF-91D1-5EB0174BCF6E}
