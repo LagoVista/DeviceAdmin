@@ -22,6 +22,8 @@ namespace LagoVista.IoT.LabelServices.Repos
             _shouldConsolidateCollections = connectionSettings.ShouldConsolidateCollections;
         }
 
+        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
+
         public async Task<LabelSet> AddLabelAsync(Label label, EntityHeader org, EntityHeader user)
         {
             var labelSet = await GetLabelSetAsync(org, user);

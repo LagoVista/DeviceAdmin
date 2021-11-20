@@ -41,9 +41,9 @@ namespace LagoVista.IoT.LabelServices.Rest.Controllers
         }
 
         [HttpGet("/api/label/entities/{id}")]
-        public async Task<ListResponse<ILabeledEntity>> UpdateLabelAsync(string labelId)
+        public async Task<ListResponse<LabeledEntity>> UpdateLabelAsync(string id)
         {
-            return await _labelManager.GetLabeledEntitiesAsync(labelId, GetListRequestFromHeader(), OrgEntityHeader, UserEntityHeader);
+            return await _labelManager.GetLabeledEntitiesAsync(id, GetListRequestFromHeader(), OrgEntityHeader, UserEntityHeader);
         }
     }
 }
