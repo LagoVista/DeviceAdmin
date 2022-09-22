@@ -15,9 +15,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         public DeviceType()
         {
-            BillOfMaterial = new List<BOMItem>();
+            BillOfMaterial = new List<SectionGrouping<BOMItem>>();
             Resources = new List<EntityHeader>();
-            AssociatedEquipment = new List<EntityHeader<Equipment>>();
+            AssociatedEquipment = new List<EquipmentSummary>();
         }
 
         public String DatabaseName { get; set; }
@@ -37,13 +37,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader DefaultDeviceConfiguration { get; set; }
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_BillOfMaterial, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
-        public List<BOMItem> BillOfMaterial { get; set; }
+        public List<SectionGrouping<BOMItem>> BillOfMaterial { get; set; }
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Resources, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<EntityHeader> Resources { get; set; }
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_AssociatedTools, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
-        public List<EntityHeader<Equipment>> AssociatedEquipment { get; set; }
+        public List<EquipmentSummary> AssociatedEquipment { get; set; }
 
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware, WaterMark: DeviceLibraryResources.Names.DeviceType_FirmwareSelect, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
