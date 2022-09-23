@@ -25,8 +25,8 @@ namespace LagoVista.IoT.LabelServices.Repos
         public async Task<ListResponse<LabeledEntity>> GetLabeledEntitiesAsync(string labelId, ListRequest  listRequest, EntityHeader org, EntityHeader user)
         {
 
-            var parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@labelId", labelId));
+            var parameters = new List<QueryParameter>();
+            parameters.Add(new QueryParameter("@labelId", labelId));
             var query = $"select value c from c join l in c.Labels where l.Id = @labelId";
             var result = await QueryAsync(query, parameters.ToArray());  
 
