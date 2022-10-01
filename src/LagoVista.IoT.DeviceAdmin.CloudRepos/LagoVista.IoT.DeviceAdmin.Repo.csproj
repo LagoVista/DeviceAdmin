@@ -7,6 +7,6 @@
     <ProjectReference Include="..\LagoVista.IoT.DeviceAdmin\LagoVista.IoT.DeviceAdmin.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.CloudStorage" Version="3.0.1963.1041" />
+    <PackageReference Include="LagoVista.CloudStorage" Version="3.0.1963.1145" />
    </ItemGroup>
 </Project>

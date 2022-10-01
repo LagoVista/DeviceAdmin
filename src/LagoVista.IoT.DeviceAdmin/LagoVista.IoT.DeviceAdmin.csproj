@@ -6,7 +6,7 @@
     <FileVersion>1.2.211.1114</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.UserAdmin" Version="3.0.1963.1041" />
+    <PackageReference Include="LagoVista.UserAdmin" Version="3.0.1963.1145" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LagoVista.IoT.DeviceAdmin.Models\LagoVista.IoT.DeviceAdmin.Models.csproj" />
