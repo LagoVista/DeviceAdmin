@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <VersionPrefix>1.2</VersionPrefix>
-    <TargetFramework>netstandard1.2</TargetFramework>
+    <VersionPrefix>4.0</VersionPrefix>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyVersion>1.2.211.1131</AssemblyVersion>
     <FileVersion>1.2.211.1131</FileVersion>
     <Authors>Software Logistics, LLC</Authors>
@@ -10,8 +10,8 @@
     <AssemblyOriginatorKeyFile>LagoVista.DeviceAdmin.Models.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.MediaServices.Models" Version="3.0.1963.1145" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.1963.1145" />
+    <PackageReference Include="LagoVista.MediaServices.Models" Version="3.0.2049.0903" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.2049.0903" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="T4ResourceGenerator.cs">

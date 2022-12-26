@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="3.0.1963.1145" />
-    <PackageReference Include="LagoVista.CloudStorage" Version="3.0.1963.1145" />
+    <PackageReference Include="LagoVista.Core" Version="3.0.2049.0903" />
+    <PackageReference Include="LagoVista.CloudStorage" Version="3.0.2049.0903" />
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.30.1" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="3.0.1963.1145" />
+    <PackageReference Include="LagoVista.IoT.Logging" Version="3.0.2049.0903" />
   </ItemGroup>
 
   <ItemGroup>
