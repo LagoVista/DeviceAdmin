@@ -83,6 +83,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.DefaultDeviceConfiguration),
                 nameof(DeviceType.Manufacturer),
                 nameof(DeviceType.Description),
+                nameof(DeviceType.Resources),
+                nameof(DeviceType.BillOfMaterial),
+                nameof(DeviceType.AssociatedEquipment),
             };
         }
     }
