@@ -5,11 +5,13 @@ using System;
 using System.Linq;
 using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
+using LagoVista.Core.Interfaces;
+using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.OutputCommand_Title, DeviceLibraryResources.Names.OutputCommand_Description, DeviceLibraryResources.Names.OutputCommand_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class OutputCommand : NodeBase, IValidateable
+    public class OutputCommand : NodeBase, IValidateable, IFormDescriptor
     {
         public OutputCommand()
         {
@@ -24,6 +26,18 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public ObservableCollection<Parameter> Parameters { get; set; }
 
         public override string NodeType => NodeType_OutputCommand;
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(Name),
+                nameof(Key),
+                nameof(Description),
+                nameof(OnExecuteScript),
+                nameof(Parameters)
+            };
+        }
 
         public void Validate(DeviceWorkflow workflow, ValidationResult result)
         {

@@ -43,12 +43,14 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 nameof(Attribute.Name),
                 nameof(Attribute.Key),
-                nameof(Attribute.Description),
                 nameof(Attribute.AttributeType),
+                nameof(Attribute.DefaultValue),
                 nameof(Attribute.ReadOnly),
                 nameof(Attribute.UnitSet),
                 nameof(Attribute.StateSet),
                 nameof(Attribute.OnSetScript),
+                nameof(Attribute.Description),
+
             };
         }
 

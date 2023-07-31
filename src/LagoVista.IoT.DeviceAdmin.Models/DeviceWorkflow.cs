@@ -13,7 +13,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help, 
         Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class DeviceWorkflow : IoTModelBase, IOwnedEntity, IValidateable, IKeyedEntity, INoSQLEntity, IPipelineModuleConfiguration
+    public class DeviceWorkflow : IoTModelBase, IOwnedEntity, IValidateable, IKeyedEntity, INoSQLEntity, IPipelineModuleConfiguration, IFormDescriptor
     {
         public DeviceWorkflow()
         {
@@ -75,7 +75,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public List<Page> Pages { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules, HelpResource:Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules, HelpResource:Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildListInline)]
         public List<BusinessRule> BusinessRules { get; set; }
 
         public EntityHeader ToEntityHeader()
@@ -124,6 +124,20 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             foreach (var stateMachine in StateMachines) stateMachine.Validate(this, result);
             foreach (var outputCommand in OutputCommands) outputCommand.Validate(this, result);
             foreach (var timer in Timers) timer.Validate(this, result);
+        }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(Name),
+                nameof(Key),
+                nameof(ConfigurationVersion),
+                nameof(PreHandlerScript),
+                nameof(PostHandlerScript),
+                nameof(Description),
+                nameof(BusinessRules)
+            };
         }
     }
 

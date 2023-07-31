@@ -38,12 +38,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 nameof(WorkflowInput.Name),
                 nameof(WorkflowInput.Key),
-                nameof(WorkflowInput.Description),
                 nameof(WorkflowInput.InputType),
-                nameof(WorkflowInput.Description),
                 nameof(WorkflowInput.StateSet),
                 nameof(WorkflowInput.UnitSet),
                 nameof(WorkflowInput.OnSetScript),
+                nameof(WorkflowInput.Description),
             };
         }
 
