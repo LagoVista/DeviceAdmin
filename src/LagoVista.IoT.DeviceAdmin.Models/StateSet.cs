@@ -32,7 +32,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String LockedDateStamp { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateSet_States, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateSet_States, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
         public List<State> States { get; set; }
 
 

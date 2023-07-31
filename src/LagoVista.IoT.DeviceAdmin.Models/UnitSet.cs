@@ -37,7 +37,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
         public List<Unit> Units { get; set; }
 
         public UnitSetSummary CreateUnitSetSummary()
