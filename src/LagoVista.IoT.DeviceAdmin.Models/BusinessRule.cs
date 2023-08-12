@@ -1,5 +1,6 @@
 ﻿using LagoVista.Core;
 using LagoVista.Core.Attributes;
+using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using Newtonsoft.Json;
@@ -11,7 +12,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.BusinessRule_Title, Resources.DeviceLibraryResources.Names.BusinessRule_Help,
         Resources.DeviceLibraryResources.Names.BusinessRule_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class BusinessRule
+    public class BusinessRule : IFormDescriptor
     {
         public BusinessRule()
         {
@@ -47,5 +48,20 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.BusinessRule_Script, WaterMark: Resources.DeviceLibraryResources.Names.BusinessRule_Script_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.BusinessRule_Script_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public String Script { get; set; }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+               nameof(Name),
+               nameof(Key),
+               nameof(Description),
+               nameof(IsBeta),
+               nameof(IsEnabled),
+               nameof(ErrorCode),
+               nameof(ServiceTicketTemplate),
+               nameof(Script)
+            };
+        }
     }
 }
