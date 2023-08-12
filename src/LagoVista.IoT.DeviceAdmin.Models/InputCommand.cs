@@ -31,10 +31,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             RestDelete,
         }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Parameter_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Parameter_Help, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<Parameter> Parameters { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Script, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_Script_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Script, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_Script_Help, 
+           WaterMark:Resources.DeviceLibraryResources.Names.InputCommand_ScriptWatermark, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public String OnArriveScript { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Help, WaterMark: Resources.DeviceLibraryResources.Names.InputCommand_EndpointType_Watermark, FieldType: FieldTypes.Picker, EnumType: typeof(EndpointTypes), ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
@@ -164,6 +165,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(InputCommand.EndpointType),
                 nameof(InputCommand.OnArriveScript),
                 nameof(InputCommand.Description),
+                nameof(InputCommand.Parameters),
             };
         }
     }

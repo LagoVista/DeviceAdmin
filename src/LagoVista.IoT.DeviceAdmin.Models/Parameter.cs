@@ -5,6 +5,7 @@ using LagoVista.Core.Validation;
 using System;
 using System.Collections.Generic;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
+using LagoVista.Core.Models.UIMetaData;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -24,14 +25,14 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Parameter_Title, DeviceLibraryResources.Names.Parameter_Help, DeviceLibraryResources.Names.InputCommandParamter_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class Parameter : IFormDescriptor
+    public class Parameter : IFormDescriptor, IFormConditionalFields
     {
         public const string ParameterLocation_QueryString = "querystring";
         public const string ParameterLocation_JSON = "json";
 
         public string Id { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsRequired, FieldType:FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_IsRequired, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsRequired { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
@@ -64,26 +65,67 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: Resources.DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
 
+        public FormConditionals GetConditionalFields()
+        {
+            return new FormConditionals()
+            {
+                ConditionalFields = { nameof(MinValue), nameof(MaxValue), nameof(UnitSet), nameof(StateSet) },
+                Conditionals =
+                {
+                    new FormConditional()
+                    {
+                         Field = nameof(ParameterType),
+                         Value = TypeSystem.Decimal,
+                         VisibleFields = { nameof(MinValue), nameof(MaxValue) },
+                    },
+                    new FormConditional()
+                    {
+                         Field = nameof(ParameterType),
+                         Value = TypeSystem.Integer,
+                         VisibleFields = { nameof(MinValue), nameof(MaxValue) },
+                    },
+                    new FormConditional()
+                    {
+                         Field = nameof(ParameterType),
+                         Value = TypeSystem.State,
+                         VisibleFields = { nameof(StateSet) },
+                    },
+                    new FormConditional()
+                    {
+                         Field = nameof(ParameterType),
+                         Value = TypeSystem.ValueWithUnit,
+                         VisibleFields = { nameof(UnitSet) },
+                    }
+                }
+
+            };
+        }
+
         public List<string> GetFormFields()
         {
             return new List<string>()
             {
                 nameof(Parameter.Name),
+                nameof(Parameter.ParameterType),
                 nameof(Parameter.Key),
                 nameof(Parameter.IsRequired),
+                nameof(Parameter.MinValue),
+                nameof(Parameter.MaxValue),
+                nameof(Parameter.DefaultValue),
                 nameof(Parameter.ParameterLocation),
-                nameof(Parameter.ParameterType),
+                nameof(Parameter.UnitSet),
+                nameof(Parameter.StateSet),
                 nameof(Parameter.Description),
             };
         }
 
         public void Validate(ValidationResult result)
         {
-            if(EntityHeader.IsNullOrEmpty(ParameterType))
+            if (EntityHeader.IsNullOrEmpty(ParameterType))
             {
                 result.AddUserError($"Parameter Type on Parameter {Name} is a required field.");
             }
-            else if(ParameterType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet))
+            else if (ParameterType.Value == ParameterTypes.State && EntityHeader.IsNullOrEmpty(StateSet))
             {
                 result.AddUserError($"Parameter Type on Parameter {Name} is a Value with Unit but no State Set has been provided.");
 

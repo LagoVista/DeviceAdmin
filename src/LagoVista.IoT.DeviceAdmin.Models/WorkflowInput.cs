@@ -8,11 +8,12 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
+using LagoVista.Core.Models.UIMetaData;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.WorkflowInput_Title, DeviceLibraryResources.Names.WorkflowInput_Description, DeviceLibraryResources.Names.WorkflowInput_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class WorkflowInput : NodeBase, IValidateable, IFormDescriptor
+    public class WorkflowInput : NodeBase, IValidateable, IFormDescriptor, IFormConditionalFields
     {
         public WorkflowInput()
         {
@@ -31,6 +32,30 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader<StateSet> StateSet { get; set; }
 
         public override string NodeType => NodeType_Input;
+
+        public FormConditionals GetConditionalFields()
+        {
+            return new FormConditionals()
+            {
+                ConditionalFields = { nameof(UnitSet), nameof(StateSet) },
+                Conditionals =
+                {
+                    new FormConditional()
+                    {
+                         Field = nameof(InputType),
+                         Value = TypeSystem.State,
+                         VisibleFields = { nameof(StateSet) },
+                    },
+                    new FormConditional()
+                    {
+                         Field = nameof(InputType),
+                         Value = TypeSystem.ValueWithUnit,
+                         VisibleFields = { nameof(UnitSet) },
+                    }
+                }
+
+            };
+        }
 
         public List<string> GetFormFields()
         {

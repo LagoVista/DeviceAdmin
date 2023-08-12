@@ -1534,4 +1534,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_Firmware_RevisionSelect" xml:space="preserve">
     <value>-select firmware revision-</value>
   </data>
+  <data name="InputCommand_ScriptWatermark" xml:space="preserve">
+    <value>On Arrive Script</value>
+  </data>
+  <data name="OutputCommand_Script_WaterMark" xml:space="preserve">
+    <value>On Execute Script</value>
+  </data>
 </root>

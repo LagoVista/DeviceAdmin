@@ -92,6 +92,18 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             return response;
         }
 
+        /// <summary>
+        /// Output Command Parameter - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/api/deviceadmin/factory/outputcommand/parameter")]
+        public DetailResponse<Parameter> CreateOutputCommandParameter()
+        {
+            var response = DetailResponse<Parameter>.Create();
+            response.Model.Id = Guid.NewGuid().ToId();
+            return response;
+        }
+
 
         /// <summary>
         ///  Device Workflow - Create New

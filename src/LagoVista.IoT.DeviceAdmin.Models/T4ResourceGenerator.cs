@@ -1,4 +1,4 @@
-﻿/*7/31/2021 1:25:02 PM*/
+﻿/*8/12/2023 10:27:26 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -911,6 +911,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:InputCommand_Script_Help
 
 		public static string InputCommand_Script_Help { get { return GetResourceString("InputCommand_Script_Help"); } }
+//Resources:DeviceLibraryResources:InputCommand_ScriptWatermark
+
+		public static string InputCommand_ScriptWatermark { get { return GetResourceString("InputCommand_ScriptWatermark"); } }
 //Resources:DeviceLibraryResources:InputCommand_Title
 
 		public static string InputCommand_Title { get { return GetResourceString("InputCommand_Title"); } }
@@ -938,6 +941,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:OutputCommand_Script_Help
 
 		public static string OutputCommand_Script_Help { get { return GetResourceString("OutputCommand_Script_Help"); } }
+//Resources:DeviceLibraryResources:OutputCommand_Script_WaterMark
+
+		public static string OutputCommand_Script_WaterMark { get { return GetResourceString("OutputCommand_Script_WaterMark"); } }
 //Resources:DeviceLibraryResources:OutputCommand_Title
 
 		public static string OutputCommand_Title { get { return GetResourceString("OutputCommand_Title"); } }
@@ -1761,6 +1767,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string InputCommand_Parameters = "InputCommand_Parameters";
 			public const string InputCommand_Script = "InputCommand_Script";
 			public const string InputCommand_Script_Help = "InputCommand_Script_Help";
+			public const string InputCommand_ScriptWatermark = "InputCommand_ScriptWatermark";
 			public const string InputCommand_Title = "InputCommand_Title";
 			public const string InputCommandParamter_Description = "InputCommandParamter_Description";
 			public const string NodeRedFlow_Description = "NodeRedFlow_Description";
@@ -1770,6 +1777,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string OutputCommand_Help = "OutputCommand_Help";
 			public const string OutputCommand_Script = "OutputCommand_Script";
 			public const string OutputCommand_Script_Help = "OutputCommand_Script_Help";
+			public const string OutputCommand_Script_WaterMark = "OutputCommand_Script_WaterMark";
 			public const string OutputCommand_Title = "OutputCommand_Title";
 			public const string Page_Description = "Page_Description";
 			public const string Page_Help = "Page_Help";

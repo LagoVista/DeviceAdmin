@@ -1,16 +1,16 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
+using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
-using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Attribute_Title, DeviceLibraryResources.Names.Attribute_Description, DeviceLibraryResources.Names.Attribute_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
-    public class Attribute : NodeBase, IValidateable, IFormDescriptor
+    public class Attribute : NodeBase, IValidateable, IFormDescriptor, IFormConditionalFields
     {
         public Attribute()
         {
@@ -51,6 +51,29 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(Attribute.OnSetScript),
                 nameof(Attribute.Description),
 
+            };
+        }
+
+        public FormConditionals GetConditionalFields()
+        {
+            return new FormConditionals()
+            {
+                ConditionalFields = { nameof(UnitSet), nameof(StateSet) },
+                Conditionals =
+                {
+                    new FormConditional()
+                    {
+                         Field = nameof(AttributeType),
+                         Value = TypeSystem.State,
+                         VisibleFields = { nameof(StateSet) },
+                    },
+                    new FormConditional()
+                    {
+                         Field = nameof(AttributeType),
+                         Value = TypeSystem.ValueWithUnit,
+                         VisibleFields = { nameof(UnitSet) },
+                    }
+                }
             };
         }
 
