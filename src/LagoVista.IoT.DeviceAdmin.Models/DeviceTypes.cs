@@ -80,6 +80,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.Name),
                 nameof(DeviceType.Key),
                 nameof(DeviceType.ModelNumber),
+                nameof(DeviceType.Firmware),
+                nameof(DeviceType.FirmwareRevision),
                 nameof(DeviceType.DefaultDeviceConfiguration),
                 nameof(DeviceType.Manufacturer),
                 nameof(DeviceType.Description),
