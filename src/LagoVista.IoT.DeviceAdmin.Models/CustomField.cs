@@ -140,6 +140,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 				nameof(Label),
 				nameof(IsRequired),
 				nameof(IsReadOnly),
+				nameof(IsRemoteProperty),
+				nameof(RemotePropertyId),
 				nameof(FieldType),
 				nameof(Key),
 				nameof(DefaultValue),
