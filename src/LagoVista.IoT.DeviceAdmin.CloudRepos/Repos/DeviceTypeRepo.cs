@@ -42,13 +42,13 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
         {
             var items = await base.QueryAsync(qry => (qry.IsPublic == true || qry.OwnerOrganization.Id == orgId) 
             && (qry.DefaultDeviceConfiguration != null && qry.DefaultDeviceConfiguration.Id == deviceConfigId), listRequest);
-            return items.Create(items.Model.Select(mod => mod.CreateSummary()));
+            return items.Create(items.Model.Select(mod => mod.CreateSummary()).OrderBy(mod => mod.Name));
         }
 
         public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForOrgAsync(string orgId, ListRequest listRequest)
         {
             var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, listRequest);
-            return items.Create(items.Model.Select(mod => mod.CreateSummary()));
+            return items.Create(items.Model.Select(mod => mod.CreateSummary()).OrderBy(mod=>mod.Name));
         }
 
         public async Task<bool> QueryKeyInUseAsync(string key, string orgId)
