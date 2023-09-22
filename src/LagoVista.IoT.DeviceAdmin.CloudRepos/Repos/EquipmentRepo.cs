@@ -41,7 +41,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
         {
             var response = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, listRequest);
 
-            var finalResponse = ListResponse<EquipmentSummary>.Create(response.Model.Select(mod => mod.CreateSummary()));
+            var finalResponse = ListResponse<EquipmentSummary>.Create(response.Model.OrderBy(itm => itm.Name).Select(mod => mod.CreateSummary()));
             finalResponse.NextPartitionKey = response.NextPartitionKey;
             finalResponse.NextRowKey = response.NextRowKey;
             finalResponse.PageCount = response.PageCount;

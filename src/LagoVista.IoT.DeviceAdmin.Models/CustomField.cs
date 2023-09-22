@@ -101,7 +101,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 		{
 			return new FormConditionals()
 			{
-				ConditionalFields = new List<string>() { nameof(MaxValue), nameof(MinValue), nameof(UnitSet), nameof(StateSet) },
+				ConditionalFields = new List<string>() { nameof(MaxValue), nameof(MinValue), nameof(UnitSet), nameof(StateSet), nameof(RegEx) },
 				Conditionals = new List<FormConditional>()
 				{
 					new FormConditional()
@@ -127,6 +127,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 						Field = nameof(FieldType),
 						Value = FieldType_State,
 						VisibleFields = new List<string>() {nameof(StateSet)}
+					},
+					new FormConditional()
+					{
+						Field = nameof(FieldType),
+						Value = FieldType_String,
+						VisibleFields = new List<string>() {nameof(RegEx)}
 					}
 				}
 			};
@@ -141,6 +147,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 				nameof(IsRequired),
 				nameof(IsReadOnly),
 				nameof(IsRemoteProperty),
+				nameof(IsUserConfigurable),
 				nameof(RemotePropertyId),
 				nameof(FieldType),
 				nameof(Key),
@@ -148,6 +155,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 				nameof(MinValue),
 				nameof(MaxValue),
 				nameof(RegEx),
+				nameof(UnitSet),
+				nameof(StateSet),
 				nameof(HelpText),
 			};
 		}

@@ -47,7 +47,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
         {
             var items = await base.QueryAsync(qry => qry.IsPublic == true ||  qry.OwnerOrganization.Id == orgId);
 
-            return from item in items
+            return from item in items.OrderBy(itm => itm.Name)
                    select item.CreateUnitSetSummary();
         }
 
