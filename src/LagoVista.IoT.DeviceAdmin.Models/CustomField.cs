@@ -17,7 +17,7 @@ using System.Collections;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
 	[EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.CustomField_Title, Resources.DeviceLibraryResources.Names.CustomFIeld_Help, Resources.DeviceLibraryResources.Names.CustomField_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
-	public class CustomField : IKeyedEntity, IFormDescriptor, IValidateable, IFormConditionalFields
+	public class CustomField : IKeyedEntity, IFormDescriptor, IValidateable, IFormConditionalFields, IDescriptionEntity
 	{
 		public const string FieldType_String = "string";
 		public const string FieldType_Integer = "integer";
@@ -48,6 +48,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_Label, IsRequired: true, HelpResource: Resources.DeviceLibraryResources.Names.CustomField_Label_Help, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
 		public String Label { get; set; }
+
+		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, IsRequired: false, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
+		public string Description { get; set; }
 
 		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_IsRequired, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
 		public bool IsRequired { get; set; }
@@ -143,14 +146,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 			return new List<string>()
 			{
 				nameof(Name),
+				nameof(Key),
 				nameof(Label),
+				nameof(Description),
 				nameof(IsRequired),
 				nameof(IsReadOnly),
 				nameof(IsRemoteProperty),
 				nameof(IsUserConfigurable),
 				nameof(RemotePropertyId),
-				nameof(FieldType),
-				nameof(Key),
+				nameof(FieldType),				
 				nameof(DefaultValue),
 				nameof(MinValue),
 				nameof(MaxValue),
