@@ -17,6 +17,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public BusinessRule()
         {
             IsEnabled = true;
+            Id = Guid.NewGuid().ToId();
         }
 
         [JsonProperty("id")]

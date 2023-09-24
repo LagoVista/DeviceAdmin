@@ -54,5 +54,6 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<DependentObjectCheckResult> CheckInUseStateSetAsync(String stateSetId, EntityHeader org, EntityHeader user);
         Task<DependentObjectCheckResult> CheckInUseEventSetAsync(String eventSetId, EntityHeader org, EntityHeader user);
 
+        bool IsForInitialization { get; set; }
     }
 }
