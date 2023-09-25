@@ -10,7 +10,9 @@ using LagoVista.IoT.DeviceAdmin.Models.Resources;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.UnitSet_Title, Resources.DeviceLibraryResources.Names.UnitSet_Help, Resources.DeviceLibraryResources.Names.UnitSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.UnitSet_Title, Resources.DeviceLibraryResources.Names.UnitSet_Help, Resources.DeviceLibraryResources.Names.UnitSet_Description,
+        EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+        SaveUrl: "/api/deviceadmin/unitset", GetUrl: "/api/deviceadmin/unitset/{id}", GetListUrl: "/api/deviceadmin/unitsets", FactoryUrl: "/api/deviceadmin/factory/unitset", DeleteUrl: "/api/deviceadmin/unitset/{id}")]
     public class UnitSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity, IFormDescriptor, ILockable
     {
         public UnitSet()

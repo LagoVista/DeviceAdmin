@@ -10,7 +10,9 @@ using LagoVista.IoT.DeviceAdmin.Models.Resources;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.StateSet_Title, Resources.DeviceLibraryResources.Names.StateSet_Help, Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.StateSet_Title, Resources.DeviceLibraryResources.Names.StateSet_Help, 
+        Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+        DeleteUrl: "/api/statemachine/stateset/{id}", SaveUrl: "/api/statemachine/stateset", GetListUrl: "/api/statemachine/statesets", GetUrl: "/api/statemachine/stateset/{id}", FactoryUrl: "/api/statemachine/factory/stateset")]
     public class StateSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity, IFormDescriptor, ILockable
     {
         public StateSet()
