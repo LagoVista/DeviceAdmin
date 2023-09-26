@@ -11,10 +11,10 @@ using System.Text;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Part_Title,
         DeviceLibraryResources.Names.Part_Help, DeviceLibraryResources.Names.Part_Description,
-                  EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
+                  EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+            GetUrl:"/api/part/{id}", GetListUrl: "/api/parts", SaveUrl: "/api/part", DeleteUrl: "/api/part/{id}", FactoryUrl: "/api/part/factory")]
     public class Part : ModelBase, IIDEntity, INamedEntity, IOwnedEntity, IValidateable, IAuditableEntity, INoSQLEntity
     {
         public Part()
@@ -96,6 +96,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
     }
 
+
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Part_Title,
+        DeviceLibraryResources.Names.Part_Help, DeviceLibraryResources.Names.Part_Description,
+                  EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+            GetUrl: "/api/part/{id}", GetListUrl: "/api/parts", SaveUrl: "/api/part", DeleteUrl: "/api/part/{id}", FactoryUrl: "/api/part/factory")]
     public class PartSummary : SummaryData
     {
         public string PartNumber { get; set; }

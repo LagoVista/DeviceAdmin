@@ -6,7 +6,8 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Timer_Title, DeviceLibraryResources.Names.Timer_Description, DeviceLibraryResources.Names.Timer_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Timer_Title, DeviceLibraryResources.Names.Timer_Description, DeviceLibraryResources.Names.Timer_Help, 
+        EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class Timer : NodeBase, IValidateable, IFormDescriptor
     {
 
