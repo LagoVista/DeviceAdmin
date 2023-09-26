@@ -16,7 +16,9 @@ using System.Collections;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-	[EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.CustomField_Title, Resources.DeviceLibraryResources.Names.CustomFIeld_Help, Resources.DeviceLibraryResources.Names.CustomField_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
+	[EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.CustomField_Title, Resources.DeviceLibraryResources.Names.CustomFIeld_Help, Resources.DeviceLibraryResources.Names.CustomField_Description,
+		EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+		FactoryUrl: "/api/deviceadmin/factory/customfield")]
 	public class CustomField : IKeyedEntity, IFormDescriptor, IValidateable, IFormConditionalFields, IDescriptionEntity
 	{
 		public const string FieldType_String = "string";
@@ -148,20 +150,20 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 				nameof(Name),
 				nameof(Key),
 				nameof(Label),
-				nameof(Description),
+				nameof(FieldType),
+				nameof(DefaultValue),
+				nameof(UnitSet),
+				nameof(StateSet),
+				nameof(MinValue),
+				nameof(MaxValue),
 				nameof(IsRequired),
 				nameof(IsReadOnly),
 				nameof(IsRemoteProperty),
 				nameof(IsUserConfigurable),
 				nameof(RemotePropertyId),
-				nameof(FieldType),				
-				nameof(DefaultValue),
-				nameof(MinValue),
-				nameof(MaxValue),
-				nameof(RegEx),
-				nameof(UnitSet),
-				nameof(StateSet),
+				nameof(Description),
 				nameof(HelpText),
+				nameof(RegEx),
 			};
 		}
 

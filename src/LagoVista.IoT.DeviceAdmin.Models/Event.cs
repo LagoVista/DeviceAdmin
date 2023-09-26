@@ -5,7 +5,8 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.StateMachines, DeviceLibraryResources.Names.StateMachineEvent_Title, Resources.DeviceLibraryResources.Names.StateMachineEvent_UserHelp,Resources.DeviceLibraryResources.Names.StateMachineEvent_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.StateMachines, DeviceLibraryResources.Names.StateMachineEvent_Title, Resources.DeviceLibraryResources.Names.StateMachineEvent_UserHelp,Resources.DeviceLibraryResources.Names.StateMachineEvent_Description, 
+        EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class Event : IKeyedEntity, INamedEntity
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]

@@ -9,7 +9,9 @@ using LagoVista.IoT.DeviceAdmin.Models.Resources;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.StateMachine_Title, Resources.DeviceLibraryResources.Names.StateMachine_UserHelp, Resources.DeviceLibraryResources.Names.StateMachine_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.StateMachine_Title, Resources.DeviceLibraryResources.Names.StateMachine_UserHelp, Resources.DeviceLibraryResources.Names.StateMachine_Description,
+        EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),
+         FactoryUrl: "/api/statemachine/factory", GetUrl: "/api/statemachine/{id}", GetListUrl: "/api/statemachines", SaveUrl: "/api/statemachine", DeleteUrl: "/api/statemachine/{id}")]
     public class StateMachine : NodeBase, IValidateable, INoSQLEntity
     {        
         public String DatabaseName { get; set; }

@@ -11,7 +11,8 @@ using System.Text;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.BusinessRule_Title, Resources.DeviceLibraryResources.Names.BusinessRule_Help,
-        Resources.DeviceLibraryResources.Names.BusinessRule_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+        Resources.DeviceLibraryResources.Names.BusinessRule_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),
+        FactoryUrl: "/api/deviceadmin/factory/devicebusinessrule")]
     public class BusinessRule : IFormDescriptor
     {
         public BusinessRule()

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using LagoVista.Core.Models.UIMetaData;
+using LagoVista.Core;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -24,11 +25,17 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         None*/
     }
 
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Parameter_Title, DeviceLibraryResources.Names.Parameter_Help, DeviceLibraryResources.Names.InputCommandParamter_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Parameter_Title, DeviceLibraryResources.Names.Parameter_Help, DeviceLibraryResources.Names.InputCommandParamter_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, 
+        typeof(DeviceLibraryResources))]
     public class Parameter : IFormDescriptor, IFormConditionalFields
     {
         public const string ParameterLocation_QueryString = "querystring";
         public const string ParameterLocation_JSON = "json";
+
+        public Parameter()
+        {
+            Id = Guid.NewGuid().ToId();
+        }
 
         public string Id { get; set; }
 

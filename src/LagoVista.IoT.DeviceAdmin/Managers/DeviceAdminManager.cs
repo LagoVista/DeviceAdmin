@@ -34,9 +34,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             _eventSetRepo = eventSetRepo;
         }
 
-        public bool IsForInitialization { get; set; } = false;
-
-
+    
         public async Task<InvokeResult> AddStateMachineAsync(StateMachine stateMachine, EntityHeader org, EntityHeader user)
         {
             await AuthorizeAsync(stateMachine, AuthorizeResult.AuthorizeActions.Create, user, org);

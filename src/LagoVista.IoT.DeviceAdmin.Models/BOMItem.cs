@@ -8,7 +8,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceBOMItem_Title,
         DeviceLibraryResources.Names.DeviceBOMItem_Help, DeviceLibraryResources.Names.DeviceBOMItem_Description,
-                  EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources))]
+        EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+        FactoryUrl: "/api/devicetype/bomitem/factory")]
     public class BOMItem
     {
         public BOMItem()

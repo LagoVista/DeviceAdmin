@@ -9,7 +9,8 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.ActionParameter_Title, DeviceLibraryResources.Names.ActionParameter_Description, DeviceLibraryResources.Names.ActionParameter_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.ActionParameter_Title, DeviceLibraryResources.Names.ActionParameter_Description, DeviceLibraryResources.Names.ActionParameter_Help,
+        EntityDescriptionAttribute.EntityTypes.SimpleModel,  typeof(DeviceLibraryResources), FactoryUrl: "/api/deviceadmin/factory/actionparameter/{id}")]
     public class ActionParameter : INamedEntity, IKeyedEntity, IFormDescriptor
     {
         [JsonProperty("id")]

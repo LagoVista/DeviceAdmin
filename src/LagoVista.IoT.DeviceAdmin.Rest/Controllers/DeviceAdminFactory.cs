@@ -81,6 +81,18 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         }
 
         /// <summary>
+        /// Parameter - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/api/deviceadmin/factory/parameter")]
+        public DetailResponse<Parameter> CreateParameter()
+        {
+            var response = DetailResponse<Parameter>.Create();
+            return response;
+        }
+
+
+        /// <summary>
         /// Input Command Parameter - Create New
         /// </summary>
         /// <returns></returns>
@@ -88,7 +100,6 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         public DetailResponse<Parameter> CreateInputCommandParameter()
         {
             var response = DetailResponse<Parameter>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }
 
@@ -100,7 +111,6 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         public DetailResponse<Parameter> CreateOutputCommandParameter()
         {
             var response = DetailResponse<Parameter>.Create();
-            response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }
 

@@ -1187,7 +1187,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>The Device Type is used to uniquely identiy a type of device such as a XYZ Core - Motion Detector Series One.</value>
   </data>
   <data name="DeviceType_Title" xml:space="preserve">
-    <value>Device Type</value>
+    <value>Device Model</value>
   </data>
   <data name="DeviceType_DefaultConfiguration" xml:space="preserve">
     <value>Default Device Configuration</value>

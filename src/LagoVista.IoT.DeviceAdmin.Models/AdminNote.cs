@@ -7,7 +7,8 @@ using System;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.AdminNote_Title, DeviceLibraryResources.Names.AdminNote_Description, DeviceLibraryResources.Names.AdminNote_Help, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.AdminNote_Title, DeviceLibraryResources.Names.AdminNote_Description, DeviceLibraryResources.Names.AdminNote_Help, 
+        EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources), FactoryUrl: "/api/deviceadmin/factory/adminnote")]
     public class AdminNote
     {
         [JsonProperty("id")]
