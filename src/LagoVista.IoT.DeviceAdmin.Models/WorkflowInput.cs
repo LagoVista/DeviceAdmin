@@ -25,10 +25,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript, WaterMark: Resources.DeviceLibraryResources.Names.WorkflowInput_Script_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_SetScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public String OnSetScript { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units, WaterMark: Resources.DeviceLibraryResources.Names.WorkflowInput_UnitSet_Watermark, FieldType: FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units, WaterMark: Resources.DeviceLibraryResources.Names.WorkflowInput_UnitSet_Watermark, EntityHeaderPickerUrl: "/api/deviceadmin/unitsets",
+            FieldType: FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_Units_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<UnitSet> UnitSet { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States, WaterMark: Resources.DeviceLibraryResources.Names.WorkflowInput_StateSet_Watermark, FieldType: FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States, WaterMark: Resources.DeviceLibraryResources.Names.WorkflowInput_StateSet_Watermark, EntityHeaderPickerUrl: "/api/statemachine/statesets",
+            FieldType: FieldTypes.EntityHeaderPicker, HelpResource: Resources.DeviceLibraryResources.Names.WorkflowInput_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
 
         public override string NodeType => NodeType_Input;

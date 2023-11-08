@@ -25,8 +25,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         None*/
     }
 
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Parameter_Title, DeviceLibraryResources.Names.Parameter_Help, DeviceLibraryResources.Names.InputCommandParamter_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, 
-        typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Parameter_Title, DeviceLibraryResources.Names.Parameter_Help, 
+        DeviceLibraryResources.Names.InputCommandParamter_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, 
+        typeof(DeviceLibraryResources), FactoryUrl: "/api/deviceadmin/factory/parameter")]
     public class Parameter : IFormDescriptor, IFormConditionalFields
     {
         public const string ParameterLocation_QueryString = "querystring";
@@ -66,10 +67,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public String Description { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet, FieldType: FieldTypes.EntityHeaderPicker, EntityHeaderPickerUrl: "/api/deviceadmin/unitsets",
+            WaterMark: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_UnitSet_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<UnitSet> UnitSet { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, WaterMark: Resources.DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Attribute_States, FieldType: FieldTypes.EntityHeaderPicker, EntityHeaderPickerUrl: "/api/statemachine/statesets",
+            WaterMark: Resources.DeviceLibraryResources.Names.Atttribute_StateSet_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.Attribute_States_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<StateSet> StateSet { get; set; }
 
         public FormConditionals GetConditionalFields()
@@ -95,13 +98,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     {
                          Field = nameof(ParameterType),
                          Value = TypeSystem.State,
-                         VisibleFields = { nameof(StateSet) },
+                         VisibleFields = { nameof(StateSet)},
+                         RequiredFields = {nameof(StateSet)}
                     },
                     new FormConditional()
                     {
                          Field = nameof(ParameterType),
                          Value = TypeSystem.ValueWithUnit,
-                         VisibleFields = { nameof(UnitSet) },
+                         VisibleFields = { nameof(UnitSet)},
+                         RequiredFields = {nameof(UnitSet)}
                     }
                 }
 
@@ -112,17 +117,17 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         {
             return new List<string>()
             {
-                nameof(Parameter.Name),
-                nameof(Parameter.ParameterType),
-                nameof(Parameter.Key),
-                nameof(Parameter.IsRequired),
-                nameof(Parameter.MinValue),
-                nameof(Parameter.MaxValue),
-                nameof(Parameter.DefaultValue),
-                nameof(Parameter.ParameterLocation),
-                nameof(Parameter.UnitSet),
-                nameof(Parameter.StateSet),
-                nameof(Parameter.Description),
+                nameof(Name),
+                nameof(ParameterType),
+                nameof(Key),
+                nameof(IsRequired),
+                nameof(MinValue),
+                nameof(MaxValue),
+                nameof(DefaultValue),
+                nameof(ParameterLocation),
+                nameof(UnitSet),
+                nameof(StateSet),
+                nameof(Description),
             };
         }
 

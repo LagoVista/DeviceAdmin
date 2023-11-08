@@ -1,4 +1,5 @@
-﻿using LagoVista.IoT.DeviceAdmin.Models;
+﻿using LagoVista.Core.Models.UIMetaData;
+using LagoVista.IoT.DeviceAdmin.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
     {
         Task AddDeviceWorkflowAsync(DeviceWorkflow workflow);
         Task<DeviceWorkflow> GetDeviceWorkflowAsync(string id);
-        Task<IEnumerable<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync(string orgId);
+        Task<ListResponse<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync(string orgId, ListRequest listRequest);
         Task UpdateDeviceWorkflowAsync(DeviceWorkflow workflow);
         Task<bool> QueryKeyInUseAsync(string key, string orgId);
         Task DeleteDeviceWorkflowAsync(string id);

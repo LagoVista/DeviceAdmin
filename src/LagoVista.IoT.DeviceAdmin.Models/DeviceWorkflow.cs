@@ -72,11 +72,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Timer, ResourceType: typeof(DeviceLibraryResources))]
         public List<Timer> Timers { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages, HelpResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages,
+            HelpResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
         public List<Page> Pages { get; set; }
 
-
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules, HelpResource:Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildListInline)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules, HelpResource:Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules_Help,
+            FactoryUrl: "/api/deviceadmin/factory/devicebusinessrule", ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildListInline)]
         public List<BusinessRule> BusinessRules { get; set; }
 
         public EntityHeader ToEntityHeader()
@@ -111,7 +112,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         {
             if (Timers == null) Timers = new List<Timer>();
 
-
             if (Inputs.Select(param => param.Key).Distinct().Count() != Inputs.Count()) result.AddUserError("Duplicate Keys found on Inputs.");
             if (Attributes.Select(param => param.Key).Distinct().Count() != Attributes.Count()) result.AddUserError("Duplicate Keys found on Attributes.");
             if (InputCommands.Select(param => param.Key).Distinct().Count() != InputCommands.Count()) result.AddUserError("Duplicate Keys found on Input Commands.");
@@ -143,9 +143,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help,
-     Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),
+     Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.Summary, typeof(DeviceLibraryResources),
      GetUrl: "/api/deviceadmin/deviceworkflow/{id}", GetListUrl: "/api/deviceadmin/deviceworkflows", SaveUrl: "/api/deviceadmin/deviceworkflow", DeleteUrl: "/api/deviceadmin/deviceworkflows/{id}", FactoryUrl: "/api/deviceadmin/factory/deviceworkflow")]
-    public class DeviceWorkflowSummary : SummaryData, ISummaryData
+    public class DeviceWorkflowSummary : SummaryData
     {
 
     }

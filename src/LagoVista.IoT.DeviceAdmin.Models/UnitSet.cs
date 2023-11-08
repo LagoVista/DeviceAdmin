@@ -38,18 +38,18 @@ namespace LagoVista.IoT.DeviceAdmin.Models
            return Units.FirstOrDefault(def => def.IsDefault);
         }
 
-
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_Units, FactoryUrl: "/api/deviceadmin/factory/unit", FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
         public List<Unit> Units { get; set; }
 
-        public UnitSetSummary CreateUnitSetSummary()
+        public UnitSetSummary CreateSummary()
         {
             return new UnitSetSummary()
             {
                 Id = Id,
                 IsPublic = IsPublic,
                 Key = Key,
-                Name = Name
+                Name = Name,
+                Description = Description
             };
         }
 
@@ -123,16 +123,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.UnitSet_Title, Resources.DeviceLibraryResources.Names.UnitSet_Help, Resources.DeviceLibraryResources.Names.UnitSet_Description,
-    EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+    EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources),
     SaveUrl: "/api/deviceadmin/unitset", GetUrl: "/api/deviceadmin/unitset/{id}", GetListUrl: "/api/deviceadmin/unitsets", FactoryUrl: "/api/deviceadmin/factory/unitset", DeleteUrl: "/api/deviceadmin/unitset/{id}")]
-    public class UnitSetSummary : IIDEntity, IKeyedEntity, INamedEntity
+    public class UnitSetSummary : SummaryData
     {
-        public string Id { get; set; }
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources))]
-        public String Name { get; set; }
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResources: Resources.DeviceLibraryResources.Names.Common_Key_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public String Key { get; set; }
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, ResourceType: typeof(DeviceLibraryResources))]
-        public bool IsPublic { get; set; }
     }
 }

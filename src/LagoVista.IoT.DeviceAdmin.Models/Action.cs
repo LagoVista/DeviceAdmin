@@ -29,7 +29,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public bool ExecuteFromStateMachine { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameters, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameters, FieldType: FieldTypes.ChildListInline, FactoryUrl: "/api/deviceadmin/factory/actionparameter",
+            ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
         public List<ActionParameter> Parameters { get; set; }
 
         public override string NodeType => NodeType_Attribute;

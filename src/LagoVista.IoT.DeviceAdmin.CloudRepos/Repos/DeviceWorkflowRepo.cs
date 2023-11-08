@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 using LagoVista.IoT.Logging.Loggers;
 using LagoVista.CloudStorage;
+using LagoVista.Core.Models.UIMetaData;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
@@ -43,12 +44,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return GetDocumentAsync(id);
         }
 
-        public async Task<IEnumerable<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync(string orgId)
+        public async Task<ListResponse<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync(string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId);
-
-            return from item in items
-                   select item.CreateSummary();
+            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
+            return items.Create(items.Model.Select(itm => itm.CreateSummary()));
         }
 
         public async Task<bool> QueryKeyInUseAsync(string key, string orgId)

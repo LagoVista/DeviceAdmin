@@ -70,10 +70,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 		public EntityHeader<ParameterTypes> FieldType { get; set; }
 
-		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_UnitSet, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources), WaterMark: Resources.DeviceLibraryResources.Names.CustomField_UnitSet_Select)]
+		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_UnitSet, FieldType: FieldTypes.EntityHeaderPicker, EntityHeaderPickerUrl: "/api/deviceadmin/unitsets",
+			ResourceType: typeof(DeviceLibraryResources), WaterMark: Resources.DeviceLibraryResources.Names.CustomField_UnitSet_Select)]
 		public EntityHeader<UnitSet> UnitSet { get; set; }
 
-		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_StateSet, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources), WaterMark: Resources.DeviceLibraryResources.Names.CustomField_StateSet_Select)]
+		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_StateSet, FieldType: FieldTypes.EntityHeaderPicker, EntityHeaderPickerUrl: "/api/statemachine/statesets",
+			ResourceType: typeof(DeviceLibraryResources), WaterMark: Resources.DeviceLibraryResources.Names.CustomField_StateSet_Select)]
 		public EntityHeader<StateSet> StateSet { get; set; }
 
 		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, IsRequired: true, ValidationRegEx: Constants.KeyRegEx, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]

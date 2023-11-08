@@ -10,7 +10,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
     public class Timer : NodeBase, IValidateable, IFormDescriptor
     {
-
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Timer_Days, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
         public int Days { get; set; }
 

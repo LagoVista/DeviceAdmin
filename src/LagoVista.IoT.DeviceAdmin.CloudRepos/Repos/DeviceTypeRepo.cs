@@ -41,14 +41,14 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
         public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForDeviceConfigOrgAsync(string deviceConfigId, string orgId, ListRequest listRequest)
         {
             var items = await base.QueryAsync(qry => (qry.IsPublic == true || qry.OwnerOrganization.Id == orgId) 
-            && (qry.DefaultDeviceConfiguration != null && qry.DefaultDeviceConfiguration.Id == deviceConfigId), listRequest);
-            return items.Create(items.Model.Select(mod => mod.CreateSummary()).OrderBy(mod => mod.Name));
+            && (qry.DefaultDeviceConfiguration != null && qry.DefaultDeviceConfiguration.Id == deviceConfigId), qry=>qry.Name, listRequest);
+            return items.Create(items.Model.Select(mod => mod.CreateSummary()));
         }
 
         public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForOrgAsync(string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, listRequest);
-            return items.Create(items.Model.Select(mod => mod.CreateSummary()).OrderBy(mod=>mod.Name));
+            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
+            return items.Create(items.Model.Select(mod => mod.CreateSummary()));
         }
 
         public async Task<bool> QueryKeyInUseAsync(string key, string orgId)

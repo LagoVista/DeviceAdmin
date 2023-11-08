@@ -34,7 +34,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String LockedDateStamp { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateSet_States, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateSet_States, FactoryUrl: "/api/statemachine/factory/state", FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
         public List<State> States { get; set; }
 
 
@@ -139,9 +139,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.StateSet_Title, Resources.DeviceLibraryResources.Names.StateSet_Help,
-      Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+      Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources),
       DeleteUrl: "/api/statemachine/stateset/{id}", SaveUrl: "/api/statemachine/stateset", GetListUrl: "/api/statemachine/statesets", GetUrl: "/api/statemachine/stateset/{id}", FactoryUrl: "/api/statemachine/factory/stateset")]
-    public class StateSetSummary : SummaryData, ISummaryData
+    public class StateSetSummary : SummaryData
     {
     }
 }

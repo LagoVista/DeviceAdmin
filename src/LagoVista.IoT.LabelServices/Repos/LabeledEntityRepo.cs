@@ -30,7 +30,7 @@ namespace LagoVista.IoT.LabelServices.Repos
             var query = $"select value c from c join l in c.Labels where l.Id = @labelId";
             var result = await QueryAsync(query, parameters.ToArray());  
 
-            // The label will e in the label set for the org.
+            // The label will be in the label set for the org.
             var taskSummaries = ListResponse<LabeledEntity>.Create(result.Where(res=>res.EntityType != "LabelSet"));
             return taskSummaries;     
         }

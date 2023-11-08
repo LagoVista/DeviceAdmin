@@ -1,5 +1,6 @@
 ﻿using LagoVista.CloudStorage;
 using LagoVista.CloudStorage.DocumentDB;
+using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.PlatformSupport;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 using LagoVista.IoT.DeviceAdmin.Models;
@@ -43,12 +44,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return items.Any();
         }
 
-        public async Task<IEnumerable<EventSetSummary>> GetEventSetsForOrgAsync(string orgId)
+        public async Task<ListResponse<EventSetSummary>> GetEventSetsForOrgAsync(string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId);
-
-            return from item in items
-                   select item.CreateEventSetSummary();
+            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, itm=>itm.Name, listRequest);
+            return items.Create(items.Model.Select(itm => itm.CreateEventSetSummary()));
         }
 
         public Task DeleteEventSetAsync(string eventSetId)

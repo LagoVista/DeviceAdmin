@@ -87,8 +87,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         [HttpGet("/api/deviceadmin/factory/parameter")]
         public DetailResponse<Parameter> CreateParameter()
         {
-            var response = DetailResponse<Parameter>.Create();
-            return response;
+            return DetailResponse<Parameter>.Create();
         }
 
 
@@ -154,8 +153,8 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         ///  Action Parameter- Create New
         /// </summary>
         /// <returns></returns>
-        [HttpGet("/api/deviceadmin/factory/actionparameter/{id}")]
-        public DetailResponse<ActionParameter> CreateActionParameter(String id)
+        [HttpGet("/api/deviceadmin/factory/actionparameter")]
+        public DetailResponse<ActionParameter> CreateActionParameter()
         {
             var response = DetailResponse<ActionParameter>.Create();
             response.Model.Id = Guid.NewGuid().ToId();

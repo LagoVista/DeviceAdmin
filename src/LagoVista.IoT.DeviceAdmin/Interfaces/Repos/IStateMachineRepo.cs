@@ -1,4 +1,5 @@
-﻿using LagoVista.IoT.DeviceAdmin.Models;
+﻿using LagoVista.Core.Models.UIMetaData;
+using LagoVista.IoT.DeviceAdmin.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
     {
         Task AddStateMachineAsync(StateMachine sharedAction);
         Task<StateMachine> GetStateMachineAsync(string id);
-        Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(string orgId);
+        Task<ListResponse<StateMachineSummary>> GetStateMachinesForOrgAsync(string orgId, ListRequest listRequest);
         Task<bool> QueryKeyInUseAsync(string key, string orgId);
         Task UpdateStateMachineAsync(StateMachine sharedAttribute);
         Task DeleteStateMachineAsync(string stateMachineId);

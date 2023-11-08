@@ -34,17 +34,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public string ModelNumber { get; set; }
 
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration, HelpResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Help, IsRequired:true,
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration,
+            HelpResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Help, IsRequired:true, EntityHeaderPickerUrl: "/api/deviceconfigs",
             WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader DefaultDeviceConfiguration { get; set; }
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_BillOfMaterial, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_BillOfMaterial, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, 
+            FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<SectionGrouping<BOMItem>> BillOfMaterial { get; set; }
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Resources, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Resources, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, 
+            FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<EntityHeader> Resources { get; set; }
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_AssociatedTools, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_AssociatedTools, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, 
+            FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<EquipmentSummary> AssociatedEquipment { get; set; }
 
 
@@ -95,7 +99,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceType_Title, DeviceLibraryResources.Names.DeviceType_Help,
-      DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+      DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources),
       SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}")]
     public class DeviceTypeSummary : SummaryData
     {

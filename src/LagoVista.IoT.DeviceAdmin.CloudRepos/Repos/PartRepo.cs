@@ -51,10 +51,8 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 
         public async Task<ListResponse<PartSummary>> GetPartsForOrgAsync(string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId);
-
-            return ListResponse<PartSummary>.Create(from item in items
-                                                 select item.CreatePartSummary());
+            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
+            return ListResponse<PartSummary>.Create(items.Model.Select(itm => itm.CreatePartSummary()));
         }
 
         public Task UpdatePartAsync(Part part)

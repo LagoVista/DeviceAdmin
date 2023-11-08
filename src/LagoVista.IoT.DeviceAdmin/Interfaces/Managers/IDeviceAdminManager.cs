@@ -1,4 +1,5 @@
 ﻿using LagoVista.Core.Models;
+using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models;
 using System;
@@ -15,11 +16,11 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
         Task<InvokeResult> AddStateSetAsync(StateSet stateSet, EntityHeader org, EntityHeader user);
         Task<InvokeResult> AddEventSetAsync(EventSet eventSet, EntityHeader org, EntityHeader user);
 
-        Task<IEnumerable<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgsAsync(string orgId, EntityHeader user);
-        Task<IEnumerable<StateMachineSummary>> GetStateMachinesForOrgAsync(string orgId, EntityHeader user);
-        Task<IEnumerable<UnitSetSummary>> GetUnitSetsForOrgAsync(string orgId, EntityHeader user);
-        Task<IEnumerable<StateSetSummary>> GetStateSetsForOrgAsync(string orgId, EntityHeader user);
-        Task<IEnumerable<EventSetSummary>> GetEventSetsForOrgAsync(string orgId, EntityHeader user);
+        Task<ListResponse<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgsAsync(string orgId, EntityHeader user, ListRequest listRequest);
+        Task<ListResponse<StateMachineSummary>> GetStateMachinesForOrgAsync(string orgId, EntityHeader user, ListRequest listRequest);
+        Task<ListResponse<UnitSetSummary>> GetUnitSetsForOrgAsync(string orgId, EntityHeader user, ListRequest listRequest);
+        Task<ListResponse<StateSetSummary>> GetStateSetsForOrgAsync(string orgId, EntityHeader user, ListRequest listRequest);
+        Task<ListResponse<EventSetSummary>> GetEventSetsForOrgAsync(string orgId, EntityHeader user, ListRequest listRequest);
 
         Task<bool> QueryAttributeUnitSetKeyInUseAsync(string key, string orgId);
         Task<bool> QueryStateMachineKeyInUseAsync(string key, string orgId);

@@ -5,7 +5,9 @@ using LagoVista.IoT.DeviceAdmin.Models.Resources;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.StateTransition_Title, Resources.DeviceLibraryResources.Names.StateTransition_UserHelp, Resources.DeviceLibraryResources.Names.StateTransition_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources))]
+    [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.StateTransition_Title, 
+        Resources.DeviceLibraryResources.Names.StateTransition_UserHelp, Resources.DeviceLibraryResources.Names.StateTransition_Description,
+        EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources), FactoryUrl: "/api/statemachine/factory/transition")]
     public class StateTransition
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Event, HelpResource: DeviceLibraryResources.Names.StateMachine_Transition_EventHelp, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]

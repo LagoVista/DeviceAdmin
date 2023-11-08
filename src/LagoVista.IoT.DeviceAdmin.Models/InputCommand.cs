@@ -32,7 +32,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             RestDelete,
         }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Parameter_Help, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Parameter_Help, 
+           FactoryUrl: "/api/deviceadmin/factory/parameter", FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<Parameter> Parameters { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Script, HelpResource: Resources.DeviceLibraryResources.Names.InputCommand_Script_Help, 
