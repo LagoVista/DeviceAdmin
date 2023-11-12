@@ -1,6 +1,7 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
+using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using System;
@@ -8,14 +9,14 @@ using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Unit_Title, Resources.DeviceLibraryResources.Names.Unit_Help, DeviceLibraryResources.Names.Unit_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, 
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Unit_Title, Resources.DeviceLibraryResources.Names.Unit_Help, DeviceLibraryResources.Names.Unit_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel,
         typeof(DeviceLibraryResources), FactoryUrl: "/api/deviceadmin/factory/unit")]
-    public class Unit : IKeyedEntity, INamedEntity, IValidateable, IFormDescriptor
+    public class Unit : IKeyedEntity, INamedEntity, IValidateable, IFormDescriptor, IFormDescriptorCol2, IFormConditionalFields
     {
         public Unit()
         {
-            IsDefault = true;
         }
+
         public enum ConversionTypes
         {
             [EnumLabel(Unit.ConversionTypes_Factor, DeviceLibraryResources.Names.Unit_Conversion_Type_Factor, typeof(DeviceLibraryResources), DeviceLibraryResources.Names.Unit_Conversion_Type_Factor_Help)]
@@ -45,16 +46,19 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public int NumberDecimalPoints { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type, EnumType: typeof(ConversionTypes), HelpResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type, EnumType: typeof(ConversionTypes), WaterMark:Resources.DeviceLibraryResources.Names.Unit_SelectConversionType_Watermark,
+            HelpResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type_Help, FieldType: FieldTypes.Picker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<ConversionTypes> ConversionType { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type_Factor, FieldType: FieldTypes.Decimal, HelpResource: Resources.DeviceLibraryResources.Names.Unit_Conversion_Type_Factor_Help, ResourceType: typeof(DeviceLibraryResources))]
         public double? ConversionFactor { get; set; }
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionTo_Script, WaterMark: Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionTo_Script_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionTo_Script, WaterMark: Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark,
+            ScriptTemplateName: "unitConversionToScript", FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionTo_Script_Help, ResourceType: typeof(DeviceLibraryResources))]
         public String ConversionToScript { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionFrom_Script, WaterMark: Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionFrom_Script_Help, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_ConversionFrom_Script, WaterMark: Resources.DeviceLibraryResources.Names.Unit_Conversion_EditScriptWatermark, 
+            ScriptTemplateName: "unitConversionFromScript", FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_ConversionFrom_Script_Help, ResourceType: typeof(DeviceLibraryResources))]
         public String ConversionFromScript { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Unit_DisplayFormat, FieldType: FieldTypes.NodeScript, HelpResource: Resources.DeviceLibraryResources.Names.Unit_DisplayFormat_Help, ResourceType: typeof(DeviceLibraryResources))]
@@ -70,15 +74,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(Unit.Name),
                 nameof(Unit.Key),
                 nameof(Unit.Description),
-                nameof(Unit.Abbreviation),
-                nameof(Unit.Key),
-                nameof(Unit.NumberDecimalPoints),
+             };
+        }
+
+
+        public List<string> GetFormFieldsCol2()
+        {
+            return new List<string>() {
                 nameof(Unit.IsDefault),
+                nameof(Unit.Abbreviation),
+                nameof(Unit.NumberDecimalPoints),
                 nameof(Unit.ConversionType),
                 nameof(Unit.ConversionFactor),
                 nameof(Unit.ConversionToScript),
                 nameof(Unit.ConversionFromScript)
-            };
+             };
         }
 
         public Unit Clone()
@@ -136,6 +146,39 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 }
             }
         }
+
+        public FormConditionals GetConditionalFields()
+        {
+            return new FormConditionals()
+            {
+                ConditionalFields = new List<string> { nameof(ConversionType), nameof(ConversionFromScript), nameof(ConversionToScript), nameof(ConversionFactor) },
+                Conditionals = new List<FormConditional>()
+                {
+                    new FormConditional()
+                    {
+                        Field = nameof(IsDefault),
+                        Value = "false",
+                        RequiredFields = new List<string>() {nameof(ConversionType)},
+                        VisibleFields = new List<string>() {nameof(ConversionType)}
+                    },
+                    new FormConditional()
+                    {
+                        Field = nameof(ConversionType),
+                        Value = ConversionTypes_Factor,
+                        RequiredFields = new List<string> {nameof(ConversionFactor)},
+                        VisibleFields = new List<string> {nameof(ConversionFactor)}
+                    },
+                    new FormConditional()
+                    {
+                        Field = nameof(ConversionType),
+                        Value = ConversionTypes_Script,
+                        VisibleFields = new List<string>() {nameof(ConversionToScript), nameof(ConversionFromScript)},
+                        RequiredFields = new List<string>() {nameof(ConversionToScript), nameof(ConversionFromScript)}
+                    }
+                }
+            };
+        }
+
     }
 
 }

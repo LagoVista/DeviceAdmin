@@ -1049,7 +1049,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>-select units for input-</value>
   </data>
   <data name="Unit_Conversion_EditScriptWatermark" xml:space="preserve">
-    <value>Edit Conversion Script</value>
+    <value>Add Conversion Script</value>
   </data>
   <data name="Common_ValidationErrors" xml:space="preserve">
     <value>Validation Errors</value>
@@ -1539,5 +1539,20 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="OutputCommand_Script_WaterMark" xml:space="preserve">
     <value>On Execute Script</value>
+  </data>
+  <data name="State_ErrorCode" xml:space="preserve">
+    <value>Error Code</value>
+  </data>
+  <data name="State_ErrorCode_Help" xml:space="preserve">
+    <value>Device or State Machine will generate an Error Code to be handled when transitioned into this state.</value>
+  </data>
+  <data name="State_ErrorCode_Select" xml:space="preserve">
+    <value>-select error code-</value>
+  </data>
+  <data name="State_TransitionInAction_Watermark" xml:space="preserve">
+    <value>Add Transition In Action Script</value>
+  </data>
+  <data name="Unit_SelectConversionType_Watermark" xml:space="preserve">
+    <value>-select conversion type-</value>
   </data>
 </root>

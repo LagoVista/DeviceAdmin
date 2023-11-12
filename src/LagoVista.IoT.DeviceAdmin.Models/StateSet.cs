@@ -48,6 +48,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Id = Id,
                 IsPublic = IsPublic,
                 Key = Key,
+                IsLocked = IsLocked,
                 Name = Name,
                 Description = Description
             };
@@ -143,5 +144,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
       DeleteUrl: "/api/statemachine/stateset/{id}", SaveUrl: "/api/statemachine/stateset", GetListUrl: "/api/statemachine/statesets", GetUrl: "/api/statemachine/stateset/{id}", FactoryUrl: "/api/statemachine/factory/stateset")]
     public class StateSetSummary : SummaryData
     {
+        public bool IsLocked {get; set;}
     }
 }

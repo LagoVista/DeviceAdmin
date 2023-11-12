@@ -49,6 +49,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 IsPublic = IsPublic,
                 Key = Key,
                 Name = Name,
+                IsLocked = IsLocked,
                 Description = Description
             };
         }
@@ -127,5 +128,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     SaveUrl: "/api/deviceadmin/unitset", GetUrl: "/api/deviceadmin/unitset/{id}", GetListUrl: "/api/deviceadmin/unitsets", FactoryUrl: "/api/deviceadmin/factory/unitset", DeleteUrl: "/api/deviceadmin/unitset/{id}")]
     public class UnitSetSummary : SummaryData
     {
+        public bool IsLocked { get; set; }
     }
 }

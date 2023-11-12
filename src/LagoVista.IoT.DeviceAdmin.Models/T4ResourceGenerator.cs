@@ -1,4 +1,4 @@
-﻿/*8/12/2023 10:27:26 AM*/
+﻿/*11/12/2023 9:15:33 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -1067,6 +1067,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:State_Description
 
 		public static string State_Description { get { return GetResourceString("State_Description"); } }
+//Resources:DeviceLibraryResources:State_ErrorCode
+
+		public static string State_ErrorCode { get { return GetResourceString("State_ErrorCode"); } }
+//Resources:DeviceLibraryResources:State_ErrorCode_Help
+
+		public static string State_ErrorCode_Help { get { return GetResourceString("State_ErrorCode_Help"); } }
+//Resources:DeviceLibraryResources:State_ErrorCode_Select
+
+		public static string State_ErrorCode_Select { get { return GetResourceString("State_ErrorCode_Select"); } }
 //Resources:DeviceLibraryResources:State_IsAlarmState
 
 		public static string State_IsAlarmState { get { return GetResourceString("State_IsAlarmState"); } }
@@ -1076,6 +1085,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:State_Title
 
 		public static string State_Title { get { return GetResourceString("State_Title"); } }
+//Resources:DeviceLibraryResources:State_TransitionInAction_Watermark
+
+		public static string State_TransitionInAction_Watermark { get { return GetResourceString("State_TransitionInAction_Watermark"); } }
 //Resources:DeviceLibraryResources:State_UserHelp
 
 		public static string State_UserHelp { get { return GetResourceString("State_UserHelp"); } }
@@ -1373,6 +1385,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Unit_NumberDecimal_Help
 
 		public static string Unit_NumberDecimal_Help { get { return GetResourceString("Unit_NumberDecimal_Help"); } }
+//Resources:DeviceLibraryResources:Unit_SelectConversionType_Watermark
+
+		public static string Unit_SelectConversionType_Watermark { get { return GetResourceString("Unit_SelectConversionType_Watermark"); } }
 //Resources:DeviceLibraryResources:Unit_Title
 
 		public static string Unit_Title { get { return GetResourceString("Unit_Title"); } }
@@ -1819,9 +1834,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Part_SKU = "Part_SKU";
 			public const string Part_Title = "Part_Title";
 			public const string State_Description = "State_Description";
+			public const string State_ErrorCode = "State_ErrorCode";
+			public const string State_ErrorCode_Help = "State_ErrorCode_Help";
+			public const string State_ErrorCode_Select = "State_ErrorCode_Select";
 			public const string State_IsAlarmState = "State_IsAlarmState";
 			public const string State_IsAlarmState_Help = "State_IsAlarmState_Help";
 			public const string State_Title = "State_Title";
+			public const string State_TransitionInAction_Watermark = "State_TransitionInAction_Watermark";
 			public const string State_UserHelp = "State_UserHelp";
 			public const string StateMachine = "StateMachine";
 			public const string StateMachine_Description = "StateMachine_Description";
@@ -1921,6 +1940,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Unit_IsDefault_Help = "Unit_IsDefault_Help";
 			public const string Unit_NumberDecimal = "Unit_NumberDecimal";
 			public const string Unit_NumberDecimal_Help = "Unit_NumberDecimal_Help";
+			public const string Unit_SelectConversionType_Watermark = "Unit_SelectConversionType_Watermark";
 			public const string Unit_Title = "Unit_Title";
 			public const string UnitSet_DefaultUnit = "UnitSet_DefaultUnit";
 			public const string UnitSet_Description = "UnitSet_Description";

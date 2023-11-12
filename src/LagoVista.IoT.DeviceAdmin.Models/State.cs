@@ -1,5 +1,6 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
+using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using System;
@@ -18,7 +19,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Transitions = new ObservableCollection<StateTransition>();
         }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_TransitionInAction, HelpResource: DeviceLibraryResources.Names.StateMachine_State_TransitionInAction_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_TransitionInAction, HelpResource: DeviceLibraryResources.Names.StateMachine_State_TransitionInAction_Help,
+          ScriptTemplateName: "stateTransitionInAction",  WaterMark:DeviceLibraryResources.Names.State_TransitionInAction_Watermark, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public String TransitionInAction { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
@@ -27,7 +29,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Text, ValidationRegEx: "^[a-z0-9]{2,20}$", RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Key_RegEx, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Key { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Enum, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Enum_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Enum, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Enum_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
         public int? EnumValue { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_IsInitialState, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_State_IsInitialState_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
@@ -36,6 +38,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.State_IsAlarmState, HelpResource: Resources.DeviceLibraryResources.Names.State_IsAlarmState_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsAlarmState { get; set; }
+
+
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.State_ErrorCode, HelpResource: Resources.DeviceLibraryResources.Names.State_ErrorCode_Help, WaterMark:Resources.DeviceLibraryResources.Names.State_ErrorCode_Select,
+            EntityHeaderPickerUrl: "/api/errorcodes", FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader ErrorCode { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Transitions, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Transitions_Help, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
@@ -54,6 +61,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(State.Key),
                 nameof(State.IsInitialState),
                 nameof(State.IsAlarmState),
+                nameof(State.ErrorCode),
                 nameof(State.EnumValue),
                 nameof(State.Description),
                 nameof(State.TransitionInAction),
@@ -68,6 +76,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 EnumValue = EnumValue,
                 IsInitialState = IsInitialState,
                 IsAlarmState = IsAlarmState,
+                ErrorCode = ErrorCode,
                 Name = Name,
                 Key = Key,
                 TransitionInAction = TransitionInAction,
