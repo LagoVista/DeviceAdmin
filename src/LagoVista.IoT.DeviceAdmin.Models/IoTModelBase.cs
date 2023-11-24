@@ -33,6 +33,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public ObservableCollection<ErrorMessage> ValidationErrors { get; set; }
 
 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources))]
         public string Description { get; set; }
 
         public ObservableCollection<AdminNote> CloneNotes()
