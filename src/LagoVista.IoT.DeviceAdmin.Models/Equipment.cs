@@ -12,17 +12,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         DeviceLibraryResources.Names.Equipment_Help, DeviceLibraryResources.Names.Equipment_Description,
                   EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
         SaveUrl: "/api/equipment", GetListUrl: "/api/equipmentitems", GetUrl: "/api/equipment/{id}", FactoryUrl: "/api/equipment/factory", DeleteUrl: "/api/equipment/{id}")]
-    public class Equipment : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity, IOwnedEntity, IFormDescriptor
+    public class Equipment : IoTModelBase, IValidateable, IFormDescriptor
     {
         public Equipment()
         {
             Resources = new List<MediaServices.Models.MediaResourceSummary>();
         }
-
-        public String DatabaseName { get; set; }
-
-        public String EntityType { get; set; }
-
 
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Picture, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public List<MediaServices.Models.MediaResourceSummary> Resources { get; set; }

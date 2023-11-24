@@ -15,58 +15,17 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         DeviceLibraryResources.Names.Part_Help, DeviceLibraryResources.Names.Part_Description,
                   EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
             GetUrl:"/api/part/{id}", GetListUrl: "/api/parts", SaveUrl: "/api/part", DeleteUrl: "/api/part/{id}", FactoryUrl: "/api/part/factory")]
-    public class Part : ModelBase, IIDEntity, INamedEntity, IOwnedEntity, IValidateable, IAuditableEntity, INoSQLEntity
+    public class Part : EntityBase, IValidateable, IFormDescriptor, IDescriptionEntity
     {
         public Part()
         {
             Resources = new List<MediaResourceSummary>();
         }
 
-        public string DatabaseName { get; set; }
-        public string EntityType { get; set; }
 
-        [CloneOptions(false)]
-        [JsonProperty("id")]
-        [FormField(LabelResource: LagoVista.IoT.DeviceAdmin.Models.Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
-        public String Id { get; set; }
-
-        [CloneOptions(false)]
-        [FormField(LabelResource: LagoVista.IoT.DeviceAdmin.Models.Resources.DeviceLibraryResources.Names.Common_CreationDate, FieldType: FieldTypes.JsonDateTime, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
-        public String CreationDate { get; set; }
-
-        [CloneOptions(false)]
-        public EntityHeader CreatedBy { get; set; }
-
-        [CloneOptions(false)]
-        [FormField(LabelResource: LagoVista.IoT.DeviceAdmin.Models.Resources.DeviceLibraryResources.Names.Common_LastUpdated, FieldType: FieldTypes.JsonDateTime, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
-        public String LastUpdatedDate { get; set; }
-
-        [CloneOptions(false)]
-        public EntityHeader LastUpdatedBy { get; set; }
-
-        private String _name;
-        [CloneOptions(false)]
-        [FormField(LabelResource: LagoVista.IoT.DeviceAdmin.Models.Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
-        public String Name
-        {
-            get { return _name; }
-            set { Set(ref _name, value); }
-        }
-
-        private String _description;
         [CloneOptions(false)]
         [FormField(LabelResource: LagoVista.IoT.DeviceAdmin.Models.Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
-        public String Description
-        {
-            get { return _description; }
-            set { Set(ref _description, value); }
-        }
-
-        [FormField(LabelResource: LagoVista.IoT.DeviceAdmin.Models.Resources.DeviceLibraryResources.Names.Common_IsPublic, FieldType: FieldTypes.Bool, ResourceType: typeof(DeviceLibraryResources))]
-        public bool IsPublic { get; set; }
-        public EntityHeader OwnerOrganization { get; set; }
-        public EntityHeader OwnerUser { get; set; }
-
+        public String Description { get; set; }
 
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.Part_PartNumber, FieldType: FieldTypes.Text, IsRequired: true, ResourceType: typeof(DeviceLibraryResources))]
         public string PartNumber { get; set; }
@@ -78,7 +37,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.Part_Manufacturer, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string Manufacturer { get; set; }
 
-        [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.Common_Resources, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.Common_Resources, FieldType: FieldTypes.MediaResources, ResourceType: typeof(DeviceLibraryResources))]
         public List<MediaResourceSummary> Resources { get; set; }
 
         public PartSummary CreatePartSummary()
@@ -92,6 +51,20 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Name = Name,
                 PartNumber = PartNumber,
                 Sku = Sku
+            };
+        }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(Name),
+                nameof(Key),
+                nameof(Manufacturer),
+                nameof(Description),
+                nameof(PartNumber),
+                nameof(Sku),
+                nameof(Resources)
             };
         }
     }

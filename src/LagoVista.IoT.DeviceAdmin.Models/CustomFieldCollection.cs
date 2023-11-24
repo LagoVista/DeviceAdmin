@@ -14,7 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     /// </summary>
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.CustomFieldCollection_Title, Resources.DeviceLibraryResources.Names.CustomFieldCollection_Help, Resources.DeviceLibraryResources.Names.CustomFieldCollection_Description, 
         EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources), FactoryUrl: "/api/deviceadmin/factory/customfieldcollection")]
-    public class CustomFieldCollection : KeyOwnedDeviceAdminBase, IOwnedEntity, IFormDescriptor
+    public class CustomFieldCollection : IoTModelBase, IFormDescriptor
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomField_Label, FieldType: FieldTypes.ChildListInline, FactoryUrl: "/api/deviceadmin/factory/customfield", ResourceType: typeof(DeviceLibraryResources))]
         public List<CustomField> CustomFields { get; set; }

@@ -1181,10 +1181,10 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Wednesday</value>
   </data>
   <data name="DeviceType_Description" xml:space="preserve">
-    <value>The Device Type is used to uniquely identiy a type of device such as a XYZ Core - Motion Detector Series One.</value>
+    <value>The Device Model is used to uniquely identiy a type of device such as a XYZ Core - Motion Detector Series One.</value>
   </data>
   <data name="DeviceType_Help" xml:space="preserve">
-    <value>The Device Type is used to uniquely identiy a type of device such as a XYZ Core - Motion Detector Series One.</value>
+    <value>The Device Model is used to uniquely identiy a type of device such as a XYZ Core - Motion Detector Series One.</value>
   </data>
   <data name="DeviceType_Title" xml:space="preserve">
     <value>Device Model</value>
@@ -1554,5 +1554,8 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="Unit_SelectConversionType_Watermark" xml:space="preserve">
     <value>-select conversion type-</value>
+  </data>
+  <data name="DeviceType_Icon" xml:space="preserve">
+    <value>Device Model Icon</value>
   </data>
 </root>

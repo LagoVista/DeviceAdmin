@@ -5,11 +5,12 @@ using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    public class IoTModelBase : ModelBase, INamedEntity, IIDEntity, IAuditableEntity
+    public class IoTModelBase : EntityBase, IValidateable, IDescriptionEntity
     {
         public IoTModelBase()
         {
@@ -18,45 +19,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             IsValid = true;
         }
 
-        [CloneOptions(false)]
-        [JsonProperty("id")]
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
-        public String Id { get; set; }
-
-        [CloneOptions(false)]
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_CreationDate, FieldType: FieldTypes.JsonDateTime, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
-        public String CreationDate { get; set; }
-
-        [CloneOptions(false)]
-        //[FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_CreatedBy, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
-        public EntityHeader CreatedBy { get; set; }
-
-        [CloneOptions(false)]
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_LastUpdated, FieldType: FieldTypes.JsonDateTime, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
-        public String LastUpdatedDate { get; set; }
-
-        [CloneOptions(false)]
-        //[FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_LastUpdatedBy, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false)]
-        public EntityHeader LastUpdatedBy { get; set; }
-        
-        private String _name;
-        [CloneOptions(false)]
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
-        public String Name
-        {
-            get { return _name; }
-            set { Set(ref _name, value); }
-        }
-
-        private String _description;
-        [CloneOptions(false)]
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
-        public String Description
-        {
-            get { return _description; }
-            set { Set(ref _description, value); }
-        }
-
+       
         [CloneOptions(true)]
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Notes, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<AdminNote> Notes { get; set; }
@@ -68,6 +31,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [CloneOptions(false)]
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_ValidationErrors, FieldType: FieldTypes.ChildList, IsUserEditable: false, ResourceType:typeof(DeviceLibraryResources))]
         public ObservableCollection<ErrorMessage> ValidationErrors { get; set; }
+
+
+        public string Description { get; set; }
 
         public ObservableCollection<AdminNote> CloneNotes()
         {

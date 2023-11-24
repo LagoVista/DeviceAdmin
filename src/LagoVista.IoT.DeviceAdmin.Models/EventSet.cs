@@ -12,16 +12,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.EventSet_Title, Resources.DeviceLibraryResources.Names.EventSet_Help, Resources.DeviceLibraryResources.Names.EventSet_Description, 
         EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
         GetUrl: "/api/statemachine/eventset/{id}", GetListUrl: "/api/statemachine/eventsets", SaveUrl: "/api/statemachine/eventset", DeleteUrl: "/api/statemachine/eventset/{id}", FactoryUrl: "/api/statemachine/factory/eventset")]
-    public class EventSet : KeyOwnedDeviceAdminBase, IValidateable, INoSQLEntity
+    public class EventSet : IoTModelBase, IValidateable
     {
         public EventSet()
         {
             Events = new List<Event>();
         }
-
-        public String DatabaseName { get; set; }
-
-        public String EntityType { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.EventSet_IsLocked, HelpResource: DeviceLibraryResources.Names.EventSet_IsLocked_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]

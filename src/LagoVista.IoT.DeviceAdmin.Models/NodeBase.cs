@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
-    public abstract class NodeBase : KeyOwnedDeviceAdminBase
+    public abstract class NodeBase : IoTModelBase
     {
         public NodeBase()
         {
