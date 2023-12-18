@@ -1,13 +1,9 @@
 ﻿using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
-using System;
 using System.Linq;
-using System.Collections.Generic;
 using LagoVista.IoT.DeviceAdmin.Models;
 using System.Threading.Tasks;
-using LagoVista.Core.PlatformSupport;
 using LagoVista.CloudStorage.DocumentDB;
 using LagoVista.IoT.Logging.Loggers;
-using LagoVista.CloudStorage;
 using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.Interfaces;
 
@@ -39,17 +35,15 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return GetDocumentAsync(deviceTypeId);
         }
 
-        public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForDeviceConfigOrgAsync(string deviceConfigId, string orgId, ListRequest listRequest)
+        public Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForDeviceConfigOrgAsync(string deviceConfigId, string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => (qry.IsPublic == true || qry.OwnerOrganization.Id == orgId) 
+            return base.QuerySummaryAsync<DeviceTypeSummary, DeviceType>(qry => (qry.IsPublic == true || qry.OwnerOrganization.Id == orgId) 
             && (qry.DefaultDeviceConfiguration != null && qry.DefaultDeviceConfiguration.Id == deviceConfigId), qry=>qry.Name, listRequest);
-            return items.Create(items.Model.Select(mod => mod.CreateSummary()));
         }
 
-        public async Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForOrgAsync(string orgId, ListRequest listRequest)
+        public Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForOrgAsync(string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
-            return items.Create(items.Model.Select(mod => mod.CreateSummary()));
+            return base.QuerySummaryAsync<DeviceTypeSummary, DeviceType>(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
         }
 
         public async Task<bool> QueryKeyInUseAsync(string key, string orgId)

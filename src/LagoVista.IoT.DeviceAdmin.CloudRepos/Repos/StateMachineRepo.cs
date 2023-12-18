@@ -46,10 +46,9 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return items.Any();
         }
 
-        public async Task<ListResponse<StateMachineSummary>> GetStateMachinesForOrgAsync(string orgId, ListRequest listRequest)
+        public Task<ListResponse<StateMachineSummary>> GetStateMachinesForOrgAsync(string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
-            return items.Create(items.Model.Select(itm => itm.CreateSummary()));
+            return base.QuerySummaryAsync<StateMachineSummary, StateMachine>(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
         }
 
         public Task DeleteStateMachineAsync(string stateMachineId)

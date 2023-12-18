@@ -14,7 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help, 
         Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),
         GetUrl: "/api/deviceadmin/deviceworkflow/{id}", GetListUrl: "/api/deviceadmin/deviceworkflows", SaveUrl: "/api/deviceadmin/deviceworkflow", DeleteUrl: "/api/deviceadmin/deviceworkflows/{id}", FactoryUrl: "/api/deviceadmin/factory/deviceworkflow")]
-    public class DeviceWorkflow : IoTModelBase, IValidateable,  IPipelineModuleConfiguration, IFormDescriptor
+    public class DeviceWorkflow : IoTModelBase, IValidateable,  IPipelineModuleConfiguration, IFormDescriptor, ISummaryFactory
     {
         public DeviceWorkflow()
         {
@@ -71,14 +71,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             FactoryUrl: "/api/deviceadmin/factory/devicebusinessrule", ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildListInline)]
         public List<BusinessRule> BusinessRules { get; set; }
 
-        public EntityHeader ToEntityHeader()
-        {
-            return new EntityHeader()
-            {
-                Id = Id,
-                Text = Name,
-            };
-        }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachines, ResourceType: typeof(DeviceLibraryResources))]
         public List<StateMachine> StateMachines
@@ -130,6 +122,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(Description),
                 nameof(BusinessRules)
             };
+        }
+
+        Core.Interfaces.ISummaryData ISummaryFactory.CreateSummary()
+        {
+            return CreateSummary();
         }
     }
 

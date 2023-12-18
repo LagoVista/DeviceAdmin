@@ -15,7 +15,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         DeviceLibraryResources.Names.Part_Help, DeviceLibraryResources.Names.Part_Description,
                   EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
             GetUrl:"/api/part/{id}", GetListUrl: "/api/parts", SaveUrl: "/api/part", DeleteUrl: "/api/part/{id}", FactoryUrl: "/api/part/factory")]
-    public class Part : EntityBase, IValidateable, IFormDescriptor, IDescriptionEntity
+    public class Part : EntityBase, IValidateable, IFormDescriptor, IDescriptionEntity, ISummaryFactory
     {
         public Part()
         {
@@ -40,7 +40,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.Common_Resources, FieldType: FieldTypes.MediaResources, ResourceType: typeof(DeviceLibraryResources))]
         public List<MediaResourceSummary> Resources { get; set; }
 
-        public PartSummary CreatePartSummary()
+        public PartSummary CreateSummary()
         {
             return new PartSummary()
             {
@@ -66,6 +66,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(Sku),
                 nameof(Resources)
             };
+        }
+
+        Core.Interfaces.ISummaryData ISummaryFactory.CreateSummary()
+        {
+            return CreateSummary();
         }
     }
 

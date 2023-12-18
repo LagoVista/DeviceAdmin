@@ -12,7 +12,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.StateMachine_Title, Resources.DeviceLibraryResources.Names.StateMachine_UserHelp, Resources.DeviceLibraryResources.Names.StateMachine_Description,
         EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),
          FactoryUrl: "/api/statemachine/factory", GetUrl: "/api/statemachine/{id}", GetListUrl: "/api/statemachines", SaveUrl: "/api/statemachine", DeleteUrl: "/api/statemachine/{id}")]
-    public class StateMachine : NodeBase, IValidateable
+    public class StateMachine : NodeBase, IValidateable, ISummaryFactory
     {        
         public StateMachine()
         {
@@ -85,6 +85,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                     state.Validate(result);
                 }
             }
+        }
+
+        Core.Interfaces.ISummaryData ISummaryFactory.CreateSummary()
+        {
+            return CreateSummary();
         }
     }
 

@@ -3,7 +3,6 @@ using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
-using LagoVista.IoT.DeviceAdmin.Resources;
 using System;
 using System.Collections.Generic;
 
@@ -12,7 +11,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.EventSet_Title, Resources.DeviceLibraryResources.Names.EventSet_Help, Resources.DeviceLibraryResources.Names.EventSet_Description, 
         EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
         GetUrl: "/api/statemachine/eventset/{id}", GetListUrl: "/api/statemachine/eventsets", SaveUrl: "/api/statemachine/eventset", DeleteUrl: "/api/statemachine/eventset/{id}", FactoryUrl: "/api/statemachine/factory/eventset")]
-    public class EventSet : IoTModelBase, IValidateable
+    public class EventSet : IoTModelBase, IValidateable, ISummaryFactory
     {
         public EventSet()
         {
@@ -31,27 +30,27 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.EventSet_Events, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<Event> Events { get; set; }
 
-        public EventSetSummary CreateEventSetSummary()
+        public EventSetSummary CreateSummary()
         {
             return new EventSetSummary()
             {
                 Id = Id,
                 IsPublic = IsPublic,
                 Key = Key,
-                Name = Name
+                Name = Name,
             };
         }
-        
+
+        Core.Interfaces.ISummaryData ISummaryFactory.CreateSummary()
+        {
+            return CreateSummary();
+        }
     }
 
-    public class EventSetSummary : IIDEntity, IKeyedEntity, INamedEntity
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.EventSet_Title, Resources.DeviceLibraryResources.Names.EventSet_Help, Resources.DeviceLibraryResources.Names.EventSet_Description,
+        EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources),
+        GetUrl: "/api/statemachine/eventset/{id}", GetListUrl: "/api/statemachine/eventsets", SaveUrl: "/api/statemachine/eventset", DeleteUrl: "/api/statemachine/eventset/{id}", FactoryUrl: "/api/statemachine/factory/eventset")]
+    public class EventSetSummary : SummaryData
     {
-        public string Id { get; set; }
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_Name, ResourceType: typeof(DeviceLibraryResources))]
-        public String Name { get; set; }
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResources: Resources.DeviceLibraryResources.Names.Common_Key_Help, ResourceType: typeof(DeviceLibraryResources))]
-        public String Key { get; set; }
-        [ListColumn(HeaderResource: Resources.DeviceLibraryResources.Names.Common_IsPublic, ResourceType: typeof(DeviceLibraryResources))]
-        public bool IsPublic { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         DeviceLibraryResources.Names.Equipment_Help, DeviceLibraryResources.Names.Equipment_Description,
                   EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
         SaveUrl: "/api/equipment", GetListUrl: "/api/equipmentitems", GetUrl: "/api/equipment/{id}", FactoryUrl: "/api/equipment/factory", DeleteUrl: "/api/equipment/{id}")]
-    public class Equipment : IoTModelBase, IValidateable, IFormDescriptor
+    public class Equipment : IoTModelBase, IValidateable, IFormDescriptor, ISummaryFactory
     {
         public Equipment()
         {
@@ -42,6 +42,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 IsPublic = IsPublic,
                 Name = Name
             };
+        }
+
+        Core.Interfaces.ISummaryData ISummaryFactory.CreateSummary()
+        {
+            return CreateSummary();
         }
     }
 

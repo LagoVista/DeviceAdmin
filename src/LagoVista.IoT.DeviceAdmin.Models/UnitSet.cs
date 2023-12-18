@@ -13,15 +13,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.UnitSet_Title, Resources.DeviceLibraryResources.Names.UnitSet_Help, Resources.DeviceLibraryResources.Names.UnitSet_Description,
         EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
         SaveUrl: "/api/deviceadmin/unitset", GetUrl: "/api/deviceadmin/unitset/{id}", GetListUrl: "/api/deviceadmin/unitsets", FactoryUrl: "/api/deviceadmin/factory/unitset", DeleteUrl: "/api/deviceadmin/unitset/{id}")]
-    public class UnitSet : IoTModelBase, IValidateable, IFormDescriptor, ILockable
+    public class UnitSet : IoTModelBase, IValidateable, IFormDescriptor, ILockable, ISummaryFactory
     {
         public UnitSet()
         {
             Units = new List<Unit>();
             Id = Guid.NewGuid().ToId();
         }
-
-
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_IsLocked, HelpResource: DeviceLibraryResources.Names.UnitSet_IsLocked_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool IsLocked { get; set; }
@@ -117,6 +115,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             }
 
             return unitSet;
+        }
+
+        Core.Interfaces.ISummaryData ISummaryFactory.CreateSummary()
+        {
+            return CreateSummary();
         }
     }
 

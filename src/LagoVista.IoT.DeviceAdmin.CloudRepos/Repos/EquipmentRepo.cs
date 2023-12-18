@@ -40,8 +40,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 
         public async Task<ListResponse<EquipmentSummary>> GetToolSummariesForOrgAsync(string orgId, ListRequest listRequest)
         {
-            var response = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry => qry.Name, listRequest);
-            return response.Create(response.Model.Select(mod => mod.CreateSummary()));
+            return await base.QuerySummaryAsync<EquipmentSummary, Equipment>(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry => qry.Name, listRequest);
         }
 
         public async Task<bool> QueryKeyInUseAsync(string key, string orgId)

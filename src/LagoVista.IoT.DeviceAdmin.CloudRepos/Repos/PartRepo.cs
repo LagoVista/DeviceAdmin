@@ -1,11 +1,9 @@
-﻿using LagoVista.CloudStorage;
-using LagoVista.CloudStorage.DocumentDB;
+﻿using LagoVista.CloudStorage.DocumentDB;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models.UIMetaData;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.Logging.Loggers;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,7 +19,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
         }
 
-        protected override bool ShouldConsolidateCollections { get { return _shouldConsolidateCollections; } }
+        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public Task AddPartAsync(Part part)
         {
@@ -50,10 +48,9 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return parts.FirstOrDefault();
         }
 
-        public async Task<ListResponse<PartSummary>> GetPartsForOrgAsync(string orgId, ListRequest listRequest)
+        public Task<ListResponse<PartSummary>> GetPartsForOrgAsync(string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
-            return ListResponse<PartSummary>.Create(items.Model.Select(itm => itm.CreatePartSummary()));
+            return base.QuerySummaryAsync<PartSummary, Part>(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
         }
 
         public Task UpdatePartAsync(Part part)

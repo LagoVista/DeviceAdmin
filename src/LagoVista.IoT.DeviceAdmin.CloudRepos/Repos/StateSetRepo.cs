@@ -1,13 +1,9 @@
-﻿using LagoVista.CloudStorage;
-using LagoVista.CloudStorage.DocumentDB;
+﻿using LagoVista.CloudStorage.DocumentDB;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models.UIMetaData;
-using LagoVista.Core.PlatformSupport;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.Logging.Loggers;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -46,10 +42,9 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return items.Any();
         }
 
-        public async Task<ListResponse<StateSetSummary>> GetStateSetsForOrgAsync(string orgId, ListRequest listRequest)
+        public Task<ListResponse<StateSetSummary>> GetStateSetsForOrgAsync(string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, itm=>itm.Name, listRequest);
-            return items.Create(items.Model.Select(itm => itm.CreateStateSetSummary()));
+            return base.QuerySummaryAsync<StateSetSummary, StateSet>(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, itm=>itm.Name, listRequest);
         }
 
         public Task DeleteStateSetAsync(string stateSetId)

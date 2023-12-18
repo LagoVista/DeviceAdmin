@@ -13,7 +13,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.StateSet_Title, Resources.DeviceLibraryResources.Names.StateSet_Help, 
         Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
         DeleteUrl: "/api/statemachine/stateset/{id}", SaveUrl: "/api/statemachine/stateset", GetListUrl: "/api/statemachine/statesets", GetUrl: "/api/statemachine/stateset/{id}", FactoryUrl: "/api/statemachine/factory/stateset")]
-    public class StateSet : IoTModelBase, IValidateable, IFormDescriptor, ILockable
+    public class StateSet : IoTModelBase, IValidateable, IFormDescriptor, ILockable, ISummaryFactory
     {
         public StateSet()
         {
@@ -37,7 +37,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_RequireEnum, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_RequireEnum_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
         public bool RequireEnum { get; set; }
 
-        public StateSetSummary CreateStateSetSummary()
+        public StateSetSummary CreateSummary()
         {
             return new StateSetSummary()
             {
@@ -132,6 +132,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(StateSet.IsLocked),
                 nameof(StateSet.States),
             };
+        }
+
+        Core.Interfaces.ISummaryData ISummaryFactory.CreateSummary()
+        {
+            return CreateSummary();
         }
     }
 

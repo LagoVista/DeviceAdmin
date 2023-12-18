@@ -1,13 +1,10 @@
 ﻿using LagoVista.CloudStorage.DocumentDB;
-using LagoVista.Core.PlatformSupport;
 using LagoVista.IoT.DeviceAdmin.Models;
 using System;
 using System.Linq;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 using LagoVista.IoT.Logging.Loggers;
-using LagoVista.CloudStorage;
 using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.Interfaces;
 
@@ -22,13 +19,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }
 
-        protected override bool ShouldConsolidateCollections
-        {
-            get
-            {
-                return _shouldConsolidateCollections;
-            }
-        }
+        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public Task AddDeviceWorkflowAsync(DeviceWorkflow workflow)
         {
@@ -45,10 +36,9 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return GetDocumentAsync(id);
         }
 
-        public async Task<ListResponse<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync(string orgId, ListRequest listRequest)
+        public Task<ListResponse<DeviceWorkflowSummary>> GetDeviceWorkflowsForOrgAsync(string orgId, ListRequest listRequest)
         {
-            var items = await base.QueryAsync(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
-            return items.Create(items.Model.Select(itm => itm.CreateSummary()));
+            return base.QuerySummaryAsync<DeviceWorkflowSummary, DeviceWorkflow>(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
         }
 
         public async Task<bool> QueryKeyInUseAsync(string key, string orgId)
