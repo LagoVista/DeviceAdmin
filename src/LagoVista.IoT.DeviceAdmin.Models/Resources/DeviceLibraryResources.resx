@@ -1181,10 +1181,10 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Wednesday</value>
   </data>
   <data name="DeviceType_Description" xml:space="preserve">
-    <value>The Device Model is used to uniquely identiy a specific make and model of a device.  A Device Model has an attached Device Configuration contains the instructions as to how messages from this device are processed.</value>
+    <value>The Device Model is used to uniquely identiy a specific make and model of a device.  A Device Model has an attached Device Configuration that defines the instructions as to how messages from this device are processed.</value>
   </data>
   <data name="DeviceType_Help" xml:space="preserve">
-    <value>The Device Model is used to uniquely identiy a specific make and model of a device.  A Device Model has an attached Device Configuration contains the instructions as to how messages from this device are processed.</value>
+    <value>The Device Model is used to uniquely identiy a specific make and model of a device.  A Device Model has an attached Device Configuration that defines the instructions as to how messages from this device are processed.</value>
   </data>
   <data name="DeviceType_Title" xml:space="preserve">
     <value>Device Model</value>

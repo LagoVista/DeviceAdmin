@@ -13,7 +13,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceType_Title, DeviceLibraryResources.Names.DeviceType_Help,
         DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
         SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}")]
-    public class DeviceType : IoTModelBase, IValidateable, IFormDescriptor, IFormDescriptorAdvanced, IFormDescriptorAdvancedCol2, IIconEntity, ISummaryFactory
+    public class DeviceType : IoTModelBase, IValidateable, IFormDescriptor, IFormDescriptorAdvanced, IFormDescriptorBottom, IFormDescriptorAdvancedCol2, IIconEntity, ISummaryFactory
     {
         public DeviceType()
         {
@@ -47,8 +47,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public List<MediaResourceSummary> Resources { get; set; }
 
         [FKeyProperty(nameof(Equipment), "AssociatedEquipment[*].Id = {0}")]
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_AssociatedTools, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select,
-            FieldType: FieldTypes.ChildListInlinePicker, EntityHeaderPickerUrl: "/api/equipmentitems", ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_AssociatedTools, FieldType: FieldTypes.ChildListInlinePicker, EntityHeaderPickerUrl: "/api/equipmentitems", ResourceType: typeof(DeviceLibraryResources))]
         public List<EntityHeader> Equipment { get; set; }
 
         [FKeyProperty("Firmware", "Firmware.Id = {0}", "")]
@@ -91,9 +90,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.Key),
                 nameof(DeviceType.Icon),
                 nameof(DeviceType.DefaultDeviceConfiguration),
-                nameof(DeviceType.ModelNumber),
                 nameof(DeviceType.Manufacturer),
-                nameof(DeviceType.Description),
+                nameof(DeviceType.ModelNumber),
                };
         }
 
@@ -117,9 +115,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.Key),
                 nameof(DeviceType.Icon),
                 nameof(DeviceType.DefaultDeviceConfiguration),
-                nameof(DeviceType.ModelNumber),
                 nameof(DeviceType.Manufacturer),
-                nameof(DeviceType.Description),
+                nameof(DeviceType.ModelNumber),
+            };
+        }
+
+        public List<string> GetFormFieldsBottom()
+        {
+            return new List<string>()
+            {
+                nameof(Description)
             };
         }
 
