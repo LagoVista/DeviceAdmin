@@ -1,4 +1,4 @@
-﻿/*11/23/2023 10:53:48 AM*/
+﻿/*12/28/2023 8:33:03 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -672,6 +672,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_Title
 
 		public static string DeviceType_Title { get { return GetResourceString("DeviceType_Title"); } }
+//Resources:DeviceLibraryResources:DeviceTypes_Title
+
+		public static string DeviceTypes_Title { get { return GetResourceString("DeviceTypes_Title"); } }
 //Resources:DeviceLibraryResources:DeviceWorkflow_Attributes
 
 		public static string DeviceWorkflow_Attributes { get { return GetResourceString("DeviceWorkflow_Attributes"); } }
@@ -768,6 +771,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceWorkflow_Title
 
 		public static string DeviceWorkflow_Title { get { return GetResourceString("DeviceWorkflow_Title"); } }
+//Resources:DeviceLibraryResources:DeviceWorkflows_Title
+
+		public static string DeviceWorkflows_Title { get { return GetResourceString("DeviceWorkflows_Title"); } }
 //Resources:DeviceLibraryResources:Environment
 
 
@@ -1708,6 +1714,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_ModelNumber = "DeviceType_ModelNumber";
 			public const string DeviceType_Resources = "DeviceType_Resources";
 			public const string DeviceType_Title = "DeviceType_Title";
+			public const string DeviceTypes_Title = "DeviceTypes_Title";
 			public const string DeviceWorkflow_Attributes = "DeviceWorkflow_Attributes";
 			public const string DeviceWorkflow_Attributes_Help = "DeviceWorkflow_Attributes_Help";
 			public const string DeviceWorkflow_BusinessRules = "DeviceWorkflow_BusinessRules";
@@ -1740,6 +1747,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceWorkflow_Settings_Help = "DeviceWorkflow_Settings_Help";
 			public const string DeviceWorkflow_Timer = "DeviceWorkflow_Timer";
 			public const string DeviceWorkflow_Title = "DeviceWorkflow_Title";
+			public const string DeviceWorkflows_Title = "DeviceWorkflows_Title";
 			public const string Environment = "Environment";
 			public const string Environment_Dev = "Environment_Dev";
 			public const string Environment_Help = "Environment_Help";

@@ -1558,4 +1558,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_Icon" xml:space="preserve">
     <value>Device Model Icon</value>
   </data>
+  <data name="DeviceTypes_Title" xml:space="preserve">
+    <value>Device Models</value>
+  </data>
+  <data name="DeviceWorkflows_Title" xml:space="preserve">
+    <value>Device Workflows</value>
+  </data>
 </root>

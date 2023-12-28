@@ -12,8 +12,9 @@ using LagoVista.IoT.DeviceAdmin.Models.Resources;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help, 
-        Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),
-        GetUrl: "/api/deviceadmin/deviceworkflow/{id}", GetListUrl: "/api/deviceadmin/deviceworkflows", SaveUrl: "/api/deviceadmin/deviceworkflow", DeleteUrl: "/api/deviceadmin/deviceworkflows/{id}", FactoryUrl: "/api/deviceadmin/factory/deviceworkflow")]
+        Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),Icon: "icon-ae-device-workflow",
+        GetUrl: "/api/deviceadmin/deviceworkflow/{id}", GetListUrl: "/api/deviceadmin/deviceworkflows", SaveUrl: "/api/deviceadmin/deviceworkflow",
+        DeleteUrl: "/api/deviceadmin/deviceworkflows/{id}", FactoryUrl: "/api/deviceadmin/factory/deviceworkflow")]
     public class DeviceWorkflow : IoTModelBase, IValidateable,  IPipelineModuleConfiguration, IFormDescriptor, ISummaryFactory
     {
         public DeviceWorkflow()
@@ -130,9 +131,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
     }
 
-    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help,
-     Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.Summary, typeof(DeviceLibraryResources),
-     GetUrl: "/api/deviceadmin/deviceworkflow/{id}", GetListUrl: "/api/deviceadmin/deviceworkflows", SaveUrl: "/api/deviceadmin/deviceworkflow", DeleteUrl: "/api/deviceadmin/deviceworkflows/{id}", FactoryUrl: "/api/deviceadmin/factory/deviceworkflow")]
+    [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflows_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help,
+     Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.Summary, typeof(DeviceLibraryResources), Icon: "icon-ae-device-workflow",
+     GetUrl: "/api/deviceadmin/deviceworkflow/{id}", GetListUrl: "/api/deviceadmin/deviceworkflows", SaveUrl: "/api/deviceadmin/deviceworkflow", 
+        DeleteUrl: "/api/deviceadmin/deviceworkflows/{id}", FactoryUrl: "/api/deviceadmin/factory/deviceworkflow")]
     public class DeviceWorkflowSummary : SummaryData
     {
 
