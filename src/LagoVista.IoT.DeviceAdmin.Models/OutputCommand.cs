@@ -25,7 +25,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public string OnExecuteScript { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Parameter_Help, FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.InputCommand_Parameters, HelpResource: Resources.DeviceLibraryResources.Names.Parameter_Help,
+            FactoryUrl: "/api/deviceadmin/factory/parameter", FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<Parameter> Parameters { get; set; }
 
         public override string NodeType => NodeType_OutputCommand;

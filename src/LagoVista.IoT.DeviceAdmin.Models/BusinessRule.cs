@@ -42,11 +42,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
         public string Description { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.BusinessRule_ServiceTicket, FieldType: FieldTypes.EntityHeaderPicker, EntityHeaderPickerUrl: "/api/fslite/tickets/template",
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.BusinessRule_ServiceTicket, FieldType: FieldTypes.EntityHeaderPicker, EntityHeaderPickerUrl: "/api/fslite/tickets/templates",
             WaterMark: Resources.DeviceLibraryResources.Names.BusinessRule_ServiceTicket_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.BusinessRule_ServiceTicket_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader ServiceTicketTemplate { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.BusinessRule_ErrorCode, FieldType: FieldTypes.EntityHeaderPicker, EntityHeaderPickerUrl: "/api/errorcodes",
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.BusinessRule_ErrorCode, FieldType: FieldTypes.EntityHeaderPicker, EntityHeaderPickerUrl: "/api/errorcodes", FactoryUrl: "/api/errorcode/factory",
             WaterMark: Resources.DeviceLibraryResources.Names.BusinessRule_ErrorCode_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.BusinessRule_ErrorCode_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader ErrorCode { get; set; }
 
