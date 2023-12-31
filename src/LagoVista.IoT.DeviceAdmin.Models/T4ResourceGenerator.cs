@@ -1,4 +1,4 @@
-﻿/*12/28/2023 8:33:03 AM*/
+﻿/*12/31/2023 6:46:25 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -1208,6 +1208,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:StateMachine_Transition_Script
 
 		public static string StateMachine_Transition_Script { get { return GetResourceString("StateMachine_Transition_Script"); } }
+//Resources:DeviceLibraryResources:StateMachine_Transition_Script_Help
+
+		public static string StateMachine_Transition_Script_Help { get { return GetResourceString("StateMachine_Transition_Script_Help"); } }
+//Resources:DeviceLibraryResources:StateMachine_Transition_Script_Watermark
+
+		public static string StateMachine_Transition_Script_Watermark { get { return GetResourceString("StateMachine_Transition_Script_Watermark"); } }
 //Resources:DeviceLibraryResources:StateMachine_Transition_State
 
 		public static string StateMachine_Transition_State { get { return GetResourceString("StateMachine_Transition_State"); } }
@@ -1890,6 +1896,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string StateMachine_Transition_Action_Help = "StateMachine_Transition_Action_Help";
 			public const string StateMachine_Transition_EventHelp = "StateMachine_Transition_EventHelp";
 			public const string StateMachine_Transition_Script = "StateMachine_Transition_Script";
+			public const string StateMachine_Transition_Script_Help = "StateMachine_Transition_Script_Help";
+			public const string StateMachine_Transition_Script_Watermark = "StateMachine_Transition_Script_Watermark";
 			public const string StateMachine_Transition_State = "StateMachine_Transition_State";
 			public const string StateMachine_Transitions = "StateMachine_Transitions";
 			public const string StateMachine_UserHelp = "StateMachine_UserHelp";

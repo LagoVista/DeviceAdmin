@@ -6,13 +6,14 @@ using System;
 using System.Linq;
 using System.Collections.ObjectModel;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
+using System.Collections.Generic;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.StateMachine_Title, Resources.DeviceLibraryResources.Names.StateMachine_UserHelp, Resources.DeviceLibraryResources.Names.StateMachine_Description,
         EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),
          FactoryUrl: "/api/statemachine/factory", GetUrl: "/api/statemachine/{id}", GetListUrl: "/api/statemachines", SaveUrl: "/api/statemachine", DeleteUrl: "/api/statemachine/{id}")]
-    public class StateMachine : NodeBase, IValidateable, ISummaryFactory
+    public class StateMachine : NodeBase, IValidateable, ISummaryFactory, IFormDescriptor
     {        
         public StateMachine()
         {
@@ -26,7 +27,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_InitialState, FieldType: FieldTypes.Text, IsUserEditable:false, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader InitialState { get; set; }
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.StateMachine_Initialization_Actions, HelpResource: DeviceLibraryResources.Names.StateMachine_Initialization_Actions_Help, FieldType:FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.StateMachine_Initialization_Actions, 
+            HelpResource: DeviceLibraryResources.Names.StateMachine_Initialization_Actions_Help, 
+            FieldType:FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<EntityHeader> InitialActions {get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_States, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_States, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
@@ -55,6 +58,17 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Name = Name,
                 Key = Key,
                 Description = Description
+            };
+        }
+
+        public List<string> GetFormFields()
+        {
+            return new List<string>()
+            {
+                nameof(Name),
+                nameof(Key),
+                nameof(ExceptionOnUnhandledEvent),
+                nameof(Description)
             };
         }
 

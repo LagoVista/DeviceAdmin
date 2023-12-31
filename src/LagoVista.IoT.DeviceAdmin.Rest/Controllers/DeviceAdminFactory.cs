@@ -113,7 +113,6 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             return response;
         }
 
-
         /// <summary>
         ///  Device Workflow - Create New
         /// </summary>
@@ -133,6 +132,16 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
             return response;
+        }
+
+        /// <summary>
+        ///  Device Workflow - Create New
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/api/deviceadmin/factory/page")]
+        public DetailResponse<Page> CreatePage()
+        {
+            return DetailResponse<Page>.Create();
         }
 
         /// <summary>

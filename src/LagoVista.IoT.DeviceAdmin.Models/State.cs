@@ -40,7 +40,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public bool IsAlarmState { get; set; }
 
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.State_ErrorCode, HelpResource: Resources.DeviceLibraryResources.Names.State_ErrorCode_Help, WaterMark:Resources.DeviceLibraryResources.Names.State_ErrorCode_Select,
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.State_ErrorCode, HelpResource: Resources.DeviceLibraryResources.Names.State_ErrorCode_Help, 
+            WaterMark:Resources.DeviceLibraryResources.Names.State_ErrorCode_Select, FactoryUrl:"/api/errorcode/factory",
             EntityHeaderPickerUrl: "/api/errorcodes", FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader ErrorCode { get; set; }
 

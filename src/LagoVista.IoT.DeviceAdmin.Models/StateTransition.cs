@@ -11,15 +11,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources), FactoryUrl: "/api/statemachine/factory/transition")]
     public class StateTransition : IFormDescriptor
     {
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Event,  FactoryUrl: "/api/statemachine/factory/event",
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Event,  FactoryUrl: "/api/statemachine/factory/event", IsUserEditable:false,
             HelpResource: DeviceLibraryResources.Names.StateMachine_Transition_EventHelp, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<Event> Event { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_NewState, FactoryUrl: "/api/statemachine/factory/state",
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_NewState, FactoryUrl: "/api/statemachine/factory/state", IsUserEditable:false,
             HelpResource: DeviceLibraryResources.Names.StateMachine_NewState_Help, FieldType: FieldTypes.ChildItem, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader<State> NewState { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Transition_Script, 
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Transition_Script, ScriptTemplateName: "transitionAction", WaterMark: DeviceLibraryResources.Names.StateMachine_Transition_Script_Watermark,
             HelpResource: DeviceLibraryResources.Names.StateMachine_Transition_Action_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public string TransitionAction { get; set; }
 

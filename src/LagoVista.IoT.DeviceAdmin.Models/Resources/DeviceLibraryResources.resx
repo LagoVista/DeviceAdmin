@@ -1310,7 +1310,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Is Alarm State</value>
   </data>
   <data name="State_IsAlarmState_Help" xml:space="preserve">
-    <value>Should this state be considered an alarm condition.</value>
+    <value>If you set this state as an alarm, when the device is in this state, the device will have an alarm associated with it that will be visible when users view this device.</value>
   </data>
   <data name="DeviceBOMItem_AssemblyNumber" xml:space="preserve">
     <value>Assembly Number</value>
@@ -1563,5 +1563,8 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="DeviceWorkflows_Title" xml:space="preserve">
     <value>Device Workflows</value>
+  </data>
+  <data name="StateMachine_Transition_Script_Watermark" xml:space="preserve">
+    <value>Add Transition Action</value>
   </data>
 </root>
