@@ -50,7 +50,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             WaterMark: Resources.DeviceLibraryResources.Names.BusinessRule_ErrorCode_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.BusinessRule_ErrorCode_Help, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader ErrorCode { get; set; }
 
-        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.BusinessRule_Script, WaterMark: Resources.DeviceLibraryResources.Names.BusinessRule_Script_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.BusinessRule_Script_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: Resources.DeviceLibraryResources.Names.BusinessRule_Script, WaterMark: Resources.DeviceLibraryResources.Names.BusinessRule_Script_Watermark,
+            ScriptTemplateName:"businessRule",
+            HelpResource: Resources.DeviceLibraryResources.Names.BusinessRule_Script_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public String Script { get; set; }
 
         public List<string> GetFormFields()
