@@ -735,7 +735,7 @@
     <value>-select attribute type-</value>
   </data>
   <data name="OutputCommand_Description" xml:space="preserve">
-    <value>Output Commands are used to send Commands or Messages to your device</value>
+    <value>Output Commands are used to specify data that comes from your work flow or other device attributes that should be sent back to the device or to another system.  After you create your output command you will need to add it via the route for the device configuration to send the message.</value>
   </data>
   <data name="OutputCommand_Help" xml:space="preserve">
     <value>You can create a output command to send a message to your device.  In your device command you prepare the data from the available data on the device configuration.</value>
@@ -1566,5 +1566,11 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="StateMachine_Transition_Script_Watermark" xml:space="preserve">
     <value>Add Transition Action</value>
+  </data>
+  <data name="OutputCommand_Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="OutputCommand_Parameters_Help" xml:space="preserve">
+    <value>The Parameters on the Output Command consist of data that can be formatted using a Device Message Definition so that it can be sent back to the device or other system.</value>
   </data>
 </root>

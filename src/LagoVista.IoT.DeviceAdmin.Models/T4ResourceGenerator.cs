@@ -1,4 +1,4 @@
-﻿/*12/31/2023 6:46:25 AM*/
+﻿/*1/7/2024 6:51:31 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -944,6 +944,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:OutputCommand_Help
 
 		public static string OutputCommand_Help { get { return GetResourceString("OutputCommand_Help"); } }
+//Resources:DeviceLibraryResources:OutputCommand_Parameters
+
+		public static string OutputCommand_Parameters { get { return GetResourceString("OutputCommand_Parameters"); } }
+//Resources:DeviceLibraryResources:OutputCommand_Parameters_Help
+
+		public static string OutputCommand_Parameters_Help { get { return GetResourceString("OutputCommand_Parameters_Help"); } }
 //Resources:DeviceLibraryResources:OutputCommand_Script
 
 		public static string OutputCommand_Script { get { return GetResourceString("OutputCommand_Script"); } }
@@ -1208,9 +1214,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:StateMachine_Transition_Script
 
 		public static string StateMachine_Transition_Script { get { return GetResourceString("StateMachine_Transition_Script"); } }
-//Resources:DeviceLibraryResources:StateMachine_Transition_Script_Help
-
-		public static string StateMachine_Transition_Script_Help { get { return GetResourceString("StateMachine_Transition_Script_Help"); } }
 //Resources:DeviceLibraryResources:StateMachine_Transition_Script_Watermark
 
 		public static string StateMachine_Transition_Script_Watermark { get { return GetResourceString("StateMachine_Transition_Script_Watermark"); } }
@@ -1808,6 +1811,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string NodeRedFlow_Title = "NodeRedFlow_Title";
 			public const string OutputCommand_Description = "OutputCommand_Description";
 			public const string OutputCommand_Help = "OutputCommand_Help";
+			public const string OutputCommand_Parameters = "OutputCommand_Parameters";
+			public const string OutputCommand_Parameters_Help = "OutputCommand_Parameters_Help";
 			public const string OutputCommand_Script = "OutputCommand_Script";
 			public const string OutputCommand_Script_Help = "OutputCommand_Script_Help";
 			public const string OutputCommand_Script_WaterMark = "OutputCommand_Script_WaterMark";
@@ -1896,7 +1901,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string StateMachine_Transition_Action_Help = "StateMachine_Transition_Action_Help";
 			public const string StateMachine_Transition_EventHelp = "StateMachine_Transition_EventHelp";
 			public const string StateMachine_Transition_Script = "StateMachine_Transition_Script";
-			public const string StateMachine_Transition_Script_Help = "StateMachine_Transition_Script_Help";
 			public const string StateMachine_Transition_Script_Watermark = "StateMachine_Transition_Script_Watermark";
 			public const string StateMachine_Transition_State = "StateMachine_Transition_State";
 			public const string StateMachine_Transitions = "StateMachine_Transitions";
