@@ -171,6 +171,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 		public void Validate(string value, ValidationResult result, Actions action)
 		{
+			if (IsRemoteProperty && Key.Length > 15)
+				result.AddUserError($"To use this property as a remote property, the key must not be longer then 15 characters.  The key [{Key}] is {Key.Length} characters long.");
+
 			if (EntityHeader.IsNullOrEmpty(FieldType)) result.AddSystemError($"Custom field {Label} missing field type, invalid configuration, contact administorator");
 
 			if (IsRequired && String.IsNullOrEmpty(value))
