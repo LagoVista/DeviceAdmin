@@ -8,6 +8,7 @@ using LagoVista.Core.Models;
 using System.Linq;
 using LagoVista.IoT.DeviceAdmin.Interfaces;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
+using LagoVista.Core.Models.UIMetaData;
 
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
@@ -15,7 +16,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),Icon: "icon-ae-device-workflow",
         GetUrl: "/api/deviceadmin/deviceworkflow/{id}", GetListUrl: "/api/deviceadmin/deviceworkflows", SaveUrl: "/api/deviceadmin/deviceworkflow",
         DeleteUrl: "/api/deviceadmin/deviceworkflows/{id}", FactoryUrl: "/api/deviceadmin/factory/deviceworkflow")]
-    public class DeviceWorkflow : IoTModelBase, IValidateable,  IPipelineModuleConfiguration, IFormDescriptor, ISummaryFactory
+    public class DeviceWorkflow : IoTModelBase, IValidateable,  IPipelineModuleConfiguration, IFormConditionalFields, IFormDescriptor, ISummaryFactory
     {
         public DeviceWorkflow()
         {
@@ -128,6 +129,23 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         Core.Interfaces.ISummaryData ISummaryFactory.CreateSummary()
         {
             return CreateSummary();
+        }
+
+        public FormConditionals GetConditionalFields()
+        {
+            return new FormConditionals()
+            {
+                ConditionalFields = new List<string>() { nameof(PreHandlerScript), nameof(PostHandlerScript), nameof(BusinessRules) },
+                Conditionals = new List<FormConditional>()
+                 {
+                      new FormConditional()
+                      {
+                           ForCreate = false,
+                           ForUpdate = true,
+                           VisibleFields = new List<string>() { nameof(PreHandlerScript), nameof(PostHandlerScript),nameof(BusinessRules)}
+                      }
+                 }
+            };
         }
     }
 
