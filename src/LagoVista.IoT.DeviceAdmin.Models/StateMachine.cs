@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.StateMachine_Title, Resources.DeviceLibraryResources.Names.StateMachine_UserHelp, Resources.DeviceLibraryResources.Names.StateMachine_Description,
-        EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),
+        EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources), Icon: "icon-fo-globe-2",
          FactoryUrl: "/api/statemachine/factory", GetUrl: "/api/statemachine/{id}", GetListUrl: "/api/statemachines", SaveUrl: "/api/statemachine", DeleteUrl: "/api/statemachine/{id}")]
     public class StateMachine : NodeBase, IValidateable, ISummaryFactory, IFormDescriptor
     {        
@@ -22,6 +22,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Variables = new ObservableCollection<Parameter>();
             InitialActions = new ObservableCollection<EntityHeader>();
             Pages = new ObservableCollection<Page>();
+            Icon = "icon-fo-globe-2";
         }
     
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_InitialState, FieldType: FieldTypes.Text, IsUserEditable:false, ResourceType: typeof(DeviceLibraryResources))]
@@ -31,6 +32,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             HelpResource: DeviceLibraryResources.Names.StateMachine_Initialization_Actions_Help, 
             FieldType:FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<EntityHeader> InitialActions {get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
+        public string Icon { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_States, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_States, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<State> States { get; set; }
@@ -56,6 +60,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Id = Id,
                 IsPublic = IsPublic,
                 Name = Name,
+                Icon = Icon,
                 Key = Key,
                 Description = Description
             };
@@ -67,6 +72,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 nameof(Name),
                 nameof(Key),
+                nameof(Icon),
                 nameof(ExceptionOnUnhandledEvent),
                 nameof(Description)
             };

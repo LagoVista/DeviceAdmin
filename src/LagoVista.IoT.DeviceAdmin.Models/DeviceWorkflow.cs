@@ -30,6 +30,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Pages = new List<Page>();
             Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             ConfigurationVersion = 0.1;
+            Icon = "icon-ae-device-workflow";
         }
      
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_ConfigVersion, FieldType: FieldTypes.Decimal, IsRequired: true, ResourceType: typeof(DeviceLibraryResources))]
@@ -38,7 +39,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
        
         public EntityHeader Environment { get; set; }
 
-      
+
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
+        public string Icon { get; set; }
+
+
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PrehandlerScript, WaterMark: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PrehandlerScript_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PrehandlerScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public string PreHandlerScript { get; set; }
 
@@ -87,6 +93,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Id = Id,
                 IsPublic = IsPublic,
                 Key = Key,
+                Icon = Icon,
                 Name = Name,
                 Description = Description
             };
@@ -118,6 +125,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 nameof(Name),
                 nameof(Key),
+                nameof(Icon),
                 nameof(ConfigurationVersion),
                 nameof(PreHandlerScript),
                 nameof(PostHandlerScript),

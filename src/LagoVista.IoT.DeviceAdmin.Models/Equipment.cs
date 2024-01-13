@@ -10,17 +10,23 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.Equipment_Title,
         DeviceLibraryResources.Names.Equipment_Help, DeviceLibraryResources.Names.Equipment_Description,
-                  EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+                  EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-pz-troubleshooting",
         SaveUrl: "/api/equipment", GetListUrl: "/api/equipmentitems", GetUrl: "/api/equipment/{id}", FactoryUrl: "/api/equipment/factory", DeleteUrl: "/api/equipment/{id}")]
-    public class Equipment : IoTModelBase, IValidateable, IFormDescriptor, ISummaryFactory
+    public class Equipment : IoTModelBase, IValidateable, IFormDescriptor, ISummaryFactory, IIDEntity
     {
         public Equipment()
         {
             Resources = new List<MediaServices.Models.MediaResourceSummary>();
+            Icon = "icon-pz-troubleshooting";
         }
 
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Picture, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public List<MediaServices.Models.MediaResourceSummary> Resources { get; set; }
+
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
+        public string Icon { get; set; }
+
 
         public List<string> GetFormFields()
         {
@@ -28,6 +34,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 nameof(Name),
                 nameof(Key),
+                nameof(Icon),
                 nameof(Description),
             };
         }
@@ -38,6 +45,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 Id = Id,
                 Key = Key,
+                Icon = Icon,
                 Description = Description,
                 IsPublic = IsPublic,
                 Name = Name

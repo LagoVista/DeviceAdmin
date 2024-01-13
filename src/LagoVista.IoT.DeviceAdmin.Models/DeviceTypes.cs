@@ -13,7 +13,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceType_Title, DeviceLibraryResources.Names.DeviceType_Help,
         DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model",
         SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}")]
-    public class DeviceType : IoTModelBase, IValidateable, IFormDescriptor, IFormDescriptorAdvanced, IFormDescriptorBottom, IFormDescriptorAdvancedCol2, IIconEntity, ISummaryFactory
+    public class DeviceType : IoTModelBase, IValidateable, IFormDescriptor, IFormDescriptorAdvanced, IFormDescriptorBottom, IFormDescriptorAdvancedCol2, IIconEntity, ISummaryFactory, IIDEntity
     {
         public DeviceType()
         {
@@ -54,8 +54,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware, WaterMark: DeviceLibraryResources.Names.DeviceType_FirmwareSelect, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader Firmware { get; set; }
 
-
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
         public string Icon { get; set; }
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware_Revision, WaterMark: DeviceLibraryResources.Names.DeviceType_Firmware_RevisionSelect, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
@@ -68,6 +67,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Description = Description,
                 Name = Name,
                 Id = Id,
+                Icon = Icon,
                 Key = Key,
                 Manufacturer = Manufacturer,
                 ModelNumber = ModelNumber,

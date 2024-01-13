@@ -1573,4 +1573,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="OutputCommand_Parameters_Help" xml:space="preserve">
     <value>The Parameters on the Output Command consist of data that can be formatted using a Device Message Definition so that it can be sent back to the device or other system.</value>
   </data>
+  <data name="Common_Icon" xml:space="preserve">
+    <value />
+  </data>
 </root>

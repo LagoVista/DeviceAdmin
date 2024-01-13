@@ -1,4 +1,4 @@
-﻿/*1/7/2024 6:51:31 AM*/
+﻿/*1/13/2024 10:12:01 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -294,6 +294,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Common_Description
 
 		public static string Common_Description { get { return GetResourceString("Common_Description"); } }
+//Resources:DeviceLibraryResources:Common_Icon
+
+		public static string Common_Icon { get { return GetResourceString("Common_Icon"); } }
 //Resources:DeviceLibraryResources:Common_IsPublic
 
 		public static string Common_IsPublic { get { return GetResourceString("Common_IsPublic"); } }
@@ -1597,6 +1600,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Common_CreatedBy = "Common_CreatedBy";
 			public const string Common_CreationDate = "Common_CreationDate";
 			public const string Common_Description = "Common_Description";
+			public const string Common_Icon = "Common_Icon";
 			public const string Common_IsPublic = "Common_IsPublic";
 			public const string Common_IsRequired = "Common_IsRequired";
 			public const string Common_IsValid = "Common_IsValid";
