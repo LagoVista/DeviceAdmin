@@ -11,14 +11,15 @@ using LagoVista.IoT.DeviceAdmin.Models.Resources;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.StateSet_Title, Resources.DeviceLibraryResources.Names.StateSet_Help, 
-        Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+        Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-checklist-1",
         DeleteUrl: "/api/statemachine/stateset/{id}", SaveUrl: "/api/statemachine/stateset", GetListUrl: "/api/statemachine/statesets", GetUrl: "/api/statemachine/stateset/{id}", FactoryUrl: "/api/statemachine/factory/stateset")]
-    public class StateSet : IoTModelBase, IValidateable, IFormDescriptor, ILockable, ISummaryFactory
+    public class StateSet : IoTModelBase, IValidateable, IFormDescriptor, ILockable, ISummaryFactory, IIconEntity
     {
         public StateSet()
         {
             States = new List<State>();
             Id = Guid.NewGuid().ToId();
+            Icon = "icon-ae-checklist-1";
         }
 
 
@@ -28,6 +29,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader LockedBy { get; set; }
 
         public String LockedDateStamp { get; set; }
+
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
+        public string Icon { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateSet_States, FactoryUrl: "/api/statemachine/factory/state", FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
@@ -46,6 +51,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Key = Key,
                 IsLocked = IsLocked,
                 Name = Name,
+                Icon = Icon,
                 Description = Description
             };
         }
@@ -127,6 +133,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 nameof(StateSet.Name),
                 nameof(StateSet.Key),
+                nameof(StateSet.Icon),
                 nameof(StateSet.Description),
                 nameof(StateSet.RequireEnum),
                 nameof(StateSet.IsLocked),
@@ -141,7 +148,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.StateSet_Title, Resources.DeviceLibraryResources.Names.StateSet_Help,
-      Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources),
+      Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-checklist-1",
       DeleteUrl: "/api/statemachine/stateset/{id}", SaveUrl: "/api/statemachine/stateset", GetListUrl: "/api/statemachine/statesets", GetUrl: "/api/statemachine/stateset/{id}", FactoryUrl: "/api/statemachine/factory/stateset")]
     public class StateSetSummary : SummaryData
     {

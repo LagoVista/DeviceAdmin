@@ -11,14 +11,15 @@ using LagoVista.IoT.DeviceAdmin.Models.Resources;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.UnitSet_Title, Resources.DeviceLibraryResources.Names.UnitSet_Help, Resources.DeviceLibraryResources.Names.UnitSet_Description,
-        EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources),
+        EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-checklist-2",
         SaveUrl: "/api/deviceadmin/unitset", GetUrl: "/api/deviceadmin/unitset/{id}", GetListUrl: "/api/deviceadmin/unitsets", FactoryUrl: "/api/deviceadmin/factory/unitset", DeleteUrl: "/api/deviceadmin/unitset/{id}")]
-    public class UnitSet : IoTModelBase, IValidateable, IFormDescriptor, ILockable, ISummaryFactory
+    public class UnitSet : IoTModelBase, IValidateable, IFormDescriptor, ILockable, ISummaryFactory, IIconEntity
     {
         public UnitSet()
         {
             Units = new List<Unit>();
             Id = Guid.NewGuid().ToId();
+            Icon="icon-ae-checklist-2";
         }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.UnitSet_IsLocked, HelpResource: DeviceLibraryResources.Names.UnitSet_IsLocked_Help, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
@@ -27,6 +28,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader LockedBy { get; set; }
 
         public String LockedDateStamp { get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
+        public string Icon { get; set; }
+
 
         public Unit GetDefault()
         {
@@ -44,6 +49,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 IsPublic = IsPublic,
                 Key = Key,
                 Name = Name,
+                Icon = Icon,
                 IsLocked = IsLocked,
                 Description = Description
             };
@@ -70,6 +76,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 nameof(UnitSet.Name),
                 nameof(UnitSet.Key),
+                nameof(UnitSet.Icon),
                 nameof(UnitSet.Description),
                 nameof(UnitSet.IsLocked),
                 nameof(UnitSet.Units),
@@ -124,7 +131,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.UnitSet_Title, Resources.DeviceLibraryResources.Names.UnitSet_Help, Resources.DeviceLibraryResources.Names.UnitSet_Description,
-    EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources),
+    EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-checklist-2",
     SaveUrl: "/api/deviceadmin/unitset", GetUrl: "/api/deviceadmin/unitset/{id}", GetListUrl: "/api/deviceadmin/unitsets", FactoryUrl: "/api/deviceadmin/factory/unitset", DeleteUrl: "/api/deviceadmin/unitset/{id}")]
     public class UnitSetSummary : SummaryData
     {
