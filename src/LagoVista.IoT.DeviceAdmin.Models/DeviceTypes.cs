@@ -11,9 +11,10 @@ using System.Collections.Generic;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceType_Title, DeviceLibraryResources.Names.DeviceType_Help,
-        DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model",
-        SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}")]
-    public class DeviceType : IoTModelBase, IValidateable, IFormDescriptor, IFormDescriptorAdvanced, IFormDescriptorBottom, IFormDescriptorAdvancedCol2, IIconEntity, ISummaryFactory, IIDEntity
+        DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.CoreIoTModel, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model",
+        SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}",
+        ListUIUrl: "/iotstudio/device/devicemodels", EditUIUrl: "/iotstudio/device/devicemodel/{id}", CreateUIUrl: "/iotstudio/device/devicemodel/add")]
+    public class DeviceType : IoTModelBase, IValidateable, IFormDescriptor, IFormDescriptorAdvanced, IFormDescriptorBottom, IFormDescriptorAdvancedCol2, IIconEntity, ISummaryFactory, IIDEntity, ICategorized
     {
         public DeviceType()
         {
@@ -35,6 +36,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             HelpResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Help, IsRequired: true, EntityHeaderPickerUrl: "/api/deviceconfigs",
             WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader DefaultDeviceConfiguration { get; set; }
+
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceLibraryResources.Names.Common_SelectCategory, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
+        public EntityHeader Category { get; set; }
 
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_BillOfMaterial, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select,
@@ -71,6 +76,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Key = Key,
                 Manufacturer = Manufacturer,
                 ModelNumber = ModelNumber,
+                Category = Category
             };
 
             if (DefaultDeviceConfiguration != null && !DefaultDeviceConfiguration.IsEmpty())
@@ -89,6 +95,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.Name),
                 nameof(DeviceType.Key),
                 nameof(DeviceType.Icon),
+                nameof(DeviceType.Category),
                 nameof(DeviceType.DefaultDeviceConfiguration),
                 nameof(DeviceType.Manufacturer),
                 nameof(DeviceType.ModelNumber),
@@ -137,7 +144,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceTypes_Title, DeviceLibraryResources.Names.DeviceType_Help,
       DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model",
       SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}")]
-    public class DeviceTypeSummary : SummaryData
+    public class DeviceTypeSummary : CategorizedSummaryData
     {
         public String DefaultDeviceConfigId { get; set; }
         public String DefaultDeviceConfigName { get; set; }

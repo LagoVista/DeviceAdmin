@@ -265,7 +265,7 @@
     <value>Unit Definitions</value>
   </data>
   <data name="UnitSet_Help" xml:space="preserve">
-    <value>Unit Sets are a collection of units that can be attached to an value.   An example of a unit set is Weight, weight can be Pounds, Kilograms, Grams, etc...</value>
+    <value>A single value can be associated with multiple units. Take temperature as an example; it can be measured in Celsius or Fahrenheit, and these attributes can be incorporated here. Each unit is part of a Unit Set, and values are stored with a default unit that allows for conversion between different units using the default setting.</value>
   </data>
   <data name="Unit_Abbreviation" xml:space="preserve">
     <value>Abbreviation</value>
@@ -472,7 +472,7 @@
     <value>Attributes</value>
   </data>
   <data name="DeviceWorkflow_Attributes_Help" xml:space="preserve">
-    <value>Attributes are meta-data that are attached to a device workflow that are used to maintain the state of the device.  Attributes can be one of the following, a simple value with a unit, a standard attribute that is common across many device configurations or a state machine.</value>
+    <value>Attributes act as metadata linked to a device workflow, contributing to the preservation of the device's state. These attributes are represented as simple values with an optional unit. Stored on a per-device basis, they are accessible to all workflows associated with the device.</value>
   </data>
   <data name="Action_Shared" xml:space="preserve">
     <value>Shared Action</value>
@@ -589,7 +589,7 @@
     <value>Admin Note</value>
   </data>
   <data name="UnitSet_Description" xml:space="preserve">
-    <value>An value can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  A Unit belongs to a Unit Set, values are stored with a default value that can be converted between different units via the default units.</value>
+    <value>A single value can be associated with multiple units. Take temperature as an example; it can be measured in Celsius or Fahrenheit, and these attributes can be incorporated here. Each unit is part of a Unit Set, and values are stored with a default unit that allows for conversion between different units using the default setting.</value>
   </data>
   <data name="UnitSet_Title" xml:space="preserve">
     <value>Unit Set</value>
@@ -723,7 +723,7 @@
     <value>Attribute Type</value>
   </data>
   <data name="Attribute_AttributeType_Help" xml:space="preserve">
-    <value>The Attribute Type is used to determine the type of value that will be stored.  It can be a discrete value such as a number for a measurement, or it can be a state machine.  A simple example of a state machine is an On Off switch, it can have one of two states On or Off.</value>
+    <value>The Attribute Type is employed to specify the kind of value that will be stored. It can be a discrete value, such as a number for a measurement, or it can be a state set. A straightforward example of a state set is an On/Off switch, which can have one of two states: On or Off.</value>
   </data>
   <data name="Attribute_Type_Discrete_Help" xml:space="preserve">
     <value>A discrete value is a numeric value that qunatifies something.  This could be something like a temperature, speed. RPM.</value>
@@ -870,10 +870,10 @@
     <value>Once you establish your unit set, you may want to lock this so it can't be edited. Since unit sets in many different areas, making changes to an existing unit set may have undesired side effects</value>
   </data>
   <data name="StateSet_Description" xml:space="preserve">
-    <value>You can define different conditions that your device can be in.  These are called states. States can be things such as On/Off, Running/Idle/Error, Motion/NoMotion, etc...</value>
+    <value>You have the flexibility to define different statuses that your device may exhibit, known as states. These states can encompass conditions such as On/Off, Running/Idle/Error, Motion/NoMotion, and more.</value>
   </data>
   <data name="StateSet_Help" xml:space="preserve">
-    <value>You can define different conditions that your device can be in.  These are called states. States can be things such as On/Off, Running/Idle/Error, Motion/NoMotion, etc...  </value>
+    <value>You have the flexibility to define different statuses that your device may exhibit, known as states. These states can encompass conditions such as On/Off, Running/Idle/Error, Motion/NoMotion, and more.</value>
   </data>
   <data name="StateSet_IsLocked" xml:space="preserve">
     <value>Is Locked</value>
@@ -950,10 +950,10 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>You can configure your input to accept GeoLocation (Latitude/Longitude) data</value>
   </data>
   <data name="DeviceWorkflow_Description" xml:space="preserve">
-    <value>A Device Workflow is the business logic you can implement based in inputs coming from your sensors, input commands that can be sent via another application or a user interface as well as the current state of the device configuration.</value>
+    <value>Attributes act as metadata linked to a device workflow, contributing to the preservation of the device's state. These attributes are represented as simple values with an optional unit. Stored on a per-device basis, they are accessible to all workflows associated with the device.</value>
   </data>
   <data name="DeviceWorkflow_Help" xml:space="preserve">
-    <value>A Device Workflow is the business logic you can implement based in inputs coming from your sensors, input commands that can be sent via another application or a user interface as well as the current state of the device configuration.</value>
+    <value>A Device Workflow is the implemented business logic that relies on inputs from sensors, input commands sent through another application or a user interface, and the current state of the device configuration. It defines how the device should operate and respond based on these inputs and configurations.</value>
   </data>
   <data name="DeviceWorkflow_Title" xml:space="preserve">
     <value>Device Workflow</value>
@@ -1181,10 +1181,10 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Wednesday</value>
   </data>
   <data name="DeviceType_Description" xml:space="preserve">
-    <value>The Device Model is used to uniquely identiy a specific make and model of a device.  A Device Model has an attached Device Configuration that defines the instructions as to how messages from this device are processed.</value>
+    <value>The Device Model serves to uniquely identify a particular make and model of a device. It comes with an associated Device Configuration, which outlines the instructions on how messages from this specific device should be processed.</value>
   </data>
   <data name="DeviceType_Help" xml:space="preserve">
-    <value>The Device Model is used to uniquely identiy a specific make and model of a device.  A Device Model has an attached Device Configuration that defines the instructions as to how messages from this device are processed.</value>
+    <value>The Device Model serves to uniquely identify a particular make and model of a device. It comes with an associated Device Configuration, which outlines the instructions on how messages from this specific device should be processed.</value>
   </data>
   <data name="DeviceType_Title" xml:space="preserve">
     <value>Device Model</value>
@@ -1463,7 +1463,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>If you specify your field as a user configurable field, any user that can modify the device can edit the property.  If you don't select this option, only an admin can update the field.</value>
   </data>
   <data name="BusinessRule_Description" xml:space="preserve">
-    <value>A device business rule is evaluated after all the scripts for the workflow have been ran and can be used to generate error codes or service tickets.</value>
+    <value>Business rules are concise scripts created to be executed based on attributes and properties, evaluating the proper functioning of a device. Moreover, these rules can generate service tickets and error codes when necessary. It's important to note that business rules are evaluated after all the scripts in the workflow have been executed.</value>
   </data>
   <data name="BusinessRule_ErrorCode" xml:space="preserve">
     <value>Error Code</value>
@@ -1475,7 +1475,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>-select error code-</value>
   </data>
   <data name="BusinessRule_Help" xml:space="preserve">
-    <value>A device business rule is evaluated after all the scripts for the workflow have been ran and can be used to generate error codes or service tickets.</value>
+    <value>Business rules are concise scripts created to be executed based on attributes and properties, evaluating the proper functioning of a device. Moreover, these rules can generate service tickets and error codes when necessary. It's important to note that business rules are evaluated after all the scripts in the workflow have been executed.</value>
   </data>
   <data name="BusinessRule_IsBeta" xml:space="preserve">
     <value>Is Beta</value>
@@ -1511,7 +1511,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Business Rules</value>
   </data>
   <data name="DeviceWorkflow_BusinessRules_Help" xml:space="preserve">
-    <value>Business rules are smalls scripts that can be executed upon attributes and properties to determine if the device is operating properly.  They can also be used to generate service tickets and error codes.</value>
+    <value>Business rules are small scripts designed to be executed based on attributes and properties to assess the proper functioning of a device. Additionally, these rules can generate service tickets and error codes when necessar</value>
   </data>
   <data name="Parameter_Types_DecimalArray" xml:space="preserve">
     <value>Decimal Array</value>
@@ -1575,5 +1575,11 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="Common_Icon" xml:space="preserve">
     <value />
+  </data>
+  <data name="Common_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Common_SelectCategory" xml:space="preserve">
+    <value>-select category-</value>
   </data>
 </root>

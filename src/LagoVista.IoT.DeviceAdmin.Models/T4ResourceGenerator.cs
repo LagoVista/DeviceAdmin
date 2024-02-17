@@ -1,4 +1,4 @@
-﻿/*1/13/2024 10:12:01 AM*/
+﻿/*2/17/2024 9:49:21 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -285,6 +285,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:BusinessRule_Title
 
 		public static string BusinessRule_Title { get { return GetResourceString("BusinessRule_Title"); } }
+//Resources:DeviceLibraryResources:Common_Category
+
+		public static string Common_Category { get { return GetResourceString("Common_Category"); } }
 //Resources:DeviceLibraryResources:Common_CreatedBy
 
 		public static string Common_CreatedBy { get { return GetResourceString("Common_CreatedBy"); } }
@@ -336,6 +339,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Common_Resources
 
 		public static string Common_Resources { get { return GetResourceString("Common_Resources"); } }
+//Resources:DeviceLibraryResources:Common_SelectCategory
+
+		public static string Common_SelectCategory { get { return GetResourceString("Common_SelectCategory"); } }
 //Resources:DeviceLibraryResources:Common_UniqueId
 
 		public static string Common_UniqueId { get { return GetResourceString("Common_UniqueId"); } }
@@ -1597,6 +1603,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string BusinessRule_ServiceTicket_Help = "BusinessRule_ServiceTicket_Help";
 			public const string BusinessRule_ServiceTicket_Watermark = "BusinessRule_ServiceTicket_Watermark";
 			public const string BusinessRule_Title = "BusinessRule_Title";
+			public const string Common_Category = "Common_Category";
 			public const string Common_CreatedBy = "Common_CreatedBy";
 			public const string Common_CreationDate = "Common_CreationDate";
 			public const string Common_Description = "Common_Description";
@@ -1614,6 +1621,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Common_Notes = "Common_Notes";
 			public const string Common_PageNumberOne = "Common_PageNumberOne";
 			public const string Common_Resources = "Common_Resources";
+			public const string Common_SelectCategory = "Common_SelectCategory";
 			public const string Common_UniqueId = "Common_UniqueId";
 			public const string Common_ValidationErrors = "Common_ValidationErrors";
 			public const string CusotmField_HelpText_Help = "CusotmField_HelpText_Help";

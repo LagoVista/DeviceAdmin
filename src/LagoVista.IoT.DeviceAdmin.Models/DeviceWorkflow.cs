@@ -1,8 +1,6 @@
 ﻿using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Validation;
-using LagoVista.IoT.DeviceAdmin.Resources;
-using System;
 using System.Collections.Generic;
 using LagoVista.Core.Models;
 using System.Linq;
@@ -13,10 +11,11 @@ using LagoVista.Core.Models.UIMetaData;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Title, Resources.DeviceLibraryResources.Names.DeviceWorkflow_Help, 
-        Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources),Icon: "icon-ae-device-workflow",
+        Resources.DeviceLibraryResources.Names.DeviceWorkflow_Description, EntityDescriptionAttribute.EntityTypes.CoreIoTModel, typeof(DeviceLibraryResources),Icon: "icon-ae-device-workflow",
         GetUrl: "/api/deviceadmin/deviceworkflow/{id}", GetListUrl: "/api/deviceadmin/deviceworkflows", SaveUrl: "/api/deviceadmin/deviceworkflow",
-        DeleteUrl: "/api/deviceadmin/deviceworkflows/{id}", FactoryUrl: "/api/deviceadmin/factory/deviceworkflow")]
-    public class DeviceWorkflow : IoTModelBase, IValidateable,  IPipelineModuleConfiguration, IFormConditionalFields, IFormDescriptor, ISummaryFactory
+        DeleteUrl: "/api/deviceadmin/deviceworkflows/{id}", FactoryUrl: "/api/deviceadmin/factory/deviceworkflow", 
+        ListUIUrl: "/iotstudio/make/workflows", EditUIUrl: "/iotstudio/make/workflow/{id}", CreateUIUrl: "/iotstudio/make/workflow/add")]
+    public class DeviceWorkflow : IoTModelBase, IValidateable,  IPipelineModuleConfiguration, IFormConditionalFields, IFormDescriptor, ISummaryFactory, ICategorized
     {
         public DeviceWorkflow()
         {
@@ -39,6 +38,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
        
         public EntityHeader Environment { get; set; }
 
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceLibraryResources.Names.Common_SelectCategory, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
+        public EntityHeader Category { get; set; }
 
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
@@ -126,6 +128,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(Name),
                 nameof(Key),
                 nameof(Icon),
+                nameof(Category),
                 nameof(ConfigurationVersion),
                 nameof(PreHandlerScript),
                 nameof(PostHandlerScript),
