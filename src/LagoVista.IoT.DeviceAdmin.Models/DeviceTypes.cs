@@ -38,7 +38,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader DefaultDeviceConfiguration { get; set; }
 
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceLibraryResources.Names.Common_SelectCategory, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: true)]
+        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceLibraryResources.Names.Common_SelectCategory, ResourceType: typeof(DeviceLibraryResources), IsRequired: false, IsUserEditable: true)]
         public EntityHeader Category { get; set; }
 
 
