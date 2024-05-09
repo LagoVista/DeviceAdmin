@@ -11,6 +11,7 @@ namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
         Task AddDeviceTypeAsync(DeviceType deviceType);
         Task<DeviceType> GetDeviceTypeAsync(String deviceTypeId);
         Task UpdateDeviceTypeAsync(DeviceType deviceType);
+        Task<DeviceType> GetDeviceTypeForKeyAsync(string key, string orgId);
         Task<ListResponse<DeviceTypeSummary>> GetDeviceTypesForOrgAsync(string orgId, ListRequest listRequest);
         Task<bool> QueryKeyInUseAsync(String key, String orgId);
         Task DeleteDeviceTypeSetAsync(string deviceTypeId);

@@ -46,6 +46,12 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
             return base.QuerySummaryAsync<DeviceTypeSummary, DeviceType>(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, qry=>qry.Name, listRequest);
         }
 
+        public async Task<DeviceType> GetDeviceTypeForKeyAsync(string key, string orgId)
+        {
+            var items = await base.QueryAsync(attr => (attr.OwnerOrganization.Id == orgId || attr.IsPublic == true) && attr.Key == key);
+            return items.FirstOrDefault();
+        }
+
         public async Task<bool> QueryKeyInUseAsync(string key, string orgId)
         {
             var items = await base.QueryAsync(attr => (attr.OwnerOrganization.Id == orgId || attr.IsPublic == true) && attr.Key == key);
