@@ -13,6 +13,7 @@ using LagoVista.IoT.Logging.Loggers;
 using LagoVista.Core.Exceptions;
 using LagoVista.IoT.DeviceAdmin.Resources;
 using LagoVista.Core.Models.UIMetaData;
+using System.Diagnostics;
 
 namespace LagoVista.IoT.DeviceAdmin.Managers
 {
@@ -153,6 +154,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
 
         public async Task<InvokeResult<DeviceWorkflow>> LoadFullDeviceWorkflowAsync(string id, EntityHeader org, EntityHeader user)
         {
+            var wfSW = Stopwatch.StartNew();
             DeviceWorkflow deviceWorkflow = null;
             try
             {
@@ -163,10 +165,11 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 return InvokeResult<DeviceWorkflow>.FromErrors(ErrorCodes.CouldNotLoadDeviceWorkflow.ToErrorMessage($"WorkflowId={id}"));
             }
 
+            var result = InvokeResult<DeviceWorkflow>.Create(deviceWorkflow);
+            result.Timings.Add(new ResultTiming() { Key = $"Load Workflow - {deviceWorkflow.Name}", Ms = wfSW.Elapsed.TotalMilliseconds });
             if (deviceWorkflow.Attributes == null) deviceWorkflow.Attributes = new List<Models.Attribute>();
             if (deviceWorkflow.Inputs == null) deviceWorkflow.Inputs = new List<WorkflowInput>();
 
-            var result = new InvokeResult<DeviceWorkflow>();
             foreach (var attribute in deviceWorkflow.Attributes)
             {
                 if (attribute.AttributeType != null && attribute.AttributeType.Value == ParameterTypes.ValueWithUnit)
@@ -176,7 +179,10 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                     {
                         try
                         {
-                            attribute.UnitSet.Value = await GetAttributeUnitSetAsync(attribute.UnitSet.Id, org, user);
+
+                            var sw = Stopwatch.StartNew();
+                            attribute.UnitSet.Value = await _unitSetRepo.GetUnitSetAsync(attribute.UnitSet.Id);
+                            result.Timings.Add(new ResultTiming() { Key = $"Add Attribute {attribute.UnitSet.Text}", Ms = sw.Elapsed.TotalMilliseconds });
                         }
                         catch (RecordNotFoundException)
                         {
@@ -189,7 +195,10 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 {
                     try
                     {
-                        attribute.StateSet.Value = await GetStateSetAsync(attribute.StateSet.Id, org, user);
+
+                        var sw = Stopwatch.StartNew();
+                        attribute.StateSet.Value = await _stateSetRepo.GetStateSetAsync(attribute.StateSet.Id);
+                        result.Timings.Add(new ResultTiming() { Key = $"Add State Set {attribute.StateSet.Text}", Ms = sw.Elapsed.TotalMilliseconds });
                     }
                     catch (RecordNotFoundException)
                     {
@@ -204,7 +213,10 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 {
                     try
                     {
-                        input.UnitSet.Value = await GetAttributeUnitSetAsync(input.UnitSet.Id, org, user);
+
+                        var sw = Stopwatch.StartNew();
+                        input.UnitSet.Value = await _unitSetRepo.GetUnitSetAsync(input.UnitSet.Id);
+                        result.Timings.Add(new ResultTiming() { Key = $"Add Attribute {input.UnitSet.Text}", Ms = sw.Elapsed.TotalMilliseconds });
                     }
                     catch (RecordNotFoundException)
                     {
@@ -216,7 +228,9 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 {
                     try
                     {
-                        input.StateSet.Value = await GetStateSetAsync(input.StateSet.Id, org, user);
+                        var sw = Stopwatch.StartNew();
+                        input.StateSet.Value = await _stateSetRepo.GetStateSetAsync(input.StateSet.Id);
+                        result.Timings.Add(new ResultTiming() { Key = $"Add State Set {input.StateSet.Text}", Ms = sw.Elapsed.TotalMilliseconds });
                     }
                     catch (RecordNotFoundException)
                     {
@@ -233,15 +247,12 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                     {
                         if (param.ParameterType.Value == ParameterTypes.State)
                         {
+                            var sw = Stopwatch.StartNew();
                             param.StateSet.Value = await _stateSetRepo.GetStateSetAsync(param.StateSet.Id);
+                            result.Timings.Add(new ResultTiming() { Key = $"Add State Set {param.StateSet.Text}", Ms = sw.Elapsed.TotalMilliseconds });
                         }
                     }
                 }
-            }
-
-            if (result.Successful)
-            {
-                return InvokeResult<DeviceWorkflow>.Create(deviceWorkflow);
             }
 
             return result;
