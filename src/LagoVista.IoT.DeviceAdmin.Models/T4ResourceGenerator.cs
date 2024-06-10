@@ -1,4 +1,4 @@
-﻿/*2/17/2024 9:49:21 AM*/
+﻿/*6/10/2024 12:15:37 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -540,6 +540,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceBOMItem_AssemblyNumber
 
 		public static string DeviceBOMItem_AssemblyNumber { get { return GetResourceString("DeviceBOMItem_AssemblyNumber"); } }
+//Resources:DeviceLibraryResources:DeviceBOMItem_Cost
+
+		public static string DeviceBOMItem_Cost { get { return GetResourceString("DeviceBOMItem_Cost"); } }
 //Resources:DeviceLibraryResources:DeviceBOMItem_Description
 
 		public static string DeviceBOMItem_Description { get { return GetResourceString("DeviceBOMItem_Description"); } }
@@ -1688,6 +1691,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Device_SerialNumber = "Device_SerialNumber";
 			public const string Device_Status = "Device_Status";
 			public const string DeviceBOMItem_AssemblyNumber = "DeviceBOMItem_AssemblyNumber";
+			public const string DeviceBOMItem_Cost = "DeviceBOMItem_Cost";
 			public const string DeviceBOMItem_Description = "DeviceBOMItem_Description";
 			public const string DeviceBOMItem_Help = "DeviceBOMItem_Help";
 			public const string DeviceBOMItem_IsPartsKit = "DeviceBOMItem_IsPartsKit";

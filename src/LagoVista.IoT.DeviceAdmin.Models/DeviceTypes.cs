@@ -47,8 +47,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public List<SectionGrouping<BOMItem>> BillOfMaterial { get; set; }
 
         [FKeyProperty("MediaResource", "Resources[*].Id = {0}", "")]
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Resources, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select,
-            FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Resources, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<MediaResourceSummary> Resources { get; set; }
 
         [FKeyProperty(nameof(Equipment), "AssociatedEquipment[*].Id = {0}")]

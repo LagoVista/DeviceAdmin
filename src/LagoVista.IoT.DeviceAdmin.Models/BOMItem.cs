@@ -32,8 +32,13 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public string AssemblyNumber { get; set; }
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Quantity, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
         public int Quantity { get; set; }
-        [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Quantity, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
+        
+        [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Quantity, FieldType: FieldTypes.WebLink, ResourceType: typeof(DeviceLibraryResources))]
         public string Link { get; set; }
+
+        [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Cost, FieldType: FieldTypes.Decimal, ResourceType: typeof(DeviceLibraryResources))]
+        public string Cost { get; set; }
+
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Picture, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public List<MediaResourceSummary> Resources { get; set; }
     }
