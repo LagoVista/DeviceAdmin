@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceType_Title, DeviceLibraryResources.Names.DeviceType_Help,
-        DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.CoreIoTModel, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model",
+        DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.CoreIoTModel, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model", Cloneable: true,
         SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}",
         ListUIUrl: "/iotstudio/device/devicemodels", EditUIUrl: "/iotstudio/device/devicemodel/{id}", CreateUIUrl: "/iotstudio/device/devicemodel/add")]
     public class DeviceType : IoTModelBase, IValidateable, IFormDescriptor, IFormDescriptorAdvanced, IFormDescriptorBottom, IFormDescriptorAdvancedCol2, IIconEntity, ISummaryFactory, IIDEntity, ICategorized
@@ -144,7 +144,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     }
 
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceTypes_Title, DeviceLibraryResources.Names.DeviceType_Help,
-      DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model",
+      DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model", Cloneable: true,
       SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}")]
     public class DeviceTypeSummary : CategorizedSummaryData
     {
