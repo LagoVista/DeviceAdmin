@@ -31,7 +31,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ModelNumber, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string ModelNumber { get; set; }
 
-        [FKeyProperty("DeviceConfiguration", "DeviceConfiguration.Id = {0}", "")]
+        [FKeyProperty("DeviceConfiguration", WhereClause:"DeviceConfiguration.Id = {0}")]
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration,
             HelpResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Help, IsRequired: true, EntityHeaderPickerUrl: "/api/deviceconfigs",
             WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
@@ -46,15 +46,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<SectionGrouping<BOMItem>> BillOfMaterial { get; set; }
 
-        [FKeyProperty("MediaResource", "Resources[*].Id = {0}", "")]
+        [FKeyProperty("MediaResource", WhereClause: "Resources[*].Id = {0}")]
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Resources, FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<MediaResourceSummary> Resources { get; set; }
 
-        [FKeyProperty(nameof(Equipment), "AssociatedEquipment[*].Id = {0}")]
+        [FKeyProperty(nameof(Equipment), typeof(Equipment), "AssociatedEquipment[*].Id = {0}")]
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_AssociatedTools, FieldType: FieldTypes.ChildListInlinePicker, EntityHeaderPickerUrl: "/api/equipmentitems", ResourceType: typeof(DeviceLibraryResources))]
         public List<EntityHeader> Equipment { get; set; }
 
-        [FKeyProperty("Firmware", "Firmware.Id = {0}", "")]
+        [FKeyProperty("Firmware", WhereClause:"Firmware.Id = {0}")]
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware, WaterMark: DeviceLibraryResources.Names.DeviceType_FirmwareSelect, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader Firmware { get; set; }
 
