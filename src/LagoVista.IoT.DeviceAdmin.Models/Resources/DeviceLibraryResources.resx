@@ -1585,4 +1585,10 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceBOMItem_Cost" xml:space="preserve">
     <value>Cost</value>
   </data>
+  <data name="DeviceType_Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="DeviceType_Product_Select" xml:space="preserve">
+    <value>-select product-</value>
+  </data>
 </root>

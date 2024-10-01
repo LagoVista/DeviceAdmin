@@ -38,6 +38,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader DefaultDeviceConfiguration { get; set; }
 
 
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Product, FieldType: FieldTypes.ProductPicker, WaterMark: DeviceLibraryResources.Names.DeviceType_Product_Select, ResourceType: typeof(DeviceLibraryResources), IsRequired: false, IsUserEditable: true)]
+        public EntityHeader Product { get; set; }
+
+
         [FormField(LabelResource: DeviceLibraryResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceLibraryResources.Names.Common_SelectCategory, ResourceType: typeof(DeviceLibraryResources), IsRequired: false, IsUserEditable: true)]
         public EntityHeader Category { get; set; }
 
@@ -96,6 +100,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.Icon),
                 nameof(DeviceType.IsPublic),
                 nameof(DeviceType.Category),
+                nameof(DeviceType.Product),
                 nameof(DeviceType.DefaultDeviceConfiguration),
                 nameof(DeviceType.Manufacturer),
                 nameof(DeviceType.ModelNumber),
@@ -123,6 +128,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.Icon),
                 nameof(DeviceType.IsPublic),
                 nameof(DeviceType.Category),
+                nameof(DeviceType.Product),
                 nameof(DeviceType.DefaultDeviceConfiguration),
                 nameof(DeviceType.Manufacturer),
                 nameof(DeviceType.ModelNumber),

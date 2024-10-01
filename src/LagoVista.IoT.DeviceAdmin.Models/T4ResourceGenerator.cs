@@ -1,4 +1,4 @@
-﻿/*6/10/2024 12:15:37 PM*/
+﻿/*10/1/2024 6:53:43 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -678,6 +678,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_ModelNumber
 
 		public static string DeviceType_ModelNumber { get { return GetResourceString("DeviceType_ModelNumber"); } }
+//Resources:DeviceLibraryResources:DeviceType_Product
+
+		public static string DeviceType_Product { get { return GetResourceString("DeviceType_Product"); } }
+//Resources:DeviceLibraryResources:DeviceType_Product_Select
+
+		public static string DeviceType_Product_Select { get { return GetResourceString("DeviceType_Product_Select"); } }
 //Resources:DeviceLibraryResources:DeviceType_Resources
 
 		public static string DeviceType_Resources { get { return GetResourceString("DeviceType_Resources"); } }
@@ -1737,6 +1743,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_Icon = "DeviceType_Icon";
 			public const string DeviceType_Manufacturer = "DeviceType_Manufacturer";
 			public const string DeviceType_ModelNumber = "DeviceType_ModelNumber";
+			public const string DeviceType_Product = "DeviceType_Product";
+			public const string DeviceType_Product_Select = "DeviceType_Product_Select";
 			public const string DeviceType_Resources = "DeviceType_Resources";
 			public const string DeviceType_Title = "DeviceType_Title";
 			public const string DeviceTypes_Title = "DeviceTypes_Title";
