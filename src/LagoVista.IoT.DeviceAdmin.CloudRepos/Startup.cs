@@ -2,6 +2,7 @@
 using LagoVista.IoT.DeviceAdmin.CloudRepos.Repos;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
+using LagoVista.IoT.DeviceAdmin.Managers;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos
 {
@@ -17,6 +18,9 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos
             services.AddTransient<IPartRepo, PartRepo>();
             services.AddTransient<IEventSetRepo, EventSetRepo>();
             services.AddTransient<IDeviceTypeRepo, DeviceTypeRepo>();
+            services.AddTransient<IComponentManager, ComponentManager  >();
+            services.AddTransient<IComponentPackageManager, ComponentPackageManager>();
+
         }
     }
 }

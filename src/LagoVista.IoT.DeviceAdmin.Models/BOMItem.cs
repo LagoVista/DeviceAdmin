@@ -18,11 +18,14 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
 
         public string Id { get; set; }
+
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_PartNumber, FieldType: FieldTypes.Text, IsRequired:true, ResourceType: typeof(DeviceLibraryResources))]
         public string PartNumber { get; set; }
+
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.Common_Name, FieldType: FieldTypes.Text, IsRequired: true, ResourceType: typeof(DeviceLibraryResources))]
         public string Name { get; set; }
-        [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_IsPartsKit, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]
+        
+        [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_IsPartsKit, FieldType: FieldTypes.CheckBox, ResourceType: typeof(DeviceLibraryResources))]        
         public bool IsPartsKit { get; set; }
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Manufacturer, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string Manufacturer { get; set; }

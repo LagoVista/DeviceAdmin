@@ -1574,7 +1574,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>The Parameters on the Output Command consist of data that can be formatted using a Device Message Definition so that it can be sent back to the device or other system.</value>
   </data>
   <data name="Common_Icon" xml:space="preserve">
-    <value />
+    <value>Icon</value>
   </data>
   <data name="Common_Category" xml:space="preserve">
     <value>Category</value>
@@ -1590,5 +1590,105 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="DeviceType_Product_Select" xml:space="preserve">
     <value>-select product-</value>
+  </data>
+  <data name="Component_Title" xml:space="preserve">
+    <value>Component</value>
+    <comment>Component</comment>
+  </data>
+  <data name="Component_Description" xml:space="preserve">
+    <value>A component is part that can be used to assemble PCBs or devices</value>
+  </data>
+  <data name="ComponentPackage_TItle" xml:space="preserve">
+    <value>Component Package</value>
+  </data>
+  <data name="ComponentPackage_Description" xml:space="preserve">
+    <value>A component package is the physical package that makes up a component.</value>
+  </data>
+  <data name="Component_Room" xml:space="preserve">
+    <value>Room</value>
+  </data>
+  <data name="Component_ShelfUnit" xml:space="preserve">
+    <value>Shelving Unit</value>
+  </data>
+  <data name="Component_VendorLink" xml:space="preserve">
+    <value>Vendor Link</value>
+  </data>
+  <data name="Component_MfgPartNumb" xml:space="preserve">
+    <value>Manufacture Part Number</value>
+  </data>
+  <data name="Component_DataSheet" xml:space="preserve">
+    <value>Datasheet Link</value>
+  </data>
+  <data name="Component_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Component_Attr1" xml:space="preserve">
+    <value>Attribute 1</value>
+  </data>
+  <data name="Component_Attr2" xml:space="preserve">
+    <value>Attribute 2</value>
+  </data>
+  <data name="Component_Bin" xml:space="preserve">
+    <value>Bin</value>
+  </data>
+  <data name="Component_Shelf" xml:space="preserve">
+    <value>Shelf</value>
+  </data>
+  <data name="Component_ComponentType" xml:space="preserve">
+    <value>Component Type</value>
+  </data>
+  <data name="Component_PackageType" xml:space="preserve">
+    <value>Package Type</value>
+  </data>
+  <data name="Component_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Component_Cost" xml:space="preserve">
+    <value>Cost</value>
+  </data>
+  <data name="Component_ExtendedPrice" xml:space="preserve">
+    <value>Extended Price</value>
+  </data>
+  <data name="Component_PartNumber" xml:space="preserve">
+    <value>Part Number</value>
+  </data>
+  <data name="ComponentPackage_PackageId" xml:space="preserve">
+    <value>Package Id</value>
+  </data>
+  <data name="ComponentPackage_PartWidth" xml:space="preserve">
+    <value>Part Width</value>
+  </data>
+  <data name="ComponentPackage_PartHeight" xml:space="preserve">
+    <value>Part Height</value>
+  </data>
+  <data name="ComponentPackage_TapeWidth" xml:space="preserve">
+    <value>Tape Width</value>
+  </data>
+  <data name="ComponentPackage_Rotation" xml:space="preserve">
+    <value>Rotation</value>
+  </data>
+  <data name="ComponentPackage_SpacingX" xml:space="preserve">
+    <value>Spacing X</value>
+  </data>
+  <data name="ComponentPackage_HoleSpacing" xml:space="preserve">
+    <value>Hole Spacing</value>
+  </data>
+  <data name="ComponentPackage_CenterX" xml:space="preserve">
+    <value>Center X</value>
+  </data>
+  <data name="ComponentPackage_CenterX_Help" xml:space="preserve">
+    <value>Center X from reference hole</value>
+  </data>
+  <data name="ComponentPackage_CenterY" xml:space="preserve">
+    <value>Center Y</value>
+  </data>
+  <data name="ComponentPackage_CenterY_Help" xml:space="preserve">
+    <value>Center Y from the reference hole in the tape</value>
+  </data>
+  <data name="ComponentPackage_SpecificationPage" xml:space="preserve">
+    <value>Specification Page</value>
+  </data>
+  <data name="ComponentPackage_PartLength" xml:space="preserve">
+    <value>Part Length</value>
   </data>
 </root>
