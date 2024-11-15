@@ -61,7 +61,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         }
 
   
-        public async Task<ListResponse<ComponentSummary>> GetComponentsSummaryAsync(ListRequest listRequest, EntityHeader org, EntityHeader user)
+        public async Task<ListResponse<ComponentSummary>> GetComponentsSummariesAsync(ListRequest listRequest, EntityHeader org, EntityHeader user)
         {
             await AuthorizeOrgAccessAsync(user, org.Id, typeof(DeviceType));
             return await _componentRepo.GetComponentSummariesAsync(org.Id, listRequest);
