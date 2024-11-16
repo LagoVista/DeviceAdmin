@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
 {
-    public class ComponentRepo : DocumentDBRepoBase<Component>, IComponentRepo
+    public class PartPackRepo : DocumentDBRepoBase<PartPack>, IPartPackRepo
     {
         private bool _shouldConsolidateCollections;
 
-        public ComponentRepo(IDeviceRepoSettings settings, IAdminLogger logger, ICacheProvider cacheProvider, IDependencyManager dependencyMgr) :
+        public PartPackRepo(IDeviceRepoSettings settings, IAdminLogger logger, ICacheProvider cacheProvider, IDependencyManager dependencyMgr) :
             base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, logger, cacheProvider, dependencyMgr)
         {
             _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
@@ -21,29 +21,30 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
 
         protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
-        public Task AddComponentAsync(Component component)
+        public Task AddPartPackAsync(PartPack PartPack)
         {
-            return CreateDocumentAsync(component);
+            return CreateDocumentAsync(PartPack);
         }
 
-        public Task DeleteComponentAsync(string id)
+        public Task DeletePartPackAsync(string id)
         {
             return DeleteDocumentAsync(id);
         }
 
-        public Task<Component> GetComponentAsync(string id)
+        public Task<PartPack> GetPartPackAsync(string id)
         {
             return GetDocumentAsync(id);
         }
 
-        public Task<ListResponse<ComponentSummary>> GetComponentSummariesAsync(string orgId, ListRequest listRequest)
-        { 
-            return base.QuerySummaryAsync<ComponentSummary, Component>(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, itm => itm.Name, listRequest);
+        public Task<ListResponse<PartPackSummary>> GetPartPackSummariesAsync(string orgId, ListRequest listRequest)
+        {
+            return base.QuerySummaryAsync<PartPackSummary, PartPack>(qry => qry.IsPublic == true || qry.OwnerOrganization.Id == orgId, itm => itm.Name, listRequest);
         }
 
-        public Task UpdateComponentAsync(Component component)
+        public Task UpdatePartPackAsync(PartPack PartPack)
         {
-            return UpsertDocumentAsync(component);
+            return UpsertDocumentAsync(PartPack);
         }
+
     }
 }

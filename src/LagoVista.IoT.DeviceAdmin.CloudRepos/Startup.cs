@@ -21,7 +21,8 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos
             services.AddTransient<IDeviceTypeRepo, DeviceTypeRepo>();
             services.AddTransient<IComponentRepo, ComponentRepo>();
             services.AddTransient<IComponentPackageRepo, ComponentPackageRepo>();
-
+            services.AddTransient<IPartPackRepo, PartPackRepo>();
+            services.AddTransient<IFeederRepo, FeederRepo>();
         }
     }
 }

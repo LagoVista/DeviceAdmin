@@ -1,4 +1,4 @@
-﻿/*11/15/2024 1:02:29 PM*/
+﻿/*11/16/2024 8:00:10 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -45,7 +45,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
         ///   Returns the formatted resource string.
         /// </summary>
 		/*
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        [global::System.FeederModel.EditorBrowsableAttribute(global::System.FeederModel.EditorBrowsableState.Advanced)]
         private static HtmlString GetResourceHtmlString(string key, params string[] tokens)
 		{
 			var str = GetResourceString(key, tokens);
@@ -1006,6 +1006,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:EventSet_Title
 
 		public static string EventSet_Title { get { return GetResourceString("EventSet_Title"); } }
+//Resources:DeviceLibraryResources:Feeder_Description
+
+		public static string Feeder_Description { get { return GetResourceString("Feeder_Description"); } }
+//Resources:DeviceLibraryResources:Feeder_Title
+
+		public static string Feeder_Title { get { return GetResourceString("Feeder_Title"); } }
+//Resources:DeviceLibraryResources:Feeders_Title
+
+		public static string Feeders_Title { get { return GetResourceString("Feeders_Title"); } }
 //Resources:DeviceLibraryResources:Gateway_Account
 
 		public static string Gateway_Account { get { return GetResourceString("Gateway_Account"); } }
@@ -1249,6 +1258,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Part_Title
 
 		public static string Part_Title { get { return GetResourceString("Part_Title"); } }
+//Resources:DeviceLibraryResources:PartPack_Description
+
+		public static string PartPack_Description { get { return GetResourceString("PartPack_Description"); } }
+//Resources:DeviceLibraryResources:PartPack_Title
+
+		public static string PartPack_Title { get { return GetResourceString("PartPack_Title"); } }
+//Resources:DeviceLibraryResources:PartPacks_Title
+
+		public static string PartPacks_Title { get { return GetResourceString("PartPacks_Title"); } }
 //Resources:DeviceLibraryResources:PartType_Hardware
 
 		public static string PartType_Hardware { get { return GetResourceString("PartType_Hardware"); } }
@@ -2008,6 +2026,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string EventSet_IsLocked = "EventSet_IsLocked";
 			public const string EventSet_IsLocked_Help = "EventSet_IsLocked_Help";
 			public const string EventSet_Title = "EventSet_Title";
+			public const string Feeder_Description = "Feeder_Description";
+			public const string Feeder_Title = "Feeder_Title";
+			public const string Feeders_Title = "Feeders_Title";
 			public const string Gateway_Account = "Gateway_Account";
 			public const string Gateway_Address = "Gateway_Address";
 			public const string Gateway_Address_Help = "Gateway_Address_Help";
@@ -2089,6 +2110,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Part_PartNumber = "Part_PartNumber";
 			public const string Part_SKU = "Part_SKU";
 			public const string Part_Title = "Part_Title";
+			public const string PartPack_Description = "PartPack_Description";
+			public const string PartPack_Title = "PartPack_Title";
+			public const string PartPacks_Title = "PartPacks_Title";
 			public const string PartType_Hardware = "PartType_Hardware";
 			public const string PartType_SurfaceMount = "PartType_SurfaceMount";
 			public const string PartType_ThroughHole = "PartType_ThroughHole";

@@ -1746,4 +1746,22 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Component_Feeder_Select" xml:space="preserve">
     <value>-select feeder-</value>
   </data>
+  <data name="Feeders_Title" xml:space="preserve">
+    <value>Feeders</value>
+  </data>
+  <data name="Feeder_Description" xml:space="preserve">
+    <value>A feeder is a device that provides parts for a pick and place machine.</value>
+  </data>
+  <data name="Feeder_Title" xml:space="preserve">
+    <value>Feeder</value>
+  </data>
+  <data name="PartPacks_Title" xml:space="preserve">
+    <value>Part Packs</value>
+  </data>
+  <data name="PartPack_Description" xml:space="preserve">
+    <value>Part Packs are strip feeders with identified parts on board.</value>
+  </data>
+  <data name="PartPack_Title" xml:space="preserve">
+    <value>Part Pack</value>
+  </data>
 </root>
