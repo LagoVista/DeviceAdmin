@@ -21,7 +21,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
     [Authorize]
     public class PartController : LagoVistaBaseController
     {
-        IPartManager _mgr;
+        private readonly IPartManager _mgr;
 
         public PartController(UserManager<AppUser> userManager, IAdminLogger logger, IPartManager mgr) : base(userManager, logger)
         {

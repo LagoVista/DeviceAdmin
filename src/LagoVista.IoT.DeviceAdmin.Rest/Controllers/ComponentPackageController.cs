@@ -24,13 +24,13 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             _mgr = mgr;
         }
 
-        [HttpGet("/api/component/package/{id}")]
+        [HttpGet("/api/mfg/component/package/{id}")]
         public async Task<DetailResponse<ComponentPackage>> GetComponentPackage(string id)
         {
             return DetailResponse<ComponentPackage>.Create( await _mgr.GetComponentPackageAsync(id, OrgEntityHeader, UserEntityHeader));
         }
 
-        [HttpGet("/api/component/package/factory")]
+        [HttpGet("/api/mfg/component/package/factory")]
         public DetailResponse<ComponentPackage> CreateComponentPackage()
         {
             var form = DetailResponse<ComponentPackage>.Create();
@@ -39,7 +39,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             return form;
         }
 
-        [HttpDelete("/api/component/package/{id}")]
+        [HttpDelete("/api/mfg/component/package/{id}")]
         public async Task<InvokeResult> DeleteComponentPackage(string id)
         {
             return await _mgr.DeleteCommponentPackageAsync(id, OrgEntityHeader, UserEntityHeader);
@@ -49,7 +49,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// ComponentPackage - Add
         /// </summary>
         /// <param name="ComponentPackage"></param>
-        [HttpPost("/api/component/package")]
+        [HttpPost("/api/mfg/component/package")]
         public Task<InvokeResult> AddComponentPackageAsync([FromBody] ComponentPackage ComponentPackage)
         {
             return _mgr.AddComponentPackageAsync(ComponentPackage, OrgEntityHeader, UserEntityHeader);
@@ -60,7 +60,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <param name="ComponentPackage"></param>
         /// <returns></returns>
-        [HttpPut("/api/component/package")]
+        [HttpPut("/api/mfg/component/package")]
         public Task<InvokeResult> UpdateComponentPackage([FromBody] ComponentPackage ComponentPackage)
         {
             SetUpdatedProperties(ComponentPackage);
@@ -71,7 +71,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// ComponentPackage - Get for Current Org
         /// </summary>
         /// <returns></returns>
-        [HttpGet("/api/component/packages")]
+        [HttpGet("/api/mfg/component/packages")]
         public Task<ListResponse<ComponentPackageSummary>> GetEquomentForOrg()
         {
             return _mgr.GetComponentPackagesSummariesAsync(GetListRequestFromHeader(), OrgEntityHeader, UserEntityHeader);

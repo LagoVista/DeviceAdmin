@@ -22,7 +22,7 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
 
         public Task AddComponentPackageAsync(ComponentPackage package)
         {
-            return AddComponentPackageAsync(package);
+            return CreateDocumentAsync(package);
         }
 
         public Task DeleteCommponentPackageAsync(string id)

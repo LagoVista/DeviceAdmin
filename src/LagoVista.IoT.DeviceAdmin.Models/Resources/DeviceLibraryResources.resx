@@ -1640,7 +1640,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="Component_PackageType" xml:space="preserve">
     <value>Package Type</value>
   </data>
-  <data name="Component_Quantity" xml:space="preserve">
+  <data name="Component_QuantityOnHand" xml:space="preserve">
     <value>Quantity</value>
   </data>
   <data name="Component_Cost" xml:space="preserve">
@@ -1656,31 +1656,31 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Package Id</value>
   </data>
   <data name="ComponentPackage_PartWidth" xml:space="preserve">
-    <value>Part Width</value>
+    <value>Part Width (mm)</value>
   </data>
   <data name="ComponentPackage_PartHeight" xml:space="preserve">
-    <value>Part Height</value>
+    <value>Part Height (mm)</value>
   </data>
   <data name="ComponentPackage_TapeWidth" xml:space="preserve">
-    <value>Tape Width</value>
+    <value>Tape Width (mm)</value>
   </data>
   <data name="ComponentPackage_Rotation" xml:space="preserve">
-    <value>Rotation</value>
+    <value>Rotation (angle)</value>
   </data>
   <data name="ComponentPackage_SpacingX" xml:space="preserve">
-    <value>Spacing X</value>
+    <value>Spacing X (mm)</value>
   </data>
   <data name="ComponentPackage_HoleSpacing" xml:space="preserve">
-    <value>Hole Spacing</value>
+    <value>Hole Spacing (mm)</value>
   </data>
   <data name="ComponentPackage_CenterX" xml:space="preserve">
-    <value>Center X</value>
+    <value>Center X (mm)</value>
   </data>
   <data name="ComponentPackage_CenterX_Help" xml:space="preserve">
     <value>Center X from reference hole</value>
   </data>
   <data name="ComponentPackage_CenterY" xml:space="preserve">
-    <value>Center Y</value>
+    <value>Center Y (mm)</value>
   </data>
   <data name="ComponentPackage_CenterY_Help" xml:space="preserve">
     <value>Center Y from the reference hole in the tape</value>
@@ -1689,6 +1689,61 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Specification Page</value>
   </data>
   <data name="ComponentPackage_PartLength" xml:space="preserve">
-    <value>Part Length</value>
+    <value>Part Length (mm)</value>
+  </data>
+  <data name="CompomentPurcahse_Title" xml:space="preserve">
+    <value>Component Purchase</value>
+  </data>
+  <data name="ComponentPurchase_OrderNumber" xml:space="preserve">
+    <value>Order Number</value>
+  </data>
+  <data name="ComponentPurchase_Vendor" xml:space="preserve">
+    <value>Vendor</value>
+  </data>
+  <data name="ComponentPurchase_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="ComponentPurchase_OrderDate" xml:space="preserve">
+    <value>Order Date</value>
+  </data>
+  <data name="ComponentPurchase_Description" xml:space="preserve">
+    <value>Records of purchased components</value>
+    <comment>Records that identify purchased components</comment>
+  </data>
+  <data name="ComponentPurchase_Title" xml:space="preserve">
+    <value>Component Purchase</value>
+  </data>
+  <data name="PartType_ThroughHole" xml:space="preserve">
+    <value>Through Hole</value>
+  </data>
+  <data name="PartType_SurfaceMount" xml:space="preserve">
+    <value>Surface Mount</value>
+  </data>
+  <data name="PartType_Hardware" xml:space="preserve">
+    <value>Hardware</value>
+  </data>
+  <data name="ComponentPackage_PartType" xml:space="preserve">
+    <value>Package Type</value>
+  </data>
+  <data name="ComponentPackage_PartType_Select" xml:space="preserve">
+    <value>-select package type-</value>
+  </data>
+  <data name="Component_QuantityOnOrder" xml:space="preserve">
+    <value>Quantity On Order</value>
+  </data>
+  <data name="Component_ComponentType_Select" xml:space="preserve">
+    <value>-select component type-</value>
+  </data>
+  <data name="Component_PartPack" xml:space="preserve">
+    <value>Part Pack</value>
+  </data>
+  <data name="Component_Row" xml:space="preserve">
+    <value>Row</value>
+  </data>
+  <data name="Component_Feeder" xml:space="preserve">
+    <value>Feeder</value>
+  </data>
+  <data name="Component_Feeder_Select" xml:space="preserve">
+    <value>-select feeder-</value>
   </data>
 </root>

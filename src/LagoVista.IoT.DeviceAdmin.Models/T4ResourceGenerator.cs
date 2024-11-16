@@ -1,4 +1,4 @@
-﻿/*11/14/2024 4:03:30 PM*/
+﻿/*11/15/2024 1:02:29 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -348,6 +348,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Common_ValidationErrors
 
 		public static string Common_ValidationErrors { get { return GetResourceString("Common_ValidationErrors"); } }
+//Resources:DeviceLibraryResources:CompomentPurcahse_Title
+
+		public static string CompomentPurcahse_Title { get { return GetResourceString("CompomentPurcahse_Title"); } }
 //Resources:DeviceLibraryResources:Component_Attr1
 
 		public static string Component_Attr1 { get { return GetResourceString("Component_Attr1"); } }
@@ -360,6 +363,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Component_ComponentType
 
 		public static string Component_ComponentType { get { return GetResourceString("Component_ComponentType"); } }
+//Resources:DeviceLibraryResources:Component_ComponentType_Select
+
+		public static string Component_ComponentType_Select { get { return GetResourceString("Component_ComponentType_Select"); } }
 //Resources:DeviceLibraryResources:Component_Cost
 
 		public static string Component_Cost { get { return GetResourceString("Component_Cost"); } }
@@ -372,6 +378,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Component_ExtendedPrice
 
 		public static string Component_ExtendedPrice { get { return GetResourceString("Component_ExtendedPrice"); } }
+//Resources:DeviceLibraryResources:Component_Feeder
+
+		public static string Component_Feeder { get { return GetResourceString("Component_Feeder"); } }
+//Resources:DeviceLibraryResources:Component_Feeder_Select
+
+		public static string Component_Feeder_Select { get { return GetResourceString("Component_Feeder_Select"); } }
 //Resources:DeviceLibraryResources:Component_MfgPartNumb
 
 		public static string Component_MfgPartNumb { get { return GetResourceString("Component_MfgPartNumb"); } }
@@ -381,12 +393,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Component_PartNumber
 
 		public static string Component_PartNumber { get { return GetResourceString("Component_PartNumber"); } }
-//Resources:DeviceLibraryResources:Component_Quantity
+//Resources:DeviceLibraryResources:Component_PartPack
 
-		public static string Component_Quantity { get { return GetResourceString("Component_Quantity"); } }
+		public static string Component_PartPack { get { return GetResourceString("Component_PartPack"); } }
+//Resources:DeviceLibraryResources:Component_QuantityOnHand
+
+		public static string Component_QuantityOnHand { get { return GetResourceString("Component_QuantityOnHand"); } }
+//Resources:DeviceLibraryResources:Component_QuantityOnOrder
+
+		public static string Component_QuantityOnOrder { get { return GetResourceString("Component_QuantityOnOrder"); } }
 //Resources:DeviceLibraryResources:Component_Room
 
 		public static string Component_Room { get { return GetResourceString("Component_Room"); } }
+//Resources:DeviceLibraryResources:Component_Row
+
+		public static string Component_Row { get { return GetResourceString("Component_Row"); } }
 //Resources:DeviceLibraryResources:Component_Shelf
 
 		public static string Component_Shelf { get { return GetResourceString("Component_Shelf"); } }
@@ -433,6 +454,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:ComponentPackage_PartLength
 
 		public static string ComponentPackage_PartLength { get { return GetResourceString("ComponentPackage_PartLength"); } }
+//Resources:DeviceLibraryResources:ComponentPackage_PartType
+
+		public static string ComponentPackage_PartType { get { return GetResourceString("ComponentPackage_PartType"); } }
+//Resources:DeviceLibraryResources:ComponentPackage_PartType_Select
+
+		public static string ComponentPackage_PartType_Select { get { return GetResourceString("ComponentPackage_PartType_Select"); } }
 //Resources:DeviceLibraryResources:ComponentPackage_PartWidth
 
 		public static string ComponentPackage_PartWidth { get { return GetResourceString("ComponentPackage_PartWidth"); } }
@@ -451,6 +478,28 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:ComponentPackage_TItle
 
 		public static string ComponentPackage_TItle { get { return GetResourceString("ComponentPackage_TItle"); } }
+//Resources:DeviceLibraryResources:ComponentPurchase_Description
+
+
+		///<summary>
+		///Records that identify purchased components
+		///</summary>
+		public static string ComponentPurchase_Description { get { return GetResourceString("ComponentPurchase_Description"); } }
+//Resources:DeviceLibraryResources:ComponentPurchase_OrderDate
+
+		public static string ComponentPurchase_OrderDate { get { return GetResourceString("ComponentPurchase_OrderDate"); } }
+//Resources:DeviceLibraryResources:ComponentPurchase_OrderNumber
+
+		public static string ComponentPurchase_OrderNumber { get { return GetResourceString("ComponentPurchase_OrderNumber"); } }
+//Resources:DeviceLibraryResources:ComponentPurchase_Quantity
+
+		public static string ComponentPurchase_Quantity { get { return GetResourceString("ComponentPurchase_Quantity"); } }
+//Resources:DeviceLibraryResources:ComponentPurchase_Title
+
+		public static string ComponentPurchase_Title { get { return GetResourceString("ComponentPurchase_Title"); } }
+//Resources:DeviceLibraryResources:ComponentPurchase_Vendor
+
+		public static string ComponentPurchase_Vendor { get { return GetResourceString("ComponentPurchase_Vendor"); } }
 //Resources:DeviceLibraryResources:CusotmField_HelpText_Help
 
 		public static string CusotmField_HelpText_Help { get { return GetResourceString("CusotmField_HelpText_Help"); } }
@@ -1200,6 +1249,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:Part_Title
 
 		public static string Part_Title { get { return GetResourceString("Part_Title"); } }
+//Resources:DeviceLibraryResources:PartType_Hardware
+
+		public static string PartType_Hardware { get { return GetResourceString("PartType_Hardware"); } }
+//Resources:DeviceLibraryResources:PartType_SurfaceMount
+
+		public static string PartType_SurfaceMount { get { return GetResourceString("PartType_SurfaceMount"); } }
+//Resources:DeviceLibraryResources:PartType_ThroughHole
+
+		public static string PartType_ThroughHole { get { return GetResourceString("PartType_ThroughHole"); } }
 //Resources:DeviceLibraryResources:State_Description
 
 		public static string State_Description { get { return GetResourceString("State_Description"); } }
@@ -1736,19 +1794,26 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Common_SelectCategory = "Common_SelectCategory";
 			public const string Common_UniqueId = "Common_UniqueId";
 			public const string Common_ValidationErrors = "Common_ValidationErrors";
+			public const string CompomentPurcahse_Title = "CompomentPurcahse_Title";
 			public const string Component_Attr1 = "Component_Attr1";
 			public const string Component_Attr2 = "Component_Attr2";
 			public const string Component_Bin = "Component_Bin";
 			public const string Component_ComponentType = "Component_ComponentType";
+			public const string Component_ComponentType_Select = "Component_ComponentType_Select";
 			public const string Component_Cost = "Component_Cost";
 			public const string Component_DataSheet = "Component_DataSheet";
 			public const string Component_Description = "Component_Description";
 			public const string Component_ExtendedPrice = "Component_ExtendedPrice";
+			public const string Component_Feeder = "Component_Feeder";
+			public const string Component_Feeder_Select = "Component_Feeder_Select";
 			public const string Component_MfgPartNumb = "Component_MfgPartNumb";
 			public const string Component_PackageType = "Component_PackageType";
 			public const string Component_PartNumber = "Component_PartNumber";
-			public const string Component_Quantity = "Component_Quantity";
+			public const string Component_PartPack = "Component_PartPack";
+			public const string Component_QuantityOnHand = "Component_QuantityOnHand";
+			public const string Component_QuantityOnOrder = "Component_QuantityOnOrder";
 			public const string Component_Room = "Component_Room";
+			public const string Component_Row = "Component_Row";
 			public const string Component_Shelf = "Component_Shelf";
 			public const string Component_ShelfUnit = "Component_ShelfUnit";
 			public const string Component_Title = "Component_Title";
@@ -1763,12 +1828,20 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string ComponentPackage_PackageId = "ComponentPackage_PackageId";
 			public const string ComponentPackage_PartHeight = "ComponentPackage_PartHeight";
 			public const string ComponentPackage_PartLength = "ComponentPackage_PartLength";
+			public const string ComponentPackage_PartType = "ComponentPackage_PartType";
+			public const string ComponentPackage_PartType_Select = "ComponentPackage_PartType_Select";
 			public const string ComponentPackage_PartWidth = "ComponentPackage_PartWidth";
 			public const string ComponentPackage_Rotation = "ComponentPackage_Rotation";
 			public const string ComponentPackage_SpacingX = "ComponentPackage_SpacingX";
 			public const string ComponentPackage_SpecificationPage = "ComponentPackage_SpecificationPage";
 			public const string ComponentPackage_TapeWidth = "ComponentPackage_TapeWidth";
 			public const string ComponentPackage_TItle = "ComponentPackage_TItle";
+			public const string ComponentPurchase_Description = "ComponentPurchase_Description";
+			public const string ComponentPurchase_OrderDate = "ComponentPurchase_OrderDate";
+			public const string ComponentPurchase_OrderNumber = "ComponentPurchase_OrderNumber";
+			public const string ComponentPurchase_Quantity = "ComponentPurchase_Quantity";
+			public const string ComponentPurchase_Title = "ComponentPurchase_Title";
+			public const string ComponentPurchase_Vendor = "ComponentPurchase_Vendor";
 			public const string CusotmField_HelpText_Help = "CusotmField_HelpText_Help";
 			public const string Custom_PropertyId = "Custom_PropertyId";
 			public const string Custom_PropertyId_Help = "Custom_PropertyId_Help";
@@ -2016,6 +2089,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Part_PartNumber = "Part_PartNumber";
 			public const string Part_SKU = "Part_SKU";
 			public const string Part_Title = "Part_Title";
+			public const string PartType_Hardware = "PartType_Hardware";
+			public const string PartType_SurfaceMount = "PartType_SurfaceMount";
+			public const string PartType_ThroughHole = "PartType_ThroughHole";
 			public const string State_Description = "State_Description";
 			public const string State_ErrorCode = "State_ErrorCode";
 			public const string State_ErrorCode_Help = "State_ErrorCode_Help";

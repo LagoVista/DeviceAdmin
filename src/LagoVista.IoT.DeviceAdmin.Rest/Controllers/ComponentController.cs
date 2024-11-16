@@ -24,13 +24,13 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             _mgr = mgr;
         }
 
-        [HttpGet("/api/component/{id}")]
+        [HttpGet("/api/mfg/component/{id}")]
         public async Task<DetailResponse<Component>> GetComponent(string id)
         {
             return DetailResponse<Component>.Create(await _mgr.GetComponentAsync(id, OrgEntityHeader, UserEntityHeader));
         }
 
-        [HttpGet("/api/component/factory")]
+        [HttpGet("/api/mfg/component/factory")]
         public DetailResponse<Component> CreateComponent()
         {
             var form = DetailResponse<Component>.Create();
@@ -39,26 +39,32 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
             return form;
         }
 
-        [HttpDelete("/api/component/{id}")]
+        [HttpGet("/api/mfg/component/purchase/factory")]
+        public DetailResponse<ComponentPurchase> CreateComponentPurcahse()
+        {
+            return DetailResponse<ComponentPurchase>.Create();
+        }
+
+        [HttpDelete("/api/mfg/component/{id}")]
         public async Task<InvokeResult> DeleteComponent(string id)
         {
             return await _mgr.DeleteCommponentAsync(id, OrgEntityHeader, UserEntityHeader);
         }
 
-        [HttpPost("/api/component")]
+        [HttpPost("/api/mfg/component")]
         public Task<InvokeResult> AddComponentPackageAsync([FromBody] Component component)
         {
             return _mgr.AddComponentAsync(component, OrgEntityHeader, UserEntityHeader);
         }
 
-        [HttpPut("/api/component")]
+        [HttpPut("/api/mfg/component")]
         public Task<InvokeResult> UpdateComponentPackage([FromBody] Component component)
         {
             SetUpdatedProperties(component);
             return _mgr.UpdateComponentAsync(component, OrgEntityHeader, UserEntityHeader);
         }
 
-        [HttpGet("/api/components")]
+        [HttpGet("/api/mfg/components")]
         public Task<ListResponse<ComponentSummary>> GetEquomentForOrg()
         {
             return _mgr.GetComponentsSummariesAsync(GetListRequestFromHeader(), OrgEntityHeader, UserEntityHeader);
