@@ -109,7 +109,7 @@ try{
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
-        [global::System.FeederModel.EditorBrowsableAttribute(global::System.FeederModel.EditorBrowsableState.Advanced)]
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private static global::System.Resources.ResourceManager ResourceManager 
 		{
             get 
@@ -126,7 +126,7 @@ try{
         /// <summary>
         ///   Returns the formatted resource string.
         /// </summary>
-        [global::System.FeederModel.EditorBrowsableAttribute(global::System.FeederModel.EditorBrowsableState.Advanced)]
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private static string GetResourceString(string key, params string[] tokens)
 		{
 			var culture = CultureInfo.CurrentCulture;;
@@ -142,7 +142,7 @@ try{
         ///   Returns the formatted resource string.
         /// </summary>
 		/*
-        [global::System.FeederModel.EditorBrowsableAttribute(global::System.FeederModel.EditorBrowsableState.Advanced)]
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private static HtmlString GetResourceHtmlString(string key, params string[] tokens)
 		{
 			var str = GetResourceString(key, tokens);

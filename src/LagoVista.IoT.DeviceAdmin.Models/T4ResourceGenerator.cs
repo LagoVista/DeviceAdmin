@@ -1,4 +1,4 @@
-﻿/*11/16/2024 8:00:10 AM*/
+﻿/*11/16/2024 4:45:02 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -45,7 +45,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
         ///   Returns the formatted resource string.
         /// </summary>
 		/*
-        [global::System.FeederModel.EditorBrowsableAttribute(global::System.FeederModel.EditorBrowsableState.Advanced)]
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private static HtmlString GetResourceHtmlString(string key, params string[] tokens)
 		{
 			var str = GetResourceString(key, tokens);
@@ -351,155 +351,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:CompomentPurcahse_Title
 
 		public static string CompomentPurcahse_Title { get { return GetResourceString("CompomentPurcahse_Title"); } }
-//Resources:DeviceLibraryResources:Component_Attr1
-
-		public static string Component_Attr1 { get { return GetResourceString("Component_Attr1"); } }
-//Resources:DeviceLibraryResources:Component_Attr2
-
-		public static string Component_Attr2 { get { return GetResourceString("Component_Attr2"); } }
-//Resources:DeviceLibraryResources:Component_Bin
-
-		public static string Component_Bin { get { return GetResourceString("Component_Bin"); } }
-//Resources:DeviceLibraryResources:Component_ComponentType
-
-		public static string Component_ComponentType { get { return GetResourceString("Component_ComponentType"); } }
-//Resources:DeviceLibraryResources:Component_ComponentType_Select
-
-		public static string Component_ComponentType_Select { get { return GetResourceString("Component_ComponentType_Select"); } }
-//Resources:DeviceLibraryResources:Component_Cost
-
-		public static string Component_Cost { get { return GetResourceString("Component_Cost"); } }
-//Resources:DeviceLibraryResources:Component_DataSheet
-
-		public static string Component_DataSheet { get { return GetResourceString("Component_DataSheet"); } }
-//Resources:DeviceLibraryResources:Component_Description
-
-		public static string Component_Description { get { return GetResourceString("Component_Description"); } }
-//Resources:DeviceLibraryResources:Component_ExtendedPrice
-
-		public static string Component_ExtendedPrice { get { return GetResourceString("Component_ExtendedPrice"); } }
-//Resources:DeviceLibraryResources:Component_Feeder
-
-		public static string Component_Feeder { get { return GetResourceString("Component_Feeder"); } }
-//Resources:DeviceLibraryResources:Component_Feeder_Select
-
-		public static string Component_Feeder_Select { get { return GetResourceString("Component_Feeder_Select"); } }
-//Resources:DeviceLibraryResources:Component_MfgPartNumb
-
-		public static string Component_MfgPartNumb { get { return GetResourceString("Component_MfgPartNumb"); } }
-//Resources:DeviceLibraryResources:Component_PackageType
-
-		public static string Component_PackageType { get { return GetResourceString("Component_PackageType"); } }
-//Resources:DeviceLibraryResources:Component_PartNumber
-
-		public static string Component_PartNumber { get { return GetResourceString("Component_PartNumber"); } }
-//Resources:DeviceLibraryResources:Component_PartPack
-
-		public static string Component_PartPack { get { return GetResourceString("Component_PartPack"); } }
-//Resources:DeviceLibraryResources:Component_QuantityOnHand
-
-		public static string Component_QuantityOnHand { get { return GetResourceString("Component_QuantityOnHand"); } }
-//Resources:DeviceLibraryResources:Component_QuantityOnOrder
-
-		public static string Component_QuantityOnOrder { get { return GetResourceString("Component_QuantityOnOrder"); } }
-//Resources:DeviceLibraryResources:Component_Room
-
-		public static string Component_Room { get { return GetResourceString("Component_Room"); } }
-//Resources:DeviceLibraryResources:Component_Row
-
-		public static string Component_Row { get { return GetResourceString("Component_Row"); } }
-//Resources:DeviceLibraryResources:Component_Shelf
-
-		public static string Component_Shelf { get { return GetResourceString("Component_Shelf"); } }
-//Resources:DeviceLibraryResources:Component_ShelfUnit
-
-		public static string Component_ShelfUnit { get { return GetResourceString("Component_ShelfUnit"); } }
-//Resources:DeviceLibraryResources:Component_Title
-
-
-		///<summary>
-		///Component
-		///</summary>
-		public static string Component_Title { get { return GetResourceString("Component_Title"); } }
-//Resources:DeviceLibraryResources:Component_Value
-
-		public static string Component_Value { get { return GetResourceString("Component_Value"); } }
-//Resources:DeviceLibraryResources:Component_VendorLink
-
-		public static string Component_VendorLink { get { return GetResourceString("Component_VendorLink"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_CenterX
-
-		public static string ComponentPackage_CenterX { get { return GetResourceString("ComponentPackage_CenterX"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_CenterX_Help
-
-		public static string ComponentPackage_CenterX_Help { get { return GetResourceString("ComponentPackage_CenterX_Help"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_CenterY
-
-		public static string ComponentPackage_CenterY { get { return GetResourceString("ComponentPackage_CenterY"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_CenterY_Help
-
-		public static string ComponentPackage_CenterY_Help { get { return GetResourceString("ComponentPackage_CenterY_Help"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_Description
-
-		public static string ComponentPackage_Description { get { return GetResourceString("ComponentPackage_Description"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_HoleSpacing
-
-		public static string ComponentPackage_HoleSpacing { get { return GetResourceString("ComponentPackage_HoleSpacing"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_PackageId
-
-		public static string ComponentPackage_PackageId { get { return GetResourceString("ComponentPackage_PackageId"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_PartHeight
-
-		public static string ComponentPackage_PartHeight { get { return GetResourceString("ComponentPackage_PartHeight"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_PartLength
-
-		public static string ComponentPackage_PartLength { get { return GetResourceString("ComponentPackage_PartLength"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_PartType
-
-		public static string ComponentPackage_PartType { get { return GetResourceString("ComponentPackage_PartType"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_PartType_Select
-
-		public static string ComponentPackage_PartType_Select { get { return GetResourceString("ComponentPackage_PartType_Select"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_PartWidth
-
-		public static string ComponentPackage_PartWidth { get { return GetResourceString("ComponentPackage_PartWidth"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_Rotation
-
-		public static string ComponentPackage_Rotation { get { return GetResourceString("ComponentPackage_Rotation"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_SpacingX
-
-		public static string ComponentPackage_SpacingX { get { return GetResourceString("ComponentPackage_SpacingX"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_SpecificationPage
-
-		public static string ComponentPackage_SpecificationPage { get { return GetResourceString("ComponentPackage_SpecificationPage"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_TapeWidth
-
-		public static string ComponentPackage_TapeWidth { get { return GetResourceString("ComponentPackage_TapeWidth"); } }
-//Resources:DeviceLibraryResources:ComponentPackage_TItle
-
-		public static string ComponentPackage_TItle { get { return GetResourceString("ComponentPackage_TItle"); } }
-//Resources:DeviceLibraryResources:ComponentPurchase_Description
-
-
-		///<summary>
-		///Records that identify purchased components
-		///</summary>
-		public static string ComponentPurchase_Description { get { return GetResourceString("ComponentPurchase_Description"); } }
-//Resources:DeviceLibraryResources:ComponentPurchase_OrderDate
-
-		public static string ComponentPurchase_OrderDate { get { return GetResourceString("ComponentPurchase_OrderDate"); } }
-//Resources:DeviceLibraryResources:ComponentPurchase_OrderNumber
-
-		public static string ComponentPurchase_OrderNumber { get { return GetResourceString("ComponentPurchase_OrderNumber"); } }
-//Resources:DeviceLibraryResources:ComponentPurchase_Quantity
-
-		public static string ComponentPurchase_Quantity { get { return GetResourceString("ComponentPurchase_Quantity"); } }
-//Resources:DeviceLibraryResources:ComponentPurchase_Title
-
-		public static string ComponentPurchase_Title { get { return GetResourceString("ComponentPurchase_Title"); } }
-//Resources:DeviceLibraryResources:ComponentPurchase_Vendor
-
-		public static string ComponentPurchase_Vendor { get { return GetResourceString("ComponentPurchase_Vendor"); } }
 //Resources:DeviceLibraryResources:CusotmField_HelpText_Help
 
 		public static string CusotmField_HelpText_Help { get { return GetResourceString("CusotmField_HelpText_Help"); } }
@@ -1141,6 +992,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:OutputCommand_Title
 
 		public static string OutputCommand_Title { get { return GetResourceString("OutputCommand_Title"); } }
+//Resources:DeviceLibraryResources:PackAndPlace_Description
+
+		public static string PackAndPlace_Description { get { return GetResourceString("PackAndPlace_Description"); } }
 //Resources:DeviceLibraryResources:Page_Description
 
 		public static string Page_Description { get { return GetResourceString("Page_Description"); } }
@@ -1276,6 +1130,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:PartType_ThroughHole
 
 		public static string PartType_ThroughHole { get { return GetResourceString("PartType_ThroughHole"); } }
+//Resources:DeviceLibraryResources:PickAndPlaceJob_Title
+
+		public static string PickAndPlaceJob_Title { get { return GetResourceString("PickAndPlaceJob_Title"); } }
 //Resources:DeviceLibraryResources:State_Description
 
 		public static string State_Description { get { return GetResourceString("State_Description"); } }
@@ -1813,53 +1670,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string Common_UniqueId = "Common_UniqueId";
 			public const string Common_ValidationErrors = "Common_ValidationErrors";
 			public const string CompomentPurcahse_Title = "CompomentPurcahse_Title";
-			public const string Component_Attr1 = "Component_Attr1";
-			public const string Component_Attr2 = "Component_Attr2";
-			public const string Component_Bin = "Component_Bin";
-			public const string Component_ComponentType = "Component_ComponentType";
-			public const string Component_ComponentType_Select = "Component_ComponentType_Select";
-			public const string Component_Cost = "Component_Cost";
-			public const string Component_DataSheet = "Component_DataSheet";
-			public const string Component_Description = "Component_Description";
-			public const string Component_ExtendedPrice = "Component_ExtendedPrice";
-			public const string Component_Feeder = "Component_Feeder";
-			public const string Component_Feeder_Select = "Component_Feeder_Select";
-			public const string Component_MfgPartNumb = "Component_MfgPartNumb";
-			public const string Component_PackageType = "Component_PackageType";
-			public const string Component_PartNumber = "Component_PartNumber";
-			public const string Component_PartPack = "Component_PartPack";
-			public const string Component_QuantityOnHand = "Component_QuantityOnHand";
-			public const string Component_QuantityOnOrder = "Component_QuantityOnOrder";
-			public const string Component_Room = "Component_Room";
-			public const string Component_Row = "Component_Row";
-			public const string Component_Shelf = "Component_Shelf";
-			public const string Component_ShelfUnit = "Component_ShelfUnit";
-			public const string Component_Title = "Component_Title";
-			public const string Component_Value = "Component_Value";
-			public const string Component_VendorLink = "Component_VendorLink";
-			public const string ComponentPackage_CenterX = "ComponentPackage_CenterX";
-			public const string ComponentPackage_CenterX_Help = "ComponentPackage_CenterX_Help";
-			public const string ComponentPackage_CenterY = "ComponentPackage_CenterY";
-			public const string ComponentPackage_CenterY_Help = "ComponentPackage_CenterY_Help";
-			public const string ComponentPackage_Description = "ComponentPackage_Description";
-			public const string ComponentPackage_HoleSpacing = "ComponentPackage_HoleSpacing";
-			public const string ComponentPackage_PackageId = "ComponentPackage_PackageId";
-			public const string ComponentPackage_PartHeight = "ComponentPackage_PartHeight";
-			public const string ComponentPackage_PartLength = "ComponentPackage_PartLength";
-			public const string ComponentPackage_PartType = "ComponentPackage_PartType";
-			public const string ComponentPackage_PartType_Select = "ComponentPackage_PartType_Select";
-			public const string ComponentPackage_PartWidth = "ComponentPackage_PartWidth";
-			public const string ComponentPackage_Rotation = "ComponentPackage_Rotation";
-			public const string ComponentPackage_SpacingX = "ComponentPackage_SpacingX";
-			public const string ComponentPackage_SpecificationPage = "ComponentPackage_SpecificationPage";
-			public const string ComponentPackage_TapeWidth = "ComponentPackage_TapeWidth";
-			public const string ComponentPackage_TItle = "ComponentPackage_TItle";
-			public const string ComponentPurchase_Description = "ComponentPurchase_Description";
-			public const string ComponentPurchase_OrderDate = "ComponentPurchase_OrderDate";
-			public const string ComponentPurchase_OrderNumber = "ComponentPurchase_OrderNumber";
-			public const string ComponentPurchase_Quantity = "ComponentPurchase_Quantity";
-			public const string ComponentPurchase_Title = "ComponentPurchase_Title";
-			public const string ComponentPurchase_Vendor = "ComponentPurchase_Vendor";
 			public const string CusotmField_HelpText_Help = "CusotmField_HelpText_Help";
 			public const string Custom_PropertyId = "Custom_PropertyId";
 			public const string Custom_PropertyId_Help = "Custom_PropertyId_Help";
@@ -2071,6 +1881,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string OutputCommand_Script_Help = "OutputCommand_Script_Help";
 			public const string OutputCommand_Script_WaterMark = "OutputCommand_Script_WaterMark";
 			public const string OutputCommand_Title = "OutputCommand_Title";
+			public const string PackAndPlace_Description = "PackAndPlace_Description";
 			public const string Page_Description = "Page_Description";
 			public const string Page_Help = "Page_Help";
 			public const string Page_Name = "Page_Name";
@@ -2116,6 +1927,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string PartType_Hardware = "PartType_Hardware";
 			public const string PartType_SurfaceMount = "PartType_SurfaceMount";
 			public const string PartType_ThroughHole = "PartType_ThroughHole";
+			public const string PickAndPlaceJob_Title = "PickAndPlaceJob_Title";
 			public const string State_Description = "State_Description";
 			public const string State_ErrorCode = "State_ErrorCode";
 			public const string State_ErrorCode_Help = "State_ErrorCode_Help";
