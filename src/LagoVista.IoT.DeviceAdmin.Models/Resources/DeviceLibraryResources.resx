@@ -1627,4 +1627,7 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="PackAndPlace_Description" xml:space="preserve">
     <value>A Pick and Place job has the parameters for a job that should be run on a pick and place machine</value>
   </data>
+  <data name="DeviceType_ProvisioningQAChecks" xml:space="preserve">
+    <value>Provisioning QA Checks</value>
+  </data>
 </root>

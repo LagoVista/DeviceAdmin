@@ -68,6 +68,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware_Revision, WaterMark: DeviceLibraryResources.Names.DeviceType_Firmware_RevisionSelect, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader FirmwareRevision { get; set; }
 
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ProvisioningQAChecks, FieldType: FieldTypes.HtmlEditor, ResourceType: typeof(DeviceLibraryResources))]
+        public string ProvisioningQAChecks { get; set; }
+
         public DeviceTypeSummary CreateSummary()
         {
             var summary = new DeviceTypeSummary()
@@ -90,6 +94,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
             return summary;
         }
+
 
         public List<string> GetAdvancedFields()
         {
@@ -114,6 +119,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.Firmware),
                 nameof(DeviceType.FirmwareRevision),
                 nameof(DeviceType.Resources),
+                nameof(DeviceType.ProvisioningQAChecks),
                 nameof(DeviceType.BillOfMaterial),
                 nameof(DeviceType.Equipment),
             };
