@@ -83,7 +83,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Key = Key,
                 Manufacturer = Manufacturer,
                 ModelNumber = ModelNumber,
-                Category = Category
+                CategoryId = Category?.Id,
+                Category = Category?.Text,
+                CategoryKey = Category?.Key, 
             };
 
             if (DefaultDeviceConfiguration != null && !DefaultDeviceConfiguration.IsEmpty())
@@ -158,8 +160,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceTypes_Title, DeviceLibraryResources.Names.DeviceType_Help,
       DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model", Cloneable: true,
       SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}")]
-    public class DeviceTypeSummary : CategorizedSummaryData
-    {
+    public class DeviceTypeSummary : SummaryData    {
         public String DefaultDeviceConfigId { get; set; }
         public String DefaultDeviceConfigName { get; set; }
 

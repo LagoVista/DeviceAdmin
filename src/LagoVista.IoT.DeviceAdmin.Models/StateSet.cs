@@ -58,7 +58,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 Name = Name,
                 Icon = Icon,
                 Description = Description,
-                Category = Category
+                Category = Category?.Text,
+                CategoryKey = Category?.Key,
+                CategoryId = Category?.Id
             };
         }
 
@@ -157,7 +159,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.StateSet_Title, Resources.DeviceLibraryResources.Names.StateSet_Help,
       Resources.DeviceLibraryResources.Names.StateSet_Description, EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-checklist-1",
       DeleteUrl: "/api/statemachine/stateset/{id}", SaveUrl: "/api/statemachine/stateset", GetListUrl: "/api/statemachine/statesets", GetUrl: "/api/statemachine/stateset/{id}", FactoryUrl: "/api/statemachine/factory/stateset")]
-    public class StateSetSummary : CategorizedSummaryData
+    public class StateSetSummary : SummaryData
     {
         public bool IsLocked {get; set;}
     }
