@@ -1630,4 +1630,16 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_ProvisioningQAChecks" xml:space="preserve">
     <value>Provisioning QA Checks</value>
   </data>
+  <data name="DeviceType_QAFirmware" xml:space="preserve">
+    <value>QA Firmware</value>
+  </data>
+  <data name="DeviceType_QAFirmwareRevision" xml:space="preserve">
+    <value>QA Firmware Revision</value>
+  </data>
+  <data name="DeviceType_QAFirmwareRevision_Select" xml:space="preserve">
+    <value>-select qa firmware revision_</value>
+  </data>
+  <data name="DeviceType_QAFirmware_Select" xml:space="preserve">
+    <value>-select qa firmware-</value>
+  </data>
 </root>

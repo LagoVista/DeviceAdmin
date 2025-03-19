@@ -1,4 +1,4 @@
-﻿/*3/11/2025 10:47:16 AM*/
+﻿/*3/19/2025 9:18:51 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -690,6 +690,18 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_ProvisioningQAChecks
 
 		public static string DeviceType_ProvisioningQAChecks { get { return GetResourceString("DeviceType_ProvisioningQAChecks"); } }
+//Resources:DeviceLibraryResources:DeviceType_QAFirmware
+
+		public static string DeviceType_QAFirmware { get { return GetResourceString("DeviceType_QAFirmware"); } }
+//Resources:DeviceLibraryResources:DeviceType_QAFirmware_Select
+
+		public static string DeviceType_QAFirmware_Select { get { return GetResourceString("DeviceType_QAFirmware_Select"); } }
+//Resources:DeviceLibraryResources:DeviceType_QAFirmwareRevision
+
+		public static string DeviceType_QAFirmwareRevision { get { return GetResourceString("DeviceType_QAFirmwareRevision"); } }
+//Resources:DeviceLibraryResources:DeviceType_QAFirmwareRevision_Select
+
+		public static string DeviceType_QAFirmwareRevision_Select { get { return GetResourceString("DeviceType_QAFirmwareRevision_Select"); } }
 //Resources:DeviceLibraryResources:DeviceType_Resources
 
 		public static string DeviceType_Resources { get { return GetResourceString("DeviceType_Resources"); } }
@@ -1786,6 +1798,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_Product = "DeviceType_Product";
 			public const string DeviceType_Product_Select = "DeviceType_Product_Select";
 			public const string DeviceType_ProvisioningQAChecks = "DeviceType_ProvisioningQAChecks";
+			public const string DeviceType_QAFirmware = "DeviceType_QAFirmware";
+			public const string DeviceType_QAFirmware_Select = "DeviceType_QAFirmware_Select";
+			public const string DeviceType_QAFirmwareRevision = "DeviceType_QAFirmwareRevision";
+			public const string DeviceType_QAFirmwareRevision_Select = "DeviceType_QAFirmwareRevision_Select";
 			public const string DeviceType_Resources = "DeviceType_Resources";
 			public const string DeviceType_Title = "DeviceType_Title";
 			public const string DeviceTypes_Title = "DeviceTypes_Title";

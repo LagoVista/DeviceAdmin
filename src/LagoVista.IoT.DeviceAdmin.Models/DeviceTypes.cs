@@ -41,11 +41,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Product, FieldType: FieldTypes.ProductPicker, WaterMark: DeviceLibraryResources.Names.DeviceType_Product_Select, ResourceType: typeof(DeviceLibraryResources), IsRequired: false, IsUserEditable: true)]
         public EntityHeader Product { get; set; }
 
-
-        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceLibraryResources.Names.Common_SelectCategory, ResourceType: typeof(DeviceLibraryResources), IsRequired: false, IsUserEditable: true)]
-        public EntityHeader Category { get; set; }
-
-
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_BillOfMaterial, WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select,
             FieldType: FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public List<SectionGrouping<BOMItem>> BillOfMaterial { get; set; }
@@ -58,15 +53,24 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_AssociatedTools, FieldType: FieldTypes.ChildListInlinePicker, EntityHeaderPickerUrl: "/api/equipmentitems", ResourceType: typeof(DeviceLibraryResources))]
         public List<EntityHeader> Equipment { get; set; }
 
+        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
+        public string Icon { get; set; }
+
+
         [FKeyProperty("Firmware", WhereClause:"Firmware.Id = {0}")]
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware, WaterMark: DeviceLibraryResources.Names.DeviceType_FirmwareSelect, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader Firmware { get; set; }
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
-        public string Icon { get; set; }
-
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware_Revision, WaterMark: DeviceLibraryResources.Names.DeviceType_Firmware_RevisionSelect, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader FirmwareRevision { get; set; }
+
+        [FKeyProperty("Firmware", WhereClause: "Firmware.Id = {0}")]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_QAFirmware, WaterMark: DeviceLibraryResources.Names.DeviceType_QAFirmware_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader QaFirmware { get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_QAFirmwareRevision, WaterMark: DeviceLibraryResources.Names.DeviceType_QAFirmwareRevision_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader QaFirmwareRevision { get; set; }
+
 
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ProvisioningQAChecks, FieldType: FieldTypes.HtmlEditor, ResourceType: typeof(DeviceLibraryResources))]
@@ -118,6 +122,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {  
                 nameof(DeviceType.Firmware),
                 nameof(DeviceType.FirmwareRevision),
+                nameof(DeviceType.QaFirmware),
+                nameof(DeviceType.QaFirmwareRevision),
                 nameof(DeviceType.Resources),
                 nameof(DeviceType.ProvisioningQAChecks),
                 nameof(DeviceType.BillOfMaterial),
