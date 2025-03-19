@@ -36,10 +36,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public string Icon { get; set; }
 
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceLibraryResources.Names.Common_SelectCategory, ResourceType: typeof(DeviceLibraryResources), IsRequired: false, IsUserEditable: true)]
-        public EntityHeader Category { get; set; }
-
-
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateSet_States, FactoryUrl: "/api/statemachine/factory/state", FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]
         public List<State> States { get; set; }
 

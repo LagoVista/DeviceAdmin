@@ -1,4 +1,4 @@
-﻿/*3/19/2025 9:18:51 AM*/
+﻿/*3/19/2025 1:11:05 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -687,6 +687,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_Product_Select
 
 		public static string DeviceType_Product_Select { get { return GetResourceString("DeviceType_Product_Select"); } }
+//Resources:DeviceLibraryResources:DeviceType_ProductionQAChecks
+
+		public static string DeviceType_ProductionQAChecks { get { return GetResourceString("DeviceType_ProductionQAChecks"); } }
 //Resources:DeviceLibraryResources:DeviceType_ProvisioningQAChecks
 
 		public static string DeviceType_ProvisioningQAChecks { get { return GetResourceString("DeviceType_ProvisioningQAChecks"); } }
@@ -1797,6 +1800,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_ModelNumber = "DeviceType_ModelNumber";
 			public const string DeviceType_Product = "DeviceType_Product";
 			public const string DeviceType_Product_Select = "DeviceType_Product_Select";
+			public const string DeviceType_ProductionQAChecks = "DeviceType_ProductionQAChecks";
 			public const string DeviceType_ProvisioningQAChecks = "DeviceType_ProvisioningQAChecks";
 			public const string DeviceType_QAFirmware = "DeviceType_QAFirmware";
 			public const string DeviceType_QAFirmware_Select = "DeviceType_QAFirmware_Select";

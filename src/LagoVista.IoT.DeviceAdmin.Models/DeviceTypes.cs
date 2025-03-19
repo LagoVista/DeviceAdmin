@@ -72,6 +72,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader QaFirmwareRevision { get; set; }
 
 
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ProductionQAChecks, FieldType: FieldTypes.HtmlEditor, ResourceType: typeof(DeviceLibraryResources))]
+        public string ProductionQAChecks { get; set; }
+
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ProvisioningQAChecks, FieldType: FieldTypes.HtmlEditor, ResourceType: typeof(DeviceLibraryResources))]
         public string ProvisioningQAChecks { get; set; }
@@ -128,6 +131,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.QaFirmwareRevision),
                 nameof(DeviceType.Resources),
                 nameof(DeviceType.ProvisioningQAChecks),
+                nameof(DeviceType.ProductionQAChecks),
                 nameof(DeviceType.BillOfMaterial),
                 nameof(DeviceType.Equipment),
             };

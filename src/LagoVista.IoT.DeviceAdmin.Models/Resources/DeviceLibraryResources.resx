@@ -1637,9 +1637,12 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>QA Firmware Revision</value>
   </data>
   <data name="DeviceType_QAFirmwareRevision_Select" xml:space="preserve">
-    <value>-select qa firmware revision_</value>
+    <value>-select qa firmware revision-</value>
   </data>
   <data name="DeviceType_QAFirmware_Select" xml:space="preserve">
     <value>-select qa firmware-</value>
+  </data>
+  <data name="DeviceType_ProductionQAChecks" xml:space="preserve">
+    <value>Production QA Checks</value>
   </data>
 </root>

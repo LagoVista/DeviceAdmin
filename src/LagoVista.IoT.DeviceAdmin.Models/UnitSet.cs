@@ -33,10 +33,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
         public string Icon { get; set; }
 
-
-        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Category, FieldType: FieldTypes.Category, WaterMark: DeviceLibraryResources.Names.Common_SelectCategory, ResourceType: typeof(DeviceLibraryResources), IsRequired: false, IsUserEditable: true)]
-        public EntityHeader Category { get; set; }
-
         public Unit GetDefault()
         {
            return Units.FirstOrDefault(def => def.IsDefault);
