@@ -14,7 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.CoreIoTModel, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model", Cloneable: true,
         SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}",
         ListUIUrl: "/iotstudio/device/devicemodels", EditUIUrl: "/iotstudio/device/devicemodel/{id}", CreateUIUrl: "/iotstudio/device/devicemodel/add")]
-    public class DeviceType : IoTModelBase, IValidateable, IFormDescriptor, IFormDescriptorAdvanced, IFormDescriptorBottom, IFormDescriptorAdvancedCol2, IIconEntity, ISummaryFactory, IIDEntity, ICategorized
+    public class DeviceType : IoTModelBase, IValidateable, IFormDescriptor, IFormDescriptorAdvanced, IFormDescriptorBottom, IFormDescriptorAdvancedCol2, IIconEntity, ISummaryFactory, IIDEntity, ICategorized, IFormAdditionalActions
     {
         public DeviceType()
         {
@@ -31,7 +31,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ModelNumber, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public string ModelNumber { get; set; }
 
-        [FKeyProperty("DeviceConfiguration", WhereClause:"DeviceConfiguration.Id = {0}")]
+        [FKeyProperty("DeviceConfiguration", WhereClause: "DeviceConfiguration.Id = {0}")]
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration,
             HelpResource: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Help, IsRequired: true, EntityHeaderPickerUrl: "/api/deviceconfigs",
             WaterMark: DeviceLibraryResources.Names.DeviceType_DefaultConfiguration_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
@@ -57,7 +57,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public string Icon { get; set; }
 
 
-        [FKeyProperty("Firmware", WhereClause:"Firmware.Id = {0}")]
+        [FKeyProperty("Firmware", WhereClause: "Firmware.Id = {0}")]
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware, WaterMark: DeviceLibraryResources.Names.DeviceType_FirmwareSelect, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader Firmware { get; set; }
 
@@ -92,7 +92,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 ModelNumber = ModelNumber,
                 CategoryId = Category?.Id,
                 Category = Category?.Text,
-                CategoryKey = Category?.Key, 
+                CategoryKey = Category?.Key,
             };
 
             if (DefaultDeviceConfiguration != null && !DefaultDeviceConfiguration.IsEmpty())
@@ -104,6 +104,20 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             return summary;
         }
 
+        public List<FormAdditionalAction> GetAdditionalActions()
+        {
+            return new List<FormAdditionalAction>()
+            {
+                 new FormAdditionalAction()
+                 {
+                      ForCreate = false,
+                      ForEdit = true,
+                       Key = "productiona",
+                        Title = "Production QA",
+                        Icon = "microsscope"
+                 }
+            };
+        }
 
         public List<string> GetAdvancedFields()
         {
@@ -124,7 +138,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public List<string> GetAdvancedFieldsCol2()
         {
             return new List<string>()
-            {  
+            {
                 nameof(DeviceType.Firmware),
                 nameof(DeviceType.FirmwareRevision),
                 nameof(DeviceType.QaFirmware),
@@ -170,7 +184,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, DeviceLibraryResources.Names.DeviceTypes_Title, DeviceLibraryResources.Names.DeviceType_Help,
       DeviceLibraryResources.Names.DeviceType_Description, EntityDescriptionAttribute.EntityTypes.Summary, ResourceType: typeof(DeviceLibraryResources), Icon: "icon-ae-device-model", Cloneable: true,
       SaveUrl: "/api/devicetype", GetUrl: "/api/devicetype/{id}", GetListUrl: "/api/devicetypes", FactoryUrl: "/api/devicetype/factory", DeleteUrl: "/api/devicetype/{id}")]
-    public class DeviceTypeSummary : SummaryData    {
+    public class DeviceTypeSummary : SummaryData
+    {
         public String DefaultDeviceConfigId { get; set; }
         public String DefaultDeviceConfigName { get; set; }
 
