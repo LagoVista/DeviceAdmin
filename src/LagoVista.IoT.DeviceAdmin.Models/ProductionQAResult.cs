@@ -14,5 +14,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public string TimeStamp { get; set; }
         public string Notes { get; set; }
         public string DeviceUniqueId { get; set; }
+
+        public EntityHeader Location { get; set; }
+        public EntityHeader Room { get; set; }
+        public EntityHeader ShelfUnit { get; set; }
+        public EntityHeader Shelf { get; set; }
+        public EntityHeader Column { get; set; }
     }
 }

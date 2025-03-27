@@ -67,12 +67,22 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
                 Notes = result.Notes,
                 SerialNumber = result.SerialNumber,
                 DeviceUniqueId = result.DeviceUniqueId,
+                LocationId = result.Location?.Id,
+                Location = result.Location?.Text,
+                RoomId = result.Room?.Id,
+                Room = result.Room?.Text,
+                ShelfUnitId = result.ShelfUnit?.Id,
+                ShelfUnit = result.ShelfUnit?.Text,
+                ShelfId = result.Shelf?.Id,
+                Shelf= result.Shelf?.Text,
+                ColumnId = result.Column?.Id,
+                Column = result.Column?.Text,
             };
         }
 
         public ProductionQAResult ToProductionQAResult()
         {
-            return new ProductionQAResult()
+            var result = new ProductionQAResult()
             {
                 CheckedBy = EntityHeader.Create(CheckedById, CheckedBy),
                 TimeStamp = Timestamp,
@@ -82,6 +92,24 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
                 SerialNumber = SerialNumber,
                 DeviceUniqueId = DeviceUniqueId
             };
+
+            if (!string.IsNullOrEmpty(Location) && !String.IsNullOrEmpty(LocationId))
+                result.Location = EntityHeader.Create(LocationId, Location);
+
+            if (!string.IsNullOrEmpty(Room) && !String.IsNullOrEmpty(RoomId))
+                result.Room = EntityHeader.Create(RoomId, Room);
+
+            if (!string.IsNullOrEmpty(ShelfUnit) && !String.IsNullOrEmpty(ShelfUnitId))
+                result.ShelfUnit = EntityHeader.Create(ShelfUnitId, ShelfUnit);
+
+            if (!string.IsNullOrEmpty(Shelf) && !String.IsNullOrEmpty(ShelfId))
+                result.Shelf = EntityHeader.Create(ShelfId, Shelf);
+
+            if (!string.IsNullOrEmpty(Column) && !String.IsNullOrEmpty(ColumnId))
+                result.Column = EntityHeader.Create(ColumnId, Column);
+
+
+            return result;
         }
 
         public string OwnerOrganization { get; set; }
@@ -94,5 +122,18 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
         public string Timestamp { get; set; }
         public string Notes { get; set; }
         public string DeviceUniqueId { get; set; }
+
+
+        public string Location { get; set; }
+        public string Room { get; set; }
+        public string ShelfUnit { get; set; }
+        public string Shelf { get; set; }
+        public string Column { get; set; }
+
+        public string LocationId { get; set; }
+        public string RoomId { get; set; }
+        public string ShelfUnitId { get; set; }
+        public string ShelfId { get; set; }
+        public string ColumnId { get; set; }
     }
 }
