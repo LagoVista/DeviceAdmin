@@ -20,5 +20,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader ShelfUnit { get; set; }
         public EntityHeader Shelf { get; set; }
         public EntityHeader Column { get; set; }
+        public EntityHeader Customer { get; set; }
     }
 }

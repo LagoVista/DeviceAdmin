@@ -77,6 +77,8 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
                 Shelf= result.Shelf?.Text,
                 ColumnId = result.Column?.Id,
                 Column = result.Column?.Text,
+                Customer = result.Customer?.Text,
+                CustomerId = result.Customer?.Id
             };
         }
 
@@ -108,6 +110,8 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
             if (!string.IsNullOrEmpty(Column) && !String.IsNullOrEmpty(ColumnId))
                 result.Column = EntityHeader.Create(ColumnId, Column);
 
+            if (!string.IsNullOrEmpty(Customer) && !String.IsNullOrEmpty(CustomerId))
+                result.Customer = EntityHeader.Create(CustomerId, Customer);
 
             return result;
         }
@@ -129,11 +133,13 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
         public string ShelfUnit { get; set; }
         public string Shelf { get; set; }
         public string Column { get; set; }
+        public string Customer { get; set; }
 
         public string LocationId { get; set; }
         public string RoomId { get; set; }
         public string ShelfUnitId { get; set; }
         public string ShelfId { get; set; }
         public string ColumnId { get; set; }
+        public string CustomerId { get; set; }
     }
 }
