@@ -1,4 +1,4 @@
-﻿/*3/19/2025 1:11:05 PM*/
+﻿/*4/14/2025 11:03:40 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -657,6 +657,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_Description
 
 		public static string DeviceType_Description { get { return GetResourceString("DeviceType_Description"); } }
+//Resources:DeviceLibraryResources:DeviceType_FactoryQAChecks
+
+		public static string DeviceType_FactoryQAChecks { get { return GetResourceString("DeviceType_FactoryQAChecks"); } }
+//Resources:DeviceLibraryResources:DeviceType_FactoryQAInstructions
+
+		public static string DeviceType_FactoryQAInstructions { get { return GetResourceString("DeviceType_FactoryQAInstructions"); } }
+//Resources:DeviceLibraryResources:DeviceType_FactoryQAInstructions_Select
+
+		public static string DeviceType_FactoryQAInstructions_Select { get { return GetResourceString("DeviceType_FactoryQAInstructions_Select"); } }
 //Resources:DeviceLibraryResources:DeviceType_Firmware
 
 		public static string DeviceType_Firmware { get { return GetResourceString("DeviceType_Firmware"); } }
@@ -687,12 +696,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_Product_Select
 
 		public static string DeviceType_Product_Select { get { return GetResourceString("DeviceType_Product_Select"); } }
-//Resources:DeviceLibraryResources:DeviceType_ProductionQAChecks
-
-		public static string DeviceType_ProductionQAChecks { get { return GetResourceString("DeviceType_ProductionQAChecks"); } }
 //Resources:DeviceLibraryResources:DeviceType_ProvisioningQAChecks
 
 		public static string DeviceType_ProvisioningQAChecks { get { return GetResourceString("DeviceType_ProvisioningQAChecks"); } }
+//Resources:DeviceLibraryResources:DeviceType_ProvisionQAInstructions
+
+		public static string DeviceType_ProvisionQAInstructions { get { return GetResourceString("DeviceType_ProvisionQAInstructions"); } }
+//Resources:DeviceLibraryResources:DeviceType_ProvisionQAInstructions_Select
+
+		public static string DeviceType_ProvisionQAInstructions_Select { get { return GetResourceString("DeviceType_ProvisionQAInstructions_Select"); } }
 //Resources:DeviceLibraryResources:DeviceType_QAFirmware
 
 		public static string DeviceType_QAFirmware { get { return GetResourceString("DeviceType_QAFirmware"); } }
@@ -1790,6 +1802,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_DefaultConfiguration_Help = "DeviceType_DefaultConfiguration_Help";
 			public const string DeviceType_DefaultConfiguration_Select = "DeviceType_DefaultConfiguration_Select";
 			public const string DeviceType_Description = "DeviceType_Description";
+			public const string DeviceType_FactoryQAChecks = "DeviceType_FactoryQAChecks";
+			public const string DeviceType_FactoryQAInstructions = "DeviceType_FactoryQAInstructions";
+			public const string DeviceType_FactoryQAInstructions_Select = "DeviceType_FactoryQAInstructions_Select";
 			public const string DeviceType_Firmware = "DeviceType_Firmware";
 			public const string DeviceType_Firmware_Revision = "DeviceType_Firmware_Revision";
 			public const string DeviceType_Firmware_RevisionSelect = "DeviceType_Firmware_RevisionSelect";
@@ -1800,8 +1815,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_ModelNumber = "DeviceType_ModelNumber";
 			public const string DeviceType_Product = "DeviceType_Product";
 			public const string DeviceType_Product_Select = "DeviceType_Product_Select";
-			public const string DeviceType_ProductionQAChecks = "DeviceType_ProductionQAChecks";
 			public const string DeviceType_ProvisioningQAChecks = "DeviceType_ProvisioningQAChecks";
+			public const string DeviceType_ProvisionQAInstructions = "DeviceType_ProvisionQAInstructions";
+			public const string DeviceType_ProvisionQAInstructions_Select = "DeviceType_ProvisionQAInstructions_Select";
 			public const string DeviceType_QAFirmware = "DeviceType_QAFirmware";
 			public const string DeviceType_QAFirmware_Select = "DeviceType_QAFirmware_Select";
 			public const string DeviceType_QAFirmwareRevision = "DeviceType_QAFirmwareRevision";

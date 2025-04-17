@@ -71,9 +71,14 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_QAFirmwareRevision, WaterMark: DeviceLibraryResources.Names.DeviceType_QAFirmwareRevision_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader QaFirmwareRevision { get; set; }
 
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ProvisionQAInstructions,  WaterMark:DeviceLibraryResources.Names.DeviceType_ProvisionQAInstructions_Select, EntityHeaderPickerUrl: "/api/mfg/assembly/instructions", FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader ProvisioningQAInstructions { get; set; }
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ProductionQAChecks, FieldType: FieldTypes.HtmlEditor, ResourceType: typeof(DeviceLibraryResources))]
-        public string ProductionQAChecks { get; set; }
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_FactoryQAInstructions, WaterMark: DeviceLibraryResources.Names.DeviceType_FactoryQAInstructions_Select, EntityHeaderPickerUrl: "/api/mfg/assembly/instructions", FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader FactoryQAInstructions { get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_FactoryQAChecks, FieldType: FieldTypes.HtmlEditor, ResourceType: typeof(DeviceLibraryResources))]
+        public string FactoryQAChecks { get; set; }
 
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ProvisioningQAChecks, FieldType: FieldTypes.HtmlEditor, ResourceType: typeof(DeviceLibraryResources))]
@@ -112,8 +117,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                  {
                       ForCreate = false,
                       ForEdit = true,
-                       Key = "productiona",
-                        Title = "Production QA",
+                       Key = "factoryqa",
+                        Title = "Factory QA",
                         Icon = "microsscope"
                  }
             };
@@ -144,8 +149,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.QaFirmware),
                 nameof(DeviceType.QaFirmwareRevision),
                 nameof(DeviceType.Resources),
-                nameof(DeviceType.ProvisioningQAChecks),
-                nameof(DeviceType.ProductionQAChecks),
+                nameof(DeviceType.FactoryQAInstructions),
+                nameof(DeviceType.FactoryQAChecks),
+                nameof(DeviceType.ProvisioningQAInstructions),
+                nameof(DeviceType.ProvisioningQAChecks),                
                 nameof(DeviceType.BillOfMaterial),
                 nameof(DeviceType.Equipment),
             };

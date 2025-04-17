@@ -1627,9 +1627,6 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="PackAndPlace_Description" xml:space="preserve">
     <value>A Pick and Place job has the parameters for a job that should be run on a pick and place machine</value>
   </data>
-  <data name="DeviceType_ProvisioningQAChecks" xml:space="preserve">
-    <value>Provisioning QA Checks</value>
-  </data>
   <data name="DeviceType_QAFirmware" xml:space="preserve">
     <value>QA Firmware</value>
   </data>
@@ -1642,7 +1639,22 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_QAFirmware_Select" xml:space="preserve">
     <value>-select qa firmware-</value>
   </data>
-  <data name="DeviceType_ProductionQAChecks" xml:space="preserve">
-    <value>Production QA Checks</value>
+  <data name="DeviceType_FactoryQAInstructions" xml:space="preserve">
+    <value>Factory QA Instructions</value>
+  </data>
+  <data name="DeviceType_FactoryQAInstructions_Select" xml:space="preserve">
+    <value>-select factory qa instructions-</value>
+  </data>
+  <data name="DeviceType_ProvisionQAInstructions" xml:space="preserve">
+    <value>Provisioning QA Instructions</value>
+  </data>
+  <data name="DeviceType_ProvisionQAInstructions_Select" xml:space="preserve">
+    <value>-select instructions-</value>
+  </data>
+  <data name="DeviceType_FactoryQAChecks" xml:space="preserve">
+    <value>Factory QA Checks</value>
+  </data>
+  <data name="DeviceType_ProvisioningQAChecks" xml:space="preserve">
+    <value>Provisioning QA Checks</value>
   </data>
 </root>
