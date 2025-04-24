@@ -1657,4 +1657,19 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_ProvisioningQAChecks" xml:space="preserve">
     <value>Provisioning QA Checks</value>
   </data>
+  <data name="DeviceType_TestingDeviceRepo" xml:space="preserve">
+    <value>Testing Device Repo</value>
+  </data>
+  <data name="DeviceType_TestingDeviceRepo_Help" xml:space="preserve">
+    <value>The repository where the device that will be used for testing during the provisioning process belongs to.</value>
+  </data>
+  <data name="DeviceType_TestingDevice" xml:space="preserve">
+    <value>Testing Device</value>
+  </data>
+  <data name="DeviceType_TestingDevice_Help" xml:space="preserve">
+    <value>The device that has the configuration that should be used for testing of the hardware during provisioning.</value>
+  </data>
+  <data name="DeviceType_SelectTestingDevice" xml:space="preserve">
+    <value>-select testing device-</value>
+  </data>
 </root>

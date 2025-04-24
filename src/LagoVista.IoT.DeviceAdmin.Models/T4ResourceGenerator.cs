@@ -1,4 +1,4 @@
-﻿/*4/14/2025 11:03:40 AM*/
+﻿/*4/24/2025 7:31:06 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -720,6 +720,21 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_Resources
 
 		public static string DeviceType_Resources { get { return GetResourceString("DeviceType_Resources"); } }
+//Resources:DeviceLibraryResources:DeviceType_SelectTestingDevice
+
+		public static string DeviceType_SelectTestingDevice { get { return GetResourceString("DeviceType_SelectTestingDevice"); } }
+//Resources:DeviceLibraryResources:DeviceType_TestingDevice
+
+		public static string DeviceType_TestingDevice { get { return GetResourceString("DeviceType_TestingDevice"); } }
+//Resources:DeviceLibraryResources:DeviceType_TestingDevice_Help
+
+		public static string DeviceType_TestingDevice_Help { get { return GetResourceString("DeviceType_TestingDevice_Help"); } }
+//Resources:DeviceLibraryResources:DeviceType_TestingDeviceRepo
+
+		public static string DeviceType_TestingDeviceRepo { get { return GetResourceString("DeviceType_TestingDeviceRepo"); } }
+//Resources:DeviceLibraryResources:DeviceType_TestingDeviceRepo_Help
+
+		public static string DeviceType_TestingDeviceRepo_Help { get { return GetResourceString("DeviceType_TestingDeviceRepo_Help"); } }
 //Resources:DeviceLibraryResources:DeviceType_Title
 
 		public static string DeviceType_Title { get { return GetResourceString("DeviceType_Title"); } }
@@ -1823,6 +1838,11 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_QAFirmwareRevision = "DeviceType_QAFirmwareRevision";
 			public const string DeviceType_QAFirmwareRevision_Select = "DeviceType_QAFirmwareRevision_Select";
 			public const string DeviceType_Resources = "DeviceType_Resources";
+			public const string DeviceType_SelectTestingDevice = "DeviceType_SelectTestingDevice";
+			public const string DeviceType_TestingDevice = "DeviceType_TestingDevice";
+			public const string DeviceType_TestingDevice_Help = "DeviceType_TestingDevice_Help";
+			public const string DeviceType_TestingDeviceRepo = "DeviceType_TestingDeviceRepo";
+			public const string DeviceType_TestingDeviceRepo_Help = "DeviceType_TestingDeviceRepo_Help";
 			public const string DeviceType_Title = "DeviceType_Title";
 			public const string DeviceTypes_Title = "DeviceTypes_Title";
 			public const string DeviceWorkflow_Attributes = "DeviceWorkflow_Attributes";

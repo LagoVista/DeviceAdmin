@@ -84,6 +84,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ProvisioningQAChecks, FieldType: FieldTypes.HtmlEditor, ResourceType: typeof(DeviceLibraryResources))]
         public string ProvisioningQAChecks { get; set; }
 
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_TestingDeviceRepo, DeviceLibraryResources.Names.DeviceType_TestingDeviceRepo_Help, FieldType: FieldTypes.EntityHeaderPicker, EntityHeaderPickerUrl: "/api/devicerepos", ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader TestingDeviceRepo { get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_TestingDevice, HelpResource: DeviceLibraryResources.Names.DeviceType_TestingDevice_Help, WaterMark: DeviceLibraryResources.Names.DeviceType_SelectTestingDevice, FieldType: FieldTypes.DevicePicker, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader TestingDevice { get; set; }
+
         public DeviceTypeSummary CreateSummary()
         {
             var summary = new DeviceTypeSummary()
@@ -148,13 +154,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.FirmwareRevision),
                 nameof(DeviceType.QaFirmware),
                 nameof(DeviceType.QaFirmwareRevision),
-                nameof(DeviceType.Resources),
+                nameof(DeviceType.TestingDeviceRepo),
+                nameof(DeviceType.TestingDevice),
                 nameof(DeviceType.FactoryQAInstructions),
                 nameof(DeviceType.FactoryQAChecks),
                 nameof(DeviceType.ProvisioningQAInstructions),
-                nameof(DeviceType.ProvisioningQAChecks),                
+                nameof(DeviceType.ProvisioningQAChecks),
                 nameof(DeviceType.BillOfMaterial),
                 nameof(DeviceType.Equipment),
+                nameof(DeviceType.Resources),
             };
         }
 
