@@ -58,18 +58,25 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
         [FKeyProperty("Firmware", WhereClause: "Firmware.Id = {0}")]
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware, WaterMark: DeviceLibraryResources.Names.DeviceType_FirmwareSelect, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware, WaterMark: DeviceLibraryResources.Names.DeviceType_FirmwareSelect, HelpResource: DeviceLibraryResources.Names.DeviceType_Firmware_Help, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader Firmware { get; set; }
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware_Revision, WaterMark: DeviceLibraryResources.Names.DeviceType_Firmware_RevisionSelect, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Firmware_Revision, WaterMark: DeviceLibraryResources.Names.DeviceType_Firmware_RevisionSelect, HelpResource: DeviceLibraryResources.Names.DeviceType_Firmware_Revision_Help, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader FirmwareRevision { get; set; }
 
         [FKeyProperty("Firmware", WhereClause: "Firmware.Id = {0}")]
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_QAFirmware, WaterMark: DeviceLibraryResources.Names.DeviceType_QAFirmware_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_QAFirmware, WaterMark: DeviceLibraryResources.Names.DeviceType_QAFirmware_Select, HelpResource:DeviceLibraryResources.Names.DeviceType_QAFirmware_Help, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader QaFirmware { get; set; }
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_QAFirmwareRevision, WaterMark: DeviceLibraryResources.Names.DeviceType_QAFirmwareRevision_Select, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_QAFirmwareRevision, WaterMark: DeviceLibraryResources.Names.DeviceType_QAFirmwareRevision_Select,  FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader QaFirmwareRevision { get; set; }
+
+        [FKeyProperty("Firmware", WhereClause: "Firmware.Id = {0}")]
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_OtaFirmware, WaterMark: DeviceLibraryResources.Names.DeviceType_OtaFirmwareSelect, HelpResource:DeviceLibraryResources.Names.DeviceType_OtaFirmware_Help, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader OtaFirmware { get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_OtaFirmware_Revision, WaterMark: DeviceLibraryResources.Names.DeviceType_OtaFirmware_Revision_Select, HelpResource:DeviceLibraryResources.Names.DeviceType_OtaFirmware_Revision_Help, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader OtaFirmwareRevision { get; set; }
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ProvisionQAInstructions,  WaterMark:DeviceLibraryResources.Names.DeviceType_ProvisionQAInstructions_Select, EntityHeaderPickerUrl: "/api/mfg/assembly/instructions", FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader ProvisioningQAInstructions { get; set; }
@@ -152,6 +159,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 nameof(DeviceType.Firmware),
                 nameof(DeviceType.FirmwareRevision),
+                nameof(DeviceType.OtaFirmware),
+                nameof(DeviceType.OtaFirmwareRevision),
                 nameof(DeviceType.QaFirmware),
                 nameof(DeviceType.QaFirmwareRevision),
                 nameof(DeviceType.TestingDeviceRepo),

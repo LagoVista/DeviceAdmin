@@ -1451,7 +1451,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>A remote property is one that will be kept in sync with properties made available on the device.</value>
   </data>
   <data name="DeviceType_Firmware" xml:space="preserve">
-    <value>Firmware</value>
+    <value>Main Firmware</value>
   </data>
   <data name="DeviceType_FirmwareSelect" xml:space="preserve">
     <value>-select firmware-</value>
@@ -1529,7 +1529,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>String Array</value>
   </data>
   <data name="DeviceType_Firmware_Revision" xml:space="preserve">
-    <value>Firmware Revision</value>
+    <value>Main Firmware Revision</value>
   </data>
   <data name="DeviceType_Firmware_RevisionSelect" xml:space="preserve">
     <value>-select firmware revision-</value>
@@ -1671,5 +1671,32 @@ Your input commands will be exposed as a generated API that you can call for thi
   </data>
   <data name="DeviceType_SelectTestingDevice" xml:space="preserve">
     <value>-select testing device-</value>
+  </data>
+  <data name="DeviceType_OtaFirmware" xml:space="preserve">
+    <value>OTA Firmware</value>
+  </data>
+  <data name="DeviceType_OtaFirmwareSelect" xml:space="preserve">
+    <value>-select ota firmware-</value>
+  </data>
+  <data name="DeviceType_OtaFirmware_Help" xml:space="preserve">
+    <value>OTA (Over the Air) Firmware is intended to be download from the device to do an in-the-field update.  This is different than the Main Firmware in that the Main Firmware includes the bootloader and is used to initialize a MCU with nothing on it.   The OTA firmware only has the firmware to run the application and requires the boot loader and partitions to already be in place.</value>
+  </data>
+  <data name="DeviceType_OtaFirmware_Revision" xml:space="preserve">
+    <value>OTA Firmware Revision</value>
+  </data>
+  <data name="DeviceType_OtaFirmware_Revision_Select" xml:space="preserve">
+    <value>-select ota firmware revision-</value>
+  </data>
+  <data name="DeviceType_OtaFirmware_Revision_Help" xml:space="preserve">
+    <value>Select a default revision for the OTA firmware, typically you will use the default revision associated with the firmware itself, however you can specific a specific revision at the device model level</value>
+  </data>
+  <data name="DeviceType_Firmware_Help" xml:space="preserve">
+    <value>The Main Firmware is the primary firmware that can be used to initialize an empty MCU, it typically includes the boot loader and any other files necessary to initialy program an MCU.</value>
+  </data>
+  <data name="DeviceType_Firmware_Revision_Help" xml:space="preserve">
+    <value>Specify specific firmware that can be used to program the MCU, typically you will use the default firmware that is assocaited with the firmware, but can specify a specific version at the device model level.</value>
+  </data>
+  <data name="DeviceType_QAFirmware_Help" xml:space="preserve">
+    <value>This is the firmware that should be programmed to the device to check out the hardware.  This typically won't connect to the internet, but will exercise all the sensors and any other connected peripherals.</value>
   </data>
 </root>

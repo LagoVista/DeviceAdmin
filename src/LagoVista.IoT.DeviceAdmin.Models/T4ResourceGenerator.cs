@@ -1,4 +1,4 @@
-﻿/*4/24/2025 7:31:06 AM*/
+﻿/*5/23/2025 6:30:11 PM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -669,9 +669,15 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_Firmware
 
 		public static string DeviceType_Firmware { get { return GetResourceString("DeviceType_Firmware"); } }
+//Resources:DeviceLibraryResources:DeviceType_Firmware_Help
+
+		public static string DeviceType_Firmware_Help { get { return GetResourceString("DeviceType_Firmware_Help"); } }
 //Resources:DeviceLibraryResources:DeviceType_Firmware_Revision
 
 		public static string DeviceType_Firmware_Revision { get { return GetResourceString("DeviceType_Firmware_Revision"); } }
+//Resources:DeviceLibraryResources:DeviceType_Firmware_Revision_Help
+
+		public static string DeviceType_Firmware_Revision_Help { get { return GetResourceString("DeviceType_Firmware_Revision_Help"); } }
 //Resources:DeviceLibraryResources:DeviceType_Firmware_RevisionSelect
 
 		public static string DeviceType_Firmware_RevisionSelect { get { return GetResourceString("DeviceType_Firmware_RevisionSelect"); } }
@@ -690,6 +696,24 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_ModelNumber
 
 		public static string DeviceType_ModelNumber { get { return GetResourceString("DeviceType_ModelNumber"); } }
+//Resources:DeviceLibraryResources:DeviceType_OtaFirmware
+
+		public static string DeviceType_OtaFirmware { get { return GetResourceString("DeviceType_OtaFirmware"); } }
+//Resources:DeviceLibraryResources:DeviceType_OtaFirmware_Help
+
+		public static string DeviceType_OtaFirmware_Help { get { return GetResourceString("DeviceType_OtaFirmware_Help"); } }
+//Resources:DeviceLibraryResources:DeviceType_OtaFirmware_Revision
+
+		public static string DeviceType_OtaFirmware_Revision { get { return GetResourceString("DeviceType_OtaFirmware_Revision"); } }
+//Resources:DeviceLibraryResources:DeviceType_OtaFirmware_Revision_Help
+
+		public static string DeviceType_OtaFirmware_Revision_Help { get { return GetResourceString("DeviceType_OtaFirmware_Revision_Help"); } }
+//Resources:DeviceLibraryResources:DeviceType_OtaFirmware_Revision_Select
+
+		public static string DeviceType_OtaFirmware_Revision_Select { get { return GetResourceString("DeviceType_OtaFirmware_Revision_Select"); } }
+//Resources:DeviceLibraryResources:DeviceType_OtaFirmwareSelect
+
+		public static string DeviceType_OtaFirmwareSelect { get { return GetResourceString("DeviceType_OtaFirmwareSelect"); } }
 //Resources:DeviceLibraryResources:DeviceType_Product
 
 		public static string DeviceType_Product { get { return GetResourceString("DeviceType_Product"); } }
@@ -708,6 +732,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_QAFirmware
 
 		public static string DeviceType_QAFirmware { get { return GetResourceString("DeviceType_QAFirmware"); } }
+//Resources:DeviceLibraryResources:DeviceType_QAFirmware_Help
+
+		public static string DeviceType_QAFirmware_Help { get { return GetResourceString("DeviceType_QAFirmware_Help"); } }
 //Resources:DeviceLibraryResources:DeviceType_QAFirmware_Select
 
 		public static string DeviceType_QAFirmware_Select { get { return GetResourceString("DeviceType_QAFirmware_Select"); } }
@@ -1821,19 +1848,28 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_FactoryQAInstructions = "DeviceType_FactoryQAInstructions";
 			public const string DeviceType_FactoryQAInstructions_Select = "DeviceType_FactoryQAInstructions_Select";
 			public const string DeviceType_Firmware = "DeviceType_Firmware";
+			public const string DeviceType_Firmware_Help = "DeviceType_Firmware_Help";
 			public const string DeviceType_Firmware_Revision = "DeviceType_Firmware_Revision";
+			public const string DeviceType_Firmware_Revision_Help = "DeviceType_Firmware_Revision_Help";
 			public const string DeviceType_Firmware_RevisionSelect = "DeviceType_Firmware_RevisionSelect";
 			public const string DeviceType_FirmwareSelect = "DeviceType_FirmwareSelect";
 			public const string DeviceType_Help = "DeviceType_Help";
 			public const string DeviceType_Icon = "DeviceType_Icon";
 			public const string DeviceType_Manufacturer = "DeviceType_Manufacturer";
 			public const string DeviceType_ModelNumber = "DeviceType_ModelNumber";
+			public const string DeviceType_OtaFirmware = "DeviceType_OtaFirmware";
+			public const string DeviceType_OtaFirmware_Help = "DeviceType_OtaFirmware_Help";
+			public const string DeviceType_OtaFirmware_Revision = "DeviceType_OtaFirmware_Revision";
+			public const string DeviceType_OtaFirmware_Revision_Help = "DeviceType_OtaFirmware_Revision_Help";
+			public const string DeviceType_OtaFirmware_Revision_Select = "DeviceType_OtaFirmware_Revision_Select";
+			public const string DeviceType_OtaFirmwareSelect = "DeviceType_OtaFirmwareSelect";
 			public const string DeviceType_Product = "DeviceType_Product";
 			public const string DeviceType_Product_Select = "DeviceType_Product_Select";
 			public const string DeviceType_ProvisioningQAChecks = "DeviceType_ProvisioningQAChecks";
 			public const string DeviceType_ProvisionQAInstructions = "DeviceType_ProvisionQAInstructions";
 			public const string DeviceType_ProvisionQAInstructions_Select = "DeviceType_ProvisionQAInstructions_Select";
 			public const string DeviceType_QAFirmware = "DeviceType_QAFirmware";
+			public const string DeviceType_QAFirmware_Help = "DeviceType_QAFirmware_Help";
 			public const string DeviceType_QAFirmware_Select = "DeviceType_QAFirmware_Select";
 			public const string DeviceType_QAFirmwareRevision = "DeviceType_QAFirmwareRevision";
 			public const string DeviceType_QAFirmwareRevision_Select = "DeviceType_QAFirmwareRevision_Select";
