@@ -71,13 +71,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_QAFirmwareRevision, WaterMark: DeviceLibraryResources.Names.DeviceType_QAFirmwareRevision_Select,  FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader QaFirmwareRevision { get; set; }
 
-        [FKeyProperty("Firmware", WhereClause: "Firmware.Id = {0}")]
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_OtaFirmware, WaterMark: DeviceLibraryResources.Names.DeviceType_OtaFirmwareSelect, HelpResource:DeviceLibraryResources.Names.DeviceType_OtaFirmware_Help, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader OtaFirmware { get; set; }
-
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_OtaFirmware_Revision, WaterMark: DeviceLibraryResources.Names.DeviceType_OtaFirmware_Revision_Select, HelpResource:DeviceLibraryResources.Names.DeviceType_OtaFirmware_Revision_Help, FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
-        public EntityHeader OtaFirmwareRevision { get; set; }
-
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_ProvisionQAInstructions,  WaterMark:DeviceLibraryResources.Names.DeviceType_ProvisionQAInstructions_Select, EntityHeaderPickerUrl: "/api/mfg/assembly/instructions", FieldType: FieldTypes.EntityHeaderPicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader ProvisioningQAInstructions { get; set; }
 
@@ -96,6 +89,16 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_TestingDevice, HelpResource: DeviceLibraryResources.Names.DeviceType_TestingDevice_Help, WaterMark: DeviceLibraryResources.Names.DeviceType_SelectTestingDevice, FieldType: FieldTypes.DevicePicker, ResourceType: typeof(DeviceLibraryResources))]
         public EntityHeader TestingDevice { get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_WebAppJs, UploadUrl: "/api/deviceype/{id}/main/upload", FieldType: FieldTypes.FileUpload, IsFileUploadImage: false, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader<string> WebAppJs { get; set; }
+
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_PolyfillJs, UploadUrl: "/api/deviceype/{id}/polyfill/upload", FieldType: FieldTypes.FileUpload, IsFileUploadImage: false, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader<string> PolyfillJs { get; set; }
+
+        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_WebApp_Styles, UploadUrl: "/api/deviceype/{id}/style/upload", FieldType: FieldTypes.FileUpload, IsFileUploadImage: false, ResourceType: typeof(DeviceLibraryResources))]
+        public EntityHeader<string> WebAppStyles { get; set; }
 
         public DeviceTypeSummary CreateSummary()
         {
@@ -150,6 +153,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 nameof(DeviceType.DefaultDeviceConfiguration),
                 nameof(DeviceType.Manufacturer),
                 nameof(DeviceType.ModelNumber),
+                nameof(DeviceType.WebAppJs),
+                nameof(DeviceType.WebAppStyles),
+                nameof(DeviceType.PolyfillJs),
                };
         }
 
@@ -159,8 +165,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 nameof(DeviceType.Firmware),
                 nameof(DeviceType.FirmwareRevision),
-                nameof(DeviceType.OtaFirmware),
-                nameof(DeviceType.OtaFirmwareRevision),
                 nameof(DeviceType.QaFirmware),
                 nameof(DeviceType.QaFirmwareRevision),
                 nameof(DeviceType.TestingDeviceRepo),

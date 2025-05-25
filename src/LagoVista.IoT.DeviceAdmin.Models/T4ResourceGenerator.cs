@@ -1,4 +1,4 @@
-﻿/*5/23/2025 6:30:11 PM*/
+﻿/*5/25/2025 10:30:02 AM*/
 using System.Globalization;
 using System.Reflection;
 
@@ -714,6 +714,9 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_OtaFirmwareSelect
 
 		public static string DeviceType_OtaFirmwareSelect { get { return GetResourceString("DeviceType_OtaFirmwareSelect"); } }
+//Resources:DeviceLibraryResources:DeviceType_PolyfillJs
+
+		public static string DeviceType_PolyfillJs { get { return GetResourceString("DeviceType_PolyfillJs"); } }
 //Resources:DeviceLibraryResources:DeviceType_Product
 
 		public static string DeviceType_Product { get { return GetResourceString("DeviceType_Product"); } }
@@ -765,6 +768,12 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 //Resources:DeviceLibraryResources:DeviceType_Title
 
 		public static string DeviceType_Title { get { return GetResourceString("DeviceType_Title"); } }
+//Resources:DeviceLibraryResources:DeviceType_WebApp_Styles
+
+		public static string DeviceType_WebApp_Styles { get { return GetResourceString("DeviceType_WebApp_Styles"); } }
+//Resources:DeviceLibraryResources:DeviceType_WebAppJs
+
+		public static string DeviceType_WebAppJs { get { return GetResourceString("DeviceType_WebAppJs"); } }
 //Resources:DeviceLibraryResources:DeviceTypes_Title
 
 		public static string DeviceTypes_Title { get { return GetResourceString("DeviceTypes_Title"); } }
@@ -1863,6 +1872,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_OtaFirmware_Revision_Help = "DeviceType_OtaFirmware_Revision_Help";
 			public const string DeviceType_OtaFirmware_Revision_Select = "DeviceType_OtaFirmware_Revision_Select";
 			public const string DeviceType_OtaFirmwareSelect = "DeviceType_OtaFirmwareSelect";
+			public const string DeviceType_PolyfillJs = "DeviceType_PolyfillJs";
 			public const string DeviceType_Product = "DeviceType_Product";
 			public const string DeviceType_Product_Select = "DeviceType_Product_Select";
 			public const string DeviceType_ProvisioningQAChecks = "DeviceType_ProvisioningQAChecks";
@@ -1880,6 +1890,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models.Resources
 			public const string DeviceType_TestingDeviceRepo = "DeviceType_TestingDeviceRepo";
 			public const string DeviceType_TestingDeviceRepo_Help = "DeviceType_TestingDeviceRepo_Help";
 			public const string DeviceType_Title = "DeviceType_Title";
+			public const string DeviceType_WebApp_Styles = "DeviceType_WebApp_Styles";
+			public const string DeviceType_WebAppJs = "DeviceType_WebAppJs";
 			public const string DeviceTypes_Title = "DeviceTypes_Title";
 			public const string DeviceWorkflow_Attributes = "DeviceWorkflow_Attributes";
 			public const string DeviceWorkflow_Attributes_Help = "DeviceWorkflow_Attributes_Help";

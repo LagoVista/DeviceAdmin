@@ -1,5 +1,4 @@
 ﻿using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
-using System.Collections.Generic;
 using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
 using LagoVista.IoT.DeviceAdmin.Models;
@@ -9,23 +8,31 @@ using LagoVista.Core.Managers;
 using LagoVista.Core.Interfaces;
 using static LagoVista.Core.Models.AuthorizeResult;
 using LagoVista.IoT.Logging.Loggers;
-using System.IO;
-using System.Linq;
 using System;
-using LagoVista.Core.Exceptions;
 using LagoVista.Core.Models.UIMetaData;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace LagoVista.IoT.DeviceAdmin.Managers
 {
     public class DeviceTypeManager : ManagerBase, IDeviceTypeManager
     {
-        IDeviceTypeRepo _deviceTypeRepo;
+        public enum AngularTypeType
+        {
+            main,
+            polyfill,
+            style,
+        }
 
-        public DeviceTypeManager(IDeviceTypeRepo deviceTypeRepo, IDeviceAdminManager deviceAdminManager,
+        private readonly IDeviceTypeRepo _deviceTypeRepo;
+        private readonly IDeviceTypeAngularAppRepo _angularFileRepo;
+
+        public DeviceTypeManager(IDeviceTypeRepo deviceTypeRepo, IDeviceTypeAngularAppRepo angularFileRepo, IDeviceAdminManager deviceAdminManager,
             IAdminLogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security) :
             base(logger, appConfig, depmanager, security)
         {
             _deviceTypeRepo = deviceTypeRepo;
+            _angularFileRepo = angularFileRepo;
         }
 
         public async Task<InvokeResult> AddDeviceTypeAsync(DeviceType deviceType, EntityHeader org, EntityHeader user)
@@ -85,6 +92,16 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             await _deviceTypeRepo.UpdateDeviceTypeAsync(deviceType);
 
             return InvokeResult.Success;
+        }
+
+        public async Task<InvokeResult<EntityHeader<string>>> UploadAngularFileAsync(string deviceTypeId, AngularTypeType fileType, Stream stream, EntityHeader org, EntityHeader user)
+        {
+
+            var bytes = new byte[stream.Length];
+            stream.Position = 0;
+            stream.Read(bytes, 0, (int)stream.Length);
+
+            return await _angularFileRepo.AddAppFileAsync(deviceTypeId, fileType, bytes);
         }
     }
 }

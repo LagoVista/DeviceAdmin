@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using static LagoVista.IoT.DeviceAdmin.Managers.DeviceTypeManager;
 
 namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
 {
@@ -91,7 +92,27 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         {
             var deviceType = await _deviceTypeManager.GetDeviceTypeAsync(id, OrgEntityHeader, UserEntityHeader);
 
-            return DetailResponse<DeviceType>.Create(deviceType);
+            var response = DetailResponse<DeviceType>.Create(deviceType);
+            response.View[nameof(DeviceType.WebAppJs).CamelCase()].UploadUrl = response.View[nameof(DeviceType.WebAppJs).CamelCase()].UploadUrl.Replace("{id}", response.Model.Id);
+            response.View[nameof(DeviceType.WebAppStyles).CamelCase()].UploadUrl = response.View[nameof(DeviceType.WebAppStyles).CamelCase()].UploadUrl.Replace("{id}", response.Model.Id);
+            response.View[nameof(DeviceType.PolyfillJs).CamelCase()].UploadUrl = response.View[nameof(DeviceType.PolyfillJs).CamelCase()].UploadUrl.Replace("{id}", response.Model.Id);
+            return response;
+        }
+
+        [HttpPost("/api/deviceype/{devicetypeid}/{filetype}/upload")]
+        public async Task<InvokeResult<EntityHeader<string>>> AddOtaFirmwareRevisionAsync(string devicetypeid, string filetype, IFormFile file)
+        {
+            if(Enum.TryParse<AngularTypeType>(filetype, out AngularTypeType angularFilteType))
+            {
+                using (var strm = file.OpenReadStream())
+                {
+                    return await _deviceTypeManager.UploadAngularFileAsync(devicetypeid, angularFilteType, strm, OrgEntityHeader, UserEntityHeader);
+                }
+            }
+            else
+            {
+                throw new InvalidDataException($"Don't know how to upload {filetype}");
+            }
         }
 
         /// <summary>
@@ -123,6 +144,9 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         {
             var response = DetailResponse<DeviceType>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
+            response.View[nameof(DeviceType.WebAppJs).CamelCase()].UploadUrl = response.View[nameof(DeviceType.WebAppJs).CamelCase()].UploadUrl.Replace("{id}", response.Model.Id);
+            response.View[nameof(DeviceType.WebAppStyles).CamelCase()].UploadUrl = response.View[nameof(DeviceType.WebAppStyles).CamelCase()].UploadUrl.Replace("{id}", response.Model.Id);
+            response.View[nameof(DeviceType.PolyfillJs).CamelCase()].UploadUrl = response.View[nameof(DeviceType.PolyfillJs).CamelCase()].UploadUrl.Replace("{id}", response.Model.Id);
             SetAuditProperties(response.Model);
             SetOwnedProperties(response.Model);
             return response;

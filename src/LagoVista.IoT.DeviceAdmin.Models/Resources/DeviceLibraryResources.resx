@@ -1699,4 +1699,13 @@ Your input commands will be exposed as a generated API that you can call for thi
   <data name="DeviceType_QAFirmware_Help" xml:space="preserve">
     <value>This is the firmware that should be programmed to the device to check out the hardware.  This typically won't connect to the internet, but will exercise all the sensors and any other connected peripherals.</value>
   </data>
+  <data name="DeviceType_WebAppJs" xml:space="preserve">
+    <value>Web App Angular JavaScript File</value>
+  </data>
+  <data name="DeviceType_WebApp_Styles" xml:space="preserve">
+    <value>Web App Angular Styles File</value>
+  </data>
+  <data name="DeviceType_PolyfillJs" xml:space="preserve">
+    <value>Web App Angular Polyfill Javscript File</value>
+  </data>
 </root>

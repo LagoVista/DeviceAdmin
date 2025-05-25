@@ -9,15 +9,16 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos
     {
         public static void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IEquipmentRepo, EquipmentRepo>();
-            services.AddTransient<IDeviceWorkflowRepo, DeviceWorkflowRepo>();
-            services.AddTransient<IUnitSetRepo, UnitSetRepo>();
-            services.AddTransient<IStateMachineRepo, StateMachineRepo>();
-            services.AddTransient<IStateSetRepo, StateSetRepo>();
-            services.AddTransient<IPartRepo, PartRepo>();
-            services.AddTransient<IEventSetRepo, EventSetRepo>();
-            services.AddTransient<IDeviceTypeRepo, DeviceTypeRepo>();
-            services.AddTransient<IProductionQAResultsRepo, ProductionQaResultRepo>();
+            services.AddSingleton<IEquipmentRepo, EquipmentRepo>();
+            services.AddSingleton<IDeviceWorkflowRepo, DeviceWorkflowRepo>();
+            services.AddSingleton<IUnitSetRepo, UnitSetRepo>();
+            services.AddSingleton<IStateMachineRepo, StateMachineRepo>();
+            services.AddSingleton<IStateSetRepo, StateSetRepo>();
+            services.AddSingleton<IPartRepo, PartRepo>();
+            services.AddSingleton<IEventSetRepo, EventSetRepo>();
+            services.AddSingleton<IDeviceTypeRepo, DeviceTypeRepo>();
+            services.AddSingleton<IProductionQAResultsRepo, ProductionQaResultRepo>();
+            services.AddSingleton<IDeviceTypeAngularAppRepo, DeviceTypeAngularAppRepo>();
         }
     }
 }
