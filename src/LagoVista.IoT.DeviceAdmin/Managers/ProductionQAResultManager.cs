@@ -18,6 +18,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
         IProductionQAResultsRepo _repo;
         IDeviceTypeRepo _deviceTypeRepo;
         ISerialNumberManager _serialNumberManager;
+        IAdminLogger _adminLogger;
 
         public ProductionQAResultManager(IProductionQAResultsRepo repo, ISerialNumberManager serialNumberManager, IDeviceTypeRepo deviceTypeRepo, IAdminLogger logger, IAppConfig appConfig, IDependencyManager depmanager, ISecurity security) :
             base(logger, appConfig, depmanager, security)
@@ -25,6 +26,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             _repo = repo ?? throw new ArgumentNullException(nameof(repo));
             _deviceTypeRepo = deviceTypeRepo ?? throw new ArgumentNullException(nameof(deviceTypeRepo));
             _serialNumberManager = serialNumberManager ?? throw new ArgumentNullException(nameof(serialNumberManager));
+            _adminLogger = logger;
         }
 
 
@@ -36,7 +38,10 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
                 throw new UnauthorizedAccessException($"Org Mis-Match Device Type Owner {deviceType.OwnerOrganization.Text} Current: {org.Text}");
             }
 
+
             var serialNumber = await _serialNumberManager.GenerateSerialNumber("SYSTEMWIDE", "productionqaresult", seed: 10035);
+            _adminLogger.Trace($"[ProductionQAResultManager__CompleteQAAsync] - Device Type Id: {deviceTypeId}, Serial Number {serialNumber}");
+
             var result = new ProductionQAResult()
             {
                 OwnerOrganization = org,
@@ -49,7 +54,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
 
             await _repo.InsertAsync(result);
 
-            return InvokeResult<ProductionQAResult>.Create( result);
+            return InvokeResult<ProductionQAResult>.Create(result);
             
         }
 
