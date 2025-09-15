@@ -2,29 +2,29 @@
 <package>
   <metadata>
     <id>LagoVista.IoT.DeviceAdmin.Rest</id>
-    <version>3.0.2049.0903</version>
+    <version>3.0.3043.1829</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://www.nuviot.com</projectUrl>
     <iconUrl>http://bytemaster.blob.core.windows.net/icons/LagoVistaIcon.png</iconUrl>
     <description>Provides REST Services For Device Administration in the LagoVista IoT, Devices and Home Automation Frameworks</description>
-    <copyright>Copyright Software Logistics - 2022</copyright>
+    <copyright>Copyright Software Logistics - 2025</copyright>
     <tags>HomeAutomation IoT LagoVista</tags>
     <icon>LagoVistaIcon.png</icon>
-    <releaseNotes>Build Date: 12/26/2022 2:03:02 PM UTC</releaseNotes>
+    <releaseNotes>Build Date: 9/15/2025 10:29:40 PM UTC</releaseNotes>
     <repository url="https://www.github.com/lagovista" type="git" branch="master"></repository>
     <dependencies>
-      <group targetFramework="net6.0">
-        <dependency id="LagoVista.IoT.Web.Common" version="3.0.2049.0903" />
-        <dependency id="LagoVista.IoT.DeviceAdmin.Models" version="3.0.2049.0903" />
-        <dependency id="LagoVista.IoT.DeviceAdmin" version="3.0.2049.0903" />
+      <group targetFramework="net9.0">
+        <dependency id="LagoVista.IoT.Web.Common" version="3.0.3043.1829" />
+        <dependency id="LagoVista.IoT.DeviceAdmin.Models" version="3.0.3043.1829" />
+        <dependency id="LagoVista.IoT.DeviceAdmin" version="3.0.3043.1829" />
       </group>
     </dependencies>
   </metadata>
   <files>
     <file src="LagoVistaIcon.png" target="LagoVistaIcon.png" />
-    <file src="bin\release\net6.0\LagoVista.IoT.DeviceAdmin.Rest.dll" target="lib\net6.0\LagoVista.IoT.DeviceAdmin.Rest.dll" />
-    <file src="bin\release\net6.0\LagoVista.IoT.DeviceAdmin.Rest.pdb" target="lib\net6.0\LagoVista.IoT.DeviceAdmin.Rest.pdb" />
+    <file src="bin\release\net9.0\LagoVista.IoT.DeviceAdmin.Rest.dll" target="lib\net9.0\LagoVista.IoT.DeviceAdmin.Rest.dll" />
+    <file src="bin\release\net9.0\LagoVista.IoT.DeviceAdmin.Rest.pdb" target="lib\net9.0\LagoVista.IoT.DeviceAdmin.Rest.pdb" />
   </files>
 </package>
