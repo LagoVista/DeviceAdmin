@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using LagoVista.Core.Interfaces;
 using LagoVista.IoT.Logging.Loggers;
 using LagoVista.IoT.DeviceAdmin.CloudRepos;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage;
 using static LagoVista.IoT.DeviceAdmin.Managers.DeviceTypeManager;
 using LagoVista.Core.Models;
+using Azure.Storage.Blobs.Models;
+using Azure.Storage.Blobs;
 
 namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
 {
@@ -29,37 +29,35 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
             _baseUrl = $"https://{_connectionSettings.AccountId}.blob.core.windows.net";
         }
 
-        private CloudBlobClient CreateBlobClient()
+        private BlobServiceClient CreateBlobClient(IConnectionSettings settings)
         {
-
-            var uri = new Uri(_baseUrl);
-            return new CloudBlobClient(uri, new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(_connectionSettings.AccountId, _connectionSettings.AccessKey));
+            var connectionString = $"DefaultEndpointsProtocol=https;AccountName={settings.AccountId};AccountKey={settings.AccessKey}";
+            return new BlobServiceClient(connectionString);
         }
 
-        private async Task<InvokeResult<CloudBlobContainer>> GetStorageContainerAsync(string containerName)
+        private async Task<InvokeResult<BlobContainerClient>> GetStorageContainerAsync(string suffix, string prefix = "dtresource-", bool isPublic = false)
         {
-            var client = CreateBlobClient();
-            var container = client.GetContainerReference(containerName);
+            var client = CreateBlobClient(_connectionSettings);
+
+            var containerName = $"{prefix}{suffix}".ToLower();
+
+            var containerClient = client.GetBlobContainerClient(containerName);
+
             try
             {
-                var options = new BlobRequestOptions()
-                {
-                     MaximumExecutionTime = TimeSpan.FromSeconds(15)
-                };
-
-                var opContext = new OperationContext();
-                await container.CreateIfNotExistsAsync(BlobContainerPublicAccessType.Container, options, opContext);
-                return InvokeResult<CloudBlobContainer>.Create(container);
+                var accessType = isPublic ? PublicAccessType.BlobContainer : PublicAccessType.None;
+                await containerClient.CreateIfNotExistsAsync(accessType);
+                return InvokeResult<BlobContainerClient>.Create(containerClient);
             }
             catch (ArgumentException ex)
             {
-                _logger.AddException("[FirmwareBinRepo_GetStorageContainerAsync]", ex);
-                return InvokeResult<CloudBlobContainer>.FromException("[FirmwareBinRepo_GetStorageContainerAsync_InitAsync]", ex);
+                _logger.AddException("MediaServicesRepo_GetStorageContainerAsync", ex);
+                return InvokeResult<BlobContainerClient>.FromException("MediaServicesRepo_GetStorageContainerAsync_InitAsync", ex);
             }
-            catch (StorageException ex)
+            catch (Exception ex)
             {
-                _logger.AddException("[FirmwareBinRepo_GetStorageContainerAsync", ex);
-                return InvokeResult<CloudBlobContainer>.FromException("[FirmwareBinRepo_GetStorageContainerAsync]", ex);
+                _logger.AddException("MediaServicesRepo_GetStorageContainerAsync", ex);
+                return InvokeResult<BlobContainerClient>.FromException("MediaServicesRepo_GetStorageContainerAsync", ex);
             }
         }
 
@@ -88,10 +86,8 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
 
             var container = result.Result;
 
-            var blob = container.GetBlockBlobReference(fileName);
-            blob.Properties.ContentType = contentType;
-            blob.Properties.CacheControl = "no-cache";
-
+            var blob = container.GetBlobClient(fileName);
+            var header = new BlobHttpHeaders { ContentType = contentType, CacheControl = "no-cache" };
 
             //TODO: Should really encapsulate the idea of retry of an action w/ error reporting
             var numberRetries = 5;
@@ -103,7 +99,12 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
                 try
                 {
                     stream.Seek(0, SeekOrigin.Begin);
-                    await blob.UploadFromStreamAsync(stream);
+                    var blobResult = await blob.UploadAsync(stream, new BlobUploadOptions { HttpHeaders = header });
+
+                    var statusCode = blobResult.GetRawResponse().Status;
+
+                    if (statusCode < 200 || statusCode > 299)
+                        throw new InvalidOperationException($"Invalid response Code {statusCode}");
                 }
                 catch (Exception ex)
                 {
