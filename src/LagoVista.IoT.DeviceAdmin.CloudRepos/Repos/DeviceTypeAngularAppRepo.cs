@@ -33,7 +33,7 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
                     return InvokeResult<EntityHeader<string>>.FromError($"Unknown Angular File Type {fileType}");
             }
 
-            var result = await AddFileAsync(fileName, data, contentType, "no-cache");
+            var result = await AddFileAsync(storageContainerName, fileName, data, contentType, "no-cache");
 
             var eh = new EntityHeader<string>()
             {
