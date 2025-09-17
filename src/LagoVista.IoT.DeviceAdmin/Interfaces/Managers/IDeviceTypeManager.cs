@@ -10,6 +10,13 @@ using static LagoVista.IoT.DeviceAdmin.Managers.DeviceTypeManager;
 
 namespace LagoVista.IoT.DeviceAdmin.Interfaces.Managers
 {
+    public enum AngularTypeType
+    {
+        main,
+        polyfill,
+        style,
+    }
+ 
     public interface IDeviceTypeManager
     {
         Task<InvokeResult> AddDeviceTypeAsync(DeviceType deviceType, EntityHeader org, EntityHeader user);

@@ -15,15 +15,10 @@ using System.IO;
 
 namespace LagoVista.IoT.DeviceAdmin.Managers
 {
+    
+
     public class DeviceTypeManager : ManagerBase, IDeviceTypeManager
     {
-        public enum AngularTypeType
-        {
-            main,
-            polyfill,
-            style,
-        }
-
         private readonly IDeviceTypeRepo _deviceTypeRepo;
         private readonly IDeviceTypeAngularAppRepo _angularFileRepo;
 

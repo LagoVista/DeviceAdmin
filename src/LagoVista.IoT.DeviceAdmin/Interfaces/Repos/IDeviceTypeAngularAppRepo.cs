@@ -1,10 +1,7 @@
 ﻿using LagoVista.Core.Models;
 using LagoVista.Core.Validation;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
 using System.Threading.Tasks;
-using static LagoVista.IoT.DeviceAdmin.Managers.DeviceTypeManager;
 
 namespace LagoVista.IoT.DeviceAdmin.Interfaces.Repos
 {
