@@ -1,4 +1,8 @@
-﻿using LagoVista.Core.Attributes;
+// --- BEGIN CODE INDEX META (do not edit) ---
+// ContentHash: bc20f74ae8b50bfbabe3fd4f6d433a60e1fc4b55378bc7e1be542932e1b067d0
+// IndexVersion: 0
+// --- END CODE INDEX META ---
+using LagoVista.Core.Attributes;
 using LagoVista.Core.Interfaces;
 using LagoVista.IoT.DeviceAdmin.Models.Resources;
 using System;

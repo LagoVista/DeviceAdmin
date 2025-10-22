@@ -1,4 +1,8 @@
-﻿using LagoVista.IoT.DeviceAdmin.Models;
+// --- BEGIN CODE INDEX META (do not edit) ---
+// ContentHash: a25fbae53285a2489a3a1ed66acb30ebf0f8c7920631c9854e5cc7954fe6ef5a
+// IndexVersion: 0
+// --- END CODE INDEX META ---
+using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.CloudStorage.DocumentDB;
 using System.Threading.Tasks;
 using System.Linq;

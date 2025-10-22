@@ -1,4 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+// --- BEGIN CODE INDEX META (do not edit) ---
+// ContentHash: f6728fe521ded2cb0973c5004226cceb1b9d8601f5fb6ed78da57b68d26f9b70
+// IndexVersion: 0
+// --- END CODE INDEX META ---
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
