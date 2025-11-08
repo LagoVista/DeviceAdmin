@@ -10,7 +10,7 @@
     <ProjectReference Include="..\..\src\LagoVista.IoT.DeviceAdmin\LagoVista.IoT.DeviceAdmin.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core.TestBase" Version="3.0.3045.1131" />
+    <PackageReference Include="LagoVista.Core.TestBase" Version="3.0.3097.0925" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
