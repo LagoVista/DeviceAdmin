@@ -287,7 +287,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         {
             var stateMachine = DetailResponse<StateMachine>.Create();
             stateMachine.Model.Pages.Add(
-                new Page()
+                new DiagramPage()
                 {
                     PageNumber = 1,
                     Name = DeviceLibraryResources.Common_PageNumberOne

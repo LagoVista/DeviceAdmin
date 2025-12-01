@@ -11,7 +11,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.DeviceAdmin, Resources.DeviceLibraryResources.Names.Page_Title, Resources.DeviceLibraryResources.Names.Page_Help, Resources.DeviceLibraryResources.Names.Page_Description, 
         EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources), FactoryUrl: "/api/deviceadmin/factory/page")]
-    public class Page : IFormDescriptor
+    public class DiagramPage : IFormDescriptor
     {
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Page_Name, FieldType:FieldTypes.Text, IsRequired:true, ResourceType: typeof(DeviceLibraryResources))]
         public string Name { get; set; }

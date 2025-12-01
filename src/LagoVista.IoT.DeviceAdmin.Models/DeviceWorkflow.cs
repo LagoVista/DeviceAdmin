@@ -30,7 +30,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             OutputCommands = new List<OutputCommand>();
             BusinessRules = new List<BusinessRule>();
             Timers = new List<Timer>();
-            Pages = new List<Page>();
+            Pages = new List<DiagramPage>();
             Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
             ConfigurationVersion = 0.1;
             Icon = "icon-ae-device-workflow";
@@ -76,7 +76,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages,
             HelpResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_Pages_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
-        public List<Page> Pages { get; set; }
+        public List<DiagramPage> Pages { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules, HelpResource:Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules_Help,
             FactoryUrl: "/api/deviceadmin/factory/devicebusinessrule", ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildListInline)]

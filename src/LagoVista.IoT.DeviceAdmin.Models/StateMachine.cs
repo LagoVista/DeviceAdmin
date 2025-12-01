@@ -25,7 +25,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             Events = new ObservableCollection<Event>();
             Variables = new ObservableCollection<Parameter>();
             InitialActions = new ObservableCollection<EntityHeader>();
-            Pages = new ObservableCollection<Page>();
+            Pages = new ObservableCollection<DiagramPage>();
             Icon = "icon-fo-globe-2";
         }
     
@@ -53,7 +53,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public bool ExceptionOnUnhandledEvent { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_Pages, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_Pages_Help, ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildList)]
-        public ObservableCollection<Page> Pages { get; set; }
+        public ObservableCollection<DiagramPage> Pages { get; set; }
 
         public override string NodeType => NodeType_StateMachine;
 

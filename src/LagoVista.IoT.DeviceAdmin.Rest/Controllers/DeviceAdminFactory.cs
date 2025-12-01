@@ -126,7 +126,7 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         {
             var response = DetailResponse<DeviceWorkflow>.Create();
             response.Model.Pages.Add(
-                new Page()
+                new DiagramPage()
                 {
                     PageNumber = 1,
                     Name = DeviceLibraryResources.Common_PageNumberOne
@@ -143,9 +143,9 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("/api/deviceadmin/factory/page")]
-        public DetailResponse<Page> CreatePage()
+        public DetailResponse<DiagramPage> CreatePage()
         {
-            return DetailResponse<Page>.Create();
+            return DetailResponse<DiagramPage>.Create();
         }
 
         /// <summary>
