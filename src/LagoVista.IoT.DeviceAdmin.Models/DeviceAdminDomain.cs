@@ -16,10 +16,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         //[DomainDescription(Name: "Device Admin", Description: "Models for working with and creating device configurations.  This includes things such as actions, attributes and state machines.")]
         public const string DeviceAdmin = "DeviceAdmin";
-
         //  [DomainDescription(Name: "State Machines", Description: "State Machines are used for a number of system level components.")]
         public const string StateMachines = "StateMachine";
-
         [DomainDescription(StateMachines)]
         public static DomainDescription StateMachineDomainDescription
         {
@@ -27,7 +25,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             {
                 return new DomainDescription()
                 {
-                    Description = "A general purpose set of classes to implement data driven inter communicating state machines.",
+                    Description = "Provides reusable, data-driven components for building and managing interacting state machines.",
                     DomainType = DomainDescription.DomainTypes.BusinessObject,
                     Name = "State Machine",
                     CurrentVersion = new Core.Models.VersionInfo()

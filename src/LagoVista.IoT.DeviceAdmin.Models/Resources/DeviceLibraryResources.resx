@@ -130,7 +130,7 @@
     <value>Creation Date</value>
   </data>
   <data name="Device_Description" xml:space="preserve">
-    <value>Description</value>
+    <value>Overview of physical devices in the field that send data to the cloud. Devices are created after a Device Type is configured.</value>
   </data>
   <data name="Device_DeviceId" xml:space="preserve">
     <value>Device Id</value>
@@ -265,7 +265,7 @@
     <value>Unit Definitions</value>
   </data>
   <data name="UnitSet_Help" xml:space="preserve">
-    <value>A single value can be associated with multiple units. Take temperature as an example; it can be measured in Celsius or Fahrenheit, and these attributes can be incorporated here. Each unit is part of a Unit Set, and values are stored with a default unit that allows for conversion between different units using the default setting.</value>
+    <value>Groups related measurement units for a single type of value (for example, Celsius and Fahrenheit for temperature). Values are stored in a default unit, which is used to convert between units in the set.</value>
   </data>
   <data name="Unit_Abbreviation" xml:space="preserve">
     <value>Abbreviation</value>
@@ -556,121 +556,121 @@
     <value>State Machine</value>
   </data>
   <data name="StateTransition_Description" xml:space="preserve">
-    <value>A State Transition can be added to a State.  A Transition is a Definition of an Event that can be handled, an Action to be Executed and a New State that the State Machine will be in after the event is handled.  Note that it is possible that the state may remain the same and the event will be used to only execute an action.</value>
+    <value>Create a state transition to control how a state responds to a specific event. For each transition, select the event to handle, configure the actions to run in order, and specify the resulting state after the event is processed. The resulting state may remain the same if the transition is only used to run actions.</value>
   </data>
   <data name="StateTransition_UserHelp" xml:space="preserve">
-    <value>A State Transition can be added to a State.  A Transition is a Definition of an Event that can be handled, an Action to be Executed and a New State that the State Machine will be in after the event is handled.  Note that it is possible that the state may remain the same and the event will be used to only execute an action.</value>
+    <value>Defines how the state machine reacts to a specific event: which event is handled, which actions run in sequence, and which state the machine moves to afterward. A transition can also leave the machine in the same state and only execute actions.</value>
   </data>
   <data name="ActionParameter_Description" xml:space="preserve">
-    <value>An Action Parameter are parameter that can be passed to an action.  They can be passed in as a arguement to a script, as a KVP form value in a rest form POST, or in the query string of a rest GET method.</value>
+    <value>A parameter that supplies input data to an action, such as a script argument, a key-value form field in a REST POST request, or a query string value in a REST GET request.</value>
   </data>
   <data name="ActionParameter_Help" xml:space="preserve">
-    <value>An Action Parameter are parameter that can be passed to an action.  They can be passed in as a arguement to a script, as a KVP form value in a rest form POST, or in the query string of a rest GET method.</value>
+    <value>Use an action parameter to provide input data to an action. Parameters can be passed as script arguments, as key-value form fields in REST POST requests, or as query string values in REST GET requests.</value>
   </data>
   <data name="ActionParameter_Title" xml:space="preserve">
     <value>Action Parameter</value>
   </data>
   <data name="Action_Description" xml:space="preserve">
-    <value>Actions can perform functionality on a Device to manipulate it's real world or attribute states</value>
+    <value>Use an action to trigger functions on a device that affect its physical behavior or update its attribute values.</value>
   </data>
   <data name="Action_Help" xml:space="preserve">
-    <value>Actions can perform functionality on a Device to manipulate it's real world or attribute states</value>
+    <value>Runs functions on a device to change its physical behavior or update its attribute values.</value>
   </data>
   <data name="Action_Title" xml:space="preserve">
     <value>Action</value>
   </data>
   <data name="AdminNote_Description" xml:space="preserve">
-    <value>Notes are free form text that can be attached to many different types of entities.</value>
+    <value>Free-form text that can be attached to different types of records.</value>
   </data>
   <data name="AdminNote_Help" xml:space="preserve">
-    <value>Notes are free form text that can be attached to many different types of entities.</value>
+    <value>Create and manage free-form notes associated with various records.</value>
   </data>
   <data name="AdminNote_Title" xml:space="preserve">
-    <value>Admin Note</value>
+    <value>Waypoint</value>
   </data>
   <data name="UnitSet_Description" xml:space="preserve">
-    <value>A single value can be associated with multiple units. Take temperature as an example; it can be measured in Celsius or Fahrenheit, and these attributes can be incorporated here. Each unit is part of a Unit Set, and values are stored with a default unit that allows for conversion between different units using the default setting.</value>
+    <value>Use a Unit Set to group all units for the same type of measurement, such as Celsius and Fahrenheit for temperature. Values are stored in a default unit and converted between units within the set.</value>
   </data>
   <data name="UnitSet_Title" xml:space="preserve">
     <value>Unit Set</value>
   </data>
   <data name="Attribute_Description" xml:space="preserve">
-    <value>Attributes are used to store data associated with your devices.  This data generally comes from the sensor inputs, but can also come from other external actions that are applied to your device.  Attributes are used for reporting, can be used for state machines and can also be used in prepared commands to be sent to your device.</value>
+    <value>Stores device data, typically from sensors, external actions, or device logic. Attributes are used for reporting, can drive state machines, and can be included in commands sent to a device.</value>
   </data>
   <data name="Attribute_Help" xml:space="preserve">
-    <value>The attributes you create will be used to store data for your device, this data can come from a sensor, an external action or the business logic associated with device.  Attributes reflect the most current data however you can configure your attribute to store historical data.  Attribute may also have units or can have a finite set of states.</value>
+    <value>Use attributes to store and track device data. Values can come from sensors, external actions, or device logic. Each attribute shows the latest value, and you can optionally retain historical values. Attributes can use units or a defined set of states.</value>
   </data>
   <data name="Attribute_Title" xml:space="preserve">
     <value>Attribute</value>
   </data>
   <data name="CustomFieldCollection_Description" xml:space="preserve">
-    <value>The Custom Field Collection is a collection of custom fields that can be used across different device configurations to promote reuse</value>
+    <value>Create a Custom Field Collection to define custom fields once and reuse them across multiple device configurations.</value>
   </data>
   <data name="CustomFieldCollection_Help" xml:space="preserve">
-    <value>The Custom Field Collection is a collection of custom fields that can be used across different device configurations to promote reuse</value>
+    <value>A reusable set of custom fields that can be shared across multiple device configurations.</value>
   </data>
   <data name="CustomFieldCollection_Title" xml:space="preserve">
     <value>Custom Field Collection</value>
   </data>
   <data name="CustomField_Description" xml:space="preserve">
-    <value>Custom Fields can be used to extend Device Configuration.  It's not possible to know in advance what paramters each installation will require so these custom parameters can be defined when creating the device configration.  Then when a device is provisioned with the device configuration, those custom values can be populated.  Once they are added, they are first-class-citizens to be used in reports and scripts.</value>
+    <value>Use custom fields to add installation-specific parameters that are not known in advance when defining a device configuration. Create these fields as part of the device configuration, then set their values during device provisioning. After they are added, custom fields function like built-in fields and are available in reports and scripts.</value>
   </data>
   <data name="CustomFIeld_Help" xml:space="preserve">
-    <value>Custom Fields can be used to extend Device Configuration.  It's not possible to know in advance what paramters each installation will require so these custom parameters can be defined when creating the device configration.  Then when a device is provisioned with the device configuration, those custom values can be populated.  Once they are added, they are first-class-citizens to be used in reports and scripts.</value>
+    <value>Extend a device configuration with installation-specific parameters. Define custom fields when creating the device configuration, then set their values when devices are provisioned. Once added, custom fields behave like standard fields and can be used in reports and scripts.</value>
   </data>
   <data name="CustomField_Title" xml:space="preserve">
     <value>Custom Field</value>
   </data>
   <data name="DeviceConfiguration_Description" xml:space="preserve">
-    <value>A device configuration is a collection of listeners, input translators, device configurations and senders.</value>
+    <value>A device configuration defines how a class of devices is provisioned and managed at scale. It brings together components such as listeners, input translators, device definitions, and senders to control how devices communicate, are monitored, and are administered.</value>
   </data>
   <data name="DeviceConfiguration_Help" xml:space="preserve">
-    <value>A Device Configuration can be thought of as a template for provisioning devices.  It defines the Meta-Data, Actions and Attributes that need to be effectively managed when provisioning thousand or even millions of devices</value>
+    <value>Templates for provisioning devices, including the metadata, actions, and attributes needed to manage large device fleets.</value>
   </data>
   <data name="DeviceConfiguration_Title" xml:space="preserve">
     <value>Device Configuration</value>
   </data>
   <data name="NodeRedFlow_Description" xml:space="preserve">
-    <value>A Node Red Flow can be configured as part of an action to perform more complicated work flows and steps.</value>
+    <value>Use a Node-RED flow in an action to run more complex, multi-step workflows.</value>
   </data>
   <data name="NodeRedFlow_Help" xml:space="preserve">
-    <value>A Node Red Flow can be configured as part of an action to perform more complicated work flows and steps.</value>
+    <value>Configure a Node-RED flow in an action to run more complex, multi-step workflows.</value>
   </data>
   <data name="NodeRedFlow_Title" xml:space="preserve">
-    <value>Node Red Flow</value>
+    <value>Node-RED Flow</value>
   </data>
   <data name="StateMachineEvent_Description" xml:space="preserve">
-    <value>An Event is something that can be applied to a StateMachine as the event is applied it will determine the current state and then optionally perform an action and transition to a new state if the current state is configured to handle this event.</value>
+    <value>Represents an input to a state machine. When this event occurs, the current state’s configuration determines how it is handled—optionally running an action and, if defined, transitioning the state machine to a new state.</value>
   </data>
   <data name="StateMachineEvent_Title" xml:space="preserve">
     <value>State Machine Event</value>
   </data>
   <data name="StateMachineEvent_UserHelp" xml:space="preserve">
-    <value>An Event is something that can be applied to a StateMachine as the event is applied it will determine the current state and then optionally perform an action and transition to a new state if the current state is configured to handle this event.</value>
+    <value>An event that is handled by a state machine. When triggered, it is evaluated in the context of the current state, which may run an action and, if configured, transition the state machine to a new state.</value>
   </data>
   <data name="StateMachine_Description" xml:space="preserve">
-    <value>A State Machine is a mechanism that allows for complex work flows to be created base on know the current state, an event that is applied, the new state when the event is applied as well as any actions that should take place on that transitions.</value>
+    <value>Use a state machine to configure workflows by specifying the current state, the triggering event, the resulting state, and any actions to run during the transition.</value>
   </data>
   <data name="StateMachine_UserHelp" xml:space="preserve">
-    <value>A State Machine is a mechanism that allows for complex work flows to be created base on know the current state, an event that is applied, the new state when the event is applied as well as any actions that should take place on that transitions.</value>
+    <value>Defines workflows using states, events, resulting states, and actions executed during state transitions.</value>
   </data>
   <data name="StateTransition_Title" xml:space="preserve">
     <value>State Transition</value>
   </data>
   <data name="State_Description" xml:space="preserve">
-    <value>A State is a conceptual entity that a Device Configuration, Attribute or other mechanism can be in.  The state machine can only be in exactly one state at a given time, an action is used to transition the state into another state and optionally perform an action at that time.</value>
+    <value>A state is a specific condition in a state machine for a device configuration, attribute, or similar mechanism. At any given time, the state machine can be in only one state. Actions move the state machine from one state to another and can optionally perform additional work during those transitions.</value>
   </data>
   <data name="State_Title" xml:space="preserve">
     <value>State</value>
   </data>
   <data name="State_UserHelp" xml:space="preserve">
-    <value>A State is a conceptual entity that a Device Configuration, Attribute or other mechanism can be in.  The state machine can only be in exactly one state at a given time, an action is used to transition the state into another state and optionally perform an action at that time.</value>
+    <value>Represents a single condition in a state machine for a device configuration, attribute, or related mechanism. The state machine can be in only one state at a time. Actions trigger transitions between states and can optionally perform work during those transitions.</value>
   </data>
   <data name="Unit_Description" xml:space="preserve">
-    <value>An value can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
+    <value>Use this model to define units of measure for attribute values. Units are organized into unit sets that each have a single default unit used for storage. Other units in the set can be converted to and from the default unit using conversion factors or formulas.</value>
   </data>
   <data name="Unit_Help" xml:space="preserve">
-    <value>An value can have many units.  For example, if the value is temperature, it can be expressed in Celcius or Farenheight, those attributes can be added here.  An Attribute Unit belongs to a Unit Set, attributes are stored with a default value in an attribute set and can be converted between different units via the default units.</value>
+    <value>Defines a unit of measure for an attribute value. Each unit belongs to a unit set, where values are stored in a default unit and can be converted to other units in the same set (for example, Celsius and Fahrenheit for temperature).</value>
   </data>
   <data name="Unit_Title" xml:space="preserve">
     <value>Unit</value>
@@ -705,7 +705,7 @@
     <value>Development</value>
   </data>
   <data name="Environment_Help" xml:space="preserve">
-    <value>You can configure different environments so you can test your configurations prior to putting them into production</value>
+    <value>Use environments to safely test and validate configurations before deploying to production. Create, update, and manage environments to support your development, testing, and production needs.</value>
   </data>
   <data name="Environment_Production" xml:space="preserve">
     <value>Production</value>
@@ -735,16 +735,16 @@
     <value>-select attribute type-</value>
   </data>
   <data name="OutputCommand_Description" xml:space="preserve">
-    <value>Output Commands are used to specify data that comes from your work flow or other device attributes that should be sent back to the device or to another system.  After you create your output command you will need to add it via the route for the device configuration to send the message.</value>
+    <value>Defines a message to send from a workflow or device back to the device or to another system. After creating an output command, add it to the device configuration route to deliver the message.</value>
   </data>
   <data name="OutputCommand_Help" xml:space="preserve">
-    <value>You can create a output command to send a message to your device.  In your device command you prepare the data from the available data on the device configuration.</value>
+    <value>Create an output command to send a message from a workflow or device back to the device or another system. Configure the command to build the payload using data available in the device configuration so it can be sent through the device configuration route.</value>
   </data>
   <data name="WorkflowInput_Description" xml:space="preserve">
-    <value>Inputs are the entry point of data coming from your device.  Inputs can be as simple as an on/off switch, a thermostat or as complex as a GPS that sends in latitude and longitude.  Your sensor can also be virtual in that they provide an end point for your physical device to send additional data.  The Sensor is just the entry point and will eventually pass its data to an attribute for permanent storage.</value>
+    <value>Inputs are data entry points from your device. They can represent simple sensors, such as on/off switches or thermostats, more complex sensors, such as GPS sending latitude and longitude, or virtual inputs that your device uses to send additional data. Each input passes its data to an attribute for permanent storage.</value>
   </data>
   <data name="WorkflowInput_Help" xml:space="preserve">
-    <value>You should start by creating input that match the physical sensors on your device.  These would be like an on/off contact switch or maybe a motion detector.  Once you add your sensor you need to specify the type of data that it will receive. The most common type of data would be discrete values such as a temperature, RPM or speed.  It could also be a more complex set of data such as a latitude or longitude.  In some cases your sensor will have certain conditions it can be in, we call these states.  You can identify those states here.</value>
+    <value>Create inputs that correspond to the sensors or data sources on your device, such as an on/off switch, motion detector, thermostat, or GPS. For each input, specify the type of data it will receive. This can be a simple numeric value (for example, temperature, RPM, or speed) or a more complex value, such as latitude and longitude. If a sensor reports distinct conditions (states), such as On/Off or Motion/No Motion, define those states so the input’s reported conditions are clearly identified.</value>
   </data>
   <data name="WorkflowInput_Title" xml:space="preserve">
     <value>Input</value>
@@ -870,10 +870,10 @@
     <value>Once you establish your unit set, you may want to lock this so it can't be edited. Since unit sets in many different areas, making changes to an existing unit set may have undesired side effects</value>
   </data>
   <data name="StateSet_Description" xml:space="preserve">
-    <value>You have the flexibility to define different statuses that your device may exhibit, known as states. These states can encompass conditions such as On/Off, Running/Idle/Error, Motion/NoMotion, and more.</value>
+    <value>Create and manage custom device state sets to represent different operating conditions, such as On/Off, Running/Idle/Error, or Motion/No Motion.</value>
   </data>
   <data name="StateSet_Help" xml:space="preserve">
-    <value>You have the flexibility to define different statuses that your device may exhibit, known as states. These states can encompass conditions such as On/Off, Running/Idle/Error, Motion/NoMotion, and more.</value>
+    <value>Define custom device state sets to represent different status conditions, such as On/Off, Running/Idle/Error, or Motion/No Motion.</value>
   </data>
   <data name="StateSet_IsLocked" xml:space="preserve">
     <value>Is Locked</value>
@@ -888,13 +888,13 @@
     <value>State Sets</value>
   </data>
   <data name="EventSet_Description" xml:space="preserve">
-    <value>Events are used to trigger actions against a state machine.  An event belongs to an Event Set that can be resused across different state machines to implement custom logic.</value>
+    <value>An Event Set is a reusable collection of events. Each event can trigger actions in a state machine, and the same Event Set can be shared across multiple state machines to support custom logic.</value>
   </data>
   <data name="EventSet_Events" xml:space="preserve">
     <value>Events</value>
   </data>
   <data name="EventSet_Help" xml:space="preserve">
-    <value>Events are used to trigger actions against a state machine.  An event belongs to an Event Set that can be resused across different state machines to implement custom logic.</value>
+    <value>A reusable collection of events that can be shared across state machines to trigger actions and support custom logic.</value>
   </data>
   <data name="EventSet_IsLocked" xml:space="preserve">
     <value>Is Locked</value>
@@ -915,24 +915,22 @@
     <value>Version</value>
   </data>
   <data name="Parameter_Help" xml:space="preserve">
-    <value>Parameters Can Specify the Data Types that sending and receiving objects expect</value>
+    <value>Configures a report parameter, including its type and allowed values, for use when providing or consuming report data.</value>
   </data>
   <data name="Parameter_Title" xml:space="preserve">
-    <value>Parameter</value>
+    <value>Report Parameter</value>
   </data>
   <data name="InputCommandParamter_Description" xml:space="preserve">
-    <value>When an input command is exposed from your device configuration, you can pass in parameters along with that command.</value>
+    <value>Configure report parameters for device input commands, including their data types, constraints, default values, and how they are passed in the generated API.</value>
   </data>
   <data name="InputCommand_Description" xml:space="preserve">
     <value>Input Commands are used to send messages or commands into your device workflow that usually originate from somewhere other than the actual device itself.  These are exposed as an API in the format of your choosing and can be things like "Reset Device", "Start", "Stop", etc...</value>
   </data>
   <data name="InputCommand_Help" xml:space="preserve">
-    <value>Input Commands are used to send messages or commands into your device workflow that usually originate from somewhere other than the actual device itself.  These are exposed as an API in the format of your choosing and can be things like "Reset Device", "Start", "Stop", etc... 
-
-Your input commands will be exposed as a generated API that you can call for this device configuration.</value>
+    <value>Use input commands to send messages or actions (for example, "Reset Device", "Start", or "Stop") into your device workflow from outside the physical device. Each input command is exposed through the generated API for this device configuration and can be invoked from your applications or services.</value>
   </data>
   <data name="InputCommand_Parameters" xml:space="preserve">
-    <value>Parameters</value>
+    <value>Defines the parameters for commands sent from external sources into a device workflow.</value>
   </data>
   <data name="InputCommand_Title" xml:space="preserve">
     <value>Input Command</value>
@@ -950,10 +948,10 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>You can configure your input to accept GeoLocation (Latitude/Longitude) data</value>
   </data>
   <data name="DeviceWorkflow_Description" xml:space="preserve">
-    <value>Attributes act as metadata linked to a device workflow, contributing to the preservation of the device's state. These attributes are represented as simple values with an optional unit. Stored on a per-device basis, they are accessible to all workflows associated with the device.</value>
+    <value>Attributes are metadata linked to a device workflow that help preserve the device’s state. They are stored per device as simple values, optionally with an associated unit, and are available to all workflows for that device.</value>
   </data>
   <data name="DeviceWorkflow_Help" xml:space="preserve">
-    <value>A Device Workflow is the implemented business logic that relies on inputs from sensors, input commands sent through another application or a user interface, and the current state of the device configuration. It defines how the device should operate and respond based on these inputs and configurations.</value>
+    <value>Controls how a device operates based on sensor inputs, external commands, user actions, and its current configuration.</value>
   </data>
   <data name="DeviceWorkflow_Title" xml:space="preserve">
     <value>Device Workflow</value>
@@ -1097,10 +1095,10 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Pages are used to organize your state machine.  Any states that you add to one page can be added to other pages.  You can now however add the same transition between states on different pages.  Each transition must be unique between states.</value>
   </data>
   <data name="Page_Description" xml:space="preserve">
-    <value>Pages are inserted into lists of other objects to organize content and data.  Since the work space for visually configuring objects is limited it can be broken up between pages.</value>
+    <value>Use pages to break complex configurations into smaller, well-organized sections. Add pages to groups of related objects to structure and separate content and data within a limited workspace.</value>
   </data>
   <data name="Page_Help" xml:space="preserve">
-    <value>Pages are used to organize content</value>
+    <value>Create and manage application pages, including their content layout, visibility, and access settings.</value>
   </data>
   <data name="Page_Name" xml:space="preserve">
     <value>Name</value>
@@ -1133,13 +1131,13 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Days</value>
   </data>
   <data name="Timer_Description" xml:space="preserve">
-    <value>Timers can be used to exeute scripts at fixed intervals</value>
+    <value>Automatically run scripts on a schedule or at fixed time intervals.</value>
   </data>
   <data name="Timer_Friday" xml:space="preserve">
     <value>Friday</value>
   </data>
   <data name="Timer_Help" xml:space="preserve">
-    <value>Timers can be used to exeute scripts at fixed intervals</value>
+    <value>Configure this timer to run scripts at specific times, on selected days, or at regular intervals within a defined daily time window.</value>
   </data>
   <data name="Timer_HourOfDay" xml:space="preserve">
     <value>Hour of Day</value>
@@ -1181,13 +1179,13 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Wednesday</value>
   </data>
   <data name="DeviceType_Description" xml:space="preserve">
-    <value>The Device Model serves to uniquely identify a particular make and model of a device. It comes with an associated Device Configuration, which outlines the instructions on how messages from this specific device should be processed.</value>
+    <value>Use Device Models to record the make and model of each device. Each Device Model is associated with a Device Configuration that defines how messages from that device are processed.</value>
   </data>
   <data name="DeviceType_Help" xml:space="preserve">
-    <value>The Device Model serves to uniquely identify a particular make and model of a device. It comes with an associated Device Configuration, which outlines the instructions on how messages from this specific device should be processed.</value>
+    <value>Identifies the make and model of a device and links it to a Device Configuration that defines how its messages are processed.</value>
   </data>
   <data name="DeviceType_Title" xml:space="preserve">
-    <value>Device Model</value>
+    <value>Device Type</value>
   </data>
   <data name="DeviceType_DefaultConfiguration" xml:space="preserve">
     <value>Default Device Configuration</value>
@@ -1316,10 +1314,10 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Assembly Number</value>
   </data>
   <data name="DeviceBOMItem_Description" xml:space="preserve">
-    <value>A bill of material item contains a part that makes up the device</value>
+    <value>Create or edit an individual part or component that is included in the device bill of materials.</value>
   </data>
   <data name="DeviceBOMItem_Help" xml:space="preserve">
-    <value>A bill of material item contains a part that makes up the device</value>
+    <value>Represents a single part or component in the device bill of materials.</value>
   </data>
   <data name="DeviceBOMItem_Link" xml:space="preserve">
     <value>Link</value>
@@ -1337,7 +1335,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Quantity</value>
   </data>
   <data name="DeviceBOMItem_Title" xml:space="preserve">
-    <value>Device Bill of Material Item</value>
+    <value>Device Bill of Materials Item</value>
   </data>
   <data name="DeviceResources_Description" xml:space="preserve">
     <value>A device resource is a file that can either be uploaded or linked to an external site to help provide information about a specific device.</value>
@@ -1403,10 +1401,10 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Resources</value>
   </data>
   <data name="Equipment_Description" xml:space="preserve">
-    <value>Equipment are tools and other components that are related to the device type.</value>
+    <value>Tools and components associated with the selected device type.</value>
   </data>
   <data name="Equipment_Help" xml:space="preserve">
-    <value>Equipment are tools and other components that are related to the device type.</value>
+    <value>Tools and components associated with a device type.</value>
   </data>
   <data name="Equipment_Title" xml:space="preserve">
     <value>Equipment</value>
@@ -1421,10 +1419,10 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Is Parts Kit</value>
   </data>
   <data name="Part_Description" xml:space="preserve">
-    <value>A part is the smallest component that can be tracked or an individual part that could make up an assembly</value>
+    <value>Represents the smallest trackable component or single item that can be included in an assembly.</value>
   </data>
   <data name="Part_Help" xml:space="preserve">
-    <value>A part is the smallest component that can be tracked or an individual part that could make up an assembly</value>
+    <value>The smallest trackable component or individual item used to build an assembly.</value>
   </data>
   <data name="Part_Manufacturer" xml:space="preserve">
     <value>Manufacturer</value>
@@ -1463,7 +1461,13 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>If you specify your field as a user configurable field, any user that can modify the device can edit the property.  If you don't select this option, only an admin can update the field.</value>
   </data>
   <data name="BusinessRule_Description" xml:space="preserve">
-    <value>Business rules are concise scripts created to be executed based on attributes and properties, evaluating the proper functioning of a device. Moreover, these rules can generate service tickets and error codes when necessary. It's important to note that business rules are evaluated after all the scripts in the workflow have been executed.</value>
+    <value>A device business rule is a script that runs after all other workflow scripts to validate device health based on its attributes and properties.
+
+The script must:
+- Return **true** when the device passes the rule.
+- Return **false** when an error condition is detected.
+
+When **false** is returned, any configured error codes or service tickets are generated for the device according to the rule’s settings.</value>
   </data>
   <data name="BusinessRule_ErrorCode" xml:space="preserve">
     <value>Error Code</value>
@@ -1475,7 +1479,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>-select error code-</value>
   </data>
   <data name="BusinessRule_Help" xml:space="preserve">
-    <value>Business rules are concise scripts created to be executed based on attributes and properties, evaluating the proper functioning of a device. Moreover, these rules can generate service tickets and error codes when necessary. It's important to note that business rules are evaluated after all the scripts in the workflow have been executed.</value>
+    <value>A device business rule is a script that validates device health based on its attributes and properties. If the script detects an issue, it can generate service tickets and error codes. Business rules run after all other scripts in the workflow have completed.</value>
   </data>
   <data name="BusinessRule_IsBeta" xml:space="preserve">
     <value>Is Beta</value>
@@ -1616,7 +1620,7 @@ Your input commands will be exposed as a generated API that you can call for thi
     <value>Part Packs</value>
   </data>
   <data name="PartPack_Description" xml:space="preserve">
-    <value>Part Packs are strip feeders with identified parts on board.</value>
+    <value>Part packs are strip feeders that hold and identify parts on the pick-and-place machine.</value>
   </data>
   <data name="PartPack_Title" xml:space="preserve">
     <value>Part Pack</value>
