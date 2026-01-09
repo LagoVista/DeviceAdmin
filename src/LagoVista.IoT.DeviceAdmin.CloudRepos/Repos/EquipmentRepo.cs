@@ -4,6 +4,7 @@
 // --- END CODE INDEX META ---
 using LagoVista.CloudStorage;
 using LagoVista.CloudStorage.DocumentDB;
+using LagoVista.CloudStorage.Interfaces;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models.UIMetaData;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
@@ -19,8 +20,8 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
     {
         private bool _shouldConsolidateCollections;
 
-        public EquipmentRepo(IDeviceRepoSettings repoSettings, IAdminLogger logger, ICacheProvider cacheProvider, IDependencyManager dependencyMgr)
-            : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, logger, cacheProvider, dependencyMgr)
+        public EquipmentRepo(IDeviceRepoSettings repoSettings, IDocumentCloudCachedServices services    )
+            : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, services)
         {
             _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }

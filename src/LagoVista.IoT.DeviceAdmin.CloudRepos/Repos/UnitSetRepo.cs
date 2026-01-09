@@ -7,9 +7,8 @@ using LagoVista.CloudStorage.DocumentDB;
 using System.Threading.Tasks;
 using System.Linq;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
-using LagoVista.IoT.Logging.Loggers;
 using LagoVista.Core.Models.UIMetaData;
-using LagoVista.Core.Interfaces;
+using LagoVista.CloudStorage.Interfaces;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
@@ -17,8 +16,8 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
     {
         private bool _shouldConsolidateCollections;
 
-        public UnitSetRepo(IDeviceRepoSettings settings, IAdminLogger logger, ICacheProvider cacheProvider, IDependencyManager dependencyMgr) 
-            : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, logger, cacheProvider, dependencyMgr)
+        public UnitSetRepo(IDeviceRepoSettings settings, IDocumentCloudCachedServices services ) 
+            : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, services)
         {
             _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
         }

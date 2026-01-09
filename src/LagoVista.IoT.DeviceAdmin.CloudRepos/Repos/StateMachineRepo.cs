@@ -14,6 +14,7 @@ using LagoVista.IoT.Logging.Loggers;
 using LagoVista.CloudStorage;
 using LagoVista.Core.Models.UIMetaData;
 using LagoVista.Core.Interfaces;
+using LagoVista.CloudStorage.Interfaces;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
@@ -21,8 +22,8 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
     {
         private bool _shouldConsolidateCollections;
 
-        public StateMachineRepo(IDeviceRepoSettings repoSettings, IAdminLogger logger, ICacheProvider cacheProvider, IDependencyManager dependencyMgr) 
-            : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, logger, cacheProvider, dependencyMgr)
+        public StateMachineRepo(IDeviceRepoSettings repoSettings, IDocumentCloudCachedServices services) 
+            : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, services)
         {
             _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }
