@@ -27,10 +27,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         }
 
 
-        [CloneOptions(false)]
-        [FormField(LabelResource: LagoVista.IoT.DeviceAdmin.Models.Resources.DeviceLibraryResources.Names.Common_Description, FieldType: FieldTypes.MultiLineText, ResourceType: typeof(DeviceLibraryResources))]
-        public String Description { get; set; }
-
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.Part_PartNumber, FieldType: FieldTypes.Text, IsRequired: true, ResourceType: typeof(DeviceLibraryResources))]
         public string PartNumber { get; set; }
 
