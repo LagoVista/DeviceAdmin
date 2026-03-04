@@ -37,9 +37,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             FieldType:FieldTypes.ChildList, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<EntityHeader> InitialActions {get; set; }
 
-        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
-        public string Icon { get; set; }
-
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_States, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_States, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
         public ObservableCollection<State> States { get; set; }
 

@@ -27,11 +27,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Models.Resources.DeviceLibraryResources.Names.DeviceBOMItem_Picture, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
         public List<MediaServices.Models.MediaResourceSummary> Resources { get; set; }
 
-
-        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
-        public string Icon { get; set; }
-
-
         public List<string> GetFormFields()
         {
             return new List<string>()

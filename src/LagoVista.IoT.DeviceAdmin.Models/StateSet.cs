@@ -33,11 +33,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public EntityHeader LockedBy { get; set; }
 
-        public String LockedDateStamp { get; set; }
+        public UtcTimestamp LockedDateStamp { get; set; }
 
-
-        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
-        public string Icon { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateSet_States, FactoryUrl: "/api/statemachine/factory/state", FieldType: FieldTypes.ChildListInline, ResourceType: typeof(DeviceLibraryResources))]

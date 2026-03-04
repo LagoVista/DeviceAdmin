@@ -19,7 +19,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
     {
         [JsonProperty("id")]
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
-        public String Id { get; set; }
+        public NormalizedId32 Id { get; set; }
 
         public enum ParameterTypes
         {
@@ -45,7 +45,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, FieldType: FieldTypes.Key, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
-        public String Key { get; set; }
+        public LagoVistaKey Key { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Parameter_Type, ResourceType: typeof(DeviceLibraryResources), IsRequired: true, IsUserEditable: false, WaterMark: DeviceLibraryResources.Names.Parameter_Type_Watermark)]
         public EntityHeader ParameterType { get; set; }

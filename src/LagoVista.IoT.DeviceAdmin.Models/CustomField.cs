@@ -47,7 +47,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 		[JsonProperty("id")]
 		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_UniqueId, IsUserEditable: false, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
-		public String Id { get; set; }
+		public NormalizedId32 Id { get; set; }
 
 		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, IsRequired: true, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources))]
 		public String Name { get; set; }
@@ -83,7 +83,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 		public EntityHeader<StateSet> StateSet { get; set; }
 
 		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, IsRequired: true, ValidationRegEx: Constants.KeyRegEx, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key_Help, RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.Common_Key_Validation, FieldType: FieldTypes.Key, ResourceType: typeof(DeviceLibraryResources))]
-		public String Key { get; set; }
+		public LagoVistaKey Key { get; set; }
 
 		[FormField(LabelResource: Resources.DeviceLibraryResources.Names.CustomFields_DefaultValue, FieldType: FieldTypes.Text, HelpResource: DeviceLibraryResources.Names.CustomFields_DefaultValue_Help, ResourceType: typeof(DeviceLibraryResources))]
 		public String DefaultValue { get; set; }
@@ -175,8 +175,8 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
 		public void Validate(string value, ValidationResult result, Actions action)
 		{
-			if (IsRemoteProperty && Key.Length > 15)
-				result.AddUserError($"To use this property as a remote property, the key must not be longer then 15 characters.  The key [{Key}] is {Key.Length} characters long.");
+			if (IsRemoteProperty && Key.Value.Length > 15)
+				result.AddUserError($"To use this property as a remote property, the key must not be longer then 15 characters.  The key [{Key}] is {Key.Value.Length} characters long.");
 
 			if (EntityHeader.IsNullOrEmpty(FieldType)) result.AddSystemError($"Custom field {Label} missing field type, invalid configuration, contact administorator");
 

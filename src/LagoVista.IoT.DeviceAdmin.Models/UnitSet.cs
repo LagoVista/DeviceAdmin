@@ -32,10 +32,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public EntityHeader LockedBy { get; set; }
 
-        public String LockedDateStamp { get; set; }
-
-        [FormField(LabelResource: DeviceLibraryResources.Names.Common_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
-        public string Icon { get; set; }
+        public UtcTimestamp LockedDateStamp { get; set; }
 
         public Unit GetDefault()
         {

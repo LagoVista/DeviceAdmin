@@ -43,11 +43,6 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public EntityHeader Environment { get; set; }
 
 
-
-        [FormField(LabelResource: DeviceLibraryResources.Names.DeviceType_Icon, FieldType: FieldTypes.Icon, ResourceType: typeof(DeviceLibraryResources))]
-        public string Icon { get; set; }
-
-
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PrehandlerScript, WaterMark: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PrehandlerScript_Watermark, HelpResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_PrehandlerScript_Help, FieldType: FieldTypes.NodeScript, ResourceType: typeof(DeviceLibraryResources))]
         public string PreHandlerScript { get; set; }
 
