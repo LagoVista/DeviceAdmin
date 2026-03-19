@@ -18,7 +18,7 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
         {
             var stateSet = new StateSet();
             stateSet.CreatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "dontcare");
-            stateSet.CreationDate = DateTime.Now.ToJSONString();
+            stateSet.CreationDate = UtcTimestamp.Now;
             stateSet.LastUpdatedBy = stateSet.CreatedBy;
             stateSet.LastUpdatedDate = stateSet.CreationDate;
             stateSet.Name = "MyStateSet";

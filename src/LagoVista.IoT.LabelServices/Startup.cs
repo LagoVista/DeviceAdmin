@@ -5,6 +5,9 @@
 using LagoVista.Core.Interfaces;
 using LagoVista.IoT.LabelServices.Managers;
 using LagoVista.IoT.LabelServices.Repos;
+using LagoVista.IoT.Logging.Loggers;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace LagoVista.IoT.LabelServices
 {
@@ -15,6 +18,17 @@ namespace LagoVista.IoT.LabelServices
             services.AddTransient<ILabeledEntityRepo, LabeledEntityRepo>();
             services.AddTransient<ILabelRepo, LabelRepo>();
             services.AddTransient<ILabelManager, LabelManager>();
+        }
+    }
+}
+
+namespace LagoVista.DependencyInjection
+{
+    public static class LabelModule
+    {
+        public static void AddLabelModule(this IServiceCollection services, IConfigurationRoot configRoot, IAdminLogger logger)
+        {
+            LagoVista.IoT.LabelServices.Startup.ConfigureServices(services);
         }
     }
 }

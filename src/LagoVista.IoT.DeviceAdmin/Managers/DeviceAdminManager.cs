@@ -89,7 +89,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             await AuthorizeAsync(stateMachine, AuthorizeResult.AuthorizeActions.Update, user, org);
             ValidationCheck(stateMachine, Actions.Update);
             stateMachine.LastUpdatedBy = user;
-            stateMachine.LastUpdatedDate = DateTime.Now.ToJSONString();
+            stateMachine.LastUpdatedDate = UtcTimestamp.Now;
             await _stateMachineRepo.UpdateStateMachineAsync(stateMachine);
             return InvokeResult.Success;
         }
@@ -99,7 +99,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             await AuthorizeAsync(unitSet, AuthorizeResult.AuthorizeActions.Update, user, org);
             ValidationCheck(unitSet, Actions.Update);
             unitSet.LastUpdatedBy = user;
-            unitSet.LastUpdatedDate = DateTime.Now.ToJSONString();
+            unitSet.LastUpdatedDate = UtcTimestamp.Now;
             await _unitSetRepo.UpdateUnitSetAsync(unitSet);
             return InvokeResult.Success;
         }
@@ -109,7 +109,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             await AuthorizeAsync(deviceWorkflow, AuthorizeResult.AuthorizeActions.Update, user, org);
             ValidationCheck(deviceWorkflow, Actions.Update);
             deviceWorkflow.LastUpdatedBy = user;
-            deviceWorkflow.LastUpdatedDate = DateTime.Now.ToJSONString();
+            deviceWorkflow.LastUpdatedDate = UtcTimestamp.Now;
             await _deviceWorkflowRepo.UpdateDeviceWorkflowAsync(deviceWorkflow);
             return InvokeResult.Success;
         }
@@ -120,7 +120,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             await AuthorizeAsync(stateSet, AuthorizeResult.AuthorizeActions.Update, user, org);
             ValidationCheck(stateSet, Actions.Update);
             stateSet.LastUpdatedBy = user;
-            stateSet.LastUpdatedDate = DateTime.Now.ToJSONString();
+            stateSet.LastUpdatedDate = UtcTimestamp.Now;
             await _stateSetRepo.UpdateStateSetAsync(stateSet);
             return InvokeResult.Success;
         }
@@ -130,7 +130,7 @@ namespace LagoVista.IoT.DeviceAdmin.Managers
             await AuthorizeAsync(eventSet, AuthorizeResult.AuthorizeActions.Update, user, org);
             ValidationCheck(eventSet, Actions.Update);
             eventSet.LastUpdatedBy = user;
-            eventSet.LastUpdatedDate = DateTime.Now.ToJSONString();
+            eventSet.LastUpdatedDate = UtcTimestamp.Now;
             await _eventSetRepo.UpdateEventSetAsync(eventSet);
             return InvokeResult.Success;
         }

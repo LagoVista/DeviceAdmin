@@ -68,8 +68,8 @@ namespace LagoVista.IoT.LabelServices.Repos
                     Id = Guid.NewGuid().ToId(),
                     CreatedBy = user,
                     LastUpdatedBy = user,
-                    CreationDate = DateTime.UtcNow.ToJSONString(),  
-                    LastUpdatedDate = DateTime.UtcNow.ToJSONString(),
+                    CreationDate = UtcTimestamp.Now,  
+                    LastUpdatedDate = UtcTimestamp.Now,
                     IsPublic = false,
                     OwnerOrganization = org
                 };

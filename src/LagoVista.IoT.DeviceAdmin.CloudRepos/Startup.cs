@@ -1,11 +1,11 @@
-// --- BEGIN CODE INDEX META (do not edit) ---
-// ContentHash: c865fd83a9247fb81788af72155c7380724261db3d987923aef909389aeae63a
-// IndexVersion: 2
-// --- END CODE INDEX META ---
-using LagoVista.Core.Interfaces;
+
 using LagoVista.IoT.DeviceAdmin.CloudRepos.Repos;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
+using LagoVista.IoT.DeviceAdmin.Models;
 using LagoVista.IoT.DeviceAdmin.Repo.Repos;
+using LagoVista.IoT.Logging.Loggers;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace LagoVista.IoT.DeviceAdmin.CloudRepos
 {
@@ -23,6 +23,19 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos
             services.AddSingleton<IDeviceTypeRepo, DeviceTypeRepo>();
             services.AddSingleton<IProductionQAResultsRepo, ProductionQaResultRepo>();
             services.AddSingleton<IDeviceTypeAngularAppRepo, DeviceTypeAngularAppRepo>();
+        }
+    }
+}
+
+namespace LagoVista.DependencyInjection
+{
+    public static class DeviceAdminModule
+    {
+        public static void AddDeviceAdminModule(this IServiceCollection services, IConfigurationRoot configRoot, IAdminLogger logger)
+        {
+            LagoVista.IoT.DeviceAdmin.Startup.ConfigureServices(services);
+            LagoVista.IoT.DeviceAdmin.CloudRepos.Startup.ConfigureServices(services);
+            services.AddMetaDataHelper<DiagramPage>();
         }
     }
 }

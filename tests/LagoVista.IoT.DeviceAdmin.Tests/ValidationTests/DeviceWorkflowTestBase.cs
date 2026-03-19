@@ -25,8 +25,8 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
                 Name = "Workflow Input One",
                 CreatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "me"),
                 LastUpdatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "me"),
-                CreationDate = DateTime.UtcNow.ToJSONString(),
-                LastUpdatedDate = DateTime.UtcNow.ToJSONString(),
+                CreationDate = UtcTimestamp.Now,
+                LastUpdatedDate = UtcTimestamp.Now,
             };
         }
 
@@ -62,8 +62,8 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
                 Name = "Attribute One",
                 CreatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "me"),
                 LastUpdatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "me"),
-                CreationDate = DateTime.UtcNow.ToJSONString(),
-                LastUpdatedDate = DateTime.UtcNow.ToJSONString(),
+                CreationDate = UtcTimestamp.Now,
+                LastUpdatedDate = UtcTimestamp.Now,
             };
         }
 
@@ -76,8 +76,8 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
                 Name = "State Machine 1",
                 CreatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "me"),
                 LastUpdatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "me"),
-                CreationDate = DateTime.UtcNow.ToJSONString(),
-                LastUpdatedDate = DateTime.UtcNow.ToJSONString(),
+                CreationDate = UtcTimestamp.Now,
+                LastUpdatedDate = UtcTimestamp.Now,
             };
 
             stm.Events.Add(new Event() { Key = "event1", Name = "name", });
@@ -104,8 +104,8 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
                 Name = "Output Command One",
                 CreatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "me"),
                 LastUpdatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "me"),
-                CreationDate = DateTime.UtcNow.ToJSONString(),
-                LastUpdatedDate = DateTime.UtcNow.ToJSONString(),
+                CreationDate = UtcTimestamp.Now,
+                LastUpdatedDate = UtcTimestamp.Now,
             };
 
             outputCommand.Parameters.Add(GetValidParameter());
@@ -123,8 +123,8 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
                 EndpointType = EntityHeader<EndpointTypes>.Create(EndpointTypes.RestGet),
                 CreatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "me"),
                 LastUpdatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "me"),
-                CreationDate = DateTime.UtcNow.ToJSONString(),
-                LastUpdatedDate = DateTime.UtcNow.ToJSONString(),
+                CreationDate = UtcTimestamp.Now,
+                LastUpdatedDate = UtcTimestamp.Now,
             };
 
             var parameter = GetValidParameter();
@@ -142,7 +142,7 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
                 Key = "workflow123",
                 Name = "My First Workflow",
                 CreatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "NAME"),
-                CreationDate = DateTime.UtcNow.ToJSONString()
+                CreationDate = UtcTimestamp.Now
             };
 
             workflow.LastUpdatedBy = workflow.CreatedBy;

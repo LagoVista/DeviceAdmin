@@ -23,7 +23,7 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
         {
             var unitSet = new UnitSet();
             unitSet.CreatedBy = EntityHeader.Create(Guid.NewGuid().ToId(), "dontcare");
-            unitSet.CreationDate = DateTime.Now.ToJSONString();
+            unitSet.CreationDate = UtcTimestamp.Now;
             unitSet.LastUpdatedBy = unitSet.CreatedBy;
             unitSet.LastUpdatedDate = unitSet.CreationDate;
             unitSet.Name = "MyStateSet";
