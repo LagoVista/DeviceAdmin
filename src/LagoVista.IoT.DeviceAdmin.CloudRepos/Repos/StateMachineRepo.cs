@@ -20,15 +20,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class StateMachineRepo : DocumentDBRepoBase<StateMachine>, IStateMachineRepo
     {
-        private bool _shouldConsolidateCollections;
-
         public StateMachineRepo(IDeviceRepoSettings repoSettings, IDocumentCloudCachedServices services) 
             : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, services)
         {
-            _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }
-
-        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public Task AddStateMachineAsync(StateMachine stateMachine)
         {

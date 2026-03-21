@@ -16,15 +16,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class PartRepo : DocumentDBRepoBase<Part>, IPartRepo
     {
-        private bool _shouldConsolidateCollections;
-
         public PartRepo(IDeviceRepoSettings settings, IDocumentCloudCachedServices services) : 
             base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, services)
         {
-            _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
         }
-
-        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public Task AddPartAsync(Part part)
         {

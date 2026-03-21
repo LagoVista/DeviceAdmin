@@ -1,4 +1,4 @@
-
+using LagoVista.Core.PlatformSupport;
 using LagoVista.IoT.DeviceAdmin.CloudRepos.Repos;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
 using LagoVista.IoT.DeviceAdmin.Models;
@@ -23,6 +23,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos
             services.AddSingleton<IDeviceTypeRepo, DeviceTypeRepo>();
             services.AddSingleton<IProductionQAResultsRepo, ProductionQaResultRepo>();
             services.AddSingleton<IDeviceTypeAngularAppRepo, DeviceTypeAngularAppRepo>();
+            services.AddSingleton<IDeviceRepoSettings, DeviceAdminConnections>();
         }
     }
 }
@@ -39,3 +40,5 @@ namespace LagoVista.DependencyInjection
         }
     }
 }
+
+

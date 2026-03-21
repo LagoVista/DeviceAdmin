@@ -16,14 +16,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class EventSetRepo : DocumentDBRepoBase<EventSet>, IEventSetRepo
     {
-        private bool _shouldConsolidateCollections;
-
         public EventSetRepo(IDeviceRepoSettings settings, IDocumentCloudCachedServices services) :
             base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, services)
         {
-            _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
         }
-        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public Task AddEventSetAsync(EventSet eventSet)
         {

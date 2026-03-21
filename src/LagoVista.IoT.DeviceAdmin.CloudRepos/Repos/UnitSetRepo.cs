@@ -14,14 +14,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class UnitSetRepo : DocumentDBRepoBase<UnitSet>, IUnitSetRepo
     {
-        private bool _shouldConsolidateCollections;
-
         public UnitSetRepo(IDeviceRepoSettings settings, IDocumentCloudCachedServices services ) 
             : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, services)
         {
-            _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
         }
-        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public Task AddUnitSetAsync(UnitSet unitSet)
         {

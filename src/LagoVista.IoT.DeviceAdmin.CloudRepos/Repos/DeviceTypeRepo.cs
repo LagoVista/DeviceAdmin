@@ -16,14 +16,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class DeviceTypeRepo : DocumentDBRepoBase<DeviceType>, IDeviceTypeRepo
     {
-        private bool _shouldConsolidateCollections;
         public DeviceTypeRepo(IDeviceRepoSettings repoSettings, IDocumentCloudCachedServices services)
             : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, services)
         {
-            _shouldConsolidateCollections = repoSettings.ShouldConsolidateCollections;
         }
-
-        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public Task AddDeviceTypeAsync(DeviceType deviceType)
         {

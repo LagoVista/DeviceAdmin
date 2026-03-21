@@ -16,15 +16,10 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class StateSetRepo : DocumentDBRepoBase<StateSet>, IStateSetRepo
     {
-        private bool _shouldConsolidateCollections;
-
         public StateSetRepo(IDeviceRepoSettings settings, IDocumentCloudCachedServices services) 
             : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, services)
         {
-            _shouldConsolidateCollections = settings.ShouldConsolidateCollections;
         }
-
-        protected override bool ShouldConsolidateCollections { get { return _shouldConsolidateCollections; } }
 
         public Task AddStateSetAsync(StateSet unitSet)
         {
