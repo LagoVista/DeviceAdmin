@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>LagoVista.IoT.DeviceAdmin.Rest</id>
-    <version>3.0.3231.0456</version>
+    <version>3.0.3231.0650</version>
     <authors>Software Logistics, LLC</authors>
     <owners>Software Logistics, LLC</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,13 +12,13 @@
     <copyright>Copyright Software Logistics - 2026</copyright>
     <tags>HomeAutomation IoT LagoVista</tags>
     <icon>LagoVistaIcon.png</icon>
-    <releaseNotes>Build Date: 3/22/2026 8:56:35 AM UTC</releaseNotes>
+    <releaseNotes>Build Date: 3/22/2026 10:50:51 AM UTC</releaseNotes>
     <repository url="https://www.github.com/lagovista" type="git" branch="master"></repository>
     <dependencies>
       <group targetFramework="net9.0">
-        <dependency id="LagoVista.IoT.Web.Common" version="3.0.3231.0456" />
-        <dependency id="LagoVista.IoT.DeviceAdmin.Models" version="3.0.3231.0456" />
-        <dependency id="LagoVista.IoT.DeviceAdmin" version="3.0.3231.0456" />
+        <dependency id="LagoVista.IoT.Web.Common" version="3.0.3231.0650" />
+        <dependency id="LagoVista.IoT.DeviceAdmin.Models" version="3.0.3231.0650" />
+        <dependency id="LagoVista.IoT.DeviceAdmin" version="3.0.3231.0650" />
       </group>
     </dependencies>
   </metadata>

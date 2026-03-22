@@ -19,13 +19,11 @@ namespace LagoVista.IoT.LabelServices.Repos
 {
     public class LabelRepo : DocumentDBRepoBase<LabelSet>, ILabelRepo
     {
-        private readonly bool _shouldConsolidateCollections;
         private readonly ICacheProvider _cacheProvider;
 
         public LabelRepo(ILabeledServiceConnectionSettings connectionSettings, IoT.Logging.Loggers.IAdminLogger logger, ICacheProvider cacheProvider = null) :
             base(connectionSettings.LabelServicesConnection.Uri, connectionSettings.LabelServicesConnection.AccessKey, connectionSettings.LabelServicesConnection.ResourceName, logger, cacheProvider)
         {
-            _shouldConsolidateCollections = connectionSettings.ShouldConsolidateCollections;
             _cacheProvider = cacheProvider ?? throw new ArgumentNullException(nameof(cacheProvider)); 
         }
 
@@ -33,8 +31,6 @@ namespace LagoVista.IoT.LabelServices.Repos
         {
             return $"{nameof(LabelSet)}_fororg_{org.Id}";
         }
-
-        protected override bool ShouldConsolidateCollections => _shouldConsolidateCollections;
 
         public async Task<LabelSet> AddLabelAsync(Label label, EntityHeader org, EntityHeader user)
         {
