@@ -13,17 +13,17 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos
     {
         public static void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IEquipmentRepo, EquipmentRepo>();
-            services.AddSingleton<IDeviceWorkflowRepo, DeviceWorkflowRepo>();
-            services.AddSingleton<IUnitSetRepo, UnitSetRepo>();
-            services.AddSingleton<IStateMachineRepo, StateMachineRepo>();
-            services.AddSingleton<IStateSetRepo, StateSetRepo>();
-            services.AddSingleton<IPartRepo, PartRepo>();
-            services.AddSingleton<IEventSetRepo, EventSetRepo>();
-            services.AddSingleton<IDeviceTypeRepo, DeviceTypeRepo>();
-            services.AddSingleton<IProductionQAResultsRepo, ProductionQaResultRepo>();
-            services.AddSingleton<IDeviceTypeAngularAppRepo, DeviceTypeAngularAppRepo>();
-            services.AddSingleton<IDeviceRepoSettings, DeviceAdminConnections>();
+            services.AddScoped<IEquipmentRepo, EquipmentRepo>();
+            services.AddScoped<IDeviceWorkflowRepo, DeviceWorkflowRepo>();
+            services.AddScoped<IUnitSetRepo, UnitSetRepo>();
+            services.AddScoped<IStateMachineRepo, StateMachineRepo>();
+            services.AddScoped<IStateSetRepo, StateSetRepo>();
+            services.AddScoped<IPartRepo, PartRepo>();
+            services.AddScoped<IEventSetRepo, EventSetRepo>();
+            services.AddScoped<IDeviceTypeRepo, DeviceTypeRepo>();
+            services.AddScoped<IProductionQAResultsRepo, ProductionQaResultRepo>();
+            services.AddScoped<IDeviceTypeAngularAppRepo, DeviceTypeAngularAppRepo>();
+            services.AddScoped<IDeviceRepoSettings, DeviceAdminConnections>();
         }
     }
 }

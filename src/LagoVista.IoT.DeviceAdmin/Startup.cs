@@ -18,11 +18,11 @@ namespace LagoVista.IoT.DeviceAdmin
         {
             ErrorCodes.Register(typeof(Resources.ErrorCodes));
 
-            services.AddSingleton<IDeviceAdminManager, DeviceAdminManager>();
-            services.AddSingleton<IDeviceTypeManager, DeviceTypeManager>();
-            services.AddSingleton<IEquipmentManager, EquipmentManager>();
-            services.AddSingleton<IPartManager, PartManager>();
-            services.AddSingleton<IProductionQAResultManager, ProductionQAResultManager>();
+            services.AddScoped<IDeviceAdminManager, DeviceAdminManager>();
+            services.AddScoped<IDeviceTypeManager, DeviceTypeManager>();
+            services.AddScoped<IEquipmentManager, EquipmentManager>();
+            services.AddScoped<IPartManager, PartManager>();
+            services.AddScoped<IProductionQAResultManager, ProductionQAResultManager>();
         }
     }
 }
