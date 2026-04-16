@@ -32,7 +32,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public EntityHeader LockedBy { get; set; }
 
-        public UtcTimestamp LockedDateStamp { get; set; }
+        public UtcTimestamp? LockedDateStamp { get; set; }
 
         public Unit GetDefault()
         {

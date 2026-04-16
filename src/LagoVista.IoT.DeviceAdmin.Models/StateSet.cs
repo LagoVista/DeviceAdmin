@@ -33,7 +33,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         public EntityHeader LockedBy { get; set; }
 
-        public UtcTimestamp LockedDateStamp { get; set; }
+        public UtcTimestamp? LockedDateStamp { get; set; }
 
 
 
@@ -106,10 +106,10 @@ namespace LagoVista.IoT.DeviceAdmin.Models
                 IsValid = IsValid,
                 Key = Key,
                 LastUpdatedDate = LastUpdatedDate,
-                LockedBy = LockedBy.Clone(),
+                LockedBy = LockedBy?.Clone(),
                 LockedDateStamp = LockedDateStamp,
                 Name = Name,
-                OwnerUser = OwnerUser.Clone(),
+                OwnerUser = OwnerUser?.Clone(),
                 RequireEnum = RequireEnum,
             };
 
