@@ -191,9 +191,9 @@ namespace LagoVista.IoT.DeviceAdmin.Rest.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("/api/deviceadmin/factory/devicebusinessrule")]
-        public DetailResponse<BusinessRule> CreateBusinessRule()
+        public DetailResponse<DeviceBusinessRule> CreateBusinessRule()
         {
-            var response = DetailResponse<BusinessRule>.Create();
+            var response = DetailResponse<DeviceBusinessRule>.Create();
             response.Model.Id = Guid.NewGuid().ToId();
             return response;
         }

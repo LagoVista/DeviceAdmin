@@ -28,7 +28,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
             StateMachines = new List<StateMachine>();
             Inputs = new List<WorkflowInput>();
             OutputCommands = new List<OutputCommand>();
-            BusinessRules = new List<BusinessRule>();
+            BusinessRules = new List<DeviceBusinessRule>();
             Timers = new List<Timer>();
             Pages = new List<DiagramPage>();
             Environment = LagoVista.IoT.DeviceAdmin.Models.Environment.GetDefault().ToEntityHeader();
@@ -75,7 +75,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules, HelpResource:Resources.DeviceLibraryResources.Names.DeviceWorkflow_BusinessRules_Help,
             FactoryUrl: "/api/deviceadmin/factory/devicebusinessrule", ResourceType: typeof(DeviceLibraryResources), FieldType: FieldTypes.ChildListInline)]
-        public List<BusinessRule> BusinessRules { get; set; }
+        public List<DeviceBusinessRule> BusinessRules { get; set; }
 
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachines, ResourceType: typeof(DeviceLibraryResources))]
