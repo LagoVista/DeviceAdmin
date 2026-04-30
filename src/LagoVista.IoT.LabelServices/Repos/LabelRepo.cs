@@ -29,7 +29,7 @@ namespace LagoVista.IoT.LabelServices.Repos
 
         private string CacheKey(EntityHeader org)
         {
-            return $"{nameof(LabelSet)}_fororg_{org.Id}";
+            return $"{nameof(LabelSet)}_fororg_{org.Id}_v2";
         }
 
         public async Task<LabelSet> AddLabelAsync(Label label, EntityHeader org, EntityHeader user)
@@ -47,13 +47,34 @@ namespace LagoVista.IoT.LabelServices.Repos
 
             return labelSet;
         }
+        
+        private async Task EnsureIdsAsync(LabelSet labelSet)
+        {
+            var requiresUpdate = false;
+
+            foreach (var label in labelSet.Labels)
+            {
+                if (String.IsNullOrEmpty(label.Id))
+                {
+                    label.Id = NormalizedId32.Factory();
+                    requiresUpdate = true;
+                }
+            }
+
+            if (requiresUpdate)
+            {
+                await UpsertDocumentAsync(labelSet);
+            }
+        }
 
         public async Task<LabelSet> GetLabelSetAsync(EntityHeader org, EntityHeader user)
         {
             var json = await _cacheProvider.GetAsync(CacheKey(org));
-            if(!String.IsNullOrEmpty(json))
-            {
-                return JsonConvert.DeserializeObject<LabelSet>(json);
+           if(!String.IsNullOrEmpty(json))
+           {
+                var cachedLabelSet = JsonConvert.DeserializeObject<LabelSet>(json);
+                await EnsureIdsAsync(cachedLabelSet);
+                return cachedLabelSet;
             }
 
             var labelSet = (await QueryAsync(lbs => lbs.OwnerOrganization.Id == org.Id)).FirstOrDefault();
@@ -67,15 +88,21 @@ namespace LagoVista.IoT.LabelServices.Repos
                     CreationDate = UtcTimestamp.Now,  
                     LastUpdatedDate = UtcTimestamp.Now,
                     IsPublic = false,
-                    OwnerOrganization = org
+                    OwnerOrganization = org,
+                    Labels = new List<Label>()
                 };
 
                 await CreateDocumentAsync(labelSet);
             }
-
-            if(labelSet.Labels == null)
+            else
             {
-                labelSet.Labels = new List<Label>();
+
+                if (labelSet.Labels == null)
+                {
+                    labelSet.Labels = new List<Label>();
+                }
+
+                await EnsureIdsAsync(labelSet);
             }
 
             await _cacheProvider.AddAsync(CacheKey(org), JsonConvert.SerializeObject(labelSet));

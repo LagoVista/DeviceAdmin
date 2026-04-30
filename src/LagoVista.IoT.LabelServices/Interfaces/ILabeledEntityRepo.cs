@@ -14,5 +14,6 @@ namespace LagoVista.IoT.LabelServices
     public interface ILabeledEntityRepo
     {
         Task<ListResponse<LabeledEntity>> GetLabeledEntitiesAsync(string labelId, ListRequest listRequest, EntityHeader org, EntityHeader user);
+        Task<ListResponse<LabeledEntity>> GetLabeledEntitiesAsync(string labelId, string entityType, ListRequest listRequest, EntityHeader org, EntityHeader user);
     }
 }

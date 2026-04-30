@@ -49,5 +49,11 @@ namespace LagoVista.IoT.LabelServices.Rest.Controllers
         {
             return await _labelManager.GetLabeledEntitiesAsync(id, GetListRequestFromHeader(), OrgEntityHeader, UserEntityHeader);
         }
+
+        [HttpGet("/api/label/entities/{id}/type/{entityType}")]
+        public async Task<ListResponse<LabeledEntity>> GetLabeledEntitiesByTypeAsync(string id, string entityType)
+        {
+            return await _labelManager.GetLabeledEntitiesAsync(id, entityType, GetListRequestFromHeader(), OrgEntityHeader, UserEntityHeader);
+        }
     }
 }
