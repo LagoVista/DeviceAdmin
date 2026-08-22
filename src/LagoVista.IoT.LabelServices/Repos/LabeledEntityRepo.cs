@@ -8,6 +8,7 @@ using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.Core.Models.UIMetaData;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LagoVista.IoT.LabelServices.Repos
@@ -22,21 +23,16 @@ namespace LagoVista.IoT.LabelServices.Repos
 
         public async Task<ListResponse<LabeledEntity>> GetLabeledEntitiesAsync(string labelId, ListRequest  listRequest, EntityHeader org, EntityHeader user)
         {
-            var parameters = new List<QueryParameter>();
-            parameters.Add(new QueryParameter("@labelId", labelId));
-            var query = $"select value c from c join l in c.Labels where l.Id = @labelId";
-            return await QueryAsync(query, listRequest, parameters.ToArray());  
+            return await QueryAsync(
+                entity => entity.Labels != null && entity.Labels.Any(label => label.Id == labelId),
+                listRequest);
         }
 
         public async Task<ListResponse<LabeledEntity>> GetLabeledEntitiesAsync(string labelId, string entityType, ListRequest listRequest, EntityHeader org, EntityHeader user)
         {
-
-            var parameters = new List<QueryParameter>();
-            parameters.Add(new QueryParameter("@labelId", labelId));
-            parameters.Add(new QueryParameter("@entityType", entityType));
-
-            var query = $"select value c from c join l in c.Labels where l.Id = @labelId and c.EntityType = @entityType";
-            return await QueryAsync(query, listRequest, parameters.ToArray());
+            return await QueryAsync(
+                entity => entity.EntityType == entityType && entity.Labels != null && entity.Labels.Any(label => label.Id == labelId),
+                listRequest);
         }
     }
 }
