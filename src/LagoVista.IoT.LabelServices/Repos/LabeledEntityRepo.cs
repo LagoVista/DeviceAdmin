@@ -21,18 +21,14 @@ namespace LagoVista.IoT.LabelServices.Repos
         }
 
 
-        public async Task<ListResponse<LabeledEntity>> GetLabeledEntitiesAsync(string labelId, ListRequest  listRequest, EntityHeader org, EntityHeader user)
+        public async Task<ListResponse<LabeledEntity>> GetLabeledEntitiesAsync(string labelId, ListRequest listRequest, EntityHeader org, EntityHeader user)
         {
-            return await QueryAsync(
-                entity => entity.Labels != null && entity.Labels.Any(label => label.Id == labelId),
-                listRequest);
+            return await QueryAsync(entity => entity.Labels != null && entity.Labels.Any(label => label.Id == labelId), listRequest);
         }
 
         public async Task<ListResponse<LabeledEntity>> GetLabeledEntitiesAsync(string labelId, string entityType, ListRequest listRequest, EntityHeader org, EntityHeader user)
         {
-            return await QueryAsync(
-                entity => entity.EntityType == entityType && entity.Labels != null && entity.Labels.Any(label => label.Id == labelId),
-                listRequest);
+            return await QueryAsync(entity => entity.EntityType == entityType && entity.Labels != null && entity.Labels.Any(label => label.Id == labelId), listRequest);
         }
     }
 }
