@@ -16,8 +16,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class DeviceTypeRepo : DocumentDBRepoBase<DeviceType>, IDeviceTypeRepo
     {
-        public DeviceTypeRepo(IDeviceRepoSettings repoSettings, IDocumentCloudCachedServices services)
-            : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, services)
+        public DeviceTypeRepo(IDocumentCloudCachedServices services) : base(services)
         {
         }
 

@@ -17,12 +17,11 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class DeviceWorkflowRepo : DocumentDBRepoBase<DeviceWorkflow>, IDeviceWorkflowRepo
     {
-        public DeviceWorkflowRepo(IDeviceRepoSettings repoSettings, IDocumentCloudCachedServices services)
-            : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, services)
+        public DeviceWorkflowRepo(IDocumentCloudCachedServices services) : base(services)
         {
         }
 
-     
+
         public Task AddDeviceWorkflowAsync(DeviceWorkflow workflow)
         {
             return base.CreateDocumentAsync(workflow);

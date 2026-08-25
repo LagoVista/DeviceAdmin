@@ -2,6 +2,7 @@
 // ContentHash: a6161eaaef5248a25e05de9dc88bad7f7998da87c7e277d58e399e57a7428e7c
 // IndexVersion: 2
 // --- END CODE INDEX META ---
+using LagoVista.CloudStorage.Interfaces;
 using LagoVista.CloudStorage.Storage;
 using LagoVista.Core;
 using LagoVista.Core.Models;
@@ -18,10 +19,8 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
 {
     public class ProductionQaResultRepo : TableStorageBase<ProductionQAResultDTO>, IProductionQAResultsRepo
     {
-        public ProductionQaResultRepo(IDeviceRepoSettings settings, IAdminLogger logger) : 
-            base(settings.DeviceTableStorage.AccountId, settings.DeviceTableStorage.AccessKey, logger)
+        public ProductionQaResultRepo(IDocumentCloudCachedServices services) : base(services)
         {
-            
         }
 
         public Task InsertAsync(ProductionQAResult result)

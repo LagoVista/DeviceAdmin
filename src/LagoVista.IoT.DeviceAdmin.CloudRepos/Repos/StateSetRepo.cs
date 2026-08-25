@@ -16,8 +16,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class StateSetRepo : DocumentDBRepoBase<StateSet>, IStateSetRepo
     {
-        public StateSetRepo(IDeviceRepoSettings settings, IDocumentCloudCachedServices services) 
-            : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, services)
+        public StateSetRepo(IDocumentCloudCachedServices services) : base(services)
         {
         }
 

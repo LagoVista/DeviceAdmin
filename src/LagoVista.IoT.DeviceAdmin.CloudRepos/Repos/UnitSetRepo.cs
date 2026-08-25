@@ -14,8 +14,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class UnitSetRepo : DocumentDBRepoBase<UnitSet>, IUnitSetRepo
     {
-        public UnitSetRepo(IDeviceRepoSettings settings, IDocumentCloudCachedServices services ) 
-            : base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, services)
+        public UnitSetRepo(IDocumentCloudCachedServices services) : base(services)
         {
         }
 

@@ -16,8 +16,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class EventSetRepo : DocumentDBRepoBase<EventSet>, IEventSetRepo
     {
-        public EventSetRepo(IDeviceRepoSettings settings, IDocumentCloudCachedServices services) :
-            base(settings.DeviceDocDbStorage.Uri, settings.DeviceDocDbStorage.AccessKey, settings.DeviceDocDbStorage.ResourceName, services)
+        public EventSetRepo(IDocumentCloudCachedServices services) : base(services)
         {
         }
 

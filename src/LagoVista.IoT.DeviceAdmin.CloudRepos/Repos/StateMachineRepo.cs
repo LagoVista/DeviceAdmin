@@ -20,8 +20,7 @@ namespace LagoVista.IoT.DeviceAdmin.CloudRepos.Repos
 {
     public class StateMachineRepo : DocumentDBRepoBase<StateMachine>, IStateMachineRepo
     {
-        public StateMachineRepo(IDeviceRepoSettings repoSettings, IDocumentCloudCachedServices services) 
-            : base(repoSettings.DeviceDocDbStorage.Uri, repoSettings.DeviceDocDbStorage.AccessKey, repoSettings.DeviceDocDbStorage.ResourceName, services)
+        public StateMachineRepo(IDocumentCloudCachedServices services) : base(services)
         {
         }
 
