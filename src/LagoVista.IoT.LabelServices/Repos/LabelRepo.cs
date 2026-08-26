@@ -4,16 +4,17 @@
 // --- END CODE INDEX META ---
 using LagoVista.CloudStorage;
 using LagoVista.CloudStorage.DocumentDB;
-using LagoVista.Core.Interfaces;
-using LagoVista.Core.Models;
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+using LagoVista.CloudStorage.Interfaces;
 using LagoVista.Core;
 using LagoVista.Core.Exceptions;
+using LagoVista.Core.Interfaces;
+using LagoVista.Core.Models;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace LagoVista.IoT.LabelServices.Repos
 {
@@ -21,10 +22,9 @@ namespace LagoVista.IoT.LabelServices.Repos
     {
         private readonly ICacheProvider _cacheProvider;
 
-        public LabelRepo(ILabeledServiceConnectionSettings connectionSettings, IoT.Logging.Loggers.IAdminLogger logger, ICacheProvider cacheProvider = null) :
-            base(connectionSettings.LabelServicesConnection.Uri, connectionSettings.LabelServicesConnection.AccessKey, connectionSettings.LabelServicesConnection.ResourceName, logger, cacheProvider)
+        public LabelRepo(IDocumentCloudCachedServices services) : base(services)
         {
-            _cacheProvider = cacheProvider ?? throw new ArgumentNullException(nameof(cacheProvider)); 
+            _cacheProvider = services.CacheProvider ?? throw new ArgumentNullException(nameof(services.CacheProvider)); 
         }
 
         private string CacheKey(EntityHeader org)

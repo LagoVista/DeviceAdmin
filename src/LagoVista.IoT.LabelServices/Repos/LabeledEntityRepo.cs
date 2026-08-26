@@ -4,6 +4,7 @@
 // --- END CODE INDEX META ---
 using LagoVista.CloudStorage;
 using LagoVista.CloudStorage.DocumentDB;
+using LagoVista.CloudStorage.Interfaces;
 using LagoVista.Core.Interfaces;
 using LagoVista.Core.Models;
 using LagoVista.Core.Models.UIMetaData;
@@ -15,8 +16,7 @@ namespace LagoVista.IoT.LabelServices.Repos
 {
     public class LabeledEntityRepo : DocumentDBRepoBase<LabeledEntity>, ILabeledEntityRepo
     {
-        public LabeledEntityRepo(ILabeledServiceConnectionSettings connectionSettings, IoT.Logging.Loggers.IAdminLogger logger, ICacheProvider cacheProvider = null) :
-            base(connectionSettings.LabelServicesConnection.Uri, connectionSettings.LabelServicesConnection.AccessKey, connectionSettings.LabelServicesConnection.ResourceName, logger, cacheProvider)
+        public LabeledEntityRepo(IDocumentCloudCachedServices services) : base(services)
         {
         }
 

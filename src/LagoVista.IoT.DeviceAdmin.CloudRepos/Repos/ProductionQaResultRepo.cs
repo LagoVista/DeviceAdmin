@@ -19,7 +19,8 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
 {
     public class ProductionQaResultRepo : TableStorageBase<ProductionQAResultDTO>, IProductionQAResultsRepo
     {
-        public ProductionQaResultRepo(IDocumentCloudCachedServices services) : base(services)
+        public ProductionQaResultRepo(IDeviceRepoSettings settings, IAdminLogger logger) :
+            base(settings.DeviceTableStorage.AccountId, settings.DeviceTableStorage.AccessKey, logger)
         {
         }
 
