@@ -2,22 +2,24 @@
 // ContentHash: 6cfa3c48d089de24e1c45a76e20fc104e6ce2f16f09fe93c6cba73fc4efff6bb
 // IndexVersion: 2
 // --- END CODE INDEX META ---
-using LagoVista.Core.Validation;
-using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
-using System.Threading.Tasks;
-using LagoVista.IoT.Logging.Loggers;
-using LagoVista.IoT.DeviceAdmin.CloudRepos;
-using LagoVista.Core.Models;
+using LagoVista.CloudStorage.Interfaces;
 using LagoVista.CloudStorage.Storage;
+using LagoVista.Core.Models;
+using LagoVista.Core.Validation;
+using LagoVista.IoT.DeviceAdmin.CloudRepos;
 using LagoVista.IoT.DeviceAdmin.Interfaces.Managers;
+using LagoVista.IoT.DeviceAdmin.Interfaces.Repos;
+using LagoVista.IoT.Logging.Loggers;
+using System.Threading.Tasks;
 
 namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
 {
-    public class DeviceTypeAngularAppRepo : CloudFileStorage, IDeviceTypeAngularAppRepo
+    public class DeviceTypeAngularAppRepo : IDeviceTypeAngularAppRepo
     {
-        public DeviceTypeAngularAppRepo(IAdminLogger adminLogger, IDeviceRepoSettings connectionSettings) : 
-            base(connectionSettings.DeviceTableStorage.AccountId, connectionSettings.DeviceTableStorage.AccessKey, adminLogger)
+        private readonly ICloudFileStorageClient _storageClient;
+        public DeviceTypeAngularAppRepo(IAdminLogger adminLogger, ICloudFileStorageClient cloudFileStorageClient) 
         {
+            _storageClient = cloudFileStorageClient;
         }
 
       
@@ -37,7 +39,7 @@ namespace LagoVista.IoT.DeviceAdmin.Repo.Repos
                     return InvokeResult<EntityHeader<string>>.FromError($"Unknown Angular File Type {fileType}");
             }
 
-            var result = await AddFileAsync(storageContainerName, fileName, data, contentType, "no-cache");
+            var result = await _storageClient.AddFileAsync(storageContainerName, fileName, data, contentType, "no-cache");
 
             var eh = new EntityHeader<string>()
             {
