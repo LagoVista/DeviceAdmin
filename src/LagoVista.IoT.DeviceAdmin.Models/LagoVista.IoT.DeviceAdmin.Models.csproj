@@ -10,8 +10,8 @@
     <AssemblyOriginatorKeyFile>LagoVista.DeviceAdmin.Models.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.MediaServices.Models" Version="3.0.3384.1809" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.3384.1809" />
+    <PackageReference Include="LagoVista.MediaServices.Models" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="T4ResourceGenerator.cs">

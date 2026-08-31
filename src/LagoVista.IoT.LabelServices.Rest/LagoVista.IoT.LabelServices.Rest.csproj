@@ -12,14 +12,13 @@
     <DocumentationFile>bin\Release\net5.0\LagoVista.IoT.DeviceAdmin.Rest.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LagoVista.Core" Version="3.0.3384.1809" />
-    <PackageReference Include="LagoVista.IoT.Logging" Version="3.0.3384.1809" />
-    <PackageReference Include="LagoVista.IoT.Web.Common" Version="3.0.3384.1809" />
-    <PackageReference Include="LagoVista.UserAdmin" Version="3.0.3384.1809" />
-    <PackageReference Include="LagoVista.UserAdmin.Models" Version="3.0.3384.1809" />
+    <PackageReference Include="LagoVista.Core" />
+    <PackageReference Include="LagoVista.IoT.Logging" />
+    <PackageReference Include="LagoVista.IoT.Web.Common" />
+    <PackageReference Include="LagoVista.UserAdmin" />
+    <PackageReference Include="LagoVista.UserAdmin.Models" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LagoVista.IoT.LabelServices\LagoVista.IoT.LabelServices.csproj" />
   </ItemGroup>
-
 </Project>
