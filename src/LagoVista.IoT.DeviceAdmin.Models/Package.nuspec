@@ -17,7 +17,7 @@
     <dependencies>
       <group targetFramework="netstandard2.1">
         <dependency id="LagoVista.MediaServices.Models" version="7.0.4" />
-        <dependency id="LagoVista.UserAdmin.Models" version="7.0.4" />
+        <dependency id="LagoVista.UserAdmin.Models" version="7.0.9" />
       </group>
     </dependencies>
   </metadata>
