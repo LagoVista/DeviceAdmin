@@ -15,7 +15,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
 {
     [EntityDescription(DeviceAdminDomain.StateMachines, Resources.DeviceLibraryResources.Names.State_Title, Resources.DeviceLibraryResources.Names.State_UserHelp, Resources.DeviceLibraryResources.Names.State_Description,
         EntityDescriptionAttribute.EntityTypes.SimpleModel, typeof(DeviceLibraryResources), FactoryUrl: "/api/statemachine/factory/state")]
-    public class State : IKeyedEntity, IFormDescriptor
+    public class State : IFormDescriptor
     {
         public State()
         {
@@ -31,7 +31,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         public String Name { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Text, ValidationRegEx: "^[a-z0-9]{2,20}$", RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Key_RegEx, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
-        public LagoVistaKey Key { get; set; }
+        public string Key { get; set; }
 
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Enum, HelpResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Enum_Help, FieldType: FieldTypes.Integer, ResourceType: typeof(DeviceLibraryResources))]
         public int? EnumValue { get; set; }
