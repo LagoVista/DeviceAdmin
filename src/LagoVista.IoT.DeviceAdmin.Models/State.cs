@@ -30,6 +30,7 @@ namespace LagoVista.IoT.DeviceAdmin.Models
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Name, FieldType: FieldTypes.Text, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public String Name { get; set; }
 
+        // State keys are compact domain codes (for example "on" and "ok"), not platform entity keys.
         [FormField(LabelResource: Resources.DeviceLibraryResources.Names.Common_Key, HelpResource: Resources.DeviceLibraryResources.Names.Common_Key, FieldType: FieldTypes.Text, ValidationRegEx: "^[a-z0-9]{2,20}$", RegExValidationMessageResource: Resources.DeviceLibraryResources.Names.StateMachine_State_Key_RegEx, ResourceType: typeof(DeviceLibraryResources), IsRequired: true)]
         public string Key { get; set; }
 
