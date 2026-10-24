@@ -38,7 +38,7 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
         {
             var workflow = GetDeviceWorkflow();
             var attr = GetAttribute();
-            Assert.ThrowsException<ArgumentNullException>(() => attr.Key = null);
+            Assert.ThrowsExactly<ArgumentNullException>(() => attr.Key = null);
         }
     }
 }

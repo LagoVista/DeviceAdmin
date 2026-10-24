@@ -83,7 +83,7 @@ namespace LagoVista.IoT.DeviceAdmin.Tests.ValidationTests
         public void UnitSet_MissingUnitKey_InValid()
         {
             var unitSet = GetUnitSet();
-            Assert.ThrowsException<ArgumentNullException>(() => unitSet.Units[1].Key = null);
+            Assert.ThrowsExactly<ArgumentNullException>(() => unitSet.Units[1].Key = null);
         }
 
         [TestMethod]
