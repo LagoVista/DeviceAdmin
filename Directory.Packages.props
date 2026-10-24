@@ -1,16 +1,16 @@
-<Project>
+﻿<?xml version="1.0" encoding="utf-8"?><Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="LagoVista.CloudStorage" Version="7.0.17" />
-    <PackageVersion Include="LagoVista.Core" Version="7.0.12" />
-    <PackageVersion Include="LagoVista.Core.Configuration" Version="7.0.12" />
-    <PackageVersion Include="LagoVista.Core.TestBase" Version="7.0.12" />
-    <PackageVersion Include="LagoVista.IoT.Logging" Version="7.0.4" />
-    <PackageVersion Include="LagoVista.IoT.Web.Common" Version="7.0.5" />
-    <PackageVersion Include="LagoVista.MediaServices.Models" Version="7.0.4" />
-    <PackageVersion Include="LagoVista.UserAdmin" Version="7.0.9" />
-    <PackageVersion Include="LagoVista.UserAdmin.Models" Version="7.0.9" />
+    <PackageVersion Include="LagoVista.CloudStorage" Version="7.0.95" />
+    <PackageVersion Include="LagoVista.Core" Version="7.0.49" />
+    <PackageVersion Include="LagoVista.Core.Configuration" Version="7.0.49" />
+    <PackageVersion Include="LagoVista.Core.TestBase" Version="7.0.49" />
+    <PackageVersion Include="LagoVista.IoT.Logging" Version="7.0.10" />
+    <PackageVersion Include="LagoVista.IoT.Web.Common" Version="7.0.56" />
+    <PackageVersion Include="LagoVista.MediaServices.Models" Version="7.0.23" />
+    <PackageVersion Include="LagoVista.UserAdmin" Version="7.0.24" />
+    <PackageVersion Include="LagoVista.UserAdmin.Models" Version="7.0.24" />
   </ItemGroup>
 </Project>
